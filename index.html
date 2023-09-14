@@ -27,7 +27,7 @@
             <div class="navbar-other ms-auto">
               <ul class="navbar-nav flex-row align-items-center">
                 <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i
-                      class="uil uil-info-circle"></i></a></li>
+                      class="uil menuicon uil-info-circle"></i></a></li>
                 <!-- <li class="nav-item dropdown language-select text-uppercase">
                   <a class="nav-link dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">En</a>
@@ -55,12 +55,337 @@
               </div>
               <div class="offcanvas-body d-flex flex-column h-100">
                 <ul class="navbar-nav">
-                  <!--  -->
-
+                  <!-- Home -->
+                  <li class="nav-item"><a class="nav-link" href="index.html"><i
+                        class="uil menuicon uil-home icon-border img-shadow"></i></a></li>
+                  <!-- Quick -->
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="index.html" data-bs-toggle="dropdown">Home</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-external-link-alt"></i> Quick</a>
+                    <ul class="dropdown-menu mega-menu-dark">
+                      <h6 class="dropdown-header">Shortcuts for you</h6>
+                      <li class="dropdown dropdown-submenu dropend"><a class="dropdown-item dropdown-toggle" href="#"
+                          data-bs-toggle="dropdown">Services & Terms</a>
+                        <ul class="dropdown-menu mega-menu-dark">
+                          <li class="nav-item"><a class="dropdown-item" href="#">Popular Services</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="#">Custom Solutions</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="#">Terms of Services</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="#">Privacy Policy</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item"><a class="dropdown-item" href="#">My Journey</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="#">Curriculum Vitae</a></li>
+                    </ul>
                   </li>
-
+                  <!-- Blog -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-document-layout-right"></i> Blog</a>
+                    <ul class="dropdown-menu mega-menu-dark">
+                      <h6 class="dropdown-header">My Writings</h6>
+                      <!-- <li class="dropdown dropdown-submenu dropend"><a class="dropdown-item dropdown-toggle" href="#"
+                          data-bs-toggle="dropdown">Latest Posts</a>
+                        <ul class="dropdown-menu mega-menu-dark">
+                          <li class="nav-item"><a class="dropdown-item" href="#">By Category</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="#">By Tags</a></li>
+                        </ul>
+                      </li> -->
+                      <li class="nav-item"><a class="dropdown-item" href="#">Latest Posts</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="#">How-to Guides</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="#">Case Studies</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="#">News and Updates</a></li>
+                    </ul>
+                  </li>
+                  <!-- Projects -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-circuit"></i> Projects</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark">
+                      <li class="mega-menu-content">
+                        <div class="row gx-0 gx-lg-3">
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Popular Projects</h6>
+                            <ul class="list-unstyled cc-2 pb-lg-1">
+                              <li><a class="dropdown-item" href="#">Hosting Server</a></li>
+                              <li><a class="dropdown-item" href="#">Email Server</a></li>
+                              <li><a class="dropdown-item" href="#">Website Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Email Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Email Deliverability</a></li>
+                              <li><a class="dropdown-item" href="#">Marketing Automation</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Solutions</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">cPanel/ Plesk Configuration</a></li>
+                              <li><a class="dropdown-item" href="#">PowerMTA Infrastructures</a></li>
+                              <li><a class="dropdown-item" href="#">Marketing Automation</a></li>
+                              <li><a class="dropdown-item" href="#">WordPress Automation</a></li>
+                              <li><a class="dropdown-item" href="#">Google Workspace</a></li>
+                              <li><a class="dropdown-item" href="#">Office365</a></li>
+                              <li><a class="dropdown-item" href="#">AWS, GCP, Azure</a></li>
+                              <li><a class="dropdown-item" href="#">Server Migration</a></li>
+                            </ul>
+                          </div>
+                          <!--/column -->
+                          <div class="col-lg-8">
+                            <h6 class="dropdown-header">Browse by Category</h6>
+                            <ul class="row row-cols-1 row-cols-lg-4 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block1.svg" alt=""></div>
+                                  <span>Clouds</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block2.svg" alt=""></div>
+                                  <span>Servers</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block3.svg" alt=""></div>
+                                  <span>Emails</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block4.svg" alt=""></div>
+                                  <span>WordPress</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block5.svg" alt=""></div>
+                                  <span>Ecommerce</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block6.svg" alt=""></div>
+                                  <span>Developments</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block4.svg" alt=""></div>
+                                  <span>Migration</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="#">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./assets/img/demos/block7.svg" alt=""></div>
+                                  <span>Miscellaneous</span>
+                                </a>
+                              </li>
+                            </ul>
+                            <!--/.row -->
+                          </div>
+                          <!--/column -->
+                        </div>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                  <!-- Services -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-shopping-cart-alt"></i> Services</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark">
+                      <li class="mega-menu-content">
+                        <div class="row gx-0 gx-lg-3">
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Servers</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">cPanel/ WHM Configuration</a></li>
+                              <li><a class="dropdown-item" href="#">Plesk, VestaCP, Virtualmin</a></li>
+                              <li><a class="dropdown-item" href="#">Fix Server Issue</a></li>
+                              <li><a class="dropdown-item" href="#">Sevrer Performance</a></li>
+                              <li><a class="dropdown-item" href="#">Cache Optimization</a></li>
+                              <li><a class="dropdown-item" href="#">Server Maintenance</a></li>
+                              <li><a class="dropdown-item" href="#">NGINX, Apache, LAMP</a></li>
+                              <li><a class="dropdown-item" href="#">MySQL, MariaDB</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Cloud Services</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">AWS EC2, LightSail</a></li>
+                              <li><a class="dropdown-item" href="#">AWS SES, SNS</a></li>
+                              <li><a class="dropdown-item" href="#">Google Cloud</a></li>
+                              <li><a class="dropdown-item" href="#">Oracle Cloud</a></li>
+                              <li><a class="dropdown-item" href="#">Microsoft Azure</a></li>
+                              <li><a class="dropdown-item" href="#">CDN, DNS, WAF</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Email Services</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">Email Marketing Server</a></li>
+                              <li><a class="dropdown-item" href="#">PowerMTA SMTP Server</a></li>
+                              <li><a class="dropdown-item" href="#">Mailwizz, Acelle, Sendy</a></li>
+                              <li><a class="dropdown-item" href="#">SPF, DKIM, DMARC, BIMI</a></li>
+                              <li><a class="dropdown-item" href="#">WordPress SMTP</a></li>
+                              <li><a class="dropdown-item" href="#">Google Workspace</a></li>
+                              <li><a class="dropdown-item" href="#">Office365</a></li>
+                              <li><a class="dropdown-item" href="#">Email Deliverability</a></li>
+                            </ul>
+                          </div>
+                          <!--/column 1 -->
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Websites & WordPress Services</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">Full Website Creation</a></li>
+                              <li><a class="dropdown-item" href="#">Ecommerce Setup</a></li>
+                              <li><a class="dropdown-item" href="#">Fix WordPress Bugs</a></li>
+                              <li><a class="dropdown-item" href="#">Customize WordPress</a></li>
+                              <li><a class="dropdown-item" href="#">Clone Website</a></li>
+                              <li><a class="dropdown-item" href="#">WordPress Automation</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Migration Services</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">Server Migration</a></li>
+                              <li><a class="dropdown-item" href="#">WordPress Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Website Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Email Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Localhost Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Domain Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Magento Data Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Ecommerce Migration</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Firewall & Security</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">DDoS & Packet Tracking</a></li>
+                              <li><a class="dropdown-item" href="#">Cloudflare</a></li>
+                              <li><a class="dropdown-item" href="#">Web Application Firewalls</a></li>
+                              <li><a class="dropdown-item" href="#">Mod Security, OWASP</a></li>
+                              <li><a class="dropdown-item" href="#">WordPress Malware</a></li>
+                              <li><a class="dropdown-item" href="#">CSF Firewall</a></li>
+                              <li><a class="dropdown-item" href="#">Wordfence, Succuri</a></li>
+                              <li><a class="dropdown-item" href="#">SSH & Server</a></li>
+                            </ul>
+                          </div>
+                          <!--/column 2 -->
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Automation & Marketing</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">Klaviyo, Mailchimp</a></li>
+                              <li><a class="dropdown-item" href="#">Mailchimp</a></li>
+                              <li><a class="dropdown-item" href="#">Active Campaign</a></li>
+                              <li><a class="dropdown-item" href="#">WordPress Automation</a></li>
+                              <li><a class="dropdown-item" href="#">Autoresponders</a></li>
+                              <li><a class="dropdown-item" href="#">Zapier & Webhooks</a></li>
+                            </ul>
+                            <h6 class="dropdown-header">Ecommerce Services</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">Woocommerce Migration</a></li>
+                              <li><a class="dropdown-item" href="#">Woocommerce Automation</a></li>
+                              <li><a class="dropdown-item" href="#">Magento Store</a></li>
+                              <li><a class="dropdown-item" href="#">Opencart Issues</a></li>
+                              <li><a class="dropdown-item" href="#">Shopify Setup</a></li>
+                              <li><a class="dropdown-item" href="#">Data Migration</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Other Services</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="#">SSL Certificates</a></li>
+                              <li><a class="dropdown-item" href="#">Google Tag Manager</a></li>
+                              <li><a class="dropdown-item" href="#">Critical & Fatal Errors</a></li>
+                              <li><a class="dropdown-item" href="#">Custom Services</a></li>
+                            </ul>
+                          </div>
+                          <!--/column 3 -->
+                        </div>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                  <!-- About -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon menuicon uil-qrcode-scan"></i> About</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                      <li class="mega-menu-content">
+                        <div>
+                          <h6 class="dropdown-header p-0">Know more about me</h6>
+                        </div>
+                        <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block1.svg" alt=""></div>
+                              <span>My Journey</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block2.svg" alt=""></div>
+                              <span>Curriculum Vitae</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block3.svg" alt=""></div>
+                              <span>Skills & Engagement</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block4.svg" alt=""></div>
+                              <span>Portfolios</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block5.svg" alt=""></div>
+                              <span>Certifications</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block6.svg" alt=""></div>
+                              <span>Contributions</span>
+                            </a>
+                          </li>
+                        </ul>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                  <!-- Contact -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-incoming-call"></i> Contact</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                      <li class="mega-menu-content">
+                        <div>
+                          <h6 class="dropdown-header p-0">Ways to contact me</h6>
+                        </div>
+                        <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block2.svg" alt=""></div>
+                              <span>All FAQs</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block1.svg" alt=""></div>
+                              <span>Submit a Query</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="#">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./assets/img/demos/block3.svg" alt=""></div>
+                              <span>My Social Profiles</span>
+                            </a>
+                          </li>
+                        </ul>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
                 </ul>
                 <!-- /.navbar-nav -->
                 <div class="offcanvas-footer d-lg-none">
@@ -81,9 +406,9 @@
             <!-- /.navbar-collapse -->
             <div class="navbar-other ms-auto w-100 d-none d-lg-block">
               <nav class="nav social social-muted justify-content-end text-end">
-                <a href="https://github.com/shuvoaftab/" target="_blank"><i class="uil uil-github"></i></a>
+                <a href="https://github.com/shuvoaftab/" target="_blank"><i class="uil uil-github img-shadow"></i></a>
                 <a href="https://www.linkedin.com/in/ibrahimsharif/" target="_blank"><i
-                    class="uil uil-linkedin"></i></a>
+                    class="uil uil-linkedin img-shadow"></i></a>
               </nav>
               <!-- /.social -->
             </div>
@@ -94,6 +419,9 @@
         <!-- /.container -->
       </nav>
       <!-- /.navbar -->
+
+
+
 
       <!-- Off Canvas -->
       <div class="offcanvas offcanvas-end text-inverse" id="offcanvas-info" data-bs-scroll="true">
@@ -152,14 +480,19 @@
           </div>
           <!--/column -->
           <div class="col-lg-6">
-            <h1 class="display-2 mb-6">Hi, I'm Ibrahim Sharif <br /> </h1>
-            <h2 class="display-6 mb-6"> A Systems & Email Administrator <br />Working as WordPress Support Engineer.
+            <h1 class="display-2 mb-6 text-primary" data-cue="slideInDown" data-delay="100"><i
+                class="uil uil-intercom-alt"></i> I'm Ibrahim Sharif <br />
+            </h1>
+            <h2 class="display-6 mb-6" data-cue="slideInDown" data-delay="300"> A Systems & Email Administrator
+              <br />Working as WordPress Support Engineer.
             </h2>
-            <h3 class="display-6 mb-6">I Expertise in<span class="typer text-primary text-nowrap" data-delay="100"
+            <h3 class="display-6 mb-6" data-cue="slideInDown" data-delay="500">I Expertise in<span
+                class="typer text-primary text-nowrap" data-delay="100"
                 data-words=" Hosting Servers, Bulk Email Servers, Email Deliverability, Linux Servers, Email & Marketing Automation, Amazon Web Services, Google Cloud, Microsoft Azure, DNS Records, Server-side Firewalls, Web Application Firewalls"></span><span
                 class="cursor text-fuchsia" data-owner="typer"></span>.</h3>
 
-            <div class="row gx-md-5 gy-5 align-items-center counter-wrapper isotope">
+            <div class="row gx-md-5 gy-5 align-items-center counter-wrapper isotope" data-cue="slideInDown"
+              data-delay="900">
               <div class="item col-md-6">
                 <div class="card shadow-lg">
                   <div class="card-body2">
@@ -250,7 +583,7 @@
     <section class="wrapper bg-light">
       <div class="container pt-6 pt-md-6 pb-10 pb-md-14">
         <div class="row gx-md-8 gx-xl-12 gy-6 mt-8">
-          <div class="col-lg-4">
+          <div class="col-lg-4" data-cue="slideInDown" data-delay="100">
             <h2>My Skills</h2>
             <p class="lead fs-20">Expertise in Linux, Servers, Emails, WordPress, Developments, and E-commerce is vital
               for navigating
@@ -279,7 +612,7 @@
 
           </div>
           <!-- /column -->
-          <div class="col-lg-4">
+          <div class="col-lg-4" data-cue="slideInDown" data-delay="300">
             <h2>Why Choose Me?</h2>
             <p class="lead fs-20">Choosing me as your tech service provider means gaining a trusted partner with a
               strong track record, a
@@ -296,7 +629,7 @@
 
           </div>
           <!-- /column -->
-          <div class="col-lg-4">
+          <div class="col-lg-4" data-cue="slideInDown" data-delay="500">
             <h2>My Principles</h2>
             <p class="lead fs-20">Any Entity or Individual should have principles that drive forward to continue the
               successful journey and mine are:
@@ -329,7 +662,7 @@
 
           <!-- /column -->
           <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-6 text-center text-lg-start order-2 order-lg-0"
-            data-cues="slideInDown" data-group="page-title" data-delay="600">
+            data-cues="slideInDown" data-group="page-title" data-delay="100">
             <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">Not just a Workplace</h1>
             <p class="lead fs-24 pe-xxl-87">Witness the power of effective web solutions from a Workplace where Coding
               is
@@ -341,7 +674,7 @@
               Infrastructures.<br />
               ❏ I am also a WordPress Developer and a Core Contributor.</p>
             <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
-              data-group="page-title-buttons" data-delay="900">
+              data-group="page-title-buttons" data-delay="500">
               <span><a href="#" class="btn btn-primary rounded me-2">See Projects<i
                     class="uil uil-arrow-up-right"></i></a></span>
               <span><a href="#" class="btn btn-yellow rounded">Learn More<i
@@ -349,7 +682,7 @@
             </div>
           </div>
           <!-- /column -->
-          <div class="col-lg-6" data-cue="slideInDown">
+          <div class="col-lg-6" data-cue="slideInDown" data-delay="700">
             <figure><img src="./assets/img/photos/home/servadmin2.jpg" alt="" /></figure>
           </div>
 
@@ -372,13 +705,13 @@
             <p class="lead fs-24 pe-xxl-8">These experiences, each marked by unique insights and achievements, come
               together to define the professional I am today, ready to embark on new adventures and create fresh
               stories of success.</p>
-            <a href="#" class="btn btn-primary btn-icon btn-icon-end mt-2">View Full Journey <i
-                class="uil uil-arrow-up-right"></i></a>
+            <a href="#" class="btn btn-primary btn-icon btn-icon-end mt-2" data-cue="slideInDown" data-delay="700">View
+              Full Journey <i class="uil uil-arrow-up-right"></i></a>
           </div>
           <!--/column -->
           <div class="col-lg-7">
             <ul class="timeline">
-              <li class="timeline-item">
+              <li class="timeline-item" data-cue="slideInUp" data-delay="500">
                 <div class="timeline-info meta fs-14">2023 - Present</div>
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -386,7 +719,7 @@
                   <p>Became a Wanderlust person & enjoying the life as much as possible.</p>
                 </div>
               </li>
-              <li class="timeline-item">
+              <li class="timeline-item" data-cue="slideInUp" data-delay="400">
                 <div class="timeline-info meta fs-14">2022 - 2023</div>
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -395,7 +728,7 @@
                   </p>
                 </div>
               </li>
-              <li class="timeline-item">
+              <li class="timeline-item" data-cue="slideInUp" data-delay="300">
                 <div class="timeline-info meta fs-14">2019 - 2022</div>
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -404,7 +737,7 @@
                     and Level 2 Freelancer on Fiverr quickly.</p>
                 </div>
               </li>
-              <li class="timeline-item">
+              <li class="timeline-item" data-cue="slideInUp" data-delay="200">
                 <div class="timeline-info meta fs-14">2014 - 2018</div>
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -413,7 +746,7 @@
                     Deliverability and Hosting Infrastructures.</p>
                 </div>
               </li>
-              <li class="timeline-item">
+              <li class="timeline-item" data-cue="slideInUp" data-delay="100">
                 <div class="timeline-info meta fs-14">2012 - 2014</div>
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -443,7 +776,7 @@
     <section class="wrapper bg-gray">
       <div class="container py-14 py-md-16">
         <div class="row gx-md-5 gy-5 mt-n18 mt-md-n21 mb-14 mb-md-18">
-          <div class="col-md-6 col-xl-3">
+          <div class="col-md-6 col-xl-3" data-cue="slideInDown" data-delay="100">
             <div class="card shadow-lg card-border-bottom border-soft-yellow">
               <div class="card-body">
                 <img src="./assets/img/icons/svg/server-solid.svg"
@@ -458,7 +791,7 @@
             <!--/.card -->
           </div>
           <!--/column -->
-          <div class="col-md-6 col-xl-3">
+          <div class="col-md-6 col-xl-3" data-cue="slideInDown" data-delay="200">
             <div class="card shadow-lg card-border-bottom border-soft-green">
               <div class="card-body">
                 <img src="./assets/img/icons/svg/envelope-circle-check-solid.svg"
@@ -474,7 +807,7 @@
             <!--/.card -->
           </div>
           <!--/column -->
-          <div class="col-md-6 col-xl-3">
+          <div class="col-md-6 col-xl-3" data-cue="slideInDown" data-delay="300">
             <div class="card shadow-lg card-border-bottom border-soft-orange">
               <div class="card-body">
                 <img src="./assets/img/icons/svg/address-card-regular.svg"
@@ -490,7 +823,7 @@
             <!--/.card -->
           </div>
           <!--/column -->
-          <div class="col-md-6 col-xl-3">
+          <div class="col-md-6 col-xl-3" data-cue="slideInDown" data-delay="400">
             <div class="card shadow-lg card-border-bottom border-soft-blue">
               <div class="card-body">
                 <img src="./assets/img/icons/svg/wordpress.svg" class="svg-inject icon-svg icon-svg-md text-blue mb-3"
@@ -844,30 +1177,30 @@
           project, but these <span class="underline">core phases</span> help ensure a systematic and organized approach
           to accomplishing goals while minimizing risks and maximizing efficiency.</p>
         <div class="row gx-lg-8 gx-xl-12 gy-6 process-wrapper line">
-          <div class="col-md-6 col-lg-3"> <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-4"><span
-                class="number">01</span></span>
+          <div class="col-md-6 col-lg-3" data-cue="slideInDown" data-delay="100"> <span
+              class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-4"><span class="number">01</span></span>
             <h4 class="mb-1">Concept & Preparation</h4>
             <p class="mb-0">It involves idea generation, strategic planning, and goal setting the blueprint for turning
               ideas into successful outcomes.</p>
           </div>
           <!--/column -->
-          <div class="col-md-6 col-lg-3"> <span class="icon btn btn-circle btn-lg btn-primary pe-none mb-4"><span
-                class="number">02</span></span>
+          <div class="col-md-6 col-lg-3" data-cue="slideInDown" data-delay="200"> <span
+              class="icon btn btn-circle btn-lg btn-primary pe-none mb-4"><span class="number">02</span></span>
             <h4 class="mb-1">Planning & Execution</h4>
             <p class="mb-0">This phase ensures alignment with objectives, efficient resource utilization, and the
               achievement of milestones for project success.
             </p>
           </div>
           <!--/column -->
-          <div class="col-md-6 col-lg-3"> <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-4"><span
-                class="number">03</span></span>
+          <div class="col-md-6 col-lg-3" data-cue="slideInDown" data-delay="300"> <span
+              class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-4"><span class="number">03</span></span>
             <h4 class="mb-1">Finish & Review</h4>
             <p class="mb-0">This phase ensures goals were met, quality maintained, culminating the project with valuable
               insights and closure.</p>
           </div>
           <!--/column -->
-          <div class="col-md-6 col-lg-3"> <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-4"><span
-                class="number">04</span></span>
+          <div class="col-md-6 col-lg-3" data-cue="slideInDown" data-delay="400"> <span
+              class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-4"><span class="number">04</span></span>
             <h4 class="mb-1">Polish & Finalize</h4>
             <p class="mb-0">This phase ensures that all details are immaculate, resulting in a polished, final product
               ready for presentation or delivery.
@@ -1031,6 +1364,7 @@
     <!-- / Latest Posts section with Remote Fetch-->
 
 
+
     <section class="wrapper bg-light">
       <div class="container py-14 py-md-16 text-center">
         <div class="row">
@@ -1058,7 +1392,7 @@
             <div class="project item col-md-6 col-xl-4 emails servers">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/powermta5-ibrahimsharif-shuvoaftab.png" data-glightbox
-                  data-gallery="shots-group"> <img
+                  data-gallery="shots-group"> <img loading="lazy"
                     src="./assets/img/photos/home/highlights/powermta5-ibrahimsharif-shuvoaftab.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">PowerMTA v5 Server</h5>
@@ -1069,7 +1403,7 @@
             <div class="project item col-md-6 col-xl-4 others servers">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/dnsquery.png" data-glightbox data-gallery="shots-group">
-                  <img src="./assets/img/photos/home/highlights/dnsquery.png" alt="" /></a>
+                  <img loading="lazy" src="./assets/img/photos/home/highlights/dnsquery.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">DNSSEC Implementation</h5>
                 </figcaption>
@@ -1079,8 +1413,8 @@
             <div class="project item col-md-6 col-xl-4 wordpress">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/wordpress-contribution.png" data-glightbox
-                  data-gallery="shots-group"> <img src="./assets/img/photos/home/highlights/wordpress-contribution.png"
-                    alt="" /></a>
+                  data-gallery="shots-group"> <img loading="lazy"
+                    src="./assets/img/photos/home/highlights/wordpress-contribution.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">WordPress Core Contributor</h5>
                 </figcaption>
@@ -1090,8 +1424,8 @@
             <div class="project item col-md-6 col-xl-4 servers others">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/metatrader4-vps.png" data-glightbox
-                  data-gallery="shots-group"> <img src="./assets/img/photos/home/highlights/metatrader4-vps.png"
-                    alt="" /></a>
+                  data-gallery="shots-group"> <img loading="lazy"
+                    src="./assets/img/photos/home/highlights/metatrader4-vps.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Metatrader 4 on a VPS</h5>
                 </figcaption>
@@ -1101,7 +1435,7 @@
             <div class="project item col-md-6 col-xl-4 servers">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/portfolio-macbook-air-server.png" data-glightbox
-                  data-gallery="shots-group"> <img
+                  data-gallery="shots-group"> <img loading="lazy"
                     src="./assets/img/photos/home/highlights/portfolio-macbook-air-server.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Investigate High Resource Usage</h5>
@@ -1112,7 +1446,7 @@
             <div class="project item col-md-6 col-xl-4 servers">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/server-macbook-air-server-resources.png" data-glightbox
-                  data-gallery="shots-group"> <img
+                  data-gallery="shots-group"> <img loading="lazy"
                     src="./assets/img/photos/home/highlights/server-macbook-air-server-resources.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Top Process Checking</h5>
@@ -1123,8 +1457,8 @@
             <div class="project item col-md-6 col-xl-4 servers">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/AndroidAsServer.png" data-glightbox
-                  data-gallery="shots-group"> <img src="./assets/img/photos/home/highlights/AndroidAsServer.png"
-                    alt="" /></a>
+                  data-gallery="shots-group"> <img loading="lazy"
+                    src="./assets/img/photos/home/highlights/AndroidAsServer.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Android Server Performance Testing</h5>
                 </figcaption>
@@ -1134,7 +1468,7 @@
             <div class="project item col-md-6 col-xl-4 emails">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/email-authentication-check.png" data-glightbox
-                  data-gallery="shots-group"> <img
+                  data-gallery="shots-group"> <img loading="lazy"
                     src="./assets/img/photos/home/highlights/email-authentication-check.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Checking SPF, DKIM, and DMARC Authentication</h5>
@@ -1145,7 +1479,7 @@
             <div class="project item col-md-6 col-xl-4 wordpress">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/check-wordpress-requests.png" data-glightbox
-                  data-gallery="shots-group"> <img
+                  data-gallery="shots-group"> <img loading="lazy"
                     src="./assets/img/photos/home/highlights/check-wordpress-requests.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Check WordPress Requests</h5>
@@ -1156,8 +1490,8 @@
             <div class="project item col-md-6 col-xl-4 others">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/Ibrahim-MTCNA.jpg" data-glightbox
-                  data-gallery="shots-group"> <img src="./assets/img/photos/home/highlights/Ibrahim-MTCNA.jpg"
-                    alt="" /></a>
+                  data-gallery="shots-group"> <img loading="lazy"
+                    src="./assets/img/photos/home/highlights/Ibrahim-MTCNA.jpg" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Mikrotik Certified Network Associate</h5>
                 </figcaption>
@@ -1167,8 +1501,8 @@
             <div class="project item col-md-6 col-xl-4 automation wordpress">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/fluentcrm-automation.png" data-glightbox
-                  data-gallery="shots-group"> <img src="./assets/img/photos/home/highlights/fluentcrm-automation.png"
-                    alt="" /></a>
+                  data-gallery="shots-group"> <img loading="lazy"
+                    src="./assets/img/photos/home/highlights/fluentcrm-automation.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">FluentCRM Automation Troubleshooting</h5>
                 </figcaption>
@@ -1178,8 +1512,8 @@
             <div class="project item col-md-6 col-xl-4 wordpress">
               <figure class="overlay overlay-1 rounded img-shadow"><a
                   href="./assets/img/photos/home/highlights/debug-wordpress.png" data-glightbox
-                  data-gallery="shots-group"> <img src="./assets/img/photos/home/highlights/debug-wordpress.png"
-                    alt="" /></a>
+                  data-gallery="shots-group"> <img loading="lazy"
+                    src="./assets/img/photos/home/highlights/debug-wordpress.png" alt="" /></a>
                 <figcaption>
                   <h5 class="from-top mb-0">Debug WordPress Issues</h5>
                 </figcaption>
@@ -1496,11 +1830,6 @@
           my services over time once they experience my work.</p>
         <div class="row gx-lg-2 gx-xl-4 gy-10">
           <div class="col-lg-6">
-            <figure><img src="./assets/img/photos/home/customer-satisfied.jpg"
-                srcset="./assets/img/photos/home/customer-satisfied@2x.jpg 2x" alt="" /></figure>
-          </div>
-          <!--/column -->
-          <div class="col-lg-6">
 
             <div class="accordion accordion-wrapper" id="accordionExample-2">
               <div class="card plain accordion-item">
@@ -1603,6 +1932,11 @@
               <!--/.accordion-item -->
             </div>
             <!--/.accordion -->
+          </div>
+          <!--/column -->
+          <div class="col-lg-6">
+            <figure><img src="./assets/img/photos/home/customer-satisfied.jpg"
+                srcset="./assets/img/photos/home/customer-satisfied@2x.jpg 2x" alt="" /></figure>
           </div>
           <!--/column -->
         </div>
@@ -1724,7 +2058,7 @@
       <div class="container py-10 py-md-14">
         <div class="row gx-lg-2 gx-xl-4 gy-10 align-items-center">
           <div class="col-lg-6">
-            <figure><img src="./assets/img/photos/home/contact-comic.jpg"
+            <figure><img loading="lazy" src="./assets/img/photos/home/contact-comic.jpg"
                 srcset="./assets/img/photos/home/contact-comic@2x.jpg 2x" alt="" /></figure>
           </div>
           <!--/column -->
@@ -1821,7 +2155,9 @@
         <!-- /column -->
         <div class="col-md-4 col-lg-3">
           <div class="widget">
-            <h4 class="widget-title  mb-3">Services</h4>
+            <h4 class="widget-title  mb-3">Shortcuts</h4>
+            <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
+
             <ul class="list-unstyled text-reset mb-0">
               <li><a href="#">WordPress</a></li>
               <li><a href="#">Linux Servers</a></li>
@@ -1836,6 +2172,8 @@
         <div class="col-md-4 col-lg-3">
           <div class="widget">
             <h4 class="widget-title  mb-3">Learn More</h4>
+            <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
+
             <ul class="list-unstyled text-reset mb-0">
               <li><a href="#">Curriculum Vitae</a></li>
               <li><a href="#">Portfolios</a></li>
@@ -1850,6 +2188,8 @@
         <div class="col-md-12 col-lg-3">
           <div class="widget">
             <h4 class="widget-title  mb-3">My Newsletter</h4>
+            <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
+
             <p class="mb-5">Subscribe to my newsletter to get our news & deals delivered to you.</p>
             <div class="newsletter-wrapper">
               <!-- Begin Mailchimp Signup Form -->
