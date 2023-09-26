@@ -784,7 +784,7 @@ var theme = {
               if(isContactForm) {
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
-                fetch("assets/php/contact.php", {
+                fetch("https://blog.ibrahimsharif.com/contact/contact.php", {
                   method: "post",
                   body: data
                 }).then((data) => {
