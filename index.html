@@ -1331,158 +1331,7 @@
     <!-- / My Working Process section -->
 
 
-    <section class="wrapper bg-gray bg-gradient">
-      <div class="overflow-hidden">
-        <div class="container py-10 py-md-12">
-          <div class="row">
-            <div class="col-xl-7 col-xxl-6 mx-auto text-center">
-              <i class="icn-flower text-leaf fs-30 opacity-25"></i>
-              <h2 class="display-5 text-center mt-2 mb-10">Latest Blog Posts</h2>
-            </div>
-            <!--/column -->
-          </div>
-          <!--/.row -->
-          <div class="swiper-container nav-bottom nav-color mb-14" data-margin="30" data-dots="false" data-nav="true"
-            data-items-lg="3" data-items-md="2" data-items-xs="1">
-            <div class="swiper overflow-visible pb-2">
-              <div class="swiper-wrapper" id="wp-blogs">
-
-
-                <script>
-                  // Replace 'your-site.com' and '/wp-json/wp/v2/posts' with your WordPress site URL and API endpoint.
-                  const apiUrl = 'https://blog.ibrahimsharif.com/wp-json/wp/v2/posts?per_page=4';
-                  const postListContainer = document.getElementById('wp-blogs');
-
-                  // Make a GET request to the WordPress API
-                  fetch(apiUrl)
-                    .then((response) => {
-                      if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                      }
-                      return response.json();
-                    })
-                    .then((data) => {
-                      // Limit the display to a maximum of 3 posts
-                      //const posts = data.slice(0, 3);
-
-                      // Iterate through the posts and create an HTML list
-                      const posts = data;
-                      //const ul = document.createElement('ul');
-
-                      // Create a container div for the posts
-                      //const containerDiv = document.createElement('div');
-
-                      const containerDiv = document.getElementById('wp-blogs');
-                      posts.forEach((post) => {
-                        // const li = document.createElement('li');
-
-                        // Create a div for each post
-                        const postDiv = document.createElement('div');
-                        // Add a CSS class to the postDiv
-                        postDiv.classList.add('blog-posts-div');
-                        //postDiv.classList.add('col-sm-12');
-                        //postDiv.classList.add('col-12');
-
-
-                        // const featuredImage = post.featured_image_src;
-                        //const imageUrl = featuredImage[0];
-
-                        //const categoryName = post.category_info['0']['name'];
-                        //const categorySlug = post.category_info['0']['slug'];
-
-
-
-                        // Parse the JSON date string into a Date object
-                        const date = new Date(post.date);
-
-                        // Define functions to pad single digits with leading zeros
-                        function padZero(num) {
-                          return num < 10 ? "0" + num : num;
-                        }
-
-                        // Extract the components (day, month, year, hour, minute) from the Date object
-                        const day = padZero(date.getDate());
-                        const month = padZero(date.getMonth() + 1); // Month is zero-based, so add 1
-                        const year = date.getFullYear();
-                        const hour = padZero(date.getHours());
-                        const minute = padZero(date.getMinutes());
-
-                        // Create the formatted date string
-                        //const formattedDate = `${day}-${month}-${year} ${hour}:${minute}`;
-                        const formattedDate = `${day}-${month}-${year}`;
-
-
-
-                        //li.innerHTML = `
-                        postDiv.innerHTML = `
-            <div class="swiper-slide">
-              <article>
-                  <div class="card shadow-lg">
-                      <figure class="card-img-top overlay overlay-1"><a href="${post.link}"> <img
-                                  src="${post.featured_image_src}" alt="" target="_blank"/></a>
-                          <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                          </figcaption>
-                      </figure>
-                      <div class="card-body p-2">
-                          <div class="post-header card-equal">
-                              <div class="post-category">
-                                <a href="https://blog.ibrahimsharif.com/${post.parent_category['slug']}" class="hover" rel="category" target="_blank">${post.parent_category['name']}</a>
-                              </div>
-                              <!-- /.post-category -->
-                              <h2 class="post-title h3 mt-1 mb-3 fs-20"><a class="link-dark"
-                                      href="${post.link}" target="_blank">${post.title.rendered}</a></h2>
-                          </div>
-                          <!-- /.post-header -->
-                          <div class="post-footer">
-                              <ul class="post-meta d-flex mb-0">
-                                  <li class="post-date"><i class="uil uil-calendar-alt"></i><span>${formattedDate}</span></li>
-                                  <li class="post-comments"><a href="${post.link}" target="_blank"><i
-                                              class="uil uil-comment"></i>${post.comment_count}</a></li>
-                              </ul>
-                              <!-- /.post-meta -->
-                          </div>
-                          <!-- /.post-footer -->
-                      </div>
-                      <!--/.card-body -->
-                  </div>
-                  <!-- /.card -->
-              </article>
-              <!-- /article -->
-          </div>
-          <!--/.swiper-slide -->
-        `;
-                        //ul.appendChild(li);
-                        containerDiv.appendChild(postDiv);
-                      });
-
-                      // Append the list to the postListContainer element in your HTML
-                      //postListContainer.appendChild(ul);
-                      // Append the container div to the postListContainer element in your HTML
-                      //postListContainer.appendChild(containerDiv);
-                      //postListContainer.appendChild(postDiv);
-                    })
-                    .catch((error) => {
-                      // Handle any errors that occurred during the fetch.
-                      console.error(error);
-                    });
-
-                </script>
-              </div>
-              <!--/.swiper-wrapper -->
-            </div>
-            <!-- /.swiper -->
-          </div>
-          <!-- /.swiper-container -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.overflow-hidden -->
-    </section>
-    <!-- / Latest Posts section with Remote Fetch-->
-
-
-    <section class="wrapper bg-soft-primary">
+    <section class="wrapper bg-gradient-aqua">
       <div class="container py-14 pt-md-17 pb-md-20">
         <div class="row gx-lg-8 gx-xl-12 gy-10 gy-lg-0">
           <div class="col-lg-4 text-center text-lg-start">
@@ -1527,8 +1376,8 @@
 
 
     <section class="wrapper bg-light">
-      <div class="container py-14 py-md-16 pb-md-10">
-        <div class="grid mb-14 mb-md-18 mt-3">
+      <div class="container py-14 py-md-16 pb-md-0">
+        <div class="grid mb-10 mb-md-12 mt-3">
           <div class="row isotope gy-6 mt-n19 mt-md-n22">
             <div class="item col-md-6 col-xl-3">
               <div class="card shadow-lg card-border-bottom border-soft-primary">
@@ -1626,7 +1475,7 @@
     <!-- / Testimonials section -->
 
 
-    <section class="wrapper bg-gray bg-gradient">
+    <section class="wrapper bg-light">
       <div class="container py-14 py-md-16">
         <h2 class="display-4 mb-3 text-center">What Customers Experienced!</h2>
         <p class="lead fs-lg mb-6 text-center pe-xxl-10">There are reasons <span class="underline">why customers
@@ -1766,8 +1615,8 @@
     <!-- / What Customers Experienced section -->
 
 
-    <section class="wrapper bg-light">
-      <div class="container py-14 py-md-16">
+    <section class="wrapper bg-gradient-aqua">
+      <div class="container py-8 py-md-10">
         <div class="row gx-lg-8 gx-xl-12 gy-10">
           <div class="col-lg-6 mb-0">
             <h2 class="fs-15 text-uppercase text-primary mb-3">Featured FAQ</h2>
@@ -1871,6 +1720,36 @@
       <!-- /.container -->
     </section>
     <!-- /Featured FAQ section -->
+
+
+
+    <section class="wrapper bg-light">
+      <div class="container py-4 py-md-6">
+        <!-- <p class="text-center mb-8">Technologies that are relevant</p> -->
+        <div class="swiper-container clients mb-0" data-margin="30" data-dots="false" data-loop="true" data-autoplay="true" data-autoplaytime="1" data-drag="false" data-speed="5000" data-items-xxl="7" data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
+          <div class="swiper">
+            <div class="swiper-wrapper ticker">
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/Amazon_Web_Services.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/Apache.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/CentOS.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/NGINX.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/mysql-logo.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/WordPress_blue_logo.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/PHP-logo.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/Gmail-Logo.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/office-365.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/ubuntu.jpg" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="./assets/img/technology-logos/SMTP-logo.jpg" alt="" /></div>
+            </div>
+            <!--/.swiper-wrapper -->
+          </div>
+          <!-- /.swiper -->
+        </div>
+        <!-- /.swiper-container -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- / Slider -->
 
 
     <!-- CTA -->
