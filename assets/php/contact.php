@@ -13,13 +13,13 @@ require 'PHPMailer/src/SMTP.php';
 */
 
 // Recipients
-$fromEmail = 'from@example.com'; // Email address that will be in the from field of the message.
-$fromName = 'From Name'; // Name that will be in the from field of the message.
-$sendToEmail = 'to@example.com'; // Email address that will receive the message with the output of the form
-$sendToName = 'To Name'; // Name that will receive the message with the output of the form
+$fromEmail = 'gitform@ibrahimsharif.com'; // Email address that will be in the from field of the message.
+$fromName = 'Github Page Form'; // Name that will be in the from field of the message.
+$sendToEmail = 'contact@ibrahimsharif.com'; // Email address that will receive the message with the output of the form
+$sendToName = 'Ibrahim'; // Name that will receive the message with the output of the form
 
 // Subject
-$subject = 'Message from Sandbox contact form';
+$subject = 'Message from Github Page contact form';
 
 // Fields - Value of attribute name => Text to appear in the email
 $fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message', 'department' => 'Department');
