@@ -38,8 +38,9 @@ $smtpAutoTLS = false; // Enable Auto TLS
 $smtpPort = 587; // TCP port to connect to
 
 // reCAPTCHA settings
-$recaptchaUse = false; // Set to true to enable reCAPTHCA
-$recaptchaSecret = 'YOUR_SECRET_KEY'; // enter your secret key from https://www.google.com/recaptcha/admin
+$recaptchaUse = true; // Set to true to enable reCAPTHCA
+//Site Key: 6LeUtVooAAAAACuTHqMjF373Q-9mawVBq8ZFCsrv
+$recaptchaSecret = '6LeUtVooAAAAACrpj3zQXi5spL-6o3mU1QDVugJU'; // enter your secret key from https://www.google.com/recaptcha/admin
 
 /*
 *  LET'S DO THE SENDING
