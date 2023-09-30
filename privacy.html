@@ -16,18 +16,30 @@
   <link rel="stylesheet" href="./assets/css/colors/nativegreen.css">
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PXHKH8MB');</script>
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PXHKH8MB');
+
+  </script>
   <!-- End Google Tag Manager -->
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <div class="content-wrapper">
@@ -91,7 +103,7 @@
                         </ul>
                       </li>
                       <li class="nav-item"><a class="dropdown-item" href="./about/myjourney.html">My Journey</a></li>
-                      <li class="nav-item"><a class="dropdown-item" href="./about/cv.html">Curriculum Vitae</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="./about/status.html">My Status</a></li>
                     </ul>
                   </li>
                   <!-- Blog -->
@@ -127,11 +139,14 @@
                           <div class="col-lg-4">
                             <h6 class="dropdown-header">Popular Projects</h6>
                             <ul class="list-unstyled cc-2 pb-lg-1">
-                              <li><a class="dropdown-item" href="./projects/servers/hosting.html">Hosting Server</a></li>
-                              <li><a class="dropdown-item" href="./projects/servers/email.html">Email Server</a></li>
-                              <li><a class="dropdown-item" href="./projects/migration/website.html">Website Migration</a>
+                              <li><a class="dropdown-item" href="./projects/servers/hosting.html">Hosting Server</a>
                               </li>
-                              <li><a class="dropdown-item" href="./projects/migration/email.html">Email Migration</a></li>
+                              <li><a class="dropdown-item" href="./projects/servers/email.html">Email Server</a></li>
+                              <li><a class="dropdown-item" href="./projects/migration/website.html">Website
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./projects/migration/email.html">Email Migration</a>
+                              </li>
                               <li><a class="dropdown-item" href="./projects/emails/deliverability.html">Email
                                   Deliverability</a></li>
                               <li><a class="dropdown-item" href="./projects/automation/marketing.html">Marketing
@@ -150,7 +165,8 @@
                               <li><a class="dropdown-item" href="./solutions/google-workspace.html">Google Workspace</a>
                               </li>
                               <li><a class="dropdown-item" href="./solutions/office365.html">Office365</a></li>
-                              <li><a class="dropdown-item" href="./solutions/cloud-services.html">AWS, GCP, Azure</a></li>
+                              <li><a class="dropdown-item" href="./solutions/cloud-services.html">AWS, GCP, Azure</a>
+                              </li>
                               <li><a class="dropdown-item" href="./solutions/server-migration.html">Server Migration</a>
                               </li>
                             </ul>
@@ -228,13 +244,15 @@
                           <div class="col-lg-4">
                             <h6 class="dropdown-header">Servers</h6>
                             <ul class="list-unstyled cc-2">
-                              <li><a class="dropdown-item" href="./services/servers/cpanel-whm-configuration.html">cPanel/
+                              <li><a class="dropdown-item"
+                                  href="./services/servers/cpanel-whm-configuration.html">cPanel/
                                   WHM Configuration</a></li>
                               <li><a class="dropdown-item" href="./services/servers/control-panels.html">Plesk, VestaCP,
                                   Virtualmin</a></li>
                               <li><a class="dropdown-item" href="./services/servers/fix-server-issues.html">Fix Server
                                   Issue</a></li>
-                              <li><a class="dropdown-item" href="./services/servers/performance-optimization.html">Server
+                              <li><a class="dropdown-item"
+                                  href="./services/servers/performance-optimization.html">Server
                                   Performance</a></li>
                               <li><a class="dropdown-item" href="./services/servers/cache-optimization.html">Cache
                                   Optimization</a></li>
@@ -249,28 +267,32 @@
                             <ul class="list-unstyled cc-2">
                               <li><a class="dropdown-item" href="./services/clouds/ec2-lightsail-instance.html">AWS EC2,
                                   LightSail</a></li>
-                              <li><a class="dropdown-item" href="./services/clouds/aws-ses-sns.html">AWS SES, SNS</a></li>
+                              <li><a class="dropdown-item" href="./services/clouds/aws-ses-sns.html">AWS SES, SNS</a>
+                              </li>
                               <li><a class="dropdown-item" href="./services/clouds/google-cloud.html">Google Cloud</a>
                               </li>
                               <li><a class="dropdown-item" href="./services/clouds/oracle-cloud.html">Oracle Cloud</a>
                               </li>
                               <li><a class="dropdown-item" href="./services/clouds/microsoft-azure.html">Microsoft
                                   Azure</a></li>
-                              <li><a class="dropdown-item" href="./services/clouds/content-denlivery-network.html">CDN</a>
+                              <li><a class="dropdown-item"
+                                  href="./services/clouds/content-delivery-network.html">CDN</a>
                               </li>
                             </ul>
                             <h6 class="dropdown-header mt-lg-6">Email Services</h6>
                             <ul class="list-unstyled cc-2">
                               <li><a class="dropdown-item" href="./services/email/marketing-server.html">Email Marketing
                                   Server</a></li>
-                              <li><a class="dropdown-item" href="./services/email/powermta-smtp-server.html">PowerMTA SMTP
+                              <li><a class="dropdown-item" href="./services/email/powermta-smtp-server.html">PowerMTA
+                                  SMTP
                                   Server</a></li>
                               <li><a class="dropdown-item"
                                   href="./services/email/email-marketing-applications.html">Mailwizz, Acelle, Sendy</a>
                               </li>
                               <li><a class="dropdown-item" href="./services/email/spf-dkim-dmarc-bimi.html">SPF, DKIM,
                                   DMARC, BIMI</a></li>
-                              <li><a class="dropdown-item" href="./services/email/wordpress-smtp.html">WordPress SMTP</a>
+                              <li><a class="dropdown-item" href="./services/email/wordpress-smtp.html">WordPress
+                                  SMTP</a>
                               </li>
                               <li><a class="dropdown-item" href="./services/email/google-workspace.html">Google
                                   Workspace</a></li>
@@ -291,13 +313,16 @@
                                   Setup</a></li>
                               <li><a class="dropdown-item" href="./services/wordpress/fix-wordpress-bugs.html">Fix
                                   WordPress Bugs</a></li>
-                              <li><a class="dropdown-item" href="./services/wordpress/customize-wordpress.html">Customize
+                              <li><a class="dropdown-item"
+                                  href="./services/wordpress/customize-wordpress.html">Customize
                                   WordPress</a></li>
                               <li><a class="dropdown-item" href="./services/wordpress/clone-websites.html">Clone
                                   Website</a></li>
-                              <li><a class="dropdown-item" href="./services/wordpress/wordpress-automation.html">WordPress
+                              <li><a class="dropdown-item"
+                                  href="./services/wordpress/wordpress-automation.html">WordPress
                                   Automation</a></li>
-                              <li><a class="dropdown-item" href="./services/wordpress/performance-optimization.html">Speed
+                              <li><a class="dropdown-item"
+                                  href="./services/wordpress/performance-optimization.html">Speed
                                   Optimization</a></li>
                               <li><a class="dropdown-item" href="./services/wordpress/assistance-service.html">WordPress
                                   Assistance</a></li>
@@ -308,9 +333,11 @@
                               </li>
                               <li><a class="dropdown-item" href="./services/migration/wordpress.html">WordPress
                                   Migration</a></li>
-                              <li><a class="dropdown-item" href="./services/migration/website.html">Website Migration</a>
+                              <li><a class="dropdown-item" href="./services/migration/website.html">Website
+                                  Migration</a>
                               </li>
-                              <li><a class="dropdown-item" href="./services/migration/email.html">Email Migration</a></li>
+                              <li><a class="dropdown-item" href="./services/migration/email.html">Email Migration</a>
+                              </li>
                               <li><a class="dropdown-item" href="./services/migration/localhost.html">Localhost
                                   Migration</a></li>
                               <li><a class="dropdown-item" href="./services/migration/domain.html">Domain Migration</a>
@@ -324,7 +351,8 @@
                             <ul class="list-unstyled cc-2">
                               <li><a class="dropdown-item" href="./services/security/ddos-attacks.html">DDoS & Packet
                                   Tracking</a></li>
-                              <li><a class="dropdown-item" href="./services/security/cloudflare.html">Cloudflare</a></li>
+                              <li><a class="dropdown-item" href="./services/security/cloudflare.html">Cloudflare</a>
+                              </li>
                               <li><a class="dropdown-item" href="./services/security/web-application-firewall.html">Web
                                   Application Firewalls</a></li>
                               <li><a class="dropdown-item" href="./services/security/mod-security-owasp-crs.html">Mod
@@ -346,24 +374,28 @@
                               <li><a class="dropdown-item"
                                   href="./services/automation/automation-platforms.html">Automation Platforms</a></li>
                               <li><a class="dropdown-item" href="./services/automation/klaviyo.html">Klaviyo</a></li>
-                              <li><a class="dropdown-item" href="./services/automation/mailchimp.html">Mailchimp</a></li>
+                              <li><a class="dropdown-item" href="./services/automation/mailchimp.html">Mailchimp</a>
+                              </li>
                               <li><a class="dropdown-item" href="./services/automation/active-campaign.html">Active
                                   Campaign</a></li>
                               <li><a class="dropdown-item" href="./services/automation/wordpress.html">WordPress
                                   Automation</a></li>
                               <li><a class="dropdown-item"
                                   href="./services/automation/autoresponders.html">Autoresponders</a></li>
-                              <li><a class="dropdown-item" href="./services/automation/zapier.html">Zapier & Webhooks</a>
+                              <li><a class="dropdown-item" href="./services/automation/zapier.html">Zapier &
+                                  Webhooks</a>
                               </li>
                             </ul>
                             <h6 class="dropdown-header mt-lg-6">Ecommerce Services</h6>
                             <ul class="list-unstyled cc-2">
-                              <li><a class="dropdown-item" href="./services/ecommerce/ecommerce-automation.html">Ecommerce
+                              <li><a class="dropdown-item"
+                                  href="./services/ecommerce/ecommerce-automation.html">Ecommerce
                                   Automation</a></li>
                               <li><a class="dropdown-item"
                                   href="./services/ecommerce/woocommerce-migration.html">Woocommerce Migration</a></li>
                               <li><a class="dropdown-item"
-                                  href="./services/ecommerce/woocommerce-automation.html">Woocommerce Automation</a></li>
+                                  href="./services/ecommerce/woocommerce-automation.html">Woocommerce Automation</a>
+                              </li>
                               <li><a class="dropdown-item" href="./services/ecommerce/magento-store.html">Magento
                                   Store</a></li>
                               <li><a class="dropdown-item" href="./services/ecommerce/opencart-issues.html">Opencart
@@ -382,7 +414,8 @@
                                   Manager</a></li>
                               <li><a class="dropdown-item" href="./services/misc/fatal-errors.html">Critical & Fatal
                                   Errors</a></li>
-                              <li><a class="dropdown-item" href="./services/misc/custom-services.html">Custom Services</a>
+                              <li><a class="dropdown-item" href="./services/misc/custom-services.html">Custom
+                                  Services</a>
                               </li>
                             </ul>
                           </div>
@@ -410,10 +443,10 @@
                               <span>My Journey</span>
                             </a>
                           </li>
-                          <li class="col"><a class="dropdown-item" href="./about/cv.html">
+                          <li class="col"><a class="dropdown-item" href="./about/status.html">
                               <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
                                   src="./assets/img/demos/block2.svg" alt=""></div>
-                              <span>Curriculum Vitae</span>
+                              <span>My Status</span>
                             </a>
                           </li>
                           <li class="col"><a class="dropdown-item" href="./about/engagements.html">
@@ -606,14 +639,31 @@
             <div class="card">
               <div class="card-body p-10">
                 <h2 class="mb-3">1. Terms and Conditions</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna
+                  mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida
+                  at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit
+                  amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id
+                  nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent
+                  commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue.
+                  Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce
+                  dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+                  risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
                 <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
-                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit tempus.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec elit.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis euismod.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet euismod.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit
+                      tempus.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec
+                      elit.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis
+                      euismod.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet
+                      euismod.</span></li>
                 </ul>
               </div>
               <!--/.card-body -->
@@ -624,15 +674,32 @@
             <div class="card">
               <div class="card-body p-10">
                 <h2 class="mb-3">2. Privacy Policy</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna
+                  mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida
+                  at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                 <ul class="icon-list bullet-bg bullet-soft-primary">
-                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit tempus.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec elit.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis euismod.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet euismod.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit
+                      tempus.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec
+                      elit.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis
+                      euismod.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet
+                      euismod.</span></li>
                 </ul>
-                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
+                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus
+                  varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor
+                  fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna
+                  mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit
+                  libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis
+                  in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                  fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
               </div>
               <!--/.card-body -->
             </div>
@@ -642,9 +709,22 @@
             <div class="card">
               <div class="card-body p-10">
                 <h2 class="mb-3">3. User Policy</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna
+                  mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida
+                  at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus
+                  varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor
+                  fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna
+                  mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit
+                  libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis
+                  in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                  fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
               </div>
               <!--/.card-body -->
             </div>
@@ -654,15 +734,32 @@
             <div class="card">
               <div class="card-body p-10">
                 <h2 class="mb-3">4. Copyrights</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna
+                  mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida
+                  at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                 <ul class="icon-list bullet-bg bullet-soft-primary">
-                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit tempus.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec elit.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis euismod.</span></li>
-                  <li><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet euismod.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit
+                      tempus.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis ornare donec
+                      elit.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis
+                      euismod.</span></li>
+                  <li><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet
+                      euismod.</span></li>
                 </ul>
-                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
+                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus
+                  varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor
+                  fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna
+                  mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit
+                  libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis
+                  in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                  fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
               </div>
               <!--/.card-body -->
             </div>
@@ -672,9 +769,22 @@
             <div class="card">
               <div class="card-body p-10">
                 <h2 class="mb-3">5. Cookies</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna
+                  mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida
+                  at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus
+                  varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor
+                  fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna
+                  mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit
+                  libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis
+                  in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                  fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
               </div>
               <!--/.card-body -->
             </div>
@@ -684,9 +794,22 @@
             <div class="card">
               <div class="card-body p-10">
                 <h2 class="mb-3">6. Account & Billing</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
+                <p>Donec id elit non mi porta gravida at eget metus. Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur et. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna
+                  mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <p>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec id elit non mi porta gravida
+                  at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque
+                  penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p class="mb-0">Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus
+                  varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor
+                  fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna
+                  mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit
+                  libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis
+                  in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                  fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem.</p>
               </div>
               <!--/.card-body -->
             </div>
@@ -745,7 +868,7 @@
             <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
 
             <ul class="list-unstyled text-reset mb-0">
-              <li><a href="./about/cv.html">Curriculum Vitae</a></li>
+              <li><a href="./about/status.html">My Status</a></li>
               <li><a href="./about/portfolios.html">Portfolios</a></li>
               <li><a href="./projects/index.html">Projects</a></li>
               <li><a href="./terms.html">Terms of Services</a></li>
