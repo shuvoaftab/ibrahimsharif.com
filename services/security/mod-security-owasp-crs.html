@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Fortify your web applications with expert ModSecurity, OWASP, and Comodo WAF Services. Customized protection against online threats.">
+  <meta name="keywords"
+    content="cPanel, WHM, Configuration, Service, server, shared hosting, reseller hosting, vps, dedicated server">
+  <meta name="author" content="elemis">
+  <title>ModSecurity, OWASP &amp; Comodo WAF | Learn more about Ibrahim Sharif's ModSecurity, OWASP, and Comodo WAF Services.</title>
+  <!-- <link rel="shortcut icon" href="./../../assets/img/favicon.png"> -->
+  <link rel="stylesheet" href="./../../assets/css/plugins.css">
+  <link rel="stylesheet" href="./../../assets/css/style.css">
+  <link rel="stylesheet" href="./../../assets/css/colors/nativegreen.css">
+
+  <!-- Google Tag Manager -->
+  <script defer src="./../../assets/js/gtm.js"></script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <!-- Messenger Chat Plugin Code -->
+  <div id="fb-root"></div>
+
+  <!-- Your Chat Plugin code -->
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+  <div class="content-wrapper">
+    <!-- # header -->
+    <header class="wrapper bg-soft-primary pb-4">
+      <nav class="navbar navbar-expand-lg fancy navbar-light navbar-bg-light caret-none">
+        <div class="container">
+          <div
+            class="navbar-collapse-wrapper bg-white d-flex flex-row flex-nowrap w-100 justify-content-between align-items-center">
+            <div class="navbar-brand w-100">
+              <a href="./../../index.html">
+                <img src="./../../assets/img/ibrahim-logo-retina.png"
+                  srcset="./../../assets/img/ibrahim-logo-retina.png 2x" alt="" />
+              </a>
+            </div>
+            <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+              <div class="offcanvas-header d-lg-none">
+                <h3 class="text-white fs-30 mb-0">Ibrahim Sharif</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                <ul class="navbar-nav">
+                  <!-- Quick -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-external-link-alt"></i> Quick</a>
+                    <ul class="dropdown-menu mega-menu-dark">
+                      <h6 class="dropdown-header">Shortcuts for you</h6>
+                      <hr class="double mb-2 m-0" />
+                      <li class="dropdown dropdown-submenu dropend"><a class="dropdown-item dropdown-toggle" href="#"
+                          data-bs-toggle="dropdown">Services & Terms</a>
+                        <ul class="dropdown-menu mega-menu-dark">
+                          <li class="nav-item"><a class="dropdown-item" href="./../../services/popular.html">Popular
+                              Services</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="./../../solutions/custom.html">Custom
+                              Solutions</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="./../../terms.html">Terms of Services</a>
+                          </li>
+                          <li class="nav-item"><a class="dropdown-item" href="./../../privacy.html">Privacy Policy</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item"><a class="dropdown-item" href="./../../about/myjourney.html">My Journey</a>
+                      </li>
+                      <li class="nav-item"><a class="dropdown-item" href="./../../about/status.html">My Status</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Blog -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://blog.ibrahimsharif.com/"
+                      data-bs-toggle="dropdown"><i class="uil menuicon uil-document-layout-right"></i> Blog</a>
+                    <ul class="dropdown-menu mega-menu-dark">
+                      <h6 class="dropdown-header">My Writings</h6>
+                      <hr class="double mb-2 m-0" />
+                      <!-- <li class="dropdown dropdown-submenu dropend"><a class="dropdown-item dropdown-toggle" href="./../../#"
+                          data-bs-toggle="dropdown">Latest Posts</a>
+                        <ul class="dropdown-menu mega-menu-dark">
+                          <li class="nav-item"><a class="dropdown-item" href="./../../#">By Category</a></li>
+                          <li class="nav-item"><a class="dropdown-item" href="./../../#">By Tags</a></li>
+                        </ul>
+                      </li> -->
+                      <li class="nav-item"><a class="dropdown-item" href="https://blog.ibrahimsharif.com/latest/">Latest
+                          Posts</a></li>
+                      <li class="nav-item"><a class="dropdown-item"
+                          href="https://blog.ibrahimsharif.com/category/how-to-guides/">How-to Guides</a></li>
+                      <li class="nav-item"><a class="dropdown-item"
+                          href="https://blog.ibrahimsharif.com/category/case-studies/">Case Studies</a></li>
+                      <li class="nav-item"><a class="dropdown-item"
+                          href="https://blog.ibrahimsharif.com/category/news-and-updates/">News and Updates</a></li>
+                    </ul>
+                  </li>
+                  <!-- Projects -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="./../../projects/index.html" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-circuit"></i> Projects</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark">
+                      <li class="mega-menu-content">
+                        <div class="row gx-0 gx-lg-3">
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Popular Projects</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2 pb-lg-1">
+                              <li><a class="dropdown-item" href="./../../projects/servers/hosting.html">Hosting
+                                  Server</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../projects/servers/email.html">Email Server</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../projects/migration/website.html">Website
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../projects/migration/email.html">Email
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../projects/emails/deliverability.html">Email
+                                  Deliverability</a></li>
+                              <li><a class="dropdown-item" href="./../../projects/automation/marketing.html">Marketing
+                                  Automation</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-4">Solutions</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="./../../solutions/cpanel-whm.html">cPanel/ Plesk
+                                  Configuration</a></li>
+                              <li><a class="dropdown-item" href="./../../solutions/powermta.html">PowerMTA
+                                  Infrastructures</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../solutions/marketing-automation.html">Marketing
+                                  Automation</a></li>
+                              <li><a class="dropdown-item" href="./../../solutions/wordpress-automation.html">WordPress
+                                  Automation</a></li>
+                              <li><a class="dropdown-item" href="./../../solutions/google-workspace.html">Google
+                                  Workspace</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../solutions/office365.html">Office365</a></li>
+                              <li><a class="dropdown-item" href="./../../solutions/cloud-services.html">AWS, GCP,
+                                  Azure</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../solutions/server-migration.html">Server
+                                  Migration</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <!--/column -->
+                          <div class="col-lg-8">
+                            <h6 class="dropdown-header">Browse by Category</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="row row-cols-1 row-cols-lg-4 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                              <li class="col"><a class="dropdown-item" href="./../../projects/automation/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block1.svg" alt=""></div>
+                                  <span>Automation</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/servers/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block2.svg" alt=""></div>
+                                  <span>Servers</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/emails/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block3.svg" alt=""></div>
+                                  <span>Emails</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/wordpress/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block4.svg" alt=""></div>
+                                  <span>WordPress</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/ecommerce/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block5.svg" alt=""></div>
+                                  <span>Ecommerce</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/developments/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block6.svg" alt=""></div>
+                                  <span>Developments</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/migration/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block4.svg" alt=""></div>
+                                  <span>Migration</span>
+                                </a>
+                              </li>
+                              <li class="col"><a class="dropdown-item" href="./../../projects/misc/index.html">
+                                  <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                      src="./../../assets/img/demos/block7.svg" alt=""></div>
+                                  <span>Miscellaneous</span>
+                                </a>
+                              </li>
+                            </ul>
+                            <!--/.row -->
+                          </div>
+                          <!--/column -->
+                        </div>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                  <!-- Services -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="./../../services/index.html" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-shopping-cart-alt"></i> Services</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark">
+                      <li class="mega-menu-content">
+                        <div class="row gx-0 gx-lg-3">
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Servers</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item"
+                                  href="./../../services/servers/cpanel-whm-configuration.html">cPanel/
+                                  WHM Configuration</a></li>
+                              <li><a class="dropdown-item" href="./../../services/servers/control-panels.html">Plesk,
+                                  VestaCP,
+                                  Virtualmin</a></li>
+                              <li><a class="dropdown-item" href="./../../services/servers/fix-server-issues.html">Fix
+                                  Server
+                                  Issue</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/servers/performance-optimization.html">Server
+                                  Performance</a></li>
+                              <li><a class="dropdown-item" href="./../../services/servers/cache-optimization.html">Cache
+                                  Optimization</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/servers/server-maintenance.html">Server
+                                  Maintenance</a></li>
+                              <li><a class="dropdown-item" href="./../../services/servers/server-stacks.html">NGINX,
+                                  Apache,
+                                  LAMP</a></li>
+                              <li><a class="dropdown-item" href="./../../services/servers/databases.html">MySQL,
+                                  MariaDB</a>
+                              </li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Cloud Services</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item"
+                                  href="./../../services/clouds/ec2-lightsail-instance.html">AWS EC2,
+                                  LightSail</a></li>
+                              <li><a class="dropdown-item" href="./../../services/clouds/aws-ses-sns.html">AWS SES,
+                                  SNS</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/clouds/google-cloud.html">Google
+                                  Cloud</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/clouds/oracle-cloud.html">Oracle
+                                  Cloud</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/clouds/microsoft-azure.html">Microsoft
+                                  Azure</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/clouds/content-delivery-network.html">CDN</a>
+                              </li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Email Services</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="./../../services/email/marketing-server.html">Email
+                                  Marketing
+                                  Server</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/email/powermta-smtp-server.html">PowerMTA
+                                  SMTP
+                                  Server</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/email/email-marketing-applications.html">Mailwizz, Acelle,
+                                  Sendy</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/email/spf-dkim-dmarc-bimi.html">SPF,
+                                  DKIM,
+                                  DMARC, BIMI</a></li>
+                              <li><a class="dropdown-item" href="./../../services/email/wordpress-smtp.html">WordPress
+                                  SMTP</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/email/google-workspace.html">Google
+                                  Workspace</a></li>
+                              <li><a class="dropdown-item" href="./../../services/email/office365.html">Office365</a>
+                              </li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/email/sanitize-email-lists.html">Sanitize
+                                  Email Lists</a></li>
+                              <li><a class="dropdown-item" href="./../../services/email/deliverability.html">Email
+                                  Deliverability</a></li>
+                            </ul>
+                          </div>
+                          <!--/column 1 -->
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">WordPress Services</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item"
+                                  href="./../../services/wordpress/full-website-creation.html">Full
+                                  Website Creation</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/wordpress/ecommerce-setup.html">Ecommerce
+                                  Setup</a></li>
+                              <li><a class="dropdown-item" href="./../../services/wordpress/fix-wordpress-bugs.html">Fix
+                                  WordPress Bugs</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/wordpress/customize-wordpress.html">Customize
+                                  WordPress</a></li>
+                              <li><a class="dropdown-item" href="./../../services/wordpress/clone-websites.html">Clone
+                                  Website</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/wordpress/wordpress-automation.html">WordPress
+                                  Automation</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/wordpress/performance-optimization.html">Speed
+                                  Optimization</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/wordpress/assistance-service.html">WordPress
+                                  Assistance</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Migration Services</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="./../../services/migration/server.html">Server
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/migration/wordpress.html">WordPress
+                                  Migration</a></li>
+                              <li><a class="dropdown-item" href="./../../services/migration/website.html">Website
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/migration/email.html">Email
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/migration/localhost.html">Localhost
+                                  Migration</a></li>
+                              <li><a class="dropdown-item" href="./../../services/migration/domain.html">Domain
+                                  Migration</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/migration/magento-data.html">Magento
+                                  Data
+                                  Migration</a></li>
+                              <li><a class="dropdown-item" href="./../../services/migration/ecommerce.html">Ecommerce
+                                  Migration</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Firewall & Security</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="./../../services/security/ddos-attacks.html">DDoS &
+                                  Packet
+                                  Tracking</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/security/ModSecurity, OWASP, and Comodo WAF.html">ModSecurity, OWASP, and Comodo WAF</a>
+                              </li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/security/web-application-firewall.html">Web
+                                  Application Firewalls</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/security/mod-security-owasp-crs.html">Mod
+                                  Security, OWASP</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/security/wordpress-malware.html">WordPress
+                                  Malware</a></li>
+                              <li><a class="dropdown-item" href="./../../services/security/SPI Firewall-firewall.html">SPI Firewall
+                                  Firewall</a>
+                              </li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/security/wordpress-security-plugins.html">Wordfence,
+                                  Succuri</a></li>
+                              <li><a class="dropdown-item" href="./../../services/security/ssh-server.html">SSH &
+                                  Server</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <!--/column 2 -->
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Automation & Marketing</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item"
+                                  href="./../../services/automation/automation-platforms.html">Automation Platforms</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/automation/klaviyo.html">Klaviyo</a>
+                              </li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/automation/mailchimp.html">Mailchimp</a>
+                              </li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/automation/active-campaign.html">Active
+                                  Campaign</a></li>
+                              <li><a class="dropdown-item" href="./../../services/automation/wordpress.html">WordPress
+                                  Automation</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/automation/autoresponders.html">Autoresponders</a></li>
+                              <li><a class="dropdown-item" href="./../../services/automation/zapier.html">Zapier &
+                                  Webhooks</a>
+                              </li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Ecommerce Services</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item"
+                                  href="./../../services/ecommerce/ecommerce-automation.html">Ecommerce
+                                  Automation</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/ecommerce/woocommerce-migration.html">Woocommerce Migration</a>
+                              </li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/ecommerce/woocommerce-automation.html">Woocommerce
+                                  Automation</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/ecommerce/magento-store.html">Magento
+                                  Store</a></li>
+                              <li><a class="dropdown-item"
+                                  href="./../../services/ecommerce/opencart-issues.html">Opencart
+                                  Issues</a></li>
+                              <li><a class="dropdown-item" href="./../../services/ecommerce/shopify-setup.html">Shopify
+                                  Setup</a></li>
+                              <li><a class="dropdown-item" href="./../../services/ecommerce/data-migration.html">Data
+                                  Migration</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Other Services</h6>
+                            <hr class="double mb-2 m-0" />
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="./../../services/misc/ssl-certificates.html">SSL
+                                  Certificates</a></li>
+                              <li><a class="dropdown-item" href="./../../services/misc/dns-issues.html">DNS Issues</a>
+                              </li>
+                              <li><a class="dropdown-item" href="./../../services/misc/google-tag-manager.html">Google
+                                  Tag
+                                  Manager</a></li>
+                              <li><a class="dropdown-item" href="./../../services/misc/fatal-errors.html">Critical &
+                                  Fatal
+                                  Errors</a></li>
+                              <li><a class="dropdown-item" href="./../../services/misc/custom-services.html">Custom
+                                  Services</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <!--/column 3 -->
+                        </div>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                  <!-- About -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="./../../about/index.html" data-bs-toggle="dropdown"><i
+                        class="uil menuicon menuicon uil-qrcode-scan"></i> About</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                      <li class="mega-menu-content">
+                        <div>
+                          <h6 class="dropdown-header p-0"><a href="./../../about/index.html">Know more about me</a></h6>
+                        </div>
+                        <hr class="double mt-2 mb-2 m-0" />
+                        <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                          <li class="col"><a class="dropdown-item" href="./../../about/myjourney.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block1.svg" alt=""></div>
+                              <span>My Journey</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../about/status.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block2.svg" alt=""></div>
+                              <span>My Status</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../about/engagements.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block3.svg" alt=""></div>
+                              <span>Skills & Engagement</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../about/portfolios.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block4.svg" alt=""></div>
+                              <span>Portfolios</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../about/certifications.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block5.svg" alt=""></div>
+                              <span>Certifications</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../about/contributions.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block6.svg" alt=""></div>
+                              <span>Contributions</span>
+                            </a>
+                          </li>
+                        </ul>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                  <!-- Contact -->
+                  <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="./../../contact/index.html" data-bs-toggle="dropdown"><i
+                        class="uil menuicon uil-incoming-call"></i> Contact</a>
+                    <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
+                      <li class="mega-menu-content">
+                        <div>
+                          <h6 class="dropdown-header p-0"><a href="./../../contact/index.html">Ways to contact me</a>
+                          </h6>
+                        </div>
+                        <hr class="double mt-2 mb-2 m-0" />
+                        <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
+                          <li class="col"><a class="dropdown-item" href="./../../contact/all-faq.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block2.svg" alt=""></div>
+                              <span>All FAQs</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../contact/contact-form.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block1.svg" alt=""></div>
+                              <span>Submit a Query</span>
+                            </a>
+                          </li>
+                          <li class="col"><a class="dropdown-item" href="./../../contact/social-profiles.html">
+                              <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img class="rounded-0"
+                                  src="./../../assets/img/demos/block3.svg" alt=""></div>
+                              <span>My Social Profiles</span>
+                            </a>
+                          </li>
+                        </ul>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
+                </ul>
+                <!-- /.navbar-nav -->
+                <div class="offcanvas-footer d-lg-none">
+                  <div>
+                    <a href="mailto:contactibrahimsharif@gmail.com" class="link-inverse">Send an Email</a>
+                    <!-- <br /> 00 (123) 456 78 90 <br /> -->
+                    <nav class="nav social social-white mt-4">
+                      <a href="https://github.com/shuvoaftab/" target="_blank"><i class="uil uil-github"></i></a>
+                      <a href="https://www.linkedin.com/in/ibrahimsharif/" target="_blank"><i
+                          class="uil uil-linkedin"></i></a>
+                    </nav>
+                    <!-- /.social -->
+                  </div>
+                </div>
+                <!-- /.offcanvas-footer -->
+              </div>
+              <!-- /.offcanvas-body -->
+            </div>
+            <!-- /.navbar-collapse -->
+            <div class="navbar-other w-100 d-flex ms-auto">
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <li class="nav-item">
+                  <nav class="nav social social-muted justify-content-end text-end">
+                    <a href="https://github.com/shuvoaftab/" target="_blank"><i
+                        class="uil uil-github img-shadow"></i></a>
+                    <a href="https://www.linkedin.com/in/ibrahimsharif/" target="_blank"><i
+                        class="uil uil-linkedin img-shadow"></i></a>
+                  </nav>
+                  <!-- /.social -->
+                </li>
+                <li class="nav-item d-lg-none">
+                  <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                </li>
+              </ul>
+              <!-- /.navbar-nav -->
+            </div>
+            <!-- /.navbar-other -->
+          </div>
+          <!-- /.navbar-collapse-wrapper -->
+        </div>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header>
+    <!-- /header -->
+
+    <!-- Hero Intro:: -->
+    <section class="wrapper overflow-hidden bg-gradient-primary">
+      <div class="container py-16 py-md-18 text-center position-relative">
+        <!-- <div class="position-absolute bg-gradient-violent-blurry"
+          style="top: 30%; left: 50%; transform: translateX(-50%);" data-cue="fadeIn"></div> -->
+        <div class="row position-relative">
+          <div class="col-md-10 mx-auto position-relative">
+            <div data-group="page-title">
+              <h1 class="display-1 fs-50 mx-md-10 mx-lg-0 text-service-title gradient-text-anim1 mb-6"> ModSecurity, OWASP, and COMODO WAF</h1>
+              <h2 class="rotator-fade text-primary fs-40 text-service-title mb-10">
+                ModSecurity Implementation and Management,
+                OWASP WAF Compliance Services,
+                Comodo WAF Deployment and Optimization,
+                Custom WAF Rules for ModSecurity,
+                OWASP Top Ten Vulnerability Remediation,
+                Comodo WAF Monitoring and Incident Response,
+                OWASP Best Practices Implementation,
+                ModSecurity Rule Set Development,
+                OWASP Security Assessment,
+                Comodo WAF and SSL Integration,
+                ModSecurity for E-commerce Security,
+                OWASP API Security Solutions,
+                Comodo WAF for Bot Management,
+                ModSecurity SQL Injection Defense,
+                OWASP XSS Prevention Services
+              </h2>
+              <!-- <p class="lead fs-24 mb-8">Unlock the Full Potential of Your Server with My Security Services. From SSH key management to firewall optimization, this service your trusted partner in safeguarding your digital assets.</p> -->
+            </div>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row gx-lg-8 gx-xl-12 gy-8">
+          <div class="col-md-6 col-lg-4">
+            <div class="d-flex flex-row bg-white p-2 img-shadow">
+              <div>
+                <h4 class="mb-1">ModSecurity</h4>
+                <p class="lead mb-0">ModSecurity is an open-source web application firewall (WAF) designed to protect web applications from various online threats and vulnerabilities.</p>
+              </div>
+            </div>
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-4">
+            <div class="d-flex flex-row bg-white p-2 img-shadow">
+              <div>
+                <h4 class="mb-1">Comodo WAF</h4>
+                <p class="lead mb-0">Comodo Web Application Firewall (WAF) is a robust security solution that protects web applications from various online threats.</p>
+              </div>
+            </div>
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-4">
+            <div class="d-flex flex-row bg-white p-2 img-shadow">
+              <div>
+                <h4 class="mb-1">Open Web Application Security Project</h4>
+                <p class="lead mb-0">OWASP (Open Web Application Security Project) is a nonprofit organization dedicated to improving web application security through standard guidelines.</p>
+              </div>
+            </div>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+      <!-- Swipper Slider: -->
+    </section>
+    <!-- / Hero Intro -->
+
+
+    <div class="divider-icon m-0"><i class="uil uil-heart"></i></div>
+
+    <!-- Sidebar and Content:: -->
+    <section class="wrapper bg-light">
+      <div class="container py-8 py-md-10">
+        <!-- <div class="row gx-lg-8 gx-xl-12"> -->
+        <div class="row">
+          <!-- Main Page Contents:: -->
+          <div class="col-lg-9 order-lg-2">
+            <div class="blog single">
+              <div class="card bg-light">
+                <!-- <figure class="card-img-top"><img loading="lazy" src="./../../assets/img/photos/b1.jpg" alt="" /></figure> -->
+                <div class="card-body p-0">
+                  <div class="classic-view">
+                    <article class="post">
+                      <!-- Service Overview:: -->
+                      <div class="post-content mb-14">
+                        <h2 class="display-5 mb-4">Overview of ModSecurity, OWASP, and Comodo WAF Services</h2>
+                        <p class="lead fs-lg">In an era of relentless cyber threats, safeguarding your web applications is non-negotiable. My "ModSecurity, OWASP, and Comodo WAF Services" offer an impenetrable shield for your digital assets. I understand the ever-evolving nature of online vulnerabilities, and that's why I bring a trifecta of cutting-edge security measures to the table.</p>
+                        
+                        <p class="lead fs-lg">
+                          <ol class="green-marker lead">
+                          <li class="lead"><strong>ModSecurity</strong> serves as the first line of defense, with its robust web application firewall capabilities. I fine-tune ModSecurity to your specific needs, ensuring your web applications are safeguarded against threats like SQL injection and XSS attacks.</li>
+                          <li class="lead"><strong>OWASP</strong> compliance is at the core of our services, aligning your web applications with the industry's best security standards. I follow OWASP's guidelines to address the top web application vulnerabilities, providing a comprehensive layer of protection.</li>
+                          <li class="lead"><strong>Comodo WAF</strong> adds an extra layer of security, fortifying your online assets against a range of attacks while seamlessly integrating with SSL certificates for enhanced encryption.</li>
+                        </ol>
+                        </p>
+
+                        <p class="lead fs-lg">My services encompass customized WAF rules, bot management, DDoS mitigation, API security, and more. With continuous monitoring and rapid incident response, I keep your web applications secure and performing optimally. Whether you're a business owner, a government agency, or an educational institution, my services are tailored to meet your unique security needs.</p>
+
+                        <h3 class="display-6 mb-4">Possible use cases of ModSecurity, OWASP, and Comodo WAF Services:</h3>
+                        <div class="table-responsive">
+                          <table class="table table-hover table-striped service-reason">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Issue</th>
+                                <th scope="col">Symptoms</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td class="fw-bold">SQL Injection Protection</td>
+                                <td>Safeguarding a financial institution's database from SQL injection attacks to prevent unauthorized access to sensitive data.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td class="fw-bold">XSS (Cross-Site Scripting) Defense</td>
+                                <td>Implementing XSS filters to protect a healthcare website from malicious scripts that could compromise patient information.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td class="fw-bold">DDoS Mitigation</td>
+                                <td>Protecting a high-traffic e-commerce platform from DDoS attacks during peak shopping seasons to ensure uninterrupted service.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td class="fw-bold">API Security Optimization</td>
+                                <td>Ensuring the security of an online payment gateway's API to prevent fraudulent transactions and data breaches.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">5</th>
+                                <td class="fw-bold">Rate Limiting and Request Throttling</td>
+                                <td>Implementing rate limiting rules for a popular social media network to prevent abusive usage and maintain performance.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">6</th>
+                                <td class="fw-bold">Bot Management Solutions</td>
+                                <td>Detecting and mitigating malicious bot activity targeting a travel booking website to protect against inventory depletion.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">7</th>
+                                <td class="fw-bold">Geo IP Blocking and Whitelisting</td>
+                                <td>Blocking access from regions with known cyber threats while whitelisting access for a government website to secure sensitive information.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">8</th>
+                                <td class="fw-bold">Custom WAF Rules Creation</td>
+                                <td>Creating specific WAF rules to protect a university's student portal against targeted attacks and data breaches.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">9</th>
+                                <td class="fw-bold">Content Security Policies (CSP)</td>
+                                <td>Enforcing CSP to reduce XSS risks on an online news portal's user-generated content, ensuring reader safety.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">10</th>
+                                <td class="fw-bold">CAPTCHA Integration</td>
+                                <td>Preventing spam bots from compromising an e-commerce platform's user reviews and feedback section through CAPTCHA challenges.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">11</th>
+                                <td class="fw-bold">DNSSEC Implementation</td>
+                                <td>Adding an additional layer of security to a corporation's DNS infrastructure to safeguard internal communications.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">12</th>
+                                <td class="fw-bold">CDN Integration and Optimization</td>
+                                <td>Enhancing content delivery and reducing latency for a streaming service to provide seamless viewing experiences to users worldwide.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">13</th>
+                                <td class="fw-bold">Behavioral Analysis for Threat Detection</td>
+                                <td>Identifying and blocking threats through behavioral analysis on a government agency's online services, ensuring data integrity.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">14</th>
+                                <td class="fw-bold">API Rate Limiting and Throttling</td>
+                                <td>Implementing rate limiting measures to prevent API abuse and protect a cloud computing service's resources.</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- Service Overview -->
+                      <div class="post-divider-icon m-0 pb-6"><i class="uil uil-heart text-green"></i></div>
+
+                      <div class="post-content py-10">
+                        <div class="row mb-6">
+                          <div class="col-lg-6 my-auto">
+                            <h2 class="display-2 lh-xxs mb-0">Why this service?</h2>
+                          </div>
+                          <!-- /column -->
+                          <div class="col-lg-6">
+                            <p class="lead fs-22 my-3">Stay ahead of evolving vulnerabilities and optimize performance with our comprehensive services.</p>
+                            <!-- <a href="#" class="more hover">Learn More</a> -->
+                          </div>
+                          <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                          <!-- <h3 class="fs-28 mb-3">SEO Optimization</h3> -->
+                          <p class="lead fw-bold">Features of my ModSecurity, OWASP, and Comodo WAFs Services:</p>
+                          <div class="col-md-6 ms-auto">
+                            <ul class="icon-list">
+                              <li><i class="uil uil-copy text-green"></i><span>Tailoring ModSecurity, OWASP, and Comodo WAF to your web application's specific needs.</span>
+                              </li>
+                              <li><i class="uil uil-copy text-green"></i><span>Aligning your web application with OWASP's best security practices and guidelines.</span>
+                              </li>
+                              <li><i class="uil uil-copy text-green"></i><span>SProtecting against Distributed Denial of Service attacks to ensure uninterrupted service.</span>
+                              </li>
+                            </ul>
+                            <!-- <a href="#" class="btn btn-soft-primary rounded-pill mt-2 mb-0">More Details</a> -->
+                          </div>
+                          <div class="col-md-6 ms-auto">
+                            <ul class="icon-list">
+                              <li><i class="uil uil-copy text-green"></i><span>Configuring rules to detect and block SQL injection attempts.</span></li>
+                              <li><i class="uil uil-copy text-green"></i><span>Filters and policies to prevent and mitigate XSS attacks.</span></li>
+                              <li><i class="uil uil-copy text-green"></i><span>Reducing the risk of XSS attacks on user-generated content.</span></li>
+                            </ul>
+                            <!-- <a href="#" class="btn btn-soft-primary rounded-pill mt-2 mb-0">More Details</a> -->
+                          </div>
+                        </div>
+                        <blockquote class="fs-lg my-8">
+                          <p>In today's digital landscape, web applications are prime targets for cyber threats. Your ModSecurity, OWASP, and Comodo WAF Services offer a robust shield against an array of threats, including SQL injection, XSS attacks, DDoS assaults, and more. This protection not only secures your digital assets but also safeguards customer data and business credibility. With security breaches becoming increasingly costly and damaging, the investment in a comprehensive web application security service is a wise and proactive choice.</p>
+                          <!-- <footer class="blockquote-footer">Very important person</footer> -->
+                        </blockquote>
+                      </div>
+                      <!-- Features and Outcome -->
+                      <div class="post-divider-icon m-0 pb-6"><i class="uil uil-heart text-green"></i></div>
+
+                      <div class="post-content py-10">
+                        <div class="row text-center mt-12">
+                          <div class="col-lg-10 mx-auto">
+                            <h2 class="fs-16 text-uppercase text-muted mb-3">My Working Process</h2>
+                            <h3 class="display-5 text-center mb-10">3 Simple Steps to get this Service</h3>
+                            <div class="row gx-lg-8 gx-xl-12 process-wrapper arrow text-center">
+                              <div class="col-md-4"> <img loading="lazy" src="./../../assets/img/icons/solid/bulb.svg"
+                                  class="svg-inject icon-svg icon-svg-sm solid-duo text-blue-green mb-4" alt="" />
+                                <h3 class="fs-22">1. Provided Details</h3>
+                                <p>Provided details regarding the issue you are facing with a few possible screenshots,
+                                  video, technical logs, etc.</p>
+                              </div>
+                              <!--/column -->
+                              <div class="col-md-4"> <img loading="lazy"
+                                  src="./../../assets/img/icons/solid/compare.svg"
+                                  class="svg-inject icon-svg icon-svg-sm solid-duo text-blue-green mb-4" alt="" />
+                                <h3 class="fs-22">2. Leave it to me <i class="uil uil-nerd"></i></h3>
+                                <p>I will begin executing the project according to the defined plan with provided
+                                  details and you take a break. </p>
+                              </div>
+                              <!--/column -->
+                              <div class="col-md-4"> <img loading="lazy"
+                                  src="./../../assets/img/icons/solid/delivery-box.svg"
+                                  class="svg-inject icon-svg icon-svg-sm solid-duo text-blue-green mb-4" alt="" />
+                                <h3 class="fs-22">3. Confirm Delivery</h3>
+                                <p>Conduct a comprehensive project evaluation to assess whether the project met its
+                                  objectives and functional.</p>
+                              </div>
+                              <!--/column -->
+                            </div>
+                            <!--/.row -->
+                          </div>
+                          <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <div class="post-divider-icon m-0 pb-6"><i class="uil uil-heart text-green"></i></div>
+                      <!-- Working Process -->
+
+                      <div class="post-content py-10">
+                        <div class="py-8">
+                          <h2 class="display-5 mb-3">Service Pricing &amp; Details</h2>
+                          <p class="lead fs-lg">I offer <span class="underline">great prices</span>, premium and
+                            quality services for the money you spend.</p>
+                          <div class="row g-6">
+                            <div class="col-lg-6">
+                              <div class="card shadow-lg card-border-start border-green">
+                                <div class="card-body p-4">
+                                  <h5 class="card-title text-green">Basic <i class="uil uil-star"></i></h5>
+                                  <div class="fs-20 fw-bold text-dark">$99</div>
+                                  <p class="card-text">
+                                    Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-green">
+                                      <li><span><i class="uil uil-check"></i></span><span>Basic WAF Configuration</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>OWASP Compliance</span></li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Basic DDoS Mitigation</span>
+                                      </li>
+                                    </ul>
+                                    <!-- <hr class="m-0 pb-2" />
+                                    Not Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-red">
+                                      <li><span><i class="uil uil-times"></i></span><span>The Server to
+                                          Configure.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Plesk, cPanel/WHM, etc.
+                                          License.</span>
+                                      </li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Hosting Cost.</span></li>
+                                    </ul> -->
+                                  </p>
+                                  <a href="./../../contact/contact-form.html"
+                                    class="btn btn-outline-gradient gradient-6 mt-1">Choose Plan</a>
+                                </div>
+                                <!--/.card-body -->
+                              </div>
+                              <!--/.card -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-lg-6">
+                              <div class="card shadow-lg card-border-start border-blue">
+                                <div class="card-body p-4">
+                                  <h5 class="card-title text-blue">Advanced <i class="uil uil-star"></i><i
+                                      class="uil uil-star"></i></h5>
+                                  <div class="fs-20 fw-bold text-dark">$149</div>
+                                  <p class="card-text">
+                                    Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-green">
+                                      <li><span><i class="uil uil-check"></i></span><span>Custom WAF Configuration</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Comprehensive DDoS Mitigation</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Bot Mitigation</span>
+                                      </li>
+                                    </ul>
+                                    <!-- 
+                                    <hr class="m-0 pb-2" />
+                                    Not Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-red">
+                                      <li><span><i class="uil uil-times"></i></span><span>The Server to
+                                          Configure.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Plesk, cPanel/WHM, etc.
+                                          License.</span>
+                                      </li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Hosting Cost.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>No Email Migration.</span>
+                                      </li>
+                                    </ul> -->
+                                  </p>
+                                  <a href="./../../contact/contact-form.html"
+                                    class="btn btn-outline-gradient gradient-7 mt-1">Choose Plan</a>
+                                </div>
+                                <!--/.card-body -->
+                              </div>
+                              <!--/.card -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-lg-6">
+                              <div class="card card-border-start border-orange">
+                                <div class="card-body p-4">
+                                  <h5 class="card-title text-orange">Pro <i class="uil uil-star"></i><i
+                                      class="uil uil-star"></i><i class="uil uil-star"></i></h5>
+                                  <div class="fs-20 fw-bold text-dark">$249</div>
+                                  <p class="card-text">
+                                    Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-green">
+                                      <li><span><i class="uil uil-check"></i></span><span>Advanced GEO Protection</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Advanced SQL Injection Filters</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Advanced XSS Defense</span>
+                                      </li>
+                                      <!-- </ul>
+                                    <hr class="m-0 pb-2" />
+                                    Not Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-red">
+                                      <li><span><i class="uil uil-times"></i></span><span>The Server to
+                                          Configure.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Plesk, cPanel/WHM, etc.
+                                          License.</span>
+                                      </li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Hosting Cost.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>No More than 3
+                                          mailboxes</span></li>
+                                    </ul> -->
+                                  </p>
+                                  <a href="./../../contact/contact-form.html"
+                                    class="btn btn-outline-gradient gradient-2 mt-1">Choose Plan</a>
+                                </div>
+                                <!--/.card-body -->
+                              </div>
+                              <!--/.card -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-lg-6">
+                              <div class="card card-border-start border-fuchsia">
+                                <div class="card-body p-4">
+                                  <h5 class="card-title text-fuchsia">Supreme <i class="uil uil-star"></i><i
+                                      class="uil uil-star"></i><i class="uil uil-star"></i><i class="uil uil-star"></i>
+                                  </h5>
+                                  <div class="fs-20 fw-bold text-dark">Custom</div>
+                                  <p class="card-text">
+                                    Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-green">
+                                      <li><span><i class="uil uil-check"></i></span><span>API Security Optimization</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Highly Customized WAF Rules</span>
+                                      </li>
+                                      <li><span><i class="uil uil-check"></i></span><span>Advanced SQL Injection Filters</span></li>
+                                      <!-- </ul>
+                                    <hr class="m-0 pb-2" />
+                                    Not Included:
+                                    <ul class="icon-list bullet-bg bullet-soft-red">
+                                      <li><span><i class="uil uil-times"></i></span><span>The Server to
+                                          Configure.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Plesk, cPanel/WHM, etc.
+                                          License.</span>
+                                      </li>
+                                      <li><span><i class="uil uil-times"></i></span><span>Hosting Cost.</span></li>
+                                      <li><span><i class="uil uil-times"></i></span><span>No more than 5
+                                          Mailboxes.</span>
+                                      </li>
+                                    </ul> -->
+                                  </p>
+                                  <a href="./../../contact/contact-form.html"
+                                    class="btn btn-outline-gradient gradient-1 mt-1">Choose Plan</a>
+                                </div>
+                                <!--/.card-body -->
+                              </div>
+                              <!--/.card -->
+                            </div>
+                            <!-- /column -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-divider-icon m-0"><i class="uil uil-heart text-green"></i></div>
+                      <!-- Package Features -->
+
+                      <div class="post-content py-10">
+                        <div class="py-4">
+                          <div class="row">
+                            <div class="col-12 mx-auto">
+                              <div class="job-list mb-10">
+                                <h2 class="display-5 py-2">More ModSecurity, OWASP, and Comodo WAF Services Use Cases</h2>
+                                <a href="./../../contact/contact-form.html" class="card mb-4 lift">
+                                  <div class="card-body p-2">
+                                    <span class="row justify-content-between align-items-center">
+                                      <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                        <span class="avatar bg-green text-white w-9 h-9 fs-17 me-3">1</span>
+                                        Security Auditing and Compliance </span>
+                                      <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-clock me-1"></i> 1 day </span>
+                                      <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-location-arrow me-1"></i> Security </span>
+                                      <span class="d-none d-lg-block col-1 text-center text-body">
+                                        <i class="uil uil-angle-right-b"></i>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </a>
+                                <!-- /.card -->
+                                <a href="./../../contact/contact-form.html" class="card mb-4 lift">
+                                  <div class="card-body p-2">
+                                    <span class="row justify-content-between align-items-center">
+                                      <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                        <span class="avatar bg-leaf text-white w-9 h-9 fs-17 me-3">2</span> Cache Management and Optimization </span>
+                                      <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-clock me-1"></i> 1 day </span>
+                                      <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-location-arrow me-1"></i> Cache </span>
+                                      <span class="d-none d-lg-block col-1 text-center text-body">
+                                        <i class="uil uil-angle-right-b"></i>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </a>
+                                <!-- /.card -->
+                                <a href="./../../contact/contact-form.html" class="card mb-4 lift">
+                                  <div class="card-body p-2">
+                                    <span class="row justify-content-between align-items-center">
+                                      <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                        <span class="avatar bg-green text-white w-9 h-9 fs-17 me-3">3</span> Custom API Security </span>
+                                      <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-clock me-1"></i> 1 day </span>
+                                      <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-location-arrow me-1"></i> API </span>
+                                      <span class="d-none d-lg-block col-1 text-center text-body">
+                                        <i class="uil uil-angle-right-b"></i>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </a>
+                                <!-- /.card -->
+                                <a href="./../../contact/contact-form.html" class="card mb-4 lift">
+                                  <div class="card-body p-2">
+                                    <span class="row justify-content-between align-items-center">
+                                      <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                        <span class="avatar bg-leaf text-white w-9 h-9 fs-17 me-3">4</span> Rate Limiting and Request Throttling </span>
+                                      <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-clock me-1"></i> 1 day </span>
+                                      <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                        <i class="uil uil-location-arrow me-1"></i> Rate Limiting </span>
+                                      <span class="d-none d-lg-block col-1 text-center text-body">
+                                        <i class="uil uil-angle-right-b"></i>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </a>
+                                <!-- /.card -->
+                              </div>
+                            </div>
+                            <!-- /column -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                      </div>
+                      <div class="post-divider-icon m-0"><i class="uil uil-heart text-green"></i></div>
+                      <!-- More Services -->
+
+                      <div class="post-content py-10">
+                        <div class="py-8 py-md-10">
+                          <h2 class="display-5 py-2">Frequently Asked Questions</h2>
+                          <div class="row gx-md-8 gx-xl-12 gy-10">
+                            <div class="col-lg-6">
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <span class="icon pe-none text-green fs-31 me-2"><i
+                                      class="uil uil-question-circle"></i></span>
+                                </div>
+                                <div>
+                                  <h4>What is the primary purpose of ModSecurity, OWASP, and Comodo WAF Services?</h4>
+                                  <p class="mb-0">The primary purpose of these services is to enhance the security of your web applications. ModSecurity provides a web application firewall (WAF) that protects against various online threats. OWASP compliance ensures that your applications adhere to industry-standard security practices, while Comodo WAF adds an extra layer of protection.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- /column 1-->
+                            <div class="col-lg-6">
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <span class="icon pe-none text-green fs-31 me-2"><i
+                                      class="uil uil-question-circle"></i></span>
+                                </div>
+                                <div>
+                                  <h4>What types of threats do these services protect against?</h4>
+                                  <p class="mb-0">They protect against a wide range of threats, including SQL injection, cross-site scripting (XSS), Distributed Denial of Service (DDoS) attacks, bot abuse, and other web application vulnerabilities.
+                              </div>
+                            </div>
+                            <!-- /column 2-->
+                            <div class="col-lg-6">
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <span class="icon pe-none text-green fs-31 me-2"><i
+                                      class="uil uil-question-circle"></i></span>
+                                </div>
+                                <div>
+                                  <h4>Can I get custom security configurations tailored to my web applications?</h4>
+                                  <p class="mb-0">Yes, I offer custom security configurations, including the creation of specific WAF rules to address unique vulnerabilities and threats for your web applications.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- /column 3-->
+                            <div class="col-lg-6">
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <span class="icon pe-none text-green fs-31 me-2"><i
+                                      class="uil uil-question-circle"></i></span>
+                                </div>
+                                <div>
+                                  <h4>How are API security and data protection ensured with these services?</h4>
+                                  <p class="mb-0">We optimize API security through rate limiting, API protection, and access controls. Additionally, we implement measures to secure sensitive data and ensure its protection.</p>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- /column 4-->
+                          </div>
+                          <!-- /.row -->
+                          <div class="row mt-6">
+                            <div class="col-12 text-center">
+                              <a href="./../../contact/all-faq.html" class="btn btn-soft-green btn-hover-dark">Check All
+                                FAQ
+                                <i class="uil uil-arrow-up-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Service FAQ -->
+
+                    </article>
+                    <!-- /.post -->
+                  </div>
+                  <!-- /.classic-view -->
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.blog -->
+          </div>
+          <!-- /column -->
+          <aside class="col-lg-3 sidebar">
+            <div class="widget bg-soft-ash p-2 py-4 rounded-2">
+              <div class="d-flex align-items-center mb-3">
+                <figure class="user-avatar"><img loading="lazy" class="rounded-circle" alt=""
+                    src="./../../assets/img/photos/shuvoaftab/ibrahim_sharif_facebook.jpg" /></figure>
+                <div>
+                  <h6><a href="./../../about/myjourney.html" class="text-gradient gradient-7">Ibrahim Sharif</a></h6>
+                  <span class="post-meta fs-15">Server Administrator</span>
+                </div>
+              </div>
+              <p>A skilled freelancer with expertise in Web Development, Server Administration, and Email
+                Deliverability, delivering top-notch solutions with dedication and innovation</p>
+              <nav class="nav social">
+                <a href="https://twitter.com/shuvoaftab/"><i class="uil uil-twitter"></i></a>
+                <a href="https://www.youtube.com/user/MrIbrahimsharif/"><i class="uil uil-youtube"></i></a>
+                <a href="https://github.com/shuvoaftab/"><i class="uil uil-github"></i></a>
+                <a href="https://www.linkedin.com/in/ibrahimsharif/"><i class="uil uil-linkedin"></i></a>
+              </nav>
+              <!-- /.social -->
+            </div>
+            <!-- /.widget About -->
+            <!-- <div class="widget bg-soft-ash p-2 py-4 rounded-2">
+              <h4 class="widget-title">Control Panels:</h4>
+              <p class="lead">
+                <span class="badge bg-pale-aqua text-aqua">Plesk</span>
+                <span class="badge bg-pale-yellow text-yellow">cPanel</span>
+                <span class="badge bg-pale-blue text-blue">Webmin</span>
+                <span class="badge bg-pale-leaf text-leaf">VestaCP</span>
+                <span class="badge bg-pale-green text-green">ISPConfig</span>
+                <span class="badge bg-pale-orange text-orange">Ajenti</span>
+                <span class="badge bg-pale-red text-red">ZPanel/Sentora</span>
+                <span class="badge bg-pale-pink text-pink">DirectAdmin</span>
+                <span class="badge bg-pale-blue text-blue">EHCP</span>
+                <span class="badge bg-pale-leaf text-leaf">Virtualmin</span>
+                <span class="badge bg-pale-purple text-purple">Froxlor</span>
+                <span class="badge bg-pale-aqua text-aqua">Shared Virtualmin</span>
+              </p>
+            </div> -->
+            <!-- <div class="widget bg-soft-ash p-2 py-4 rounded-2">
+              <h4 class="widget-title">Server Type:</h4>
+              <p class="lead">
+                <span class="badge bg-pale-orange text-orange">VPS</span>
+                <span class="badge bg-pale-red text-red">Dedicated</span>
+                <span class="badge bg-pale-pink text-pink">Cloud Instance</span>
+              </p>
+            </div>
+            <div class="widget bg-soft-ash p-2 py-4 rounded-2">
+              <h4 class="widget-title">Companies:</h4>
+              <p class=lead>
+                <span class="badge bg-pale-yellow text-yellow">AWS</span>
+                <span class="badge bg-pale-blue text-blue">Google Cloud</span>
+                <span class="badge bg-pale-aqua text-aqua">Microsoft Azure</span>
+                <span class="badge bg-pale-yellow text-yellow">Oracle Cloud</span>
+                <span class="badge bg-pale-blue text-blue">Hostinger</span>
+                <span class="badge bg-pale-leaf text-leaf">Cloudways</span>
+                <span class="badge bg-pale-green text-green">And many more</span>
+              </p>
+            </div> -->
+            <!-- <div class="widget bg-soft-ash p-2 py-4 rounded-2">
+              <h4 class="widget-title">Technologies:</h4>
+              <p class=lead>
+                <span class="badge bg-pale-violet text-violet">Web Server</span>
+                <span class="badge bg-pale-leaf text-leaf">NGINX</span>
+                <span class="badge bg-pale-purple text-purple">Apache</span>
+                <span class="badge bg-pale-yellow text-yellow">MySQL</span>
+                <span class="badge bg-pale-red text-red">PHP</span>
+                <span class="badge bg-pale-pink text-pink">Litespeed</span>
+                <span class="badge bg-pale-blue text-blue">Email</span>
+                <span class="badge bg-pale-leaf text-leaf">DNS</span>
+                <span class="badge bg-pale-purple text-purple">Database</span>
+                <span class="badge bg-pale-aqua text-aqua">Shared Hosting</span>
+                <span class="badge bg-pale-green text-green">Reseller Hosting</span>
+              </p>
+            </div> -->
+            <!-- /.widget Key Technologies-->
+            <div class="widget bg-soft-ash p-2 py-4 rounded-2">
+              <h4 class="widget-title mb-3">Related Links</h4>
+              <ul class="unordered-list bullet-primary text-reset">
+                <li><a href="./../../projects/servers/hosting.html">Hosting Server</a></li>
+                <li><a href="./../../projects/servers/email.html">Email Server</a></li>
+                <li><a href="./../../projects/migration/email.html">Email Migration</a></li>
+                <li><a href="./../../services/migration/website.html">Website Migration</a></li>
+                <li><a href="./../../services/servers/server-maintenance.html">Server Maintenance</a></li>
+              </ul>
+            </div>
+            <!-- /.widget -->
+            <div class="widget bg-soft-ash text-center p-2 py-4 post-widget-sticky">
+              <!-- <div class="row">
+                <div class="item col-6 col-md-4 px-2">
+                  <figure class="overlay overlay-3 overlay-gradient-1 hover-scale rounded mb-4">
+                    <a href="#">
+                      <img src="./../../assets/img/technology-logos/cPanel.jpg" alt="" />
+                    </a>
+                    <figcaption>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="item col-6 col-md-4 px-2">
+                  <figure class="overlay overlay-3 overlay-gradient-1 hover-scale rounded mb-4">
+                    <a href="#">
+                      <img src="./../../assets/img/technology-logos/plesk.jpg" alt="" />
+                    </a>
+                    <figcaption>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="item col-6 col-md-4 px-2">
+                  <figure class="overlay overlay-3 overlay-gradient-1 hover-scale rounded mb-4">
+                    <a href="#">
+                      <img src="./../../assets/img/technology-logos/whm.jpg" alt="" />
+                    </a>
+                    <figcaption>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div> -->
+              <h1 class="fs-24">Ready to get started?</h1>
+              <p class="lead">Have any questions?</p>
+              <a href="./../../contact/contact-form.html"
+                class="btn btn-gradient gradient-6 rounded-pill btn-icon btn-icon-end">Let's Discuss<i
+                  class="uil uil-arrow-up-right"></i></a>
+            </div>
+            <!-- /.widget -->
+          </aside>
+          <!-- /column .sidebar -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- Sidebar and Content -->
+
+    <div class="post-divider-icon m-0"><i class="uil uil-heart text-green"></i></div>
+
+    <!-- Service Extra Features:: -->
+    <section class="wrapper bg-gray">
+      <div class="container py-10 py-md-12">
+        <div class="row">
+          <div class="col-md-11 col-lg-9 mx-auto text-center">
+            <h2 class="display-2 mb-4">Related Services</h2>
+            <p class="lead fs-lg mb-11">In addition to optimizing performances of your server, you may also get more
+              services as below</p>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row gx-md-8 gy-8 text-center mb-8 mb-md-10">
+          <div class="col-md-6 col-lg-3">
+            <div class="svg-bg svg-bg-lg bg-white rounded-xl shadow-xl mb-6"> <img loading="lazy"
+                src="./../../assets/img/icons/solid/monitor.svg"
+                class="svg-inject icon-svg solid-duo text-grape-fuchsia" alt="" /> </div>
+            <h3>Website Migration</h3>
+            <p class="mb-3">I ensure a hassle-free transition, preserving data integrity and minimizing downtime, so
+              your website operates at its best in no time.</p>
+            <a href="./../../services/migration/website.html" class="btn btn-soft-fuchsia btn-hover-dark">Learn More</a>
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3">
+            <div class="svg-bg svg-bg-lg bg-white rounded-xl shadow-xl mb-6"> <img loading="lazy"
+                src="./../../assets/img/icons/solid/email-2.svg"
+                class="svg-inject icon-svg solid-duo text-grape-fuchsia" alt="" /> </div>
+            <h3>Email Migration</h3>
+            <p class="mb-3">I seamlessly transfer your email data, ensuring uninterrupted communication and efficient
+              email management from server to server.</p>
+            <a href="./../../services/migration/email.html" class="btn btn-soft-blue btn-hover-dark">Learn More</a>
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3">
+            <div class="svg-bg svg-bg-lg bg-white rounded-xl shadow-xl mb-6"> <img loading="lazy"
+                src="./../../assets/img/icons/solid/health-insurance.svg"
+                class="svg-inject icon-svg solid-duo text-grape-fuchsia" alt="" /> </div>
+            <h3>Web Application</h3>
+            <p class="mb-3">My Web Application Deployment service ensures a seamless and secure launch of your web
+              applications.</p>
+            <a href="./../../services/security/ssh-server.html" class="btn btn-soft-pink btn-hover-dark">Learn More</a>
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-lg-3">
+            <div class="svg-bg svg-bg-lg bg-white rounded-xl shadow-xl mb-6"> <img loading="lazy"
+                src="./../../assets/img/icons/solid/rocket.svg" class="svg-inject icon-svg solid-duo text-grape-fuchsia"
+                alt="" /> </div>
+            <h3>Assistance</h3>
+            <p class="mb-3">I fine-tune server settings, streamline processes, and maximize resource allocation,
+              resulting in faster loading times.</p>
+            <a href="./../../services/servers/performance-optimization.html"
+              class="btn btn-soft-green btn-hover-dark">Learn More</a>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- Service Extra Features -->
+
+
+    <!-- CTA -->
+    <section class="wrapper bg-gray bg-gradient">
+      <div class="grad-bg-white4">
+        <div class="container py-12 text-center">
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <h1 class="display-1 mx-lg-n10 mx-xl-0 mb-5">Let's Discuss and Customize your Solution</h1>
+              <p class="lead fs-24 px-md-12 px-lg-0 mx-lg-n10 mx-xl-0 mb-8">Prepare the Project details and let me
+                assist you.</p>
+              <a href="./../../contact/contact-form.html" class="btn btn-outline-gradient gradient-6">Get the Service
+                <i class="uil uil-arrow-up-right"></i></a>
+            </div>
+            <!-- /column -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.wrapper -->
+    </section>
+    <!-- /CTA -->
+
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="bg-light">
+    <div class="container py-8 py-md-10">
+      <div class="row gy-6 gy-lg-0">
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <img loading="lazy" class="mb-4" src="./../../assets/img/photos/shuvoaftab/ibrahim-logo-pacifico.png"
+              srcset="./../../assets/img/photos/shuvoaftab/ibrahim-logo-pacifico.png 2x" alt="" />
+            <p class="mb-4"><span class=" fw-bold fst-italic">"The two most powerful warriors are patience and
+                time."</span><br class="d-none d-lg-block" />⇲ Leo Tolstoy</p>
+
+            <nav class="nav social ">
+              <a href="https://github.com/shuvoaftab/" target="_blank"><i class="uil uil-github"></i></a>
+              <a href="https://twitter.com/shuvoaftab/" target="_blank"><i class="uil uil-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/ibrahimsharif/" target="_blank"><i class="uil uil-linkedin"></i></a>
+              <a href="https://www.youtube.com/user/MrIbrahimsharif/" target="_blank"><i
+                  class="uil uil-youtube"></i></a>
+            </nav>
+            <!-- /.social -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title  mb-3">Shortcuts</h4>
+            <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
+
+            <ul class="list-unstyled text-reset mb-0">
+              <li><a href="./../../projects/wordpress/index.html">WordPress</a></li>
+              <li><a href="./../../projects/servers/index.html">Linux Servers</a></li>
+              <li><a href="./../../projects/emails/index.html">Email Marketing</a></li>
+              <li><a href="./../../projects/migration/index.html">Website Migration</a></li>
+              <li><a href="./../../projects/automation/index.html">Automation & Marketing</a></li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title  mb-3">Learn More</h4>
+            <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
+
+            <ul class="list-unstyled text-reset mb-0">
+              <li><a href="./../../about/status.html">My Status</a></li>
+              <li><a href="./../../about/portfolios.html">Portfolios</a></li>
+              <li><a href="./../../projects/index.html">Projects</a></li>
+              <li><a href="./../../terms.html">Terms of Services</a></li>
+              <li><a href="./../../policy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-12 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title  mb-3">My Newsletter</h4>
+            <!-- <hr class="bg-soft-gray bg-gradient mt-1 mb-1" /> -->
+
+            <p class="mb-5">Subscribe to my newsletter to get our news & deals delivered to you.</p>
+            <div class="newsletter-wrapper">
+              <!-- Begin Mailchimp Signup Form -->
+              <div id="mc_embed_signup2">
+                <form
+                  action="https://ibrahimsharif.us12.list-manage.com/subscribe/post?u=e292ae517bf0ac49cecfc25e3&amp;id=95f6156749&amp;f_id=00104be0f0"
+                  method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form" class="validate "
+                  target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll2">
+                    <div class="mc-field-group input-group form-floating">
+                      <input type="email" value="" name="EMAIL" class="required email form-control"
+                        placeholder="Email Address" id="mce-EMAIL2">
+                      <label for="mce-EMAIL2">Email Address</label>
+                      <input type="submit" value="Join" name="subscribe" id="mc-embedded-subscribe2"
+                        class="btn btn-primary ">
+                    </div>
+                    <div id="mce-responses2" class="clear">
+                      <div class="response" id="mce-error-response2" style="display:none"></div>
+                      <div class="response" id="mce-success-response2" style="display:none"></div>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1" value=""></div>
+                    <div class="clear"></div>
+                  </div>
+                </form>
+              </div>
+              <!--End mc_embed_signup-->
+            </div>
+            <!-- /.newsletter-wrapper -->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <div class="pt-6">
+      <p id="copyright"></p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  <script defer src="./../../assets/js/plugins.js"></script>
+  <script defer src="./../../assets/js/theme.js"></script>
+  <script defer src="./../../assets/js/custom.js"></script>
+</body>
+
+</html>
