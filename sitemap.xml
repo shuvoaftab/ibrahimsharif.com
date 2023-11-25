@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>https://ibrahimsharif.com/</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/myjourney.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/status.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/cpanel-whm-configuration.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/fix-server-issues.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/control-panels.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/server-stacks.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/performance-optimization.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/servers/server-administration.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/vm-deployment.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/container-orchestration.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/content-delivery-network.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/iam-assistance.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/object-storages.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/clouds/serverless-computing.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/email-marketing-applications.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/powermta-smtp-server.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/spf-dkim-dmarc-bimi.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/google-workspace.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/office365.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/email/wordpress-smtp.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/full-website-creation.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/fix-wordpress-bugs.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/customize-wordpress.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/ecommerce-setup.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/performance-optimization.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/wordpress/wordpress-automation.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/ecommerce.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/email.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/localhost.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/magento-data.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/server.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/migration/wordpress.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/api-protection.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/ddos-attacks.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/web-application-firewall.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/cloudflare.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/wordpress-security-plugins.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/security/wordpress-malware.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/active-campaign.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/autoresponders.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/klaviyo.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/mailchimp.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/hubspot.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/data-migration.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/ecommerce-automation.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/fix-ecommerce-issues.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/magento-store.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/shopify-store.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/ecommerce/woocommerce-store.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/database/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/database/mysql-administration.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/database/performance-tuning.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/database/query-optimization.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/analytics/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/analytics/facebook-meta-pixel.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/analytics/conversion-tracking.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/analytics/google-tag-manager.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/analytics/google-analytics.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/misc/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/misc/custom-services.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/misc/fatal-errors.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/misc/dns-issues.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/misc/ssl-certificates.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/index.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/certifications.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/contributions.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/portfolios.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/about/engagements.html</loc>
+  <lastmod>2023-11-25T06:24:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/contact/index.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/contact/all-faq.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/contact/social-profiles.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/contact/contact-form.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/database/sql-clustering.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ibrahimsharif.com/services/automation/zapier.html</loc>
+  <lastmod>2023-11-25T06:24:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
