@@ -46,36 +46,36 @@
 <h2 id="the-procedure-to-configure-fluent-smtp-with-aws-ses">The Procedure to Configure Fluent SMTP with AWS SES</h2>
 <h3 id="go-to-ses-home">Go to SES Home</h3>
 <p>Please visit <a href="https://console.aws.amazon.com/console/home">https://console.aws.amazon.com/console/home</a> and log in to your Amazon Console account. Then on the Search Bar search for “ses” and the result will show Amazon Simple Email Service click on it. the URL will similar to <a href="https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account">https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account</a> depending on your selected Region.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_ses_search-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_ses_search-shuvoaftab.png" data-alt=""></p>
 <p>Now go to Verified Identities and check if your target domain is verified or not. If it is not on the list please follow my other guide regarding Verify a Domain in AWS SES first.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_verified-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_verified-shuvoaftab.png" data-alt=""></p>
 <h3 id="create-an-smtp-credential">Create an SMTP Credential</h3>
 <p>Now go to <strong>Account Dashboard</strong> and then keep note of the <strong>SMTP Endpoint</strong> and <strong>STARTTLS Ports</strong>.</p>
 <p>Click on <strong>Create SMTP Credentials</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_create-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_create-shuvoaftab.png" data-alt=""></p>
 <p>Now give a <strong>Name</strong> for the <strong>SMTP credential</strong>. In this case, I used <strong>FluentSMTPGuide</strong>.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_create_name-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_create_name-shuvoaftab.png" data-alt=""></p>
 <p>Now you will be provided with an <strong>SMTP Username</strong> and an <strong>SMTP Password</strong>.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_created_user_pass-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_created_user_pass-shuvoaftab.png" data-alt=""></p>
 <h3 id="create-a-new-fluent-smtp-connection-for-aws-ses">Create a new Fluent SMTP Connection for AWS SES</h3>
 <p>Now it’s time to configure Fluent SMTP. Create a new SMTP Connection and the method is “<strong>Other</strong> <strong>SMTP</strong>”.</p>
 <h3 id="keypoints-of-necessary-details">Keypoints of necessary details</h3>
 <table><tbody><tr><td><strong>From Email</strong></td><td>Any email address <strong>any@yourdomain.com</strong> where yourdomain.com is a verified identity.</td></tr><tr><td><strong>From Name</strong></td><td>The Name is whatever you want to use. I am using <strong>Ibrahim Sharif</strong>.</td></tr><tr><td><strong>SMTP Host</strong></td><td><strong>email-smtp.us-east-1.amazonaws.com</strong> (It varies depending on the region you are using.)</td></tr><tr><td><strong>SMTP Port</strong></td><td><strong>465</strong></td></tr><tr><td><strong>Encryption</strong></td><td><strong>SSL</strong></td></tr><tr><td><strong>Auto TLS</strong></td><td>Yes</td></tr><tr><td><strong>Authentication</strong></td><td>Yes. It's better to store the Access keys in the Database.</td></tr><tr><td><strong>SMTP Username</strong></td><td>The <strong>SMTP Username </strong>SES was provided to us earlier.</td></tr><tr><td><strong>SMTP Password</strong></td><td>The <strong>SMTP Password</strong> SES was provided us earlier.</td></tr></tbody></table>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_settings-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_settings-shuvoaftab.png" data-alt=""></p>
 <h3 id="test-the-connection">Test the Connection</h3>
 <p>Now it’s time to test the connection if it’s working or not! Go to Fluent SMTP > Email Test:<br>
 -> Use the From as your Yahoo email is just configured.<br>
 -> Send To where you want to receive the test email.<br>
 -> HTML should be turned on to avoid suspicious activity by Spam Filters.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/Fluent_SMTP_email_test_successfully_sent.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/Fluent_SMTP_email_test_successfully_sent.png" data-alt=""></p>
 <p>Now click Send Test Email and check the destination Email Address.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_ses_received.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_ses_received.png" data-alt=""></p>
 <p>In this case, the test email is received and we are done configuring the AWS SES to send WordPress emails using the Fluent SMTP Plugin.</p>
 <h2 id="bonus-delete-aws-ses-smtp-user">Bonus: Delete AWS SES SMTP User</h2>
 <p>If you are wondering if you want to delete an SMTP User which is not needed anymore please follow the below steps:</p>
 <p>Go to <a href="https://us-east-1.console.aws.amazon.com/iamv2/home">https://<strong>us-east-1</strong>.console.aws.amazon.com/iamv2/home</a> replacing the <strong>us-east-1</strong> with your desired Region.<br>
 Alternatively, you can go to <strong>Your Account Name</strong> in the Top right corner > <strong>Security Credentials</strong> > On the left panel click on <strong>Users</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_delete_user-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_delete_user-shuvoaftab.png" data-alt=""></p>
 <p>Now select the user and Delete it from the list. You should not keep unused users which you do not use for security measurement.</p>
 <h2 id="important-note">Important Note</h2>
 <p>It is highly recommended to configure a cronjob replacing WordPress’s Default PHP-based Cronjob to operate Email sending and other scheduled jobs smoothly.<br>

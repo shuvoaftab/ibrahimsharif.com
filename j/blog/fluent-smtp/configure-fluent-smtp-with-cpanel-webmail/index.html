@@ -51,37 +51,37 @@ The goal of this tutorial is to send emails from WordPress using your Personal D
 <h3 id="check-emails-from-roundcube-email-client">Check Emails from Roundcube Email Client</h3>
 <p>Let’s assume our target Email Address to be configured is <strong><a href="mailto:ibrahim@ibrahim.com">ibrahim@ibrahim.com</a></strong>.<br>
 Go to <strong>Email</strong> > <strong>Email Accounts</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_dashboard-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_dashboard-shuvoaftab.png" data-alt=""></p>
 <p>Select your Email Account &#x26; Click on <strong>Check Email</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_accounts-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_accounts-shuvoaftab.png" data-alt=""></p>
 <p>Select <strong>Roundcube</strong> as the default Email Client</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_accounts_roundcube-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_accounts_roundcube-shuvoaftab.png" data-alt=""></p>
 <p>This is the Email Client Dashboard for all your Emails to check from cPanel.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.png" data-alt=""></p>
 <h3 id="get-the-smtp-details">Get the SMTP details</h3>
 <p>The most important part of this tutorial is to get the correct SMTP details in order to connect from Fluent SMTP to the cPanel Email Server. Please Go to <strong>Email</strong> > <strong>Email Accounts</strong> > Select your Email Account &#x26; Click on <strong>Connect Devices</strong>. There you will find 2 categories of information which are SSL and Non-SSL connections. Keep this information for configuration details of Fluent SMTP.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_connect_devices-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_connect_devices-shuvoaftab.png" data-alt=""></p>
 <h3 id="create-a-new-fluent-smtp-connection">Create a new Fluent SMTP Connection</h3>
 <p>Now it’s time to configure Fluent SMTP. Create a new SMTP Connection and the method is the <strong>Other</strong> <strong>SMTP.</strong> Please keep in mind that these details vary from one server to another and from one hosting company to another company. I have used what I got from the test cPanel server.</p>
 <p>If your Domain has a mail.domain.com DNS published according to the cPanel Zone, you may use directly this mail.domain.com as SMTP Host. And if that hostname has an SSL certificate issued you can use the most commonly used port 465 and SSL Protocol in SMTP settings. Otherwise, you will have to use a Non-SSL connection and ports like 25,26,2525,2526 which are provided by your hosting server. You should consult your hosting provider for more accurate details for this when you configure your domain.</p>
 <h3 id="keypoints-of-necessary-details">Keypoints of necessary details</h3>
 <table><tbody><tr><td><strong>From Email</strong></td><td>The email address <strong>ibrahim@ibrahim.com</strong></td></tr><tr><td><strong>From Name</strong></td><td>The Name is whatever you want to use. I am using <strong>Ibrahim Sharif</strong>.</td></tr><tr><td><strong>SMTP Host</strong></td><td>In my case: <strong>premium43.web-hosting.com</strong></td></tr><tr><td><strong>SMTP Port</strong></td><td><strong>465</strong> or <strong>25</strong> or <strong>26</strong> or <strong>587</strong></td></tr><tr><td><strong>Encryption</strong></td><td><strong>SSL</strong> or <strong>TLS</strong> or <strong>None</strong></td></tr><tr><td><strong>Auto TLS</strong></td><td><strong>Yes</strong></td></tr><tr><td><strong>Authentication</strong></td><td>Yes. It's better to store the Access keys in the Database.</td></tr><tr><td><strong>SMTP Username</strong></td><td>The cPanel Webmail email address <strong>ibrahim@ibrahim.com</strong></td></tr><tr><td><strong>SMTP Password</strong></td><td>The <strong>password </strong>while the email address was created in the cPanel.</td></tr></tbody></table>
-<img src="../../../../public/images/fluent-smtp/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.png" width="auto" height="300px" alt="Other SMTP Settings" class="img-long-center-75">
-<!-- ![](../../../../public/images/fluent-smtp/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.png) -->
+<img src="../../../images/fluent-smtp/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.png" width="auto" height="300px" alt="Other SMTP Settings" class="img-long-center-75">
+<!-- ![](../../../images/fluent-smtp/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.png) -->
 <h3 id="test-the-connection">Test the Connection</h3>
 <p>Now it’s time to test the connection if it’s working or not! Go to Fluent SMTP > Email Test:<br>
 -> Use the From as your cPanel webmail email just configured.<br>
 -> Send To where you want to receive the test email.<br>
 -> HTML should be turned on to avoid suspicious activity by Spam Filters.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/Fluent_SMTP_email_test_successfully_sent.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/Fluent_SMTP_email_test_successfully_sent.png" data-alt=""></p>
 <p>Now click Send Test Email and check the destination Email Address.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_received-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_received-shuvoaftab.png" data-alt=""></p>
 <p>In this case, the test email is received and we are done configuring the cPanel Webmail Email address to send WordPress emails using the Fluent SMTP Plugin.</p>
 <h2 id="bonus-manually-check-the-outgoing-server-or-smtp-host">Bonus: Manually check the <strong>Outgoing Server</strong> or <strong>SMTP Host</strong></h2>
 <p>In case you find sometimes that using your domain as SMTP Host does not work, you need to manually find the Hostname your cPanel server is using. To do this please send an email to your own Gmail or by default cPanel sends a welcome email to each webmail which you can check for this step.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.png" data-alt=""></p>
 <p>Click on <strong>More Details</strong> and then <strong>All Headers</strong>. Now we need to check the <strong>Received From</strong> field from the source as below:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel_email_bonus_check_SMTP_host-shuvoaftab.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/cpanel_email_bonus_check_SMTP_host-shuvoaftab.png" data-alt=""></p>
 <p>Use this hostname in Fluent SMTP as SMTP Host. Sometimes using only a Non-SSL connection works because of the hosting server’s misconfiguration about SSL. If you need further help you may contact me for assistance.</p>
 <h2 id="important-note">Important Note</h2>
 <p>It is highly recommended to configure a cronjob replacing WordPress’s Default PHP-based Cronjob to operate Email sending and other scheduled jobs smoothly.<br>
