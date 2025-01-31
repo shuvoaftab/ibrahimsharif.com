@@ -46,28 +46,28 @@
 <h2 id="the-procedure-to-configure-fluent-smtp-with-aol">The Procedure To Configure Fluent SMTP With AOL</h2>
 <h3 id="grab-the-aol-email-address">Grab the AOL Email Address</h3>
 <p>Let’s assume our target Email Address to be configured is <strong><a href="mailto:ibrahim@aol.com">ibrahim@aol.com</a></strong>.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aol_dashboard.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aol_dashboard.png" data-alt=""></p>
 <h3 id="generate-an-app-password">Generate an app password</h3>
 <p>AOL requires a different password rather than the account password like Gmail, Outlook, and Zoho Mail. Please visit: <a href="https://login.aol.com/account/security?lang=en-US">https://login.aol.com/account/security?lang=en-US</a> and create a new app password which we will be using inside Fluent SMTP settings</p>
 <p><strong>Click on Generate and Manage app passwords.</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aol_generate_app_password.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aol_generate_app_password.png" data-alt=""></p>
 <p><strong>Give a name for the app. Here I used Fluent SMTP Guide</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aol_generate_app_password_name.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aol_generate_app_password_name.png" data-alt=""></p>
 <p><strong>Now copy the generated password.</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_generate_app_password_key.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_generate_app_password_key.png" data-alt=""></p>
 <h3 id="create-a-new-fluent-smtp-connection">Create a new Fluent SMTP Connection</h3>
 <p>Now it’s time to configure Fluent SMTP. Create a new SMTP Connection and the method is <strong>Other</strong>.</p>
 <h3 id="put-necessary-details">Put necessary details</h3>
 <table><tbody><tr><td><strong>From Email</strong></td><td>The AOL email address <strong>ibrahim@aol.com</strong></td></tr><tr><td><strong>From Name</strong></td><td>The Name is whatever you want to use. I am using <strong>Ibrahim Sharif</strong>.</td></tr><tr><td><strong>SMTP Host</strong></td><td><strong>smtp.aol.com</strong></td></tr><tr><td><strong>SMTP Port</strong></td><td><strong>587</strong></td></tr><tr><td><strong>Encryption</strong></td><td><strong>TLS</strong></td></tr><tr><td><strong>Auto TLS</strong></td><td>Yes</td></tr><tr><td><strong>Authentication</strong></td><td>Yes. It's better to store the Access keys in the Database.</td></tr><tr><td><strong>SMTP Username</strong></td><td>The AOL email address <strong>ibrahim@aol.com</strong></td></tr><tr><td><strong>SMTP Password</strong></td><td>The <strong>generate app password</strong> we created earlier.</td></tr></tbody></table>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aol_settings.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aol_settings.png" data-alt=""></p>
 <h3 id="test-the-connection">Test the Connection</h3>
 <p>Now it’s time to test the connection if it’s working or not! Go to Fluent SMTP > Email Test:<br>
 -> Use the From as your AOL email is just configured.<br>
 -> Send To where you want to receive the test email.<br>
 -> HTML should be turned on to avoid suspicious activity by Spam Filters.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_gmail_test_sent_success.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_gmail_test_sent_success.png" data-alt=""></p>
 <p>Now click Send Test Email and check the destination Email Address.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../images/fluent-smtp/fluent_smtp_aol_received.png" data-alt=""></p>
+<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aol_received.png" data-alt=""></p>
 <p>In this case, the test email is received and we are done configuring the Aol Email address to send WordPress emails using the Fluent SMTP Plugin.</p>
 <h2 id="important-note">Important Note</h2>
 <p>It is highly recommended to configure a cronjob replacing WordPress’s Default PHP-based Cronjob to operate Email sending and other scheduled jobs smoothly.<br>
