@@ -36,7 +36,7 @@ jobs:
         id: upload
         uses: actions/upload-artifact@v4
         with:
-          name: gh-pages
+          name: github-pages
           path: "."
 
       - name: Deploy to GitHub Pages
