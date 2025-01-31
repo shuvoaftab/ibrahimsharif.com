@@ -1,87 +1,1209 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml"><meta name="generator" content="Astro v4.16.13"><!-- Canonical URL --><link rel="canonical" href="https://ibrahimsharif.com/j/blog/fluent-smtp/configure-fluent-smtp-with-aws-ses"><!-- Primary Meta Tags --><meta name="title" content="Configure Fluent SMTP with AWS SES (SMTP)"><meta name="description" content="This guide is to assist you configuring your AWS SES Email with FluentSMTP."><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://ibrahimsharif.com/j/blog/fluent-smtp/configure-fluent-smtp-with-aws-ses"><meta property="og:title" content="Configure Fluent SMTP with AWS SES (SMTP)"><meta property="og:description" content="This guide is to assist you configuring your AWS SES Email with FluentSMTP."><meta property="og:image" content=""><!-- <meta property="og:image:alt" content={site.description}/> --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/j/blog/fluent-smtp/configure-fluent-smtp-with-aws-ses"><meta property="twitter:title" content="Configure Fluent SMTP with AWS SES (SMTP)"><meta property="twitter:description" content="This guide is to assist you configuring your AWS SES Email with FluentSMTP."><meta property="twitter:image" content=""><meta httpEquiv="X-UA-Compatible" content="IE=edge"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="sitemap" href="./sitemap-0.xml"><title>Configure Fluent SMTP with AWS SES (SMTP)</title><script src="/j/toggle-theme.js"></script><script async type="text/javascript" src="./load-mathjax.js"></script><script async type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script><!-- Google tag (gtag.js) --><!-- CRISP Chat --><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="8d20914b-0995-4bdd-aa36-a2274ec8cca6";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><!-- Google Tag Manager --><!-- End Google Tag Manager --><link rel="stylesheet" href="/j/_astro/SidebarIcon.XaQ6XQsx.css">
-<link rel="stylesheet" href="/j/_astro/about.Bm01vZr5.css">
-<link rel="stylesheet" href="/j/_astro/hoisted.BUYUBhIy.css">
-<link rel="stylesheet" href="/j/_astro/_slug_.BmGxd5qf.css">
-<style>#donate-item-img{filter:grayscale(1)}#donate-item-img:hover{filter:blur(0px);cursor:pointer}.esa-sponsor{position:relative;width:100%;margin:40px 0}.esa-sponsor .qrshow{position:absolute;width:200px;height:200px;cursor:pointer;left:calc(50% - 100px);top:-170px;z-index:999;display:none;box-shadow:0 1px 15px #1b1f2326,0 0 1px #6a737d59}
-.post-title[data-astro-cid-6t6zfk7k]:hover{outline:0;color:#cc7a00;text-shadow:1px 1px 1px #ffd147}.toc_container[data-astro-cid-6t6zfk7k]{overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none}.toc_container[data-astro-cid-6t6zfk7k]::-webkit-scrollbar{width:0;height:0}.toc_container[data-astro-cid-6t6zfk7k] a[data-astro-cid-6t6zfk7k]{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
-</style><script type="module" src="/j/_astro/hoisted.UGvNRd-T.js"></script></head><body class="bg-skin-secondary bg-bluish"> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> <header class="fixed top-0 w-full bg-skin-fill text-skin-base z-10"> <div class="flex items-center justify-between container"> <div class="block xl:hidden"> <button type="button" id="menu-icon" class="header-btn" title="Menu"> <i class="ri-menu-fill"></i> </button> <button type="button" id="menu-icon-close" class="header-btn hidden" title="Menu"> <i class="ri-close-fill"></i> </button>  </div> <!-- <a class="text-2xl p-4" href={baseURL}>{site.title}</a> --> <a class="text-2xl p-4" href="https://ibrahimsharif.com/">Ibrahim</a> <div class="flex items-center"> <div class="hidden xl:block"> <div class="flex items-center space-x-5 pr-4"> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/j/blog/1" target="_self" class="header-link-active hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-draft-line" data-astro-cid-eimmu3lg></i> Blog  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/j/archive/1" target="_self" class="header-link-active hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-archive-line" data-astro-cid-eimmu3lg></i> Archive  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/projects/" target="_self" class="hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-briefcase-line" data-astro-cid-eimmu3lg></i> Projects  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/contact/contact-form.html" target="_self" class="hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-account-box-line" data-astro-cid-eimmu3lg></i> Contact  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/j/search" target="_self" class="header-link-active hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-search-line" data-astro-cid-eimmu3lg></i> Search  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="javascript:void(0);" target="_self" class="hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-more-fill" data-astro-cid-eimmu3lg></i> More <i class="ri-arrow-down-s-line" data-astro-cid-eimmu3lg></i> </a> <div class="dropdown cursor-pointer border rounded bg-skin-fill p-4" data-astro-cid-eimmu3lg> <ul class="space-y-4 w-28" data-astro-cid-eimmu3lg> <li class="text-center hover:text-skin-active select-none" data-astro-cid-eimmu3lg> <i class="ri-information-line" data-astro-cid-eimmu3lg></i> <a target="_self" href="/j/about" data-astro-cid-eimmu3lg>About</a> </li> </ul> </div> </div>  </div> </div> <button type="button" id="theme-btn" class="header-btn" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <i id="moon-icon" class="ri-sun-line"></i> <i id="sun-icon" class="ri-moon-line"></i> </button> <div class="block xl:hidden"> <button type="button" id="aside-btn" class="header-btn" title="Open Aside Bar" aria-label="auto" aria-live="polite"> <i class="ri-user-line"></i> </button> <button type="button" id="aside-close-btn" class="header-btn hidden" title="Close Aside Bar" aria-label="auto" aria-live="polite"> <i class="ri-close-fill"></i> </button> <div id="blog-aside" class="absolute top-16 bg-skin-fill right-0 blog-aside hidden"></div>  </div> </div> </div> <div id="mobile-menu" class="hidden text-center overflow-y-auto pb-8" style="height: calc(100vh - 64px)"> <div class="py-2"> <a class=" hover:text-skin-active" href="/j/blog/1"> <i class="ri-draft-line"></i> <span>Blog</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/j/archive/1"> <i class="ri-archive-line"></i> <span>Archive</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/projects/"> <i class="ri-briefcase-line"></i> <span>Projects</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/contact/contact-form.html"> <i class="ri-account-box-line"></i> <span>Contact</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/j/search"> <i class="ri-search-line"></i> <span>Search</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="javascript:void(0);"> <i class="ri-more-fill"></i> <span>More</span> </a> <div class="divider-horizontal"></div> <div class="space-y-4 text-sm"> <a class="block hover:text-skin-active" href="/j/about"> <i class="ri-information-line"></i> <span>About</span> </a> </div> </div> </div> <div id="personal-info" class="hidden break-all overflow-y-auto pb-8" style="height: calc(100vh - 64px)"> <img class="avatar my-4 mx-auto" src="/j/images/avatar.jpg" alt="avatar"> <div class="mb-2 text-center">Actions speak louder than words.</div> <div class="flex items-center justify-center flex-wrap"> <a title="github" href="https://github.com/shuvoaftab" target="_blank"> <i class="ri-github-fill text-2xl mr-2 cursor-pointer"></i> </a> </div> <div class="divider-horizontal-mini"></div> <div class="text-center"> <div> <i class="ri-folder-line menu-icon"></i>Categories </div> <div class="my-2 break-all truncate"> <a class="hover:text-skin-active" title="WordPress (10)" href="/category/WordPress"> WordPress (10) </a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active" title="How to (1)" href="/category/How to"> How to (1) </a> </div> <div class="divider-horizontal-mini"></div>
-          <div class="text-center"> <i class="ri-price-tag-3-line menu-icon"></i> Tags </div> <div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="FluentSMTP" href="/tags/FluentSMTP">FluentSMTP (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="WordPress" href="/tags/WordPress">WordPress (10)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Email" href="/tags/Email">Email (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="AOL" href="/tags/AOL">AOL (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="SMTP" href="/tags/SMTP">SMTP (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Email Deliverability" href="/tags/Email Deliverability">Email Deliverability (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="AWS" href="/tags/AWS">AWS (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="SES" href="/tags/SES">SES (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="cPanel" href="/tags/cPanel">cPanel (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Webmail" href="/tags/Webmail">Webmail (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Roundcube" href="/tags/Roundcube">Roundcube (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Outlook" href="/tags/Outlook">Outlook (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Office365" href="/tags/Office365">Office365 (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Microsoft" href="/tags/Microsoft">Microsoft (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Yahoo" href="/tags/Yahoo">Yahoo (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Zoho" href="/tags/Zoho">Zoho (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Workspace" href="/tags/Workspace">Workspace (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Google" href="/tags/Google">Google (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Gmail" href="/tags/Gmail">Gmail (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="CSS" href="/tags/CSS">CSS (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="HTML" href="/tags/HTML">HTML (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="JS" href="/tags/JS">JS (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="How to" href="/tags/How to">How to (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Guide" href="/tags/Guide">Guide (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Customization" href="/tags/Customization">Customization (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Debug" href="/tags/Debug">Debug (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Troubleshoot" href="/tags/Troubleshoot">Troubleshoot (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="WooCommerce" href="/tags/WooCommerce">WooCommerce (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Cron Job" href="/tags/Cron Job">Cron Job (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Server" href="/tags/Server">Server (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Hosting" href="/tags/Hosting">Hosting (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Tutorial" href="/tags/Tutorial">Tutorial (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Theme" href="/tags/Theme">Theme (1)</a> </div> </div> </div> </header> <main class="container p-4  pt-20 text-skin-base min-h-full pb-32 relative" id="app"> <div class="grid grid-cols-4 gap-4"> <div class="col-span-4 xl:col-span-3 space-y-4 blog-container"> <!-- <button class="flex items-center text-md cursor-pointer hover:text-skin-active outline-none go-back" onclick="history.back()">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" />
+        <meta name="generator" content="Astro v4.16.13" />
+        <!-- Canonical URL -->
+        <link
+            rel="canonical"
+            href="https://ibrahimsharif.com/j/blog/fluent-smtp/configure-fluent-smtp-with-aws-ses"
+        />
+        <!-- Primary Meta Tags -->
+        <meta
+            name="title"
+            content="Configure Fluent SMTP with AWS SES (SMTP)"
+        />
+        <meta
+            name="description"
+            content="This guide is to assist you configuring your AWS SES Email with FluentSMTP."
+        />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://ibrahimsharif.com/j/blog/fluent-smtp/configure-fluent-smtp-with-aws-ses"
+        />
+        <meta
+            property="og:title"
+            content="Configure Fluent SMTP with AWS SES (SMTP)"
+        />
+        <meta
+            property="og:description"
+            content="This guide is to assist you configuring your AWS SES Email with FluentSMTP."
+        />
+        <meta property="og:image" content="" />
+        <!-- <meta property="og:image:alt" content={site.description}/> -->
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://ibrahimsharif.com/j/blog/fluent-smtp/configure-fluent-smtp-with-aws-ses"
+        />
+        <meta
+            property="twitter:title"
+            content="Configure Fluent SMTP with AWS SES (SMTP)"
+        />
+        <meta
+            property="twitter:description"
+            content="This guide is to assist you configuring your AWS SES Email with FluentSMTP."
+        />
+        <meta property="twitter:image" content="" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="sitemap" href="./sitemap-0.xml" />
+        <title>Configure Fluent SMTP with AWS SES (SMTP)</title>
+        <script src="/j/toggle-theme.js"></script>
+        <script async type="text/javascript" src="./load-mathjax.js"></script>
+        <script
+            async
+            type="text/javascript"
+            src="https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.0/mermaid.min.js"
+        ></script>
+        <!-- Google tag (gtag.js) -->
+        <!-- CRISP Chat -->
+        <script type="text/javascript">
+            window.$crisp = [];
+            window.CRISP_WEBSITE_ID = "8d20914b-0995-4bdd-aa36-a2274ec8cca6";
+            (function () {
+                d = document;
+                s = d.createElement("script");
+                s.src = "https://client.crisp.chat/l.js";
+                s.async = 1;
+                d.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- Google Tag Manager -->
+        <!-- End Google Tag Manager -->
+        <link rel="stylesheet" href="/j/_astro/SidebarIcon.XaQ6XQsx.css" />
+        <link rel="stylesheet" href="/j/_astro/about.Bm01vZr5.css" />
+        <link rel="stylesheet" href="/j/_astro/hoisted.BUYUBhIy.css" />
+        <link rel="stylesheet" href="/j/_astro/_slug_.BmGxd5qf.css" />
+        <style>
+            #donate-item-img {
+                filter: grayscale(1);
+            }
+            #donate-item-img:hover {
+                filter: blur(0px);
+                cursor: pointer;
+            }
+            .esa-sponsor {
+                position: relative;
+                width: 100%;
+                margin: 40px 0;
+            }
+            .esa-sponsor .qrshow {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                cursor: pointer;
+                left: calc(50% - 100px);
+                top: -170px;
+                z-index: 999;
+                display: none;
+                box-shadow: 0 1px 15px #1b1f2326, 0 0 1px #6a737d59;
+            }
+            .post-title[data-astro-cid-6t6zfk7k]:hover {
+                outline: 0;
+                color: #cc7a00;
+                text-shadow: 1px 1px 1px #ffd147;
+            }
+            .toc_container[data-astro-cid-6t6zfk7k] {
+                overflow-y: scroll;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .toc_container[data-astro-cid-6t6zfk7k]::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+            }
+            .toc_container[data-astro-cid-6t6zfk7k] a[data-astro-cid-6t6zfk7k] {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        </style>
+        <script type="module" src="/j/_astro/hoisted.UGvNRd-T.js"></script>
+    </head>
+    <body class="bg-skin-secondary bg-bluish">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <header class="fixed top-0 w-full bg-skin-fill text-skin-base z-10">
+            <div class="flex items-center justify-between container">
+                <div class="block xl:hidden">
+                    <button
+                        type="button"
+                        id="menu-icon"
+                        class="header-btn"
+                        title="Menu"
+                    >
+                        <i class="ri-menu-fill"></i>
+                    </button>
+                    <button
+                        type="button"
+                        id="menu-icon-close"
+                        class="header-btn hidden"
+                        title="Menu"
+                    >
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <!-- <a class="text-2xl p-4" href={baseURL}>{site.title}</a> -->
+                <a class="text-2xl p-4" href="https://ibrahimsharif.com/"
+                    >Ibrahim</a
+                >
+                <div class="flex items-center">
+                    <div class="hidden xl:block">
+                        <div class="flex items-center space-x-5 pr-4">
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/j/blog/1"
+                                    target="_self"
+                                    class="header-link-active hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-draft-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Blog
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/j/archive/1"
+                                    target="_self"
+                                    class="header-link-active hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-archive-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Archive
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/projects/"
+                                    target="_self"
+                                    class="hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-briefcase-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Projects
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/contact/contact-form.html"
+                                    target="_self"
+                                    class="hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-account-box-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Contact
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/j/search"
+                                    target="_self"
+                                    class="header-link-active hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-search-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Search
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="javascript:void(0);"
+                                    target="_self"
+                                    class="hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-more-fill"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    More
+                                    <i
+                                        class="ri-arrow-down-s-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                </a>
+                                <div
+                                    class="dropdown cursor-pointer border rounded bg-skin-fill p-4"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <ul
+                                        class="space-y-4 w-28"
+                                        data-astro-cid-eimmu3lg
+                                    >
+                                        <li
+                                            class="text-center hover:text-skin-active select-none"
+                                            data-astro-cid-eimmu3lg
+                                        >
+                                            <i
+                                                class="ri-information-line"
+                                                data-astro-cid-eimmu3lg
+                                            ></i>
+                                            <a
+                                                target="_self"
+                                                href="/j/about"
+                                                data-astro-cid-eimmu3lg
+                                                >About</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        id="theme-btn"
+                        class="header-btn"
+                        title="Toggles light & dark"
+                        aria-label="auto"
+                        aria-live="polite"
+                    >
+                        <i id="moon-icon" class="ri-sun-line"></i>
+                        <i id="sun-icon" class="ri-moon-line"></i>
+                    </button>
+                    <div class="block xl:hidden">
+                        <button
+                            type="button"
+                            id="aside-btn"
+                            class="header-btn"
+                            title="Open Aside Bar"
+                            aria-label="auto"
+                            aria-live="polite"
+                        >
+                            <i class="ri-user-line"></i>
+                        </button>
+                        <button
+                            type="button"
+                            id="aside-close-btn"
+                            class="header-btn hidden"
+                            title="Close Aside Bar"
+                            aria-label="auto"
+                            aria-live="polite"
+                        >
+                            <i class="ri-close-fill"></i>
+                        </button>
+                        <div
+                            id="blog-aside"
+                            class="absolute top-16 bg-skin-fill right-0 blog-aside hidden"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+            <div
+                id="mobile-menu"
+                class="hidden text-center overflow-y-auto pb-8"
+                style="height: calc(100vh - 64px)"
+            >
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/j/blog/1">
+                        <i class="ri-draft-line"></i> <span>Blog</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/j/archive/1">
+                        <i class="ri-archive-line"></i> <span>Archive</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/projects/">
+                        <i class="ri-briefcase-line"></i> <span>Projects</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a
+                        class="hover:text-skin-active"
+                        href="/contact/contact-form.html"
+                    >
+                        <i class="ri-account-box-line"></i> <span>Contact</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/j/search">
+                        <i class="ri-search-line"></i> <span>Search</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a
+                        class="hover:text-skin-active"
+                        href="javascript:void(0);"
+                    >
+                        <i class="ri-more-fill"></i> <span>More</span>
+                    </a>
+                    <div class="divider-horizontal"></div>
+                    <div class="space-y-4 text-sm">
+                        <a class="block hover:text-skin-active" href="/j/about">
+                            <i class="ri-information-line"></i>
+                            <span>About</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div
+                id="personal-info"
+                class="hidden break-all overflow-y-auto pb-8"
+                style="height: calc(100vh - 64px)"
+            >
+                <img
+                    class="avatar my-4 mx-auto"
+                    src="/j/images/avatar.jpg"
+                    alt="avatar"
+                />
+                <div class="mb-2 text-center">
+                    Actions speak louder than words.
+                </div>
+                <div class="flex items-center justify-center flex-wrap">
+                    <a
+                        title="github"
+                        href="https://github.com/shuvoaftab"
+                        target="_blank"
+                    >
+                        <i
+                            class="ri-github-fill text-2xl mr-2 cursor-pointer"
+                        ></i>
+                    </a>
+                </div>
+                <div class="divider-horizontal-mini"></div>
+                <div class="text-center">
+                    <div>
+                        <i class="ri-folder-line menu-icon"></i>Categories
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active"
+                            title="WordPress (10)"
+                            href="/category/WordPress"
+                        >
+                            WordPress (10)
+                        </a>
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active"
+                            title="How to (1)"
+                            href="/category/How to"
+                        >
+                            How to (1)
+                        </a>
+                    </div>
+                    <div class="divider-horizontal-mini"></div>
+                    <div class="text-center">
+                        <i class="ri-price-tag-3-line menu-icon"></i> Tags
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="FluentSMTP"
+                            href="/tags/FluentSMTP"
+                            >FluentSMTP (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="WordPress"
+                            href="/tags/WordPress"
+                            >WordPress (10)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Email"
+                            href="/tags/Email"
+                            >Email (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="AOL"
+                            href="/tags/AOL"
+                            >AOL (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="SMTP"
+                            href="/tags/SMTP"
+                            >SMTP (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Email Deliverability"
+                            href="/tags/Email Deliverability"
+                            >Email Deliverability (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="AWS"
+                            href="/tags/AWS"
+                            >AWS (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="SES"
+                            href="/tags/SES"
+                            >SES (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="cPanel"
+                            href="/tags/cPanel"
+                            >cPanel (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Webmail"
+                            href="/tags/Webmail"
+                            >Webmail (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Roundcube"
+                            href="/tags/Roundcube"
+                            >Roundcube (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Outlook"
+                            href="/tags/Outlook"
+                            >Outlook (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Office365"
+                            href="/tags/Office365"
+                            >Office365 (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Microsoft"
+                            href="/tags/Microsoft"
+                            >Microsoft (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Yahoo"
+                            href="/tags/Yahoo"
+                            >Yahoo (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Zoho"
+                            href="/tags/Zoho"
+                            >Zoho (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Workspace"
+                            href="/tags/Workspace"
+                            >Workspace (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Google"
+                            href="/tags/Google"
+                            >Google (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Gmail"
+                            href="/tags/Gmail"
+                            >Gmail (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="CSS"
+                            href="/tags/CSS"
+                            >CSS (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="HTML"
+                            href="/tags/HTML"
+                            >HTML (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="JS"
+                            href="/tags/JS"
+                            >JS (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="How to"
+                            href="/tags/How to"
+                            >How to (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Guide"
+                            href="/tags/Guide"
+                            >Guide (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Customization"
+                            href="/tags/Customization"
+                            >Customization (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Debug"
+                            href="/tags/Debug"
+                            >Debug (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Troubleshoot"
+                            href="/tags/Troubleshoot"
+                            >Troubleshoot (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="WooCommerce"
+                            href="/tags/WooCommerce"
+                            >WooCommerce (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Cron Job"
+                            href="/tags/Cron Job"
+                            >Cron Job (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Server"
+                            href="/tags/Server"
+                            >Server (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Hosting"
+                            href="/tags/Hosting"
+                            >Hosting (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Tutorial"
+                            href="/tags/Tutorial"
+                            >Tutorial (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Theme"
+                            href="/tags/Theme"
+                            >Theme (1)</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main
+            class="container p-4 pt-20 text-skin-base min-h-full pb-32 relative"
+            id="app"
+        >
+            <div class="grid grid-cols-4 gap-4">
+                <div class="col-span-4 xl:col-span-3 space-y-4 blog-container">
+                    <!-- <button class="flex items-center text-md cursor-pointer hover:text-skin-active outline-none go-back" onclick="history.back()">
         <i class="ri-arrow-left-line mr-2"/>
         <span>{t('home.goBack')}</span>
-          </button> -->  <div> <div class="border-b-1"> <!-- title --> <h1 class="break-all text-xl font-bold post-title">Configure Fluent SMTP with AWS SES (SMTP)</h1> <div class="flex flex-wrap items-center my-2 space-x-2"> <!-- date --> <i class="ri-calendar-2-fill"></i>
-        <div class="tag">11th April 2022</div> <!-- draft -->  <!-- category --> <div class="divider-vertical"></div>
-        <i class="ri-folder-3-line"></i>
-        <a href="/j/category/WordPress" class="text-wrap break-all  hover:text-skin-active cursor-pointer">WordPress</a> <!-- tag --> <div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/FluentSMTP" class="text-wrap break-all hover:text-skin-active cursor-pointer">FluentSMTP</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/WordPress" class="text-wrap break-all hover:text-skin-active cursor-pointer">WordPress</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Email" class="text-wrap break-all hover:text-skin-active cursor-pointer">Email</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/AWS" class="text-wrap break-all hover:text-skin-active cursor-pointer">AWS</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/SES" class="text-wrap break-all hover:text-skin-active cursor-pointer">SES</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/SMTP" class="text-wrap break-all hover:text-skin-active cursor-pointer">SMTP</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Email Deliverability" class="text-wrap break-all hover:text-skin-active cursor-pointer">Email Deliverability</a> <!-- update --> <div class="divider-vertical"></div>
-        <i class="ri-calendar-check-fill"></i>
-        <div class="tag">Last updated：24th January 2025</div> <!-- minutes --> <div class="divider-vertical"></div>
-        <i class="ri-hourglass-fill"></i>
-        <div class="tag">4 Minutes</div>
-        <div class="divider-vertical"></div>
-        <div class="tag">658 Words</div> </div> </div> <div class="divider-horizontal"></div> <article class="markdown-body"> <p>Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable email service that enables developers, and site owners to send mail from WordPress to their customers, and users or send notifications for test purposes. AWS SES is also the cheapest top-quality email delivery method available in the market. In this guide, we are going to. configure Fluent SMTP with AWS SES to send emails from WordPress through SES. If you have checked or reviewed my other article about <a href="../configure-gmail-with-fluent-smtp/">Configuring Gmail with Fluent SMTP</a> you will find it easier to follow this guide.</p>
-<h2 id="prerequisites-to-configure-fluent-smtp-with-aws-ses">Prerequisites to Configure Fluent SMTP with AWS SES</h2>
-<p>In order to proceed, there are a few things that are needed beforehand to configure Fluent SMTP with Yahoo as below:</p>
-<table><tbody><tr><td><strong>Verified Identity</strong></td><td>You must verify an email or a domain as a verified identity inside AWS SES.</td></tr><tr><td><strong>Production Access</strong></td><td>You must also get approval for Production access to send emails to users.</td></tr><tr><td><strong>Administrative Permission</strong></td><td>WordPress Administrator Role-based user access.</td></tr><tr><td><strong>Firewall Status</strong></td><td>Port 465 Opened on WordPress Server.</td></tr><tr><td><strong>TLS Support</strong></td><td>TLS v1.0 v1.1 v1.2 v1.3 Support from the server where WordPress is hosted.</td></tr></tbody></table>
-<h2 id="steps-to-configure-fluent-smtp-with-aws-ses">Steps to Configure Fluent SMTP with AWS SES</h2>
-<ol>
-<li>Go to SES Home &#x26; Check the verified Identities.</li>
-<li>Create an SMTP Credential.</li>
-<li>Create a new Fluent SMTP Connection with Other SMTP Methods.</li>
-<li>Put the necessary details and Save.</li>
-<li>Test the Connection.</li>
-</ol>
-<h2 id="the-procedure-to-configure-fluent-smtp-with-aws-ses">The Procedure to Configure Fluent SMTP with AWS SES</h2>
-<h3 id="go-to-ses-home">Go to SES Home</h3>
-<p>Please visit <a href="https://console.aws.amazon.com/console/home">https://console.aws.amazon.com/console/home</a> and log in to your Amazon Console account. Then on the Search Bar search for “ses” and the result will show Amazon Simple Email Service click on it. the URL will similar to <a href="https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account">https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account</a> depending on your selected Region.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_ses_search-shuvoaftab.png" data-alt=""></p>
-<p>Now go to Verified Identities and check if your target domain is verified or not. If it is not on the list please follow my other guide regarding Verify a Domain in AWS SES first.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_verified-shuvoaftab.png" data-alt=""></p>
-<h3 id="create-an-smtp-credential">Create an SMTP Credential</h3>
-<p>Now go to <strong>Account Dashboard</strong> and then keep note of the <strong>SMTP Endpoint</strong> and <strong>STARTTLS Ports</strong>.</p>
-<p>Click on <strong>Create SMTP Credentials</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_create-shuvoaftab.png" data-alt=""></p>
-<p>Now give a <strong>Name</strong> for the <strong>SMTP credential</strong>. In this case, I used <strong>FluentSMTPGuide</strong>.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_create_name-shuvoaftab.png" data-alt=""></p>
-<p>Now you will be provided with an <strong>SMTP Username</strong> and an <strong>SMTP Password</strong>.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_created_user_pass-shuvoaftab.png" data-alt=""></p>
-<h3 id="create-a-new-fluent-smtp-connection-for-aws-ses">Create a new Fluent SMTP Connection for AWS SES</h3>
-<p>Now it’s time to configure Fluent SMTP. Create a new SMTP Connection and the method is “<strong>Other</strong> <strong>SMTP</strong>”.</p>
-<h3 id="keypoints-of-necessary-details">Keypoints of necessary details</h3>
-<table><tbody><tr><td><strong>From Email</strong></td><td>Any email address <strong>any@yourdomain.com</strong> where yourdomain.com is a verified identity.</td></tr><tr><td><strong>From Name</strong></td><td>The Name is whatever you want to use. I am using <strong>Ibrahim Sharif</strong>.</td></tr><tr><td><strong>SMTP Host</strong></td><td><strong>email-smtp.us-east-1.amazonaws.com</strong> (It varies depending on the region you are using.)</td></tr><tr><td><strong>SMTP Port</strong></td><td><strong>465</strong></td></tr><tr><td><strong>Encryption</strong></td><td><strong>SSL</strong></td></tr><tr><td><strong>Auto TLS</strong></td><td>Yes</td></tr><tr><td><strong>Authentication</strong></td><td>Yes. It's better to store the Access keys in the Database.</td></tr><tr><td><strong>SMTP Username</strong></td><td>The <strong>SMTP Username </strong>SES was provided to us earlier.</td></tr><tr><td><strong>SMTP Password</strong></td><td>The <strong>SMTP Password</strong> SES was provided us earlier.</td></tr></tbody></table>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_settings-shuvoaftab.png" data-alt=""></p>
-<h3 id="test-the-connection">Test the Connection</h3>
-<p>Now it’s time to test the connection if it’s working or not! Go to Fluent SMTP > Email Test:<br>
--> Use the From as your Yahoo email is just configured.<br>
--> Send To where you want to receive the test email.<br>
--> HTML should be turned on to avoid suspicious activity by Spam Filters.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/Fluent_SMTP_email_test_successfully_sent.png" data-alt=""></p>
-<p>Now click Send Test Email and check the destination Email Address.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_ses_received.png" data-alt=""></p>
-<p>In this case, the test email is received and we are done configuring the AWS SES to send WordPress emails using the Fluent SMTP Plugin.</p>
-<h2 id="bonus-delete-aws-ses-smtp-user">Bonus: Delete AWS SES SMTP User</h2>
-<p>If you are wondering if you want to delete an SMTP User which is not needed anymore please follow the below steps:</p>
-<p>Go to <a href="https://us-east-1.console.aws.amazon.com/iamv2/home">https://<strong>us-east-1</strong>.console.aws.amazon.com/iamv2/home</a> replacing the <strong>us-east-1</strong> with your desired Region.<br>
-Alternatively, you can go to <strong>Your Account Name</strong> in the Top right corner > <strong>Security Credentials</strong> > On the left panel click on <strong>Users</strong></p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/fluent_smtp_aws_ses_delete_user-shuvoaftab.png" data-alt=""></p>
-<p>Now select the user and Delete it from the list. You should not keep unused users which you do not use for security measurement.</p>
-<h2 id="important-note">Important Note</h2>
-<p>It is highly recommended to configure a cronjob replacing WordPress’s Default PHP-based Cronjob to operate Email sending and other scheduled jobs smoothly.<br>
-Some hosting may not allow running a cronjob below 5 Minutes. But it is still better than a PHP-Based cronjob.</p>
-<p>Emails landing in Spam Folders depend on numerous factors including IP reputation, Domain reputation, and Email Body Content.</p>
-<!-- * * * --> </article> <div class="divider-horizontal"></div> <div class="h-8 text-skin-base"> <a class="truncate  w-auto max-w-[40%] float-left btn-nav" href="/j/blog/wp/wordpress-website-troubleshooting" title="WordPress Website Troubleshooting"> <i class="ri-arrow-left-s-fill"></i> WordPress Website Troubleshooting </a> <div class="flex item-center float-right w-auto max-w-[40%] text-right btn-nav"> <a class="truncate " href="/j/blog/fluent-smtp/configure-fluent-smtp-with-aol" title="Configure Fluent SMTP with AOL (SMTP)"> Configure Fluent SMTP with AOL (SMTP) </a> <i class="ri-arrow-right-s-fill float-right"></i> </div> </div> <!-- <div class="border-l-4 my-4 p-4 border-l-skin-base bg-skin-card break-all">
+          </button> -->
+                    <div>
+                        <div class="border-b-1">
+                            <!-- title -->
+                            <h1 class="break-all text-xl font-bold post-title">
+                                Configure Fluent SMTP with AWS SES (SMTP)
+                            </h1>
+                            <div
+                                class="flex flex-wrap items-center my-2 space-x-2"
+                            >
+                                <!-- date -->
+                                <i class="ri-calendar-2-fill"></i>
+                                <div class="tag">11th April 2022</div>
+                                <!-- draft -->
+                                <!-- category -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-folder-3-line"></i>
+                                <a
+                                    href="/j/category/WordPress"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >WordPress</a
+                                >
+                                <!-- tag -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/FluentSMTP"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >FluentSMTP</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/WordPress"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >WordPress</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Email"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Email</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/AWS"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >AWS</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/SES"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >SES</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/SMTP"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >SMTP</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Email Deliverability"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Email Deliverability</a
+                                >
+                                <!-- update -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-calendar-check-fill"></i>
+                                <div class="tag">
+                                    Last updated：24th January 2025
+                                </div>
+                                <!-- minutes -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-hourglass-fill"></i>
+                                <div class="tag">4 Minutes</div>
+                                <div class="divider-vertical"></div>
+                                <div class="tag">658 Words</div>
+                            </div>
+                        </div>
+                        <div class="divider-horizontal"></div>
+                        <article class="markdown-body">
+                            <p>
+                                Amazon Simple Email Service (SES) is a
+                                cost-effective, flexible, and scalable email
+                                service that enables developers, and site owners
+                                to send mail from WordPress to their customers,
+                                and users or send notifications for test
+                                purposes. AWS SES is also the cheapest
+                                top-quality email delivery method available in
+                                the market. In this guide, we are going to.
+                                configure Fluent SMTP with AWS SES to send
+                                emails from WordPress through SES. If you have
+                                checked or reviewed my other article about
+                                <a href="../configure-gmail-with-fluent-smtp/"
+                                    >Configuring Gmail with Fluent SMTP</a
+                                >
+                                you will find it easier to follow this guide.
+                            </p>
+                            <h2
+                                id="prerequisites-to-configure-fluent-smtp-with-aws-ses"
+                            >
+                                Prerequisites to Configure Fluent SMTP with AWS
+                                SES
+                            </h2>
+                            <p>
+                                In order to proceed, there are a few things that
+                                are needed beforehand to configure Fluent SMTP
+                                with Yahoo as below:
+                            </p>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Verified Identity</strong>
+                                        </td>
+                                        <td>
+                                            You must verify an email or a domain
+                                            as a verified identity inside AWS
+                                            SES.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Production Access</strong>
+                                        </td>
+                                        <td>
+                                            You must also get approval for
+                                            Production access to send emails to
+                                            users.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong
+                                                >Administrative
+                                                Permission</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            WordPress Administrator Role-based
+                                            user access.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Firewall Status</strong>
+                                        </td>
+                                        <td>
+                                            Port 465 Opened on WordPress Server.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>TLS Support</strong></td>
+                                        <td>
+                                            TLS v1.0 v1.1 v1.2 v1.3 Support from
+                                            the server where WordPress is
+                                            hosted.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h2
+                                id="steps-to-configure-fluent-smtp-with-aws-ses"
+                            >
+                                Steps to Configure Fluent SMTP with AWS SES
+                            </h2>
+                            <ol>
+                                <li>
+                                    Go to SES Home &#x26; Check the verified
+                                    Identities.
+                                </li>
+                                <li>Create an SMTP Credential.</li>
+                                <li>
+                                    Create a new Fluent SMTP Connection with
+                                    Other SMTP Methods.
+                                </li>
+                                <li>Put the necessary details and Save.</li>
+                                <li>Test the Connection.</li>
+                            </ol>
+                            <h2
+                                id="the-procedure-to-configure-fluent-smtp-with-aws-ses"
+                            >
+                                The Procedure to Configure Fluent SMTP with AWS
+                                SES
+                            </h2>
+                            <h3 id="go-to-ses-home">Go to SES Home</h3>
+                            <p>
+                                Please visit
+                                <a
+                                    href="https://console.aws.amazon.com/console/home"
+                                    >https://console.aws.amazon.com/console/home</a
+                                >
+                                and log in to your Amazon Console account. Then
+                                on the Search Bar search for “ses” and the
+                                result will show Amazon Simple Email Service
+                                click on it. the URL will similar to
+                                <a
+                                    href="https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account"
+                                    >https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account</a
+                                >
+                                depending on your selected Region.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_ses_search-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                Now go to Verified Identities and check if your
+                                target domain is verified or not. If it is not
+                                on the list please follow my other guide
+                                regarding Verify a Domain in AWS SES first.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_verified-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h3 id="create-an-smtp-credential">
+                                Create an SMTP Credential
+                            </h3>
+                            <p>
+                                Now go to <strong>Account Dashboard</strong> and
+                                then keep note of the
+                                <strong>SMTP Endpoint</strong> and
+                                <strong>STARTTLS Ports</strong>.
+                            </p>
+                            <p>
+                                Click on
+                                <strong>Create SMTP Credentials</strong>
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_create-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                Now give a <strong>Name</strong> for the
+                                <strong>SMTP credential</strong>. In this case,
+                                I used <strong>FluentSMTPGuide</strong>.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_create_name-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                Now you will be provided with an
+                                <strong>SMTP Username</strong> and an
+                                <strong>SMTP Password</strong>.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_created_user_pass-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h3
+                                id="create-a-new-fluent-smtp-connection-for-aws-ses"
+                            >
+                                Create a new Fluent SMTP Connection for AWS SES
+                            </h3>
+                            <p>
+                                Now it’s time to configure Fluent SMTP. Create a
+                                new SMTP Connection and the method is “<strong
+                                    >Other</strong
+                                >
+                                <strong>SMTP</strong>”.
+                            </p>
+                            <h3 id="keypoints-of-necessary-details">
+                                Keypoints of necessary details
+                            </h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>From Email</strong></td>
+                                        <td>
+                                            Any email address
+                                            <strong>any@yourdomain.com</strong>
+                                            where yourdomain.com is a verified
+                                            identity.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>From Name</strong></td>
+                                        <td>
+                                            The Name is whatever you want to
+                                            use. I am using
+                                            <strong>Ibrahim Sharif</strong>.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SMTP Host</strong></td>
+                                        <td>
+                                            <strong
+                                                >email-smtp.us-east-1.amazonaws.com</strong
+                                            >
+                                            (It varies depending on the region
+                                            you are using.)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SMTP Port</strong></td>
+                                        <td><strong>465</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Encryption</strong></td>
+                                        <td><strong>SSL</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Auto TLS</strong></td>
+                                        <td>Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Authentication</strong></td>
+                                        <td>
+                                            Yes. It's better to store the Access
+                                            keys in the Database.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SMTP Username</strong></td>
+                                        <td>
+                                            The
+                                            <strong>SMTP Username </strong>SES
+                                            was provided to us earlier.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SMTP Password</strong></td>
+                                        <td>
+                                            The
+                                            <strong>SMTP Password</strong> SES
+                                            was provided us earlier.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_settings-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h3 id="test-the-connection">
+                                Test the Connection
+                            </h3>
+                            <p>
+                                Now it’s time to test the connection if it’s
+                                working or not! Go to Fluent SMTP > Email
+                                Test:<br />
+                                -> Use the From as your Yahoo email is just
+                                configured.<br />
+                                -> Send To where you want to receive the test
+                                email.<br />
+                                -> HTML should be turned on to avoid suspicious
+                                activity by Spam Filters.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/Fluent_SMTP_email_test_successfully_sent.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                Now click Send Test Email and check the
+                                destination Email Address.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_ses_received.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                In this case, the test email is received and we
+                                are done configuring the AWS SES to send
+                                WordPress emails using the Fluent SMTP Plugin.
+                            </p>
+                            <h2 id="bonus-delete-aws-ses-smtp-user">
+                                Bonus: Delete AWS SES SMTP User
+                            </h2>
+                            <p>
+                                If you are wondering if you want to delete an
+                                SMTP User which is not needed anymore please
+                                follow the below steps:
+                            </p>
+                            <p>
+                                Go to
+                                <a
+                                    href="https://us-east-1.console.aws.amazon.com/iamv2/home"
+                                    >https://<strong>us-east-1</strong>.console.aws.amazon.com/iamv2/home</a
+                                >
+                                replacing the <strong>us-east-1</strong> with
+                                your desired Region.<br />
+                                Alternatively, you can go to
+                                <strong>Your Account Name</strong> in the Top
+                                right corner >
+                                <strong>Security Credentials</strong> > On the
+                                left panel click on <strong>Users</strong>
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/fluent_smtp_aws_ses_delete_user-shuvoaftab.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                Now select the user and Delete it from the list.
+                                You should not keep unused users which you do
+                                not use for security measurement.
+                            </p>
+                            <h2 id="important-note">Important Note</h2>
+                            <p>
+                                It is highly recommended to configure a cronjob
+                                replacing WordPress’s Default PHP-based Cronjob
+                                to operate Email sending and other scheduled
+                                jobs smoothly.<br />
+                                Some hosting may not allow running a cronjob
+                                below 5 Minutes. But it is still better than a
+                                PHP-Based cronjob.
+                            </p>
+                            <p>
+                                Emails landing in Spam Folders depend on
+                                numerous factors including IP reputation, Domain
+                                reputation, and Email Body Content.
+                            </p>
+                            <!-- * * * -->
+                        </article>
+                        <div class="divider-horizontal"></div>
+                        <div class="h-8 text-skin-base">
+                            <a
+                                class="truncate w-auto max-w-[40%] float-left btn-nav"
+                                href="/j/blog/wp/wordpress-website-troubleshooting"
+                                title="WordPress Website Troubleshooting"
+                            >
+                                <i class="ri-arrow-left-s-fill"></i> WordPress
+                                Website Troubleshooting
+                            </a>
+                            <div
+                                class="flex item-center float-right w-auto max-w-[40%] text-right btn-nav"
+                            >
+                                <a
+                                    class="truncate"
+                                    href="/j/blog/fluent-smtp/configure-fluent-smtp-with-aol"
+                                    title="Configure Fluent SMTP with AOL (SMTP)"
+                                >
+                                    Configure Fluent SMTP with AOL (SMTP)
+                                </a>
+                                <i
+                                    class="ri-arrow-right-s-fill float-right"
+                                ></i>
+                            </div>
+                        </div>
+                        <!-- <div class="border-l-4 my-4 p-4 border-l-skin-base bg-skin-card break-all">
   {title ?
     <div>{t('footer.articleTitle')}：{title}</div> : ''}
   {
@@ -98,4 +1220,103 @@ Some hosting may not allow running a cronjob below 5 Minutes. But it is still be
       {t('footer.originalLink')}：<a href={site.url + '/' + url} class="hover:text-skin-active">{site.url + '/' + url}</a>
     </div>: ''
   }
-</div> -->  </div>  <div class="giscus"></div> <script src="https://giscus.app/client.js" data-repo="shuvoaftab/ibrahimsharif.com" data-repo-id="R_kgDOKQ7kDw" data-category="Journal" data-category-id="DIC_kwDOKQ7kD84CmTaw" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous"></script> </div> <div class="hidden xl:block col-span-1 relative"> <div class="shadow-lg rounded-lg h-64 w-auto flex flex-col items-center justify-center bg-skin-card p-2"> <img class="avatar mb-4" src="/j/images/avatar.jpg" alt="avatar"> <div class="mb-2 text-center">Actions speak louder than words.</div> <div class="flex items-center justify-center flex-wrap"> <a title="github" href="https://github.com/shuvoaftab" target="_blank"> <i class="ri-github-fill text-2xl mr-2 cursor-pointer"></i> </a> </div> </div> <div id="toc" class="shadow-lg rounded-lg my-4 py-2 px-2 bg-skin-card sticky top-20" data-astro-cid-6t6zfk7k> <div class="flex items-center border-b border-b-gray-300 mb-1 toc-header" data-astro-cid-6t6zfk7k> <i class="ri-list-check menu-icon" data-astro-cid-6t6zfk7k></i> Table of Contents </div> <div class="overflow-auto" data-astro-cid-6t6zfk7k> <div class="toc-container" data-astro-cid-6t6zfk7k></div> </div> </div>   </div> <button type="button" id="scrollToTopBtn" class="header-btn fixed bottom-4 left-2 hidden" title="scroll to top"> <i class="ri-arrow-up-line"></i> </button>  </div> <div class="footer container p-4" data-astro-cid-sz7xmlte>  <div class="flex items-center flex-wrap justify-center mb-4 text-skin-base" data-astro-cid-sz7xmlte> <div data-astro-cid-sz7xmlte> <!-- <span class="cursor-default">Copyright</span> --> <i class="ri-copyright-line align-middle" data-astro-cid-sz7xmlte></i> <span class="align-middle" data-astro-cid-sz7xmlte>2025</span> </div>  <div class="divider-vertical" data-astro-cid-sz7xmlte></div> <a href="/j/sitemap-0.xml" data-astro-cid-sz7xmlte>Sitemap</a> </div> </div>  </main> </body></html>
+</div> -->
+                    </div>
+                    <div class="giscus"></div>
+                    <script
+                        src="https://giscus.app/client.js"
+                        data-repo="shuvoaftab/ibrahimsharif.com"
+                        data-repo-id="R_kgDOKQ7kDw"
+                        data-category="Journal"
+                        data-category-id="DIC_kwDOKQ7kD84CmTaw"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="en"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                    ></script>
+                </div>
+                <div class="hidden xl:block col-span-1 relative">
+                    <div
+                        class="shadow-lg rounded-lg h-64 w-auto flex flex-col items-center justify-center bg-skin-card p-2"
+                    >
+                        <img
+                            class="avatar mb-4"
+                            src="/j/images/avatar.jpg"
+                            alt="avatar"
+                        />
+                        <div class="mb-2 text-center">
+                            Actions speak louder than words.
+                        </div>
+                        <div class="flex items-center justify-center flex-wrap">
+                            <a
+                                title="github"
+                                href="https://github.com/shuvoaftab"
+                                target="_blank"
+                            >
+                                <i
+                                    class="ri-github-fill text-2xl mr-2 cursor-pointer"
+                                ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        id="toc"
+                        class="shadow-lg rounded-lg my-4 py-2 px-2 bg-skin-card sticky top-20"
+                        data-astro-cid-6t6zfk7k
+                    >
+                        <div
+                            class="flex items-center border-b border-b-gray-300 mb-1 toc-header"
+                            data-astro-cid-6t6zfk7k
+                        >
+                            <i
+                                class="ri-list-check menu-icon"
+                                data-astro-cid-6t6zfk7k
+                            ></i>
+                            Table of Contents
+                        </div>
+                        <div class="overflow-auto" data-astro-cid-6t6zfk7k>
+                            <div
+                                class="toc-container"
+                                data-astro-cid-6t6zfk7k
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    id="scrollToTopBtn"
+                    class="header-btn fixed bottom-4 left-2 hidden"
+                    title="scroll to top"
+                >
+                    <i class="ri-arrow-up-line"></i>
+                </button>
+            </div>
+            <div class="footer container p-4" data-astro-cid-sz7xmlte>
+                <div
+                    class="flex items-center flex-wrap justify-center mb-4 text-skin-base"
+                    data-astro-cid-sz7xmlte
+                >
+                    <div data-astro-cid-sz7xmlte>
+                        <!-- <span class="cursor-default">Copyright</span> -->
+                        <i
+                            class="ri-copyright-line align-middle"
+                            data-astro-cid-sz7xmlte
+                        ></i>
+                        <span class="align-middle" data-astro-cid-sz7xmlte
+                            >2025</span
+                        >
+                    </div>
+                    <div class="divider-vertical" data-astro-cid-sz7xmlte></div>
+                    <a href="/j/sitemap-0.xml" data-astro-cid-sz7xmlte
+                        >Sitemap</a
+                    >
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

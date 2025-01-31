@@ -1,105 +1,1341 @@
-<!DOCTYPE html><html lang="en"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml"><meta name="generator" content="Astro v4.16.13"><!-- Canonical URL --><link rel="canonical" href="https://ibrahimsharif.com/j/blog/wp/wordpress-cpanel-server-side-cron-job-setup"><!-- Primary Meta Tags --><meta name="title" content="WordPress Server-Side Cron Job Setup (cPanel)"><meta name="description" content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://ibrahimsharif.com/j/blog/wp/wordpress-cpanel-server-side-cron-job-setup"><meta property="og:title" content="WordPress Server-Side Cron Job Setup (cPanel)"><meta property="og:description" content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."><meta property="og:image" content=""><!-- <meta property="og:image:alt" content={site.description}/> --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/j/blog/wp/wordpress-cpanel-server-side-cron-job-setup"><meta property="twitter:title" content="WordPress Server-Side Cron Job Setup (cPanel)"><meta property="twitter:description" content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."><meta property="twitter:image" content=""><meta httpEquiv="X-UA-Compatible" content="IE=edge"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="sitemap" href="./sitemap-0.xml"><title>WordPress Server-Side Cron Job Setup (cPanel)</title><script src="/j/toggle-theme.js"></script><script async type="text/javascript" src="./load-mathjax.js"></script><script async type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script><!-- Google tag (gtag.js) --><!-- CRISP Chat --><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="8d20914b-0995-4bdd-aa36-a2274ec8cca6";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><!-- Google Tag Manager --><!-- End Google Tag Manager --><link rel="stylesheet" href="/j/_astro/SidebarIcon.XaQ6XQsx.css">
-<link rel="stylesheet" href="/j/_astro/about.Bm01vZr5.css">
-<link rel="stylesheet" href="/j/_astro/hoisted.BUYUBhIy.css">
-<link rel="stylesheet" href="/j/_astro/_slug_.BmGxd5qf.css">
-<style>#donate-item-img{filter:grayscale(1)}#donate-item-img:hover{filter:blur(0px);cursor:pointer}.esa-sponsor{position:relative;width:100%;margin:40px 0}.esa-sponsor .qrshow{position:absolute;width:200px;height:200px;cursor:pointer;left:calc(50% - 100px);top:-170px;z-index:999;display:none;box-shadow:0 1px 15px #1b1f2326,0 0 1px #6a737d59}
-.post-title[data-astro-cid-6t6zfk7k]:hover{outline:0;color:#cc7a00;text-shadow:1px 1px 1px #ffd147}.toc_container[data-astro-cid-6t6zfk7k]{overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none}.toc_container[data-astro-cid-6t6zfk7k]::-webkit-scrollbar{width:0;height:0}.toc_container[data-astro-cid-6t6zfk7k] a[data-astro-cid-6t6zfk7k]{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
-</style><script type="module" src="/j/_astro/hoisted.UGvNRd-T.js"></script></head><body class="bg-skin-secondary bg-bluish"> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> <header class="fixed top-0 w-full bg-skin-fill text-skin-base z-10"> <div class="flex items-center justify-between container"> <div class="block xl:hidden"> <button type="button" id="menu-icon" class="header-btn" title="Menu"> <i class="ri-menu-fill"></i> </button> <button type="button" id="menu-icon-close" class="header-btn hidden" title="Menu"> <i class="ri-close-fill"></i> </button>  </div> <!-- <a class="text-2xl p-4" href={baseURL}>{site.title}</a> --> <a class="text-2xl p-4" href="https://ibrahimsharif.com/">Ibrahim</a> <div class="flex items-center"> <div class="hidden xl:block"> <div class="flex items-center space-x-5 pr-4"> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/j/blog/1" target="_self" class="header-link-active hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-draft-line" data-astro-cid-eimmu3lg></i> Blog  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/j/archive/1" target="_self" class="header-link-active hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-archive-line" data-astro-cid-eimmu3lg></i> Archive  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/projects/" target="_self" class="hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-briefcase-line" data-astro-cid-eimmu3lg></i> Projects  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/contact/contact-form.html" target="_self" class="hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-account-box-line" data-astro-cid-eimmu3lg></i> Contact  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="/j/search" target="_self" class="header-link-active hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-search-line" data-astro-cid-eimmu3lg></i> Search  </a>  </div> <div class="box relative h-10 w-auto flex items-center" data-astro-cid-eimmu3lg> <a href="javascript:void(0);" target="_self" class="hover:header-link-hover" data-astro-cid-eimmu3lg> <i class="ri-more-fill" data-astro-cid-eimmu3lg></i> More <i class="ri-arrow-down-s-line" data-astro-cid-eimmu3lg></i> </a> <div class="dropdown cursor-pointer border rounded bg-skin-fill p-4" data-astro-cid-eimmu3lg> <ul class="space-y-4 w-28" data-astro-cid-eimmu3lg> <li class="text-center hover:text-skin-active select-none" data-astro-cid-eimmu3lg> <i class="ri-information-line" data-astro-cid-eimmu3lg></i> <a target="_self" href="/j/about" data-astro-cid-eimmu3lg>About</a> </li> </ul> </div> </div>  </div> </div> <button type="button" id="theme-btn" class="header-btn" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <i id="moon-icon" class="ri-sun-line"></i> <i id="sun-icon" class="ri-moon-line"></i> </button> <div class="block xl:hidden"> <button type="button" id="aside-btn" class="header-btn" title="Open Aside Bar" aria-label="auto" aria-live="polite"> <i class="ri-user-line"></i> </button> <button type="button" id="aside-close-btn" class="header-btn hidden" title="Close Aside Bar" aria-label="auto" aria-live="polite"> <i class="ri-close-fill"></i> </button> <div id="blog-aside" class="absolute top-16 bg-skin-fill right-0 blog-aside hidden"></div>  </div> </div> </div> <div id="mobile-menu" class="hidden text-center overflow-y-auto pb-8" style="height: calc(100vh - 64px)"> <div class="py-2"> <a class=" hover:text-skin-active" href="/j/blog/1"> <i class="ri-draft-line"></i> <span>Blog</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/j/archive/1"> <i class="ri-archive-line"></i> <span>Archive</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/projects/"> <i class="ri-briefcase-line"></i> <span>Projects</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/contact/contact-form.html"> <i class="ri-account-box-line"></i> <span>Contact</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="/j/search"> <i class="ri-search-line"></i> <span>Search</span> </a>  <div class="space-y-4 text-sm">  </div> </div><div class="py-2"> <a class=" hover:text-skin-active" href="javascript:void(0);"> <i class="ri-more-fill"></i> <span>More</span> </a> <div class="divider-horizontal"></div> <div class="space-y-4 text-sm"> <a class="block hover:text-skin-active" href="/j/about"> <i class="ri-information-line"></i> <span>About</span> </a> </div> </div> </div> <div id="personal-info" class="hidden break-all overflow-y-auto pb-8" style="height: calc(100vh - 64px)"> <img class="avatar my-4 mx-auto" src="/j/images/avatar.jpg" alt="avatar"> <div class="mb-2 text-center">Actions speak louder than words.</div> <div class="flex items-center justify-center flex-wrap"> <a title="github" href="https://github.com/shuvoaftab" target="_blank"> <i class="ri-github-fill text-2xl mr-2 cursor-pointer"></i> </a> </div> <div class="divider-horizontal-mini"></div> <div class="text-center"> <div> <i class="ri-folder-line menu-icon"></i>Categories </div> <div class="my-2 break-all truncate"> <a class="hover:text-skin-active" title="WordPress (10)" href="/category/WordPress"> WordPress (10) </a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active" title="How to (1)" href="/category/How to"> How to (1) </a> </div> <div class="divider-horizontal-mini"></div>
-          <div class="text-center"> <i class="ri-price-tag-3-line menu-icon"></i> Tags </div> <div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="FluentSMTP" href="/tags/FluentSMTP">FluentSMTP (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="WordPress" href="/tags/WordPress">WordPress (10)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Email" href="/tags/Email">Email (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="AOL" href="/tags/AOL">AOL (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="SMTP" href="/tags/SMTP">SMTP (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Email Deliverability" href="/tags/Email Deliverability">Email Deliverability (7)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="AWS" href="/tags/AWS">AWS (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="SES" href="/tags/SES">SES (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="cPanel" href="/tags/cPanel">cPanel (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Webmail" href="/tags/Webmail">Webmail (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Roundcube" href="/tags/Roundcube">Roundcube (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Outlook" href="/tags/Outlook">Outlook (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Office365" href="/tags/Office365">Office365 (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Microsoft" href="/tags/Microsoft">Microsoft (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Yahoo" href="/tags/Yahoo">Yahoo (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Zoho" href="/tags/Zoho">Zoho (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Workspace" href="/tags/Workspace">Workspace (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Google" href="/tags/Google">Google (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Gmail" href="/tags/Gmail">Gmail (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="CSS" href="/tags/CSS">CSS (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="HTML" href="/tags/HTML">HTML (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="JS" href="/tags/JS">JS (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="How to" href="/tags/How to">How to (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Guide" href="/tags/Guide">Guide (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Customization" href="/tags/Customization">Customization (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Debug" href="/tags/Debug">Debug (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Troubleshoot" href="/tags/Troubleshoot">Troubleshoot (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="WooCommerce" href="/tags/WooCommerce">WooCommerce (2)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Cron Job" href="/tags/Cron Job">Cron Job (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Server" href="/tags/Server">Server (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Hosting" href="/tags/Hosting">Hosting (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Tutorial" href="/tags/Tutorial">Tutorial (1)</a> </div><div class="my-2 break-all truncate"> <a class="hover:text-skin-active my-2" title="Theme" href="/tags/Theme">Theme (1)</a> </div> </div> </div> </header> <main class="container p-4  pt-20 text-skin-base min-h-full pb-32 relative" id="app"> <div class="grid grid-cols-4 gap-4"> <div class="col-span-4 xl:col-span-3 space-y-4 blog-container"> <!-- <button class="flex items-center text-md cursor-pointer hover:text-skin-active outline-none go-back" onclick="history.back()">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" />
+        <meta name="generator" content="Astro v4.16.13" />
+        <!-- Canonical URL -->
+        <link
+            rel="canonical"
+            href="https://ibrahimsharif.com/j/blog/wp/wordpress-cpanel-server-side-cron-job-setup"
+        />
+        <!-- Primary Meta Tags -->
+        <meta
+            name="title"
+            content="WordPress Server-Side Cron Job Setup (cPanel)"
+        />
+        <meta
+            name="description"
+            content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."
+        />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://ibrahimsharif.com/j/blog/wp/wordpress-cpanel-server-side-cron-job-setup"
+        />
+        <meta
+            property="og:title"
+            content="WordPress Server-Side Cron Job Setup (cPanel)"
+        />
+        <meta
+            property="og:description"
+            content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."
+        />
+        <meta property="og:image" content="" />
+        <!-- <meta property="og:image:alt" content={site.description}/> -->
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://ibrahimsharif.com/j/blog/wp/wordpress-cpanel-server-side-cron-job-setup"
+        />
+        <meta
+            property="twitter:title"
+            content="WordPress Server-Side Cron Job Setup (cPanel)"
+        />
+        <meta
+            property="twitter:description"
+            content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."
+        />
+        <meta property="twitter:image" content="" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="sitemap" href="./sitemap-0.xml" />
+        <title>WordPress Server-Side Cron Job Setup (cPanel)</title>
+        <script src="/j/toggle-theme.js"></script>
+        <script async type="text/javascript" src="./load-mathjax.js"></script>
+        <script
+            async
+            type="text/javascript"
+            src="https://cdn.bootcdn.net/ajax/libs/mermaid/10.9.0/mermaid.min.js"
+        ></script>
+        <!-- Google tag (gtag.js) -->
+        <!-- CRISP Chat -->
+        <script type="text/javascript">
+            window.$crisp = [];
+            window.CRISP_WEBSITE_ID = "8d20914b-0995-4bdd-aa36-a2274ec8cca6";
+            (function () {
+                d = document;
+                s = d.createElement("script");
+                s.src = "https://client.crisp.chat/l.js";
+                s.async = 1;
+                d.getElementsByTagName("head")[0].appendChild(s);
+            })();
+        </script>
+        <!-- Google Tag Manager -->
+        <!-- End Google Tag Manager -->
+        <link rel="stylesheet" href="/j/_astro/SidebarIcon.XaQ6XQsx.css" />
+        <link rel="stylesheet" href="/j/_astro/about.Bm01vZr5.css" />
+        <link rel="stylesheet" href="/j/_astro/hoisted.BUYUBhIy.css" />
+        <link rel="stylesheet" href="/j/_astro/_slug_.BmGxd5qf.css" />
+        <style>
+            #donate-item-img {
+                filter: grayscale(1);
+            }
+            #donate-item-img:hover {
+                filter: blur(0px);
+                cursor: pointer;
+            }
+            .esa-sponsor {
+                position: relative;
+                width: 100%;
+                margin: 40px 0;
+            }
+            .esa-sponsor .qrshow {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                cursor: pointer;
+                left: calc(50% - 100px);
+                top: -170px;
+                z-index: 999;
+                display: none;
+                box-shadow: 0 1px 15px #1b1f2326, 0 0 1px #6a737d59;
+            }
+            .post-title[data-astro-cid-6t6zfk7k]:hover {
+                outline: 0;
+                color: #cc7a00;
+                text-shadow: 1px 1px 1px #ffd147;
+            }
+            .toc_container[data-astro-cid-6t6zfk7k] {
+                overflow-y: scroll;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .toc_container[data-astro-cid-6t6zfk7k]::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+            }
+            .toc_container[data-astro-cid-6t6zfk7k] a[data-astro-cid-6t6zfk7k] {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        </style>
+        <script type="module" src="/j/_astro/hoisted.UGvNRd-T.js"></script>
+    </head>
+    <body class="bg-skin-secondary bg-bluish">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <header class="fixed top-0 w-full bg-skin-fill text-skin-base z-10">
+            <div class="flex items-center justify-between container">
+                <div class="block xl:hidden">
+                    <button
+                        type="button"
+                        id="menu-icon"
+                        class="header-btn"
+                        title="Menu"
+                    >
+                        <i class="ri-menu-fill"></i>
+                    </button>
+                    <button
+                        type="button"
+                        id="menu-icon-close"
+                        class="header-btn hidden"
+                        title="Menu"
+                    >
+                        <i class="ri-close-fill"></i>
+                    </button>
+                </div>
+                <!-- <a class="text-2xl p-4" href={baseURL}>{site.title}</a> -->
+                <a class="text-2xl p-4" href="https://ibrahimsharif.com/"
+                    >Ibrahim</a
+                >
+                <div class="flex items-center">
+                    <div class="hidden xl:block">
+                        <div class="flex items-center space-x-5 pr-4">
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/j/blog/1"
+                                    target="_self"
+                                    class="header-link-active hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-draft-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Blog
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/j/archive/1"
+                                    target="_self"
+                                    class="header-link-active hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-archive-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Archive
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/projects/"
+                                    target="_self"
+                                    class="hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-briefcase-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Projects
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/contact/contact-form.html"
+                                    target="_self"
+                                    class="hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-account-box-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Contact
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="/j/search"
+                                    target="_self"
+                                    class="header-link-active hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-search-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    Search
+                                </a>
+                            </div>
+                            <div
+                                class="box relative h-10 w-auto flex items-center"
+                                data-astro-cid-eimmu3lg
+                            >
+                                <a
+                                    href="javascript:void(0);"
+                                    target="_self"
+                                    class="hover:header-link-hover"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <i
+                                        class="ri-more-fill"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                    More
+                                    <i
+                                        class="ri-arrow-down-s-line"
+                                        data-astro-cid-eimmu3lg
+                                    ></i>
+                                </a>
+                                <div
+                                    class="dropdown cursor-pointer border rounded bg-skin-fill p-4"
+                                    data-astro-cid-eimmu3lg
+                                >
+                                    <ul
+                                        class="space-y-4 w-28"
+                                        data-astro-cid-eimmu3lg
+                                    >
+                                        <li
+                                            class="text-center hover:text-skin-active select-none"
+                                            data-astro-cid-eimmu3lg
+                                        >
+                                            <i
+                                                class="ri-information-line"
+                                                data-astro-cid-eimmu3lg
+                                            ></i>
+                                            <a
+                                                target="_self"
+                                                href="/j/about"
+                                                data-astro-cid-eimmu3lg
+                                                >About</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        id="theme-btn"
+                        class="header-btn"
+                        title="Toggles light & dark"
+                        aria-label="auto"
+                        aria-live="polite"
+                    >
+                        <i id="moon-icon" class="ri-sun-line"></i>
+                        <i id="sun-icon" class="ri-moon-line"></i>
+                    </button>
+                    <div class="block xl:hidden">
+                        <button
+                            type="button"
+                            id="aside-btn"
+                            class="header-btn"
+                            title="Open Aside Bar"
+                            aria-label="auto"
+                            aria-live="polite"
+                        >
+                            <i class="ri-user-line"></i>
+                        </button>
+                        <button
+                            type="button"
+                            id="aside-close-btn"
+                            class="header-btn hidden"
+                            title="Close Aside Bar"
+                            aria-label="auto"
+                            aria-live="polite"
+                        >
+                            <i class="ri-close-fill"></i>
+                        </button>
+                        <div
+                            id="blog-aside"
+                            class="absolute top-16 bg-skin-fill right-0 blog-aside hidden"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+            <div
+                id="mobile-menu"
+                class="hidden text-center overflow-y-auto pb-8"
+                style="height: calc(100vh - 64px)"
+            >
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/j/blog/1">
+                        <i class="ri-draft-line"></i> <span>Blog</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/j/archive/1">
+                        <i class="ri-archive-line"></i> <span>Archive</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/projects/">
+                        <i class="ri-briefcase-line"></i> <span>Projects</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a
+                        class="hover:text-skin-active"
+                        href="/contact/contact-form.html"
+                    >
+                        <i class="ri-account-box-line"></i> <span>Contact</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a class="hover:text-skin-active" href="/j/search">
+                        <i class="ri-search-line"></i> <span>Search</span>
+                    </a>
+                    <div class="space-y-4 text-sm"></div>
+                </div>
+                <div class="py-2">
+                    <a
+                        class="hover:text-skin-active"
+                        href="javascript:void(0);"
+                    >
+                        <i class="ri-more-fill"></i> <span>More</span>
+                    </a>
+                    <div class="divider-horizontal"></div>
+                    <div class="space-y-4 text-sm">
+                        <a class="block hover:text-skin-active" href="/j/about">
+                            <i class="ri-information-line"></i>
+                            <span>About</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div
+                id="personal-info"
+                class="hidden break-all overflow-y-auto pb-8"
+                style="height: calc(100vh - 64px)"
+            >
+                <img
+                    class="avatar my-4 mx-auto"
+                    src="/j/images/avatar.jpg"
+                    alt="avatar"
+                />
+                <div class="mb-2 text-center">
+                    Actions speak louder than words.
+                </div>
+                <div class="flex items-center justify-center flex-wrap">
+                    <a
+                        title="github"
+                        href="https://github.com/shuvoaftab"
+                        target="_blank"
+                    >
+                        <i
+                            class="ri-github-fill text-2xl mr-2 cursor-pointer"
+                        ></i>
+                    </a>
+                </div>
+                <div class="divider-horizontal-mini"></div>
+                <div class="text-center">
+                    <div>
+                        <i class="ri-folder-line menu-icon"></i>Categories
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active"
+                            title="WordPress (10)"
+                            href="/category/WordPress"
+                        >
+                            WordPress (10)
+                        </a>
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active"
+                            title="How to (1)"
+                            href="/category/How to"
+                        >
+                            How to (1)
+                        </a>
+                    </div>
+                    <div class="divider-horizontal-mini"></div>
+                    <div class="text-center">
+                        <i class="ri-price-tag-3-line menu-icon"></i> Tags
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="FluentSMTP"
+                            href="/tags/FluentSMTP"
+                            >FluentSMTP (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="WordPress"
+                            href="/tags/WordPress"
+                            >WordPress (10)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Email"
+                            href="/tags/Email"
+                            >Email (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="AOL"
+                            href="/tags/AOL"
+                            >AOL (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="SMTP"
+                            href="/tags/SMTP"
+                            >SMTP (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Email Deliverability"
+                            href="/tags/Email Deliverability"
+                            >Email Deliverability (7)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="AWS"
+                            href="/tags/AWS"
+                            >AWS (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="SES"
+                            href="/tags/SES"
+                            >SES (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="cPanel"
+                            href="/tags/cPanel"
+                            >cPanel (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Webmail"
+                            href="/tags/Webmail"
+                            >Webmail (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Roundcube"
+                            href="/tags/Roundcube"
+                            >Roundcube (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Outlook"
+                            href="/tags/Outlook"
+                            >Outlook (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Office365"
+                            href="/tags/Office365"
+                            >Office365 (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Microsoft"
+                            href="/tags/Microsoft"
+                            >Microsoft (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Yahoo"
+                            href="/tags/Yahoo"
+                            >Yahoo (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Zoho"
+                            href="/tags/Zoho"
+                            >Zoho (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Workspace"
+                            href="/tags/Workspace"
+                            >Workspace (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Google"
+                            href="/tags/Google"
+                            >Google (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Gmail"
+                            href="/tags/Gmail"
+                            >Gmail (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="CSS"
+                            href="/tags/CSS"
+                            >CSS (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="HTML"
+                            href="/tags/HTML"
+                            >HTML (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="JS"
+                            href="/tags/JS"
+                            >JS (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="How to"
+                            href="/tags/How to"
+                            >How to (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Guide"
+                            href="/tags/Guide"
+                            >Guide (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Customization"
+                            href="/tags/Customization"
+                            >Customization (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Debug"
+                            href="/tags/Debug"
+                            >Debug (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Troubleshoot"
+                            href="/tags/Troubleshoot"
+                            >Troubleshoot (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="WooCommerce"
+                            href="/tags/WooCommerce"
+                            >WooCommerce (2)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Cron Job"
+                            href="/tags/Cron Job"
+                            >Cron Job (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Server"
+                            href="/tags/Server"
+                            >Server (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Hosting"
+                            href="/tags/Hosting"
+                            >Hosting (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Tutorial"
+                            href="/tags/Tutorial"
+                            >Tutorial (1)</a
+                        >
+                    </div>
+                    <div class="my-2 break-all truncate">
+                        <a
+                            class="hover:text-skin-active my-2"
+                            title="Theme"
+                            href="/tags/Theme"
+                            >Theme (1)</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main
+            class="container p-4 pt-20 text-skin-base min-h-full pb-32 relative"
+            id="app"
+        >
+            <div class="grid grid-cols-4 gap-4">
+                <div class="col-span-4 xl:col-span-3 space-y-4 blog-container">
+                    <!-- <button class="flex items-center text-md cursor-pointer hover:text-skin-active outline-none go-back" onclick="history.back()">
         <i class="ri-arrow-left-line mr-2"/>
         <span>{t('home.goBack')}</span>
-          </button> -->  <div> <div class="border-b-1"> <!-- title --> <h1 class="break-all text-xl font-bold post-title">WordPress Server-Side Cron Job Setup (cPanel)</h1> <div class="flex flex-wrap items-center my-2 space-x-2"> <!-- date --> <i class="ri-calendar-2-fill"></i>
-        <div class="tag">13th April 2022</div> <!-- draft -->  <!-- category --> <div class="divider-vertical"></div>
-        <i class="ri-folder-3-line"></i>
-        <a href="/j/category/WordPress" class="text-wrap break-all  hover:text-skin-active cursor-pointer">WordPress</a> <!-- tag --> <div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/WordPress" class="text-wrap break-all hover:text-skin-active cursor-pointer">WordPress</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Debug" class="text-wrap break-all hover:text-skin-active cursor-pointer">Debug</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Troubleshoot" class="text-wrap break-all hover:text-skin-active cursor-pointer">Troubleshoot</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/WooCommerce" class="text-wrap break-all hover:text-skin-active cursor-pointer">WooCommerce</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Cron Job" class="text-wrap break-all hover:text-skin-active cursor-pointer">Cron Job</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Server" class="text-wrap break-all hover:text-skin-active cursor-pointer">Server</a><div class="divider-vertical"></div>
-        <i class="ri-price-tag-3-line"></i>
-        <a href="/j/tags/Hosting" class="text-wrap break-all hover:text-skin-active cursor-pointer">Hosting</a> <!-- update --> <div class="divider-vertical"></div>
-        <i class="ri-calendar-check-fill"></i>
-        <div class="tag">Last updated：24th January 2025</div> <!-- minutes --> <div class="divider-vertical"></div>
-        <i class="ri-hourglass-fill"></i>
-        <div class="tag">5 Minutes</div>
-        <div class="divider-vertical"></div>
-        <div class="tag">861 Words</div> </div> </div> <div class="divider-horizontal"></div> <article class="markdown-body"> <p>Since the web spread developers, business owners, and individuals use different types of platforms for their websites and some of them are very complex and run scheduled jobs in the background at different time intervals. This can be a processing of data, cleaning of data, sequential ordering, and processing of other jobs as well. This can also be run per minute, per hour, per day, or even once a year.</p>
-<p>In this guide, We will be demonstrating configuring Cron Jobs for the WordPress website which is the top platform used by Website Owners on the web.</p>
-<!-- There is another guide regarding a detailed description of WordPress Scheduled Events which you may see here: [https://ibrahimsharif.info/guide/website-management/wordpress-scheduled-events/](https://ibrahimsharif.info/?post_type=docs&p=2471) -->
-<p>By default, WordPress runs all the scheduled events with PHP and the cron script for WordPress is the wp-cron.php file under the root directory of WordPress. The issue is when no execution is occurring on the website either on the frontend and or especially on the backend, WordPress scheduled events tend to fail or miss the time! That is the important reason to consider disabling cron execution from PHP and to ensure the execution and processing of scheduled events server-side cron job is the best way among all the possibilities.</p>
-<h2 id="disable-default-php-based-scheduled-job">Disable default PHP-based Scheduled Job</h2>
-<p>The initial step is to disable the default method as the PHP-based job and then we execute or invoke the wp-cron.php from the cron job. To do this please open the wp-config.php file and look for the section below:</p>
-<div class="expressive-code"><link rel="stylesheet" href="/j/_astro/ec.kmr1o.css"><script type="module" src="/j/_astro/ec.dy9ns.js"></script><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/* Add any custom values between this line and the "stop editing" line. */</span></div></div><div class="ec-line"><div class="gutter"><div class="ln">2</div></div><div class="code">
+          </button> -->
+                    <div>
+                        <div class="border-b-1">
+                            <!-- title -->
+                            <h1 class="break-all text-xl font-bold post-title">
+                                WordPress Server-Side Cron Job Setup (cPanel)
+                            </h1>
+                            <div
+                                class="flex flex-wrap items-center my-2 space-x-2"
+                            >
+                                <!-- date -->
+                                <i class="ri-calendar-2-fill"></i>
+                                <div class="tag">13th April 2022</div>
+                                <!-- draft -->
+                                <!-- category -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-folder-3-line"></i>
+                                <a
+                                    href="/j/category/WordPress"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >WordPress</a
+                                >
+                                <!-- tag -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/WordPress"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >WordPress</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Debug"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Debug</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Troubleshoot"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Troubleshoot</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/WooCommerce"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >WooCommerce</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Cron Job"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Cron Job</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Server"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Server</a
+                                >
+                                <div class="divider-vertical"></div>
+                                <i class="ri-price-tag-3-line"></i>
+                                <a
+                                    href="/j/tags/Hosting"
+                                    class="text-wrap break-all hover:text-skin-active cursor-pointer"
+                                    >Hosting</a
+                                >
+                                <!-- update -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-calendar-check-fill"></i>
+                                <div class="tag">
+                                    Last updated：24th January 2025
+                                </div>
+                                <!-- minutes -->
+                                <div class="divider-vertical"></div>
+                                <i class="ri-hourglass-fill"></i>
+                                <div class="tag">5 Minutes</div>
+                                <div class="divider-vertical"></div>
+                                <div class="tag">861 Words</div>
+                            </div>
+                        </div>
+                        <div class="divider-horizontal"></div>
+                        <article class="markdown-body">
+                            <p>
+                                Since the web spread developers, business
+                                owners, and individuals use different types of
+                                platforms for their websites and some of them
+                                are very complex and run scheduled jobs in the
+                                background at different time intervals. This can
+                                be a processing of data, cleaning of data,
+                                sequential ordering, and processing of other
+                                jobs as well. This can also be run per minute,
+                                per hour, per day, or even once a year.
+                            </p>
+                            <p>
+                                In this guide, We will be demonstrating
+                                configuring Cron Jobs for the WordPress website
+                                which is the top platform used by Website Owners
+                                on the web.
+                            </p>
+                            <!-- There is another guide regarding a detailed description of WordPress Scheduled Events which you may see here: [https://ibrahimsharif.info/guide/website-management/wordpress-scheduled-events/](https://ibrahimsharif.info/?post_type=docs&p=2471) -->
+                            <p>
+                                By default, WordPress runs all the scheduled
+                                events with PHP and the cron script for
+                                WordPress is the wp-cron.php file under the root
+                                directory of WordPress. The issue is when no
+                                execution is occurring on the website either on
+                                the frontend and or especially on the backend,
+                                WordPress scheduled events tend to fail or miss
+                                the time! That is the important reason to
+                                consider disabling cron execution from PHP and
+                                to ensure the execution and processing of
+                                scheduled events server-side cron job is the
+                                best way among all the possibilities.
+                            </p>
+                            <h2 id="disable-default-php-based-scheduled-job">
+                                Disable default PHP-based Scheduled Job
+                            </h2>
+                            <p>
+                                The initial step is to disable the default
+                                method as the PHP-based job and then we execute
+                                or invoke the wp-cron.php from the cron job. To
+                                do this please open the wp-config.php file and
+                                look for the section below:
+                            </p>
+                            <div class="expressive-code">
+                                <link
+                                    rel="stylesheet"
+                                    href="/j/_astro/ec.kmr1o.css"
+                                />
+                                <script
+                                    type="module"
+                                    src="/j/_astro/ec.dy9ns.js"
+                                ></script>
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/* Add any custom values between this line and the "stop editing" line. */</span></div></div><div class="ec-line"><div class="gutter"><div class="ln">2</div></div><div class="code">
 </div></div><div class="ec-line"><div class="gutter"><div class="ln">3</div></div><div class="code">
-</div></div><div class="ec-line"><div class="gutter"><div class="ln">4</div></div><div class="code"><span style="--0:#24292e">/* That's all, stop editing! Happy publishing. */</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/* Add any custom values between this line and the &#x22;stop editing&#x22; line. *//* That&#x27;s all, stop editing! Happy publishing. */"><div></div></button></div></figure></div>
-<p>We need to add a new Configuration Directive within these two lines which are below:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">define('DISABLE_WP_CRON', true);</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="define(&#x27;DISABLE_WP_CRON&#x27;, true);"><div></div></button></div></figure></div>
-<p>Now the code will look similar as below:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/* Add any custom values between this line and the "stop editing" line. */</span></div></div><div class="ec-line"><div class="gutter"><div class="ln">2</div></div><div class="code">
-</div></div><div class="ec-line"><div class="gutter"><div class="ln">3</div></div><div class="code"><span style="--0:#24292e">define('DISABLE_WP_CRON', true);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln">4</div></div><div class="code"><span style="--0:#24292e">/* That's all, stop editing! Happy publishing. */</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/* Add any custom values between this line and the &#x22;stop editing&#x22; line. */define(&#x27;DISABLE_WP_CRON&#x27;, true);/* That&#x27;s all, stop editing! Happy publishing. */"><div></div></button></div></figure></div>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/wp-disable-cron.png" data-alt=""></p>
-<p>This will disable or tell WordPress not to run the scheduled events from PHP anymore.</p>
-<h2 id="identifying-cron-command">Identifying Cron Command</h2>
-<p>Now we need to find the website directory and the WordPress Cron file so that we can put that in the Cron Settings.</p>
-<h3 id="check-home-directory">Check Home Directory</h3>
-<p>When you log in to the cPanel dashboard on the right sidebar you will see some information and the Home Directory listed. In this case, it is</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/home/regiktux</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/home/regiktux"><div></div></button></div></figure></div>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-home-directory.png" data-alt=""></p>
-<h3 id="check-document-directory">Check Document Directory</h3>
-<p>Now we will check the Document Directory for the WordPress website. It can be found from the Domains option:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-domains.png" data-alt=""></p>
-<p>Now we need to look for the Domain of the WordPress website and you will see the Document Directory where a Home Icon will represent the Home Directory as we have collected in the previous step. In this case, the Document Directory is 🏠**/ibrahimsahrif.com**</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-domain-directory.png" data-alt=""></p>
-<p>So our total path for the domain is:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/home/regiktux/ibrahimsharif.com</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/home/regiktux/ibrahimsharif.com"><div></div></button></div></figure></div>
-<p>And the WordPress Cron path is:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/home/regiktux/ibrahimsharif.com/wp-cron.php"><div></div></button></div></figure></div>
-<h3 id="finding-php-binary-path">Finding PHP Binary Path</h3>
-<p>Now we need to find the PHP Binary Executable Path and Terminal or SSH Shell that would be suitable for this. Please run the below command in the terminal:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">whereis php</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="whereis php"><div></div></button></div></figure></div>
-<p>This will show results like below and as you can see <strong>/usr/bin/php</strong> and <strong>/usr/local/bin/php</strong> both are available here and are the most common path for PHP Binary Executable.</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-terminal-find-php.png" data-alt=""></p>
-<h3 id="confirming-php-version">Confirming PHP Version</h3>
-<p>If you find both of them then both of their versions may be different and we need to confirm the PHP version by executing the below command:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/usr/bin/php -v</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/usr/bin/php -v"><div></div></button></div></figure></div>
-<p>This command shows the PHP version for that exact PHP binary and here you can see it is 7.4.33</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-php-version-cli.png" data-alt=""></p>
-<h2 id="cron-settings">Cron Settings</h2>
-<p>Now please go to the Cron Jobs option as shown below:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-cron-jobs.png" data-alt=""></p>
-<p>This will offer some input fields to set the Cron Intervals and the Cron Command as below:</p>
-<img src="../../../../public/images/fluent-smtp/cpanel-cron-settings.png" width="auto" height="300px" alt="Browser Developer Tools" class="img-long-center-50">
-<!-- ![](../../../../public/images/fluent-smtp/cpanel-cron-settings.png) -->
-<p>Most of the case, the suitable recommended time interval for running the Cron job is per minute. Putting a Star(*) means EVERY. Here all 5 stars mean Every Minute on Every Hour on Every Day on Every Month on Every Weekday.</p>
-<p>The command for running WordPress is including the PHP Binary:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php"><div></div></button></div></figure></div>
-<p>And the total command including time intervals which is the resulting final output is:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php"><div></div></button></div></figure></div>
-<h2 id="confirm-cron-command">Confirm Cron Command</h2>
-<p>Now we need to confirm the cron command by executing the command in either the terminal or SSH Shell directly so that no issues occur or our configuration is correct.</p>
-<h3 id="resolve-cron-command-500-error">Resolve Cron Command 500 Error</h3>
-<p>The command we used in this case executed shows an error of 500 which is server side as below:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cron-command-error.png" data-alt=""></p>
-<p>A successful command should output a Response Status of 200. There are various possible reasons that could cause this error. The most common issue is the file permission and setting 755 resolves the such issue as shown below:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/wp-cron-file-permission.png" data-alt=""></p>
-<p>After changing the file permission to 755 running again the cron command runs successfully and shows the successful response status as below:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-successful-cron-run.png" data-alt=""></p>
-<h2 id="discarding-cron-command-output">Discarding Cron Command Output</h2>
-<p>As we just run the command it showed us an output that we do not need or should discard through running the Cron Job. Our Original Command is:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php"><div></div></button></div></figure></div>
-<p>Now we can discard the output by sending the output to NULL adding <strong>/dev/null 2>&#x26;1</strong> to the end. The final command including time intervals is:</p>
-<div class="expressive-code"><figure class="frame"><figcaption class="header"></figcaption><pre tabindex="0"><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php > /dev/null 2>&#x26;1</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php > /dev/null 2>&#x26;1"><div></div></button></div></figure></div>
-<p>This does not output anything but does the job silently as shown below:</p>
-<p><img src="/spinner.gif" alt="default" data-src="../../../../public/images/fluent-smtp/cpanel-cron-discard-output.png" data-alt=""></p>
-<p>That’s all for now! Thanks and enjoy working with WordPress Scheduled Events.</p> </article> <div class="divider-horizontal"></div> <div class="h-8 text-skin-base"> <a class="truncate  w-auto max-w-[40%] float-left btn-nav" href="/j/blog/fluent-smtp/configure-gmail-with-fluent-smtp" title="⚠ Configure Gmail with Fluent SMTP (SMTP)"> <i class="ri-arrow-left-s-fill"></i> ⚠ Configure Gmail with Fluent SMTP (SMTP) </a> <div class="flex item-center float-right w-auto max-w-[40%] text-right btn-nav"> <a class="truncate " href="/j/blog/wp/wordpress-theme-hierarchy" title="WordPress Theme Hierarchy"> WordPress Theme Hierarchy </a> <i class="ri-arrow-right-s-fill float-right"></i> </div> </div> <!-- <div class="border-l-4 my-4 p-4 border-l-skin-base bg-skin-card break-all">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln">4</div></div><div class="code"><span style="--0:#24292e">/* That's all, stop editing! Happy publishing. */</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/* Add any custom values between this line and the &#x22;stop editing&#x22; line. *//* That&#x27;s all, stop editing! Happy publishing. */"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                We need to add a new Configuration Directive
+                                within these two lines which are below:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">define('DISABLE_WP_CRON', true);</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="define(&#x27;DISABLE_WP_CRON&#x27;, true);"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>Now the code will look similar as below:</p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/* Add any custom values between this line and the "stop editing" line. */</span></div></div><div class="ec-line"><div class="gutter"><div class="ln">2</div></div><div class="code">
+</div></div><div class="ec-line"><div class="gutter"><div class="ln">3</div></div><div class="code"><span style="--0:#24292e">define('DISABLE_WP_CRON', true);</span></div></div><div class="ec-line"><div class="gutter"><div class="ln">4</div></div><div class="code"><span style="--0:#24292e">/* That's all, stop editing! Happy publishing. */</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/* Add any custom values between this line and the &#x22;stop editing&#x22; line. */define(&#x27;DISABLE_WP_CRON&#x27;, true);/* That&#x27;s all, stop editing! Happy publishing. */"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/wp-disable-cron.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                This will disable or tell WordPress not to run
+                                the scheduled events from PHP anymore.
+                            </p>
+                            <h2 id="identifying-cron-command">
+                                Identifying Cron Command
+                            </h2>
+                            <p>
+                                Now we need to find the website directory and
+                                the WordPress Cron file so that we can put that
+                                in the Cron Settings.
+                            </p>
+                            <h3 id="check-home-directory">
+                                Check Home Directory
+                            </h3>
+                            <p>
+                                When you log in to the cPanel dashboard on the
+                                right sidebar you will see some information and
+                                the Home Directory listed. In this case, it is
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/home/regiktux</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/home/regiktux"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-home-directory.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h3 id="check-document-directory">
+                                Check Document Directory
+                            </h3>
+                            <p>
+                                Now we will check the Document Directory for the
+                                WordPress website. It can be found from the
+                                Domains option:
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-domains.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                Now we need to look for the Domain of the
+                                WordPress website and you will see the Document
+                                Directory where a Home Icon will represent the
+                                Home Directory as we have collected in the
+                                previous step. In this case, the Document
+                                Directory is 🏠**/ibrahimsahrif.com**
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-domain-directory.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>So our total path for the domain is:</p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/home/regiktux/ibrahimsharif.com</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/home/regiktux/ibrahimsharif.com"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>And the WordPress Cron path is:</p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/home/regiktux/ibrahimsharif.com/wp-cron.php"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <h3 id="finding-php-binary-path">
+                                Finding PHP Binary Path
+                            </h3>
+                            <p>
+                                Now we need to find the PHP Binary Executable
+                                Path and Terminal or SSH Shell that would be
+                                suitable for this. Please run the below command
+                                in the terminal:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">whereis php</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="whereis php"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                This will show results like below and as you can
+                                see <strong>/usr/bin/php</strong> and
+                                <strong>/usr/local/bin/php</strong> both are
+                                available here and are the most common path for
+                                PHP Binary Executable.
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-terminal-find-php.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h3 id="confirming-php-version">
+                                Confirming PHP Version
+                            </h3>
+                            <p>
+                                If you find both of them then both of their
+                                versions may be different and we need to confirm
+                                the PHP version by executing the below command:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/usr/bin/php -v</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/usr/bin/php -v"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                This command shows the PHP version for that
+                                exact PHP binary and here you can see it is
+                                7.4.33
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-php-version-cli.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h2 id="cron-settings">Cron Settings</h2>
+                            <p>
+                                Now please go to the Cron Jobs option as shown
+                                below:
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-cron-jobs.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                This will offer some input fields to set the
+                                Cron Intervals and the Cron Command as below:
+                            </p>
+                            <img
+                                src="../../../images/fluent-smtp/cpanel-cron-settings.png"
+                                width="auto"
+                                height="300px"
+                                alt="Browser Developer Tools"
+                                class="img-long-center-50"
+                            />
+                            <!-- ![](../../../images/fluent-smtp/cpanel-cron-settings.png) -->
+                            <p>
+                                Most of the case, the suitable recommended time
+                                interval for running the Cron job is per minute.
+                                Putting a Star(*) means EVERY. Here all 5 stars
+                                mean Every Minute on Every Hour on Every Day on
+                                Every Month on Every Weekday.
+                            </p>
+                            <p>
+                                The command for running WordPress is including
+                                the PHP Binary:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                And the total command including time intervals
+                                which is the resulting final output is:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <h2 id="confirm-cron-command">
+                                Confirm Cron Command
+                            </h2>
+                            <p>
+                                Now we need to confirm the cron command by
+                                executing the command in either the terminal or
+                                SSH Shell directly so that no issues occur or
+                                our configuration is correct.
+                            </p>
+                            <h3 id="resolve-cron-command-500-error">
+                                Resolve Cron Command 500 Error
+                            </h3>
+                            <p>
+                                The command we used in this case executed shows
+                                an error of 500 which is server side as below:
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cron-command-error.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                A successful command should output a Response
+                                Status of 200. There are various possible
+                                reasons that could cause this error. The most
+                                common issue is the file permission and setting
+                                755 resolves the such issue as shown below:
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/wp-cron-file-permission.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                After changing the file permission to 755
+                                running again the cron command runs successfully
+                                and shows the successful response status as
+                                below:
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-successful-cron-run.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <h2 id="discarding-cron-command-output">
+                                Discarding Cron Command Output
+                            </h2>
+                            <p>
+                                As we just run the command it showed us an
+                                output that we do not need or should discard
+                                through running the Cron Job. Our Original
+                                Command is:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                Now we can discard the output by sending the
+                                output to NULL adding
+                                <strong>/dev/null 2>&#x26;1</strong> to the end.
+                                The final command including time intervals is:
+                            </p>
+                            <div class="expressive-code">
+                                <figure class="frame">
+                                    <figcaption class="header"></figcaption>
+                                    <pre
+                                        tabindex="0"
+                                    ><code><div class="ec-line"><div class="gutter"><div class="ln">1</div></div><div class="code"><span style="--0:#24292e">* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php > /dev/null 2>&#x26;1</span></div></div></code></pre>
+                                    <div class="copy">
+                                        <button
+                                            title="Copy to clipboard"
+                                            data-copied="Copied!"
+                                            data-code="* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php > /dev/null 2>&#x26;1"
+                                        >
+                                            <div></div>
+                                        </button>
+                                    </div>
+                                </figure>
+                            </div>
+                            <p>
+                                This does not output anything but does the job
+                                silently as shown below:
+                            </p>
+                            <p>
+                                <img
+                                    src="/spinner.gif"
+                                    alt="default"
+                                    data-src="../../../images/fluent-smtp/cpanel-cron-discard-output.png"
+                                    data-alt=""
+                                />
+                            </p>
+                            <p>
+                                That’s all for now! Thanks and enjoy working
+                                with WordPress Scheduled Events.
+                            </p>
+                        </article>
+                        <div class="divider-horizontal"></div>
+                        <div class="h-8 text-skin-base">
+                            <a
+                                class="truncate w-auto max-w-[40%] float-left btn-nav"
+                                href="/j/blog/fluent-smtp/configure-gmail-with-fluent-smtp"
+                                title="⚠ Configure Gmail with Fluent SMTP (SMTP)"
+                            >
+                                <i class="ri-arrow-left-s-fill"></i> ⚠ Configure
+                                Gmail with Fluent SMTP (SMTP)
+                            </a>
+                            <div
+                                class="flex item-center float-right w-auto max-w-[40%] text-right btn-nav"
+                            >
+                                <a
+                                    class="truncate"
+                                    href="/j/blog/wp/wordpress-theme-hierarchy"
+                                    title="WordPress Theme Hierarchy"
+                                >
+                                    WordPress Theme Hierarchy
+                                </a>
+                                <i
+                                    class="ri-arrow-right-s-fill float-right"
+                                ></i>
+                            </div>
+                        </div>
+                        <!-- <div class="border-l-4 my-4 p-4 border-l-skin-base bg-skin-card break-all">
   {title ?
     <div>{t('footer.articleTitle')}：{title}</div> : ''}
   {
@@ -116,4 +1352,103 @@
       {t('footer.originalLink')}：<a href={site.url + '/' + url} class="hover:text-skin-active">{site.url + '/' + url}</a>
     </div>: ''
   }
-</div> -->  </div>  <div class="giscus"></div> <script src="https://giscus.app/client.js" data-repo="shuvoaftab/ibrahimsharif.com" data-repo-id="R_kgDOKQ7kDw" data-category="Journal" data-category-id="DIC_kwDOKQ7kD84CmTaw" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous"></script> </div> <div class="hidden xl:block col-span-1 relative"> <div class="shadow-lg rounded-lg h-64 w-auto flex flex-col items-center justify-center bg-skin-card p-2"> <img class="avatar mb-4" src="/j/images/avatar.jpg" alt="avatar"> <div class="mb-2 text-center">Actions speak louder than words.</div> <div class="flex items-center justify-center flex-wrap"> <a title="github" href="https://github.com/shuvoaftab" target="_blank"> <i class="ri-github-fill text-2xl mr-2 cursor-pointer"></i> </a> </div> </div> <div id="toc" class="shadow-lg rounded-lg my-4 py-2 px-2 bg-skin-card sticky top-20" data-astro-cid-6t6zfk7k> <div class="flex items-center border-b border-b-gray-300 mb-1 toc-header" data-astro-cid-6t6zfk7k> <i class="ri-list-check menu-icon" data-astro-cid-6t6zfk7k></i> Table of Contents </div> <div class="overflow-auto" data-astro-cid-6t6zfk7k> <div class="toc-container" data-astro-cid-6t6zfk7k></div> </div> </div>   </div> <button type="button" id="scrollToTopBtn" class="header-btn fixed bottom-4 left-2 hidden" title="scroll to top"> <i class="ri-arrow-up-line"></i> </button>  </div> <div class="footer container p-4" data-astro-cid-sz7xmlte>  <div class="flex items-center flex-wrap justify-center mb-4 text-skin-base" data-astro-cid-sz7xmlte> <div data-astro-cid-sz7xmlte> <!-- <span class="cursor-default">Copyright</span> --> <i class="ri-copyright-line align-middle" data-astro-cid-sz7xmlte></i> <span class="align-middle" data-astro-cid-sz7xmlte>2025</span> </div>  <div class="divider-vertical" data-astro-cid-sz7xmlte></div> <a href="/j/sitemap-0.xml" data-astro-cid-sz7xmlte>Sitemap</a> </div> </div>  </main> </body></html>
+</div> -->
+                    </div>
+                    <div class="giscus"></div>
+                    <script
+                        src="https://giscus.app/client.js"
+                        data-repo="shuvoaftab/ibrahimsharif.com"
+                        data-repo-id="R_kgDOKQ7kDw"
+                        data-category="Journal"
+                        data-category-id="DIC_kwDOKQ7kD84CmTaw"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="light"
+                        data-lang="en"
+                        data-loading="lazy"
+                        crossorigin="anonymous"
+                    ></script>
+                </div>
+                <div class="hidden xl:block col-span-1 relative">
+                    <div
+                        class="shadow-lg rounded-lg h-64 w-auto flex flex-col items-center justify-center bg-skin-card p-2"
+                    >
+                        <img
+                            class="avatar mb-4"
+                            src="/j/images/avatar.jpg"
+                            alt="avatar"
+                        />
+                        <div class="mb-2 text-center">
+                            Actions speak louder than words.
+                        </div>
+                        <div class="flex items-center justify-center flex-wrap">
+                            <a
+                                title="github"
+                                href="https://github.com/shuvoaftab"
+                                target="_blank"
+                            >
+                                <i
+                                    class="ri-github-fill text-2xl mr-2 cursor-pointer"
+                                ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        id="toc"
+                        class="shadow-lg rounded-lg my-4 py-2 px-2 bg-skin-card sticky top-20"
+                        data-astro-cid-6t6zfk7k
+                    >
+                        <div
+                            class="flex items-center border-b border-b-gray-300 mb-1 toc-header"
+                            data-astro-cid-6t6zfk7k
+                        >
+                            <i
+                                class="ri-list-check menu-icon"
+                                data-astro-cid-6t6zfk7k
+                            ></i>
+                            Table of Contents
+                        </div>
+                        <div class="overflow-auto" data-astro-cid-6t6zfk7k>
+                            <div
+                                class="toc-container"
+                                data-astro-cid-6t6zfk7k
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    id="scrollToTopBtn"
+                    class="header-btn fixed bottom-4 left-2 hidden"
+                    title="scroll to top"
+                >
+                    <i class="ri-arrow-up-line"></i>
+                </button>
+            </div>
+            <div class="footer container p-4" data-astro-cid-sz7xmlte>
+                <div
+                    class="flex items-center flex-wrap justify-center mb-4 text-skin-base"
+                    data-astro-cid-sz7xmlte
+                >
+                    <div data-astro-cid-sz7xmlte>
+                        <!-- <span class="cursor-default">Copyright</span> -->
+                        <i
+                            class="ri-copyright-line align-middle"
+                            data-astro-cid-sz7xmlte
+                        ></i>
+                        <span class="align-middle" data-astro-cid-sz7xmlte
+                            >2025</span
+                        >
+                    </div>
+                    <div class="divider-vertical" data-astro-cid-sz7xmlte></div>
+                    <a href="/j/sitemap-0.xml" data-astro-cid-sz7xmlte
+                        >Sitemap</a
+                    >
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
