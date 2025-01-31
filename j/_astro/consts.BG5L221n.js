@@ -1,1 +1,0 @@
-const e={busuanzi:!1,lang:"en",codeFoldingStartLines:16,ga:!1,memosUrl:"",memosUsername:"",memosPageSize:10},a={enable:!1,tip:"Thanks for the coffee !!!☕",wechatQRCode:"/WeChatQR.png",alipayQRCode:"/AliPayQR.png",paypalUrl:"https://paypal.me/xxxxxxxxxx"};export{e as c,a as d};
