@@ -53,10 +53,10 @@ var theme = {
         stick: 'navbar-stick',
         unstick: 'navbar-unstick',
       },
-      onStick: function () {
+      onStick: function() {
         var navbarClonedClass = this.clonedElem.classList;
         if (navbarClonedClass.contains('transparent') && navbarClonedClass.contains('navbar-dark')) {
-          this.clonedElem.className = this.clonedElem.className.replace("navbar-dark", "navbar-light");
+          this.clonedElem.className = this.clonedElem.className.replace("navbar-dark","navbar-light");
         }
       }
     };
@@ -67,28 +67,28 @@ var theme = {
    * Enables multilevel dropdown
    */
   subMenu: () => {
-    (function ($bs) {
+    (function($bs) {
       const CLASS_NAME = 'has-child-dropdown-show';
-      $bs.Dropdown.prototype.toggle = function (_original) {
-        return function () {
-          document.querySelectorAll('.' + CLASS_NAME).forEach(function (e) {
-            e.classList.remove(CLASS_NAME);
-          });
-          let dd = this._element.closest('.dropdown').parentNode.closest('.dropdown');
-          for (; dd && dd !== document; dd = dd.parentNode.closest('.dropdown')) {
-            dd.classList.add(CLASS_NAME);
+      $bs.Dropdown.prototype.toggle = function(_original) {
+          return function() {
+              document.querySelectorAll('.' + CLASS_NAME).forEach(function(e) {
+                  e.classList.remove(CLASS_NAME);
+              });
+              let dd = this._element.closest('.dropdown').parentNode.closest('.dropdown');
+              for (; dd && dd !== document; dd = dd.parentNode.closest('.dropdown')) {
+                  dd.classList.add(CLASS_NAME);
+              }
+              return _original.call(this);
           }
-          return _original.call(this);
-        }
       }($bs.Dropdown.prototype.toggle);
-      document.querySelectorAll('.dropdown').forEach(function (dd) {
-        dd.addEventListener('hide.bs.dropdown', function (e) {
-          if (this.classList.contains(CLASS_NAME)) {
-            this.classList.remove(CLASS_NAME);
-            e.preventDefault();
-          }
-          e.stopPropagation();
-        });
+      document.querySelectorAll('.dropdown').forEach(function(dd) {
+          dd.addEventListener('hide.bs.dropdown', function(e) {
+              if (this.classList.contains(CLASS_NAME)) {
+                  this.classList.remove(CLASS_NAME);
+                  e.preventDefault();
+              }
+              e.stopPropagation();
+          });
       });
     })(bootstrap);
   },
@@ -101,7 +101,7 @@ var theme = {
     if (navbar == null) return;
     const navOffCanvasBtn = document.querySelectorAll(".offcanvas-nav-btn");
     const navOffCanvas = document.querySelector('.navbar:not(.navbar-clone) .offcanvas-nav');
-    const bsOffCanvas = new bootstrap.Offcanvas(navOffCanvas, { scroll: true });
+    const bsOffCanvas = new bootstrap.Offcanvas(navOffCanvas, {scroll: true});
     const scrollLink = document.querySelectorAll('.onepage .navbar li a.scroll');
     const searchOffcanvas = document.getElementById('offcanvas-search');
     navOffCanvasBtn.forEach(e => {
@@ -114,7 +114,7 @@ var theme = {
         bsOffCanvas.hide();
       })
     });
-    if (searchOffcanvas != null) {
+    if(searchOffcanvas != null) {
       searchOffcanvas.addEventListener('shown.bs.offcanvas', function () {
         document.getElementById("search-form").focus();
       });
@@ -128,7 +128,7 @@ var theme = {
    */
   isotope: () => {
     var grids = document.querySelectorAll('.grid');
-    if (grids != null) {
+    if(grids != null) {
       grids.forEach(g => {
         var grid = g.querySelector('.isotope');
         var filtersElem = g.querySelector('.isotope-filter');
@@ -142,23 +142,23 @@ var theme = {
           percentPosition: true,
           transitionDuration: '0.7s'
         });
-        imagesLoaded(grid).on("progress", function () {
+        imagesLoaded(grid).on("progress", function() {
           iso.layout({
             masonry: {
               columnWidth: grid.offsetWidth / 12
             }
           })
         }),
-          window.addEventListener("resize", function () {
-            iso.arrange({
-              masonry: {
-                columnWidth: grid.offsetWidth / 12
-              }
-            });
-          }, true);
-        if (filtersElem != null) {
-          filtersElem.addEventListener('click', function (event) {
-            if (!matchesSelector(event.target, '.filter-item')) {
+        window.addEventListener("resize", function() {
+          iso.arrange({
+            masonry: {
+              columnWidth: grid.offsetWidth / 12
+            }
+          });
+        }, true);
+        if(filtersElem != null) {
+          filtersElem.addEventListener('click', function(event) {
+            if(!matchesSelector(event.target, '.filter-item')) {
               return;
             }
             var filterValue = event.target.getAttribute('data-filter');
@@ -166,10 +166,10 @@ var theme = {
               filter: filterValue
             });
           });
-          for (var i = 0, len = buttonGroups.length; i < len; i++) {
+          for(var i = 0, len = buttonGroups.length; i < len; i++) {
             var buttonGroup = buttonGroups[i];
-            buttonGroup.addEventListener('click', function (event) {
-              if (!matchesSelector(event.target, '.filter-item')) {
+            buttonGroup.addEventListener('click', function(event) {
+              if(!matchesSelector(event.target, '.filter-item')) {
                 return;
               }
               buttonGroup.querySelector('.active').classList.remove('active');
@@ -195,7 +195,7 @@ var theme = {
       section.style.marginTop = '-' + shrinked_header_height + 'px';
     });
     const first_section = document.querySelector(".onepage section:first-of-type");
-    if (first_section != null) {
+    if(first_section != null) {
       first_section.style.paddingTop = header_height + 'px';
       first_section.style.marginTop = '-' + header_height + 'px';
     }
@@ -230,7 +230,7 @@ var theme = {
    */
   anchorSmoothScroll: () => {
     const links = document.querySelectorAll(".scroll");
-    for (const link of links) {
+    for(const link of links) {
       link.addEventListener("click", clickHandler);
     }
     function clickHandler(e) {
@@ -251,11 +251,11 @@ var theme = {
    */
   svgInject: () => {
     SVGInject.setOptions({
-      onFail: function (img, svg) {
+      onFail: function(img, svg) {
         img.classList.remove('svg-inject');
       }
     });
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       SVGInject(document.querySelectorAll('img.svg-inject'), {
         useCache: true
       });
@@ -267,7 +267,7 @@ var theme = {
    */
   backgroundImage: () => {
     var bg = document.querySelectorAll(".bg-image");
-    for (var i = 0; i < bg.length; i++) {
+    for(var i = 0; i < bg.length; i++) {
       var url = bg[i].getAttribute('data-image-src');
       bg[i].style.backgroundImage = "url('" + url + "')";
     }
@@ -278,7 +278,7 @@ var theme = {
    */
   backgroundImageMobile: () => {
     var isMobile = (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i)) ? true : false;
-    if (isMobile) {
+    if(isMobile) {
       document.querySelectorAll(".image-wrapper").forEach(e => {
         e.classList.add("mobile")
       })
@@ -290,7 +290,7 @@ var theme = {
    */
   imageHoverOverlay: () => {
     var overlay = document.querySelectorAll('.overlay > a, .overlay > span');
-    for (var i = 0; i < overlay.length; i++) {
+    for(var i = 0; i < overlay.length; i++) {
       var overlay_bg = document.createElement('span');
       overlay_bg.className = "bg";
       overlay[i].appendChild(overlay_bg);
@@ -302,15 +302,15 @@ var theme = {
    * Requires assets/js/vendor/rellax.min.js
    */
   rellax: () => {
-    if (document.querySelector(".rellax") != null) {
-      window.onload = function () {
+    if(document.querySelector(".rellax") != null) {
+      window.onload = function() {
         var rellax = new Rellax('.rellax', {
           speed: 2,
           center: true,
           breakpoints: [576, 992, 1201]
         });
         var projects_overflow = document.querySelectorAll('.projects-overflow');
-        imagesLoaded(projects_overflow, function () {
+        imagesLoaded(projects_overflow, function() {
           rellax.refresh();
         });
       }
@@ -334,9 +334,9 @@ var theme = {
    * Enables carousels and sliders
    * Requires assets/js/vendor/swiper-bundle.min.js
    */
-  swiperSlider: function () {
+  swiperSlider: function() {
     var carousel = document.querySelectorAll('.swiper-container');
-    for (var i = 0; i < carousel.length; i++) {
+    for(var i = 0; i < carousel.length; i++) {
       var slider1 = carousel[i];
       slider1.classList.add('swiper-container-' + i);
       var controls = document.createElement('div');
@@ -398,6 +398,7 @@ var theme = {
       var sliderMargin = slider1.getAttribute('data-margin') ? slider1.getAttribute('data-margin') : 30;
       var sliderLoop = slider1.getAttribute('data-loop') === 'true';
       var sliderCentered = slider1.getAttribute('data-centered') === 'true';
+      var sliderWatchOverflow = slider1.getAttribute('data-watchoverflow') !== 'false';
       var swiper = slider1.querySelector('.swiper:not(.swiper-thumbs)');
       var swiperTh = slider1.querySelector('.swiper-thumbs');
       var sliderTh = new Swiper(swiperTh, {
@@ -420,19 +421,19 @@ var theme = {
       }
       var slider = new Swiper(swiper, {
         on: {
-          beforeInit: function () {
-            if (slider1.getAttribute('data-nav') !== 'true' && slider1.getAttribute('data-dots') !== 'true') {
+          beforeInit: function() {
+            if(slider1.getAttribute('data-nav') !== 'true' && slider1.getAttribute('data-dots') !== 'true') {
               controls.remove();
             }
-            if (slider1.getAttribute('data-dots') !== 'true') {
+            if(slider1.getAttribute('data-dots') !== 'true') {
               pagi.remove();
             }
-            if (slider1.getAttribute('data-nav') !== 'true') {
+            if(slider1.getAttribute('data-nav') !== 'true') {
               navi.remove();
             }
           },
-          init: function () {
-            if (slider1.getAttribute('data-autoplay') !== 'true') {
+          init: function() {
+            if(slider1.getAttribute('data-autoplay') !== 'true') {
               this.autoplay.stop();
             }
             this.update();
@@ -452,6 +453,7 @@ var theme = {
         spaceBetween: Number(sliderMargin),
         effect: sliderEffect,
         autoHeight: sliderAutoHeight,
+        watchOverflow: sliderWatchOverflow,
         grabCursor: true,
         resizeObserver: false,
         updateOnWindowResize: sliderResizeUpdate,
@@ -557,7 +559,7 @@ var theme = {
       var value = e.getAttribute('data-value') / 100;
       new Waypoint({
         element: e,
-        handler: function () {
+        handler: function() {
           line.animate(value);
         },
         offset: 'bottom-in-view',
@@ -576,7 +578,7 @@ var theme = {
       var value = e.getAttribute('data-value') / 100;
       new Waypoint({
         element: e,
-        handler: function () {
+        handler: function() {
           circle.animate(value);
         },
         offset: 'bottom-in-view',
@@ -589,10 +591,11 @@ var theme = {
    */
   loader: () => {
     var preloader = document.querySelector('.page-loader');
-    if (preloader != null) {
-      document.body.onload = function () {
-        setTimeout(function () {
-          if (!preloader.classList.contains('done')) {
+    if(preloader != null) {
+      document.body.onload = function(){
+        setTimeout(function() {
+          if( !preloader.classList.contains('done') )
+          {
             preloader.classList.add('done');
           }
         }, 1000)
@@ -605,7 +608,7 @@ var theme = {
    */
   pageProgress: () => {
     var progressWrap = document.querySelector('.progress-wrap');
-    if (progressWrap != null) {
+    if(progressWrap != null) {
       var progressPath = document.querySelector('.progress-wrap path');
       var pathLength = progressPath.getTotalLength();
       var offset = 50;
@@ -614,22 +617,22 @@ var theme = {
       progressPath.style.strokeDashoffset = pathLength;
       progressPath.getBoundingClientRect();
       progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
-      window.addEventListener("scroll", function (event) {
+      window.addEventListener("scroll", function(event) {
         var scroll = document.body.scrollTop || document.documentElement.scrollTop;
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         var progress = pathLength - (scroll * pathLength / height);
         progressPath.style.strokeDashoffset = progress;
         var scrollElementPos = document.body.scrollTop || document.documentElement.scrollTop;
-        if (scrollElementPos >= offset) {
+        if(scrollElementPos >= offset) {
           progressWrap.classList.add("active-progress")
         } else {
           progressWrap.classList.remove("active-progress")
         }
       });
-      progressWrap.addEventListener('click', function (e) {
+      progressWrap.addEventListener('click', function(e) {
         e.preventDefault();
         window.scroll({
-          top: 0,
+          top: 0, 
           left: 0,
           behavior: 'smooth'
         });
@@ -648,7 +651,7 @@ var theme = {
     counters.forEach(el => {
       new Waypoint({
         element: el,
-        handler: function () {
+        handler: function() {
           counterUp(el, {
             duration: 1000,
             delay: 50
@@ -666,13 +669,13 @@ var theme = {
    */
   bsTooltips: () => {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl, {
         trigger: 'hover'
       })
     });
     var tooltipTriggerWhite = [].slice.call(document.querySelectorAll('[data-bs-toggle="white-tooltip"]'))
-    var tooltipWhite = tooltipTriggerWhite.map(function (tooltipTriggerEl) {
+    var tooltipWhite = tooltipTriggerWhite.map(function(tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl, {
         customClass: 'white-tooltip',
         trigger: 'hover',
@@ -687,7 +690,7 @@ var theme = {
    */
   bsPopovers: () => {
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
     })
   },
@@ -696,9 +699,9 @@ var theme = {
    * Enables Bootstrap modal popup
    */
   bsModal: () => {
-    if (document.querySelector(".modal-popup") != null) {
+    if(document.querySelector(".modal-popup") != null) {
       var myModalPopup = new bootstrap.Modal(document.querySelector('.modal-popup'));
-      setTimeout(function () {
+      setTimeout(function() {
         myModalPopup.show();
       }, 200);
     }
@@ -710,26 +713,26 @@ var theme = {
     var navbarFixed = document.querySelector('.navbar.fixed');
     var pageProgress = document.querySelector('.progress-wrap');
     function setPadding() {
-      if (navbarFixed != null) {
+      if(navbarFixed != null) {
         navbarFixed.style.paddingRight = scrollSize + 'px';
       }
-      if (pageProgress != null) {
+      if(pageProgress != null) {
         pageProgress.style.marginRight = scrollSize + 'px';
       }
     }
     function removePadding() {
-      if (navbarFixed != null) {
+      if(navbarFixed != null) {
         navbarFixed.style.paddingRight = '';
       }
-      if (pageProgress != null) {
-        pageProgress.style.marginRight = '';
+      if(pageProgress != null) {
+       pageProgress.style.marginRight = '';
       }
     }
     myModalEl.forEach(myModalEl => {
-      myModalEl.addEventListener('show.bs.modal', function (e) {
+      myModalEl.addEventListener('show.bs.modal', function(e) {
         setPadding();
       })
-      myModalEl.addEventListener('hidden.bs.modal', function (e) {
+      myModalEl.addEventListener('hidden.bs.modal', function(e) {
         removePadding();
       })
     });
@@ -754,46 +757,46 @@ var theme = {
    * Bootstrap validation - Only sends messages if form has class ".contact-form" and is validated and shows success/fail messages
    */
   forms: () => {
-    (function () {
+    (function() {
       "use strict";
-      window.addEventListener("load", function () {
+      window.addEventListener("load", function() {
         var forms = document.querySelectorAll(".needs-validation");
-        var inputRecaptcha = document.querySelector("input[data-recaptcha]");
+        var inputRecaptcha = document.querySelector("input[data-recaptcha]"); 
         window.verifyRecaptchaCallback = function (response) {
-          inputRecaptcha.value = response;
+          inputRecaptcha.value = response; 
           inputRecaptcha.dispatchEvent(new Event("change"));
         }
         window.expiredRecaptchaCallback = function () {
-          var inputRecaptcha = document.querySelector("input[data-recaptcha]");
-          inputRecaptcha.value = "";
+          var inputRecaptcha = document.querySelector("input[data-recaptcha]"); 
+          inputRecaptcha.value = ""; 
           inputRecaptcha.dispatchEvent(new Event("change"));
         }
-        var validation = Array.prototype.filter.call(forms, function (form) {
-          form.addEventListener("submit", function (event) {
-            if (form.checkValidity() === false) {
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener("submit", function(event) {
+            if(form.checkValidity() === false) {
               event.preventDefault();
               event.stopPropagation();
             }
             form.classList.add("was-validated");
-            if (form.checkValidity() === true) {
+            if(form.checkValidity() === true) {
               event.preventDefault();
               form.classList.remove("was-validated");
               // Send message only if the form has class .contact-form
               var isContactForm = form.classList.contains('contact-form');
-              if (isContactForm) {
+              if(isContactForm) {
                 var data = new FormData(form);
                 var alertClass = 'alert-danger';
-                fetch("https://ultracdn.ibrahimsharif.com/contact/contact.php", {
+                fetch("assets/php/contact.php", {
                   method: "post",
                   body: data
                 }).then((data) => {
-                  if (data.ok) {
+                  if(data.ok) {
                     alertClass = 'alert-success';
                   }
                   return data.text();
                 }).then((txt) => {
                   var alertBox = '<div class="alert ' + alertClass + ' alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + txt + '</div>';
-                  if (alertClass && txt) {
+                  if(alertClass && txt) {
                     form.querySelector(".messages").insertAdjacentHTML('beforeend', alertBox);
                     form.reset();
                     grecaptcha.reset();
@@ -824,9 +827,9 @@ var theme = {
           passToggle.classList.add('uil-eye-slash');
         } else {
           passInput.type = "password";
-          passToggle.classList.remove('uil-eye-slash');
+          passToggle.classList.remove('uil-eye-slash'); 
           passToggle.classList.add('uil-eye');
-        }
+        } 
       }, false);
     }
   },
@@ -835,7 +838,7 @@ var theme = {
    * Enables monthly/yearly switcher seen on pricing tables
    */
   pricingSwitcher: () => {
-    if (document.querySelector(".pricing-switchers") != null) {
+    if(document.querySelector(".pricing-switchers") != null) {
       const wrapper = document.querySelectorAll(".pricing-wrapper");
       wrapper.forEach(wrap => {
         const switchers = wrap.querySelector(".pricing-switchers");
@@ -860,7 +863,7 @@ var theme = {
    * Requires assets/js/vendor/replaceme.min.js
    */
   textRotator: () => {
-    if (document.querySelector(".rotator-zoom") != null) {
+    if(document.querySelector(".rotator-zoom") != null) {
       var replace = new ReplaceMe(document.querySelector('.rotator-zoom'), {
         animation: 'animate__animated animate__zoomIn',
         speed: 2500,
@@ -869,7 +872,7 @@ var theme = {
         loopCount: 'infinite'
       });
     }
-    if (document.querySelector(".rotator-fade") != null) {
+    if(document.querySelector(".rotator-fade") != null) {
       var replace = new ReplaceMe(document.querySelector('.rotator-fade'), {
         animation: 'animate__animated animate__fadeInDown',
         speed: 2500,
@@ -886,11 +889,11 @@ var theme = {
    */
   codeSnippet: () => {
     var btnHtml = '<button type="button" class="btn btn-sm btn-white rounded-pill btn-clipboard">Copy</button>'
-    document.querySelectorAll('.code-wrapper-inner').forEach(function (element) {
+    document.querySelectorAll('.code-wrapper-inner').forEach(function(element) {
       element.insertAdjacentHTML('beforebegin', btnHtml)
     })
     var clipboard = new ClipboardJS('.btn-clipboard', {
-      target: function (trigger) {
+      target: function(trigger) {
         return trigger.nextElementSibling
       }
     })
@@ -902,10 +905,10 @@ var theme = {
       }, 2000);
     });
     var copyIconCode = new ClipboardJS('.btn-copy-icon');
-    copyIconCode.on('success', function (event) {
+    copyIconCode.on('success', function(event) {
       event.clearSelection();
       event.trigger.textContent = 'Copied!';
-      window.setTimeout(function () {
+      window.setTimeout(function() {
         event.trigger.textContent = 'Copy';
       }, 2300);
     });

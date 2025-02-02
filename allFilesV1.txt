@@ -1,0 +1,16 @@
+.
+..
+.DS_Store
+.git
+.github
+.gitignore
+.nojekyll
+404.html.bak.html
+CNAME
+JournalV1.zip
+LICENSE
+README.md
+SandBoxV1.zip
+allFilesV1.txt
+android-wordpress.md
+robots.txt
