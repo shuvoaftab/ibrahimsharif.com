@@ -28,6 +28,12 @@
 ------------------------------------------------------------------ */
 /*-----------------------[ 1.Default CSS ]------------------------*/
 :root {
+    --font-primary: "Rubik", sans-serif;
+    --font-secondary: "Roboto", sans-serif;
+    --font-size-primary: 16px;
+    --font-size-secondary: 18px;
+    --font-size-large: 20px;
+    --font-bold: 600;
     --primary-color: #00cc97;
     --primary-link-color: #03a9f4;
     --text-color: #fff; /* Default text color */
@@ -37,13 +43,13 @@
     --section-padding-top: 50px;
     --section-background-odd: #0f141c; /* Darker background */
     --section-background-even: #141516; /* Slightly lighter background */
-    --section-sub-text-color: #909090; /* Subtext color */
-    --neon-shadow-red: #E91E63;
+    --sub-text-color: #909090; /* Subtext color */
+    --neon-shadow-red: #e91e63;
     --neon-shadow-green: #4caf50;
     --neon-shadow-blue: #3f51b5;
     --color-orange: #ff9800;
     --color-red: #f44336;
-    --color-blue: #2196F3;
+    --color-blue: #2196f3;
     --color-pink: #ff00ec;
     --color-yellow: #ffeb3b;
 }
@@ -91,7 +97,7 @@ ul {
 ul li {
     list-style: none;
 }
-strong{
+strong {
     font-family: monospace;
 }
 /* Hide the scrollbar corner */
@@ -305,14 +311,17 @@ h1 span {
 /* .profile-media-icons:hover {
     background: #ff759c;
 } */
-.svg-primary{
-    filter: invert(49%) sepia(87%) saturate(980%) hue-rotate(125deg) brightness(99%) contrast(101%);
+.svg-primary {
+    filter: invert(49%) sepia(87%) saturate(980%) hue-rotate(125deg)
+        brightness(99%) contrast(101%);
 }
-.svg-primary:hover{
-    filter: invert(97%) sepia(95%) saturate(946%) hue-rotate(6deg) brightness(91%) contrast(88%);
+.svg-primary:hover {
+    filter: invert(97%) sepia(95%) saturate(946%) hue-rotate(6deg)
+        brightness(91%) contrast(88%);
 }
-.svg-white{
-    filter: invert(100%) sepia(0%) saturate(7487%) hue-rotate(152deg) brightness(108%) contrast(103%);
+.svg-white {
+    filter: invert(100%) sepia(0%) saturate(7487%) hue-rotate(152deg)
+        brightness(108%) contrast(103%);
 }
 .menu-list-main ul li {
     padding: 10px 20px;
@@ -323,7 +332,7 @@ h1 span {
 }
 .menu-list-main ul li a {
     color: var(--8, #909090);
-    font-family: "DM Sans";
+    font-family: "Rubik";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -668,14 +677,31 @@ section#about {
     background: var(--14, #909090);
     mix-blend-mode: hard-light;
 }
-.section-sub-text {
-    color: var(--14, #909090);
-    font-size: 20px;
+.description-large {
+    color: var(--sub-text-color);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-large);
     font-weight: 400;
     line-height: 30px;
 }
-.section-sub-text span {
+.description-large span {
     color: var(--14, #fff);
+}
+.sub-heading-text {
+    color: var(--text-color);
+    font-size: var(--font-size-large);
+    text-transform: capitalize;
+    font-weight: var(--font-bold);
+    line-height: 30px;
+    padding: 30px 0 20px;
+}
+.heading-content-text {
+    color: var(--sub-text-color);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-secondary);
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 1rem;
 }
 .about-sub-text {
     padding: 40px 0 30px 0;
@@ -722,7 +748,7 @@ section#academic {
     align-items: center;
     padding-bottom: 10px;
 } */
-#academic .education{
+#academic .education {
     margin: 20px 0 50px;
 }
 .bsc {
@@ -733,39 +759,37 @@ section#academic {
     padding-bottom: 10px;
     transition: all 0.3s;
 }
-.uni{
-    color: var(--text-highlight) !important;
-}
-#academic .cursus strong{
+#academic .content strong {
     font-family: monospace;
     font-weight: 600;
 }
-.fa-icons-link{
-    filter: invert(68%) sepia(56%) saturate(2316%) hue-rotate(145deg) brightness(96%) contrast(104%);
+.fa-icons-link {
+    filter: invert(68%) sepia(56%) saturate(2316%) hue-rotate(145deg)
+        brightness(96%) contrast(104%);
     width: 16px;
 }
 .card-body {
     color: var(--text-dimmed);
 }
-.card-header{
-    color: var(--section-sub-text-color);
+.card-header {
+    color: var(--sub-text-color);
 }
 .card-title {
     /* text-shadow: 1px 1px #9e9e9e; */
     /* color: var(--text-dimmed); */
     color: var(--text-color);
 }
-.list-decimal{
+.list-decimal {
     padding: 10px;
 }
-.list-decimal li{
+.list-decimal li {
     list-style: decimal;
 }
 
-.list-square{
+.list-square {
     padding: 10px;
 }
-.list-square li{
+.list-square li {
     list-style: square;
 }
 /*-----------------------[ 9.Education-Experience CSS ]------------------------*/
@@ -773,8 +797,11 @@ section#resume {
     background: var(--section-background-even);
     padding: var(--section-padding);
 }
-.cursus.university{
-    color: var(--text-dimmed);
+.content.university {
+    color: var(--text-highlight);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-large);
+    margin-bottom: 1rem;
 }
 .education-heading-text {
     color: var(--1, #fff);
@@ -818,24 +845,22 @@ section#resume {
     line-height: 28px;
     text-transform: uppercase;
     margin: 0;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     transition: all 0.3s;
 }
 .education:hover .bachelor {
     color: #ff759c;
 }
-.university {
-    padding-bottom: 15px;
-    font-size: 18px !important;
-}
-.cursus {
-    color: #909090;
-    font-size: 16px;
+.content {
+    color: var(--text-dimmed);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-secondary);
     line-height: 24px;
     margin: 0;
+    letter-spacing: .1px;
     transition: all 0.3s;
 }
-.education:hover .cursus {
+.education:hover .content {
     color: #fff;
 }
 .small_yellow_border_main {
@@ -951,8 +976,9 @@ section#skillset {
     font-weight: 500;
     line-height: 14px;
 }
-.svg-header-icon{
-    filter: invert(68%) sepia(56%) saturate(2316%) hue-rotate(145deg) brightness(96%) contrast(104%);
+.svg-header-icon {
+    filter: invert(68%) sepia(56%) saturate(2316%) hue-rotate(145deg)
+        brightness(96%) contrast(104%);
 }
 .link-green {
     color: var(--bs-green);
@@ -1043,17 +1069,17 @@ a.hover::before {
     background: var(--text-color);
 }
 /*-----------------------[ 11.Award-section CSS ]------------------------*/
-section#achievements{
+section#achievements {
     background: var(--section-background-odd);
     padding: var(--section-padding);
 }
 .box-item {
     position: relative;
 }
-.awards-row {
+/* .awards-row {
     gap: 24px 0;
     padding-top: 46px;
-}
+} */
 .carousel {
     box-shadow: inset 0px 0px 40px #430dfd;
     padding: 15px;
@@ -1164,8 +1190,14 @@ section#achievements{
 }
 /*-----------------------[ 12.Services-section CSS ]------------------------*/
 section#services {
-    background: var(--section-background-even);
+    background: var(--section-background-odd);
     padding: var(--section-padding);
+}
+.table > tbody {
+    vertical-align: middle;
+}
+.table-striped > tbody > tr > td:last-of-type {
+    text-align: end;
 }
 .Services-section {
     padding: 80px 0;
@@ -1177,32 +1209,27 @@ section#services {
     line-height: 30px;
     padding: 30px 0 20px;
 }
-.visoion-text {
-    color: var(--14, #909090);
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-}
 .services-row {
     padding: 30px 0 0;
 }
 .services-img {
-    width: 83px;
-    height: 83px;
-    border-radius: 50%;
-    background: #ff759c;
+    width: 80px;
+    height: 80px;
+    border-radius: 5%;
+    padding: 5px;
+    background: var(--color-blue);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .services-img2 {
-    background: #00cc97;
+    background: var(--primary-color);
 }
 .services-img3 {
     background: #6f39fd;
 }
 .services-img4 {
-    background: #ff7d61;
+    background: var(--color-red);
 }
 .services-text {
     color: var(--1, #fff);
@@ -1213,7 +1240,8 @@ section#services {
 }
 .molestie {
     color: var(--14, #909090);
-    font-size: 16px;
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-secondary);
     font-weight: 400;
     line-height: 24px;
 }
@@ -1615,21 +1643,22 @@ section#testimonials {
     padding: 10px;
     /* text-align: justify; */
 }
-.svg-link{
+.svg-link {
     display: flex;
 }
 .svg-link img {
-    filter: invert(68%) sepia(56%) saturate(2316%) hue-rotate(145deg) brightness(96%) contrast(104%);
+    filter: invert(68%) sepia(56%) saturate(2316%) hue-rotate(145deg)
+        brightness(96%) contrast(104%);
     width: 18px;
     margin-left: 7px;
 }
-.testament {
+/* .testament {
     color: var(--14, #909090);
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
     margin: 30px 0;
-}
+} */
 .colan-icon-img-main {
     width: 64px;
     height: 64px;
@@ -1768,6 +1797,7 @@ section#blog {
 .est {
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
