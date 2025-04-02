@@ -6,13 +6,16 @@ $(document).ready(function () {
 });
 
 /*------------------------------------- Designer Text Animation -------------------------------------*/
-firstText = "Designer";
+firstText = ".";
 secondText = "Developer";
 thridText = "Freelancer";
 
 fourthText = "Customer Success";
 fifthText = "Web Developer";
 sixthText = "WordPress Wizard";
+seventhText = "Email Delivery Expert";
+eighthText = "DNS Specialist";
+ninthText = "Server Admin";
 
 intervalTime = 500;
 // window.load = displayText();
@@ -31,13 +34,21 @@ function displayText() {
 
 function displayText2() {
     document.querySelector('.designer2').innerText = fourthText;
-    firstText.innerText
     setTimeout(() => {
         document.querySelector('.designer2').innerText = fifthText;
-    }, intervalTime * 3);
+    }, intervalTime * 2);
     setTimeout(() => {
         document.querySelector('.designer2').innerText = sixthText;
     }, intervalTime * 5);
+    setTimeout(() => {
+        document.querySelector('.designer2').innerText = seventhText;
+    }, intervalTime * 8);
+    setTimeout(() => {
+        document.querySelector('.designer2').innerText = eighthText;
+    }, intervalTime * 11);
+    setTimeout(() => {
+        document.querySelector('.designer2').innerText = ninthText;
+    }, intervalTime * 14);
 }
 setInterval(() => {
     // displayText();
@@ -233,16 +244,16 @@ $(document).ready(function () {
 });
 
 /*------------------------------------- Form Input Animtion -------------------------------------*/
-$('input').focus(function () {
-    $(this).parent().addClass('active');
-    $('input').focusout(function () {
-        if ($(this).val() == '') {
-            $(this).parent().removeClass('active');
-        } else {
-            $(this).parent().addClass('active');
-        }
-    })
-});
+// $('input').focus(function () {
+//     $(this).parent().addClass('active');
+//     $('input').focusout(function () {
+//         if ($(this).val() == '') {
+//             $(this).parent().removeClass('active');
+//         } else {
+//             $(this).parent().addClass('active');
+//         }
+//     })
+// });
 
 /*------------------------------------- Menu Toggle -------------------------------------*/
 document.addEventListener('DOMContentLoaded', function () {

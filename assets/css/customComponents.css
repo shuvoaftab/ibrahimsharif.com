@@ -4,7 +4,7 @@
     box-shadow: 1px 1px 5px #171b22;
 }
 .card-dark-shadow:hover {
-    box-shadow: 1px 1px 5px #00cc97;
+    box-shadow: var(--component-hover-shadow);
 }
 /* DARK SIMPLE CARD 1 */
 /* NEON CARD 1 */
