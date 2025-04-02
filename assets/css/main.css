@@ -1,14 +1,19 @@
 .Ellipse1, .Ellipse2 {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     filter: blur(250px);
     z-index: -1;
     will-change: transform;
     animation: moveEllipses 20s linear infinite, changeColor 20s linear infinite;
 }
-
+@media (min-width: 1199px) {
+    .Ellipse1, .Ellipse2 {
+        width: 200px;
+        height: 200px;
+    }
+}
 /* Initial positions to prevent layout shifts */
 .Ellipse1 {
     top: 50%;
