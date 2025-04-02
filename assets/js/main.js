@@ -22,7 +22,7 @@ let crispChat = "assets/js/crisp.js"; // Crisp Chat Script
 // Load Stylesheets after the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     delayedStyleSheetLoading(extraStyle, veryLongInterval );
-    delayedStyleSheetLoading(rubikFont, veryLongInterval );
+    delayedStyleSheetLoading(rubikFont, longInterval );
     delayedStyleSheetLoading(robotoFont, veryLongInterval );
     delayedScriptLoading(crispChat, veryLongInterval );
 });
