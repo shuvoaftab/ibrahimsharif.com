@@ -1,8 +1,8 @@
 .Ellipse1, .Ellipse2 {
     position: absolute;
-    width: 340px;
-    height: 340px;
-    border-radius: 250px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
     filter: blur(250px);
     z-index: -1;
     will-change: transform;
