@@ -282,3 +282,25 @@ document.addEventListener('DOMContentLoaded', function () {
 /*------------------------------------- Scroll To Top -------------------------------------*/
 
 /*------------------------------------- Scroll to top -------------------------------------*/
+/*------------------------------------- Lazyload delayed initializer with other animation -------------------------------------*/
+
+// Check if jQuery is loaded
+if (typeof jQuery === 'undefined') {
+    console.error('jQuery is not loaded');
+  }
+  
+$(document).ready(function() {
+// For each image with data-src attribute
+    $("img[data-src]").each(function() {
+        const img = this;
+        const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            img.src = $(img).attr('data-src');
+            observer.disconnect();
+            }
+        });
+        });
+        observer.observe(img);
+    });
+});
