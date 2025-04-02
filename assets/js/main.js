@@ -1,5 +1,5 @@
-const veryLongInterval = 10000;
-const longInterval = 5000;
+const veryLongInterval = 20000;
+const longInterval = 10000;
 const shortInterval = 2000;
 const veryShortInterval = 1000;
 
