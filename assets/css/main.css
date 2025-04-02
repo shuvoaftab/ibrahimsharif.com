@@ -5,10 +5,11 @@
     border-radius: 250px;
     filter: blur(250px);
     z-index: -1;
+    will-change: transform;
     animation: moveEllipses 20s linear infinite, changeColor 20s linear infinite;
 }
 
-/* Positioning without shifting layout */
+/* Initial positions to prevent layout shifts */
 .Ellipse1 {
     top: 50%;
     left: 50%;
@@ -23,12 +24,13 @@
     transform: translate(50%, -50%);
 }
 
+/* Smooth movement without affecting layout */
 @keyframes moveEllipses {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    25% { transform: translate(50%, -50%) scale(1.2); }
-    50% { transform: translate(50%, 50%) scale(1); }
-    75% { transform: translate(-50%, 50%) scale(1.2); }
-    100% { transform: translate(-50%, -50%) scale(1); }
+    0%   { transform: translate(0%, 0%) scale(1); }
+    25%  { transform: translate(-50%, -50%) scale(1.1); }
+    50%  { transform: translate(-50%, 50%) scale(1); }
+    75%  { transform: translate(50%, 50%) scale(1.1); }
+    100% { transform: translate(0%, 0%) scale(1); }
 }
 
 @keyframes changeColor {
