@@ -17,43 +17,23 @@ seventhText = "Email Delivery Expert";
 eighthText = "DNS Specialist";
 ninthText = "Server Admin";
 
-intervalTime = 500;
-// window.load = displayText();
-window.load = displayText2();
+const intervalTime = 500;
+const textSequence = [fourthText, fifthText, sixthText, seventhText, eighthText, ninthText];
+const element = document.querySelector('.auto-skills');
 
-function displayText() {
-    document.querySelector('.designer').innerText = firstText;
-    firstText.innerText
-    setTimeout(() => {
-        document.querySelector('.designer').innerText = secondText;
-    }, intervalTime * 5);
-    setTimeout(() => {
-        document.querySelector('.designer').innerText = thridText;
-    }, intervalTime * 9);
+function displayTextSequence() {
+    textSequence.forEach((text, index) => {
+        setTimeout(() => {
+            element.innerText = text;
+        }, intervalTime * (2 * index + 1)); // 1, 3, 5, 7, ... intervals
+    });
 }
 
-function displayText2() {
-    document.querySelector('.designer2').innerText = fourthText;
-    setTimeout(() => {
-        document.querySelector('.designer2').innerText = fifthText;
-    }, intervalTime * 2);
-    setTimeout(() => {
-        document.querySelector('.designer2').innerText = sixthText;
-    }, intervalTime * 5);
-    setTimeout(() => {
-        document.querySelector('.designer2').innerText = seventhText;
-    }, intervalTime * 8);
-    setTimeout(() => {
-        document.querySelector('.designer2').innerText = eighthText;
-    }, intervalTime * 11);
-    setTimeout(() => {
-        document.querySelector('.designer2').innerText = ninthText;
-    }, intervalTime * 14);
-}
-setInterval(() => {
-    // displayText();
-    displayText2();
-}, intervalTime * 7);
+document.addEventListener('DOMContentLoaded', () => {
+    displayTextSequence();
+    setInterval(displayTextSequence, intervalTime * (2 * textSequence.length + 1));
+});
+
 
 /*------------------------------------- Whole Page Scrolling Animation -------------------------------------*/
 const observer = new IntersectionObserver((entries) => {
@@ -197,24 +177,24 @@ $(document).ready(function () {
 });
 
 /*------------------------------------- Gallary Fancy Box  -------------------------------------*/
-window.addEventListener("load", () => {
-    for (let i of document.querySelectorAll(".gallery img")) {
-        i.onclick = () => i.classList.toggle("full");
-    }
-});
+// window.addEventListener("load", () => {
+//     for (let i of document.querySelectorAll(".gallery img")) {
+//         i.onclick = () => i.classList.toggle("full");
+//     }
+// });
 
-$('[data-fancybox="gallery"]').fancybox({
-    buttons: [
-        "slideShow",
-        "thumbs",
-        "zoom",
-        "fullScreen",
-        "share",
-        "close"
-    ],
-    loop: false,
-    protect: true
-});
+// $('[data-fancybox="gallery"]').fancybox({
+//     buttons: [
+//         "slideShow",
+//         "thumbs",
+//         "zoom",
+//         "fullScreen",
+//         "share",
+//         "close"
+//     ],
+//     loop: false,
+//     protect: true
+// });
 
 /*------------------------------------- Timeline Start -------------------------------------*/
 

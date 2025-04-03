@@ -123,6 +123,9 @@ ul li {
     width: 4px; /* Adjust the width to a more standard value */
     height: 0px; /* Optional: For horizontal scrollbars */
 }
+.hover-primary:hover{
+    box-shadow: var(--component-hover-shadow);
+}
 /*-----------------------[ 2.Page Loader CSS ]------------------------*/
 .page-loader {
     width: 100%;
@@ -270,7 +273,7 @@ h1 span {
     transition: 0.5s;
 }
 .btn-slide:hover {
-    background-color: var(--primary-color);
+    background: var(--primary-link-color);
 }
 .btn-slide:hover span.circle {
     left: 100%;
@@ -290,7 +293,7 @@ h1 span {
 }
 .btn-slide span.circle {
     display: block;
-    background-color: var(--primary-link-color);
+    background: var(--primary-color);
     position: absolute;
     margin: 5px;
     line-height: 42px;
@@ -329,7 +332,7 @@ section#home {
     min-height: 100vh;
     background: var(--section-background-odd);
     padding: var(--section-padding);
-    padding-top: 100px;
+    padding-top: 20%;
 }
 .main-container {
     background: #0f141c;
@@ -354,12 +357,13 @@ section#home {
 .jessica-main-text span {
     font-weight: 400;
 }
-.back-End-dev {
+.skilled-titles {
     color: var(--text-highlight);
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 500;
     line-height: 36px;
     padding: 20px 0;
+    height: 115px;
 }
 .best {
     color: var(--text-dimmed);
@@ -1290,6 +1294,9 @@ section#portfolio {
     justify-content: center;
     margin-top: 30px;
 }
+.github-activity{
+    height: 150px;
+}
 /*-----------------------[ 14.Porfoilo-section containe pop up CSS ]------------------------*/
 .popup-wrap {
     width: 100%;
@@ -1579,7 +1586,11 @@ section#testimonials {
     border-radius: 5px;
     background: var(--section-background-odd);
     padding: 10px;
+    margin: 10px !important;
     /* text-align: justify; */
+}
+.review-item:hover {
+    box-shadow: var(--component-hover-shadow);
 }
 .svg-link {
     display: flex;
