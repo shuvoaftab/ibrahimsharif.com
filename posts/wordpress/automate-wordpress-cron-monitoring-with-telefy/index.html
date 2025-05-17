@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide | Ibrahim</title><meta name="title" content="Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide | Ibrahim"><meta name="description" content="A guide on using telefy package for failed cron events."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide | Ibrahim"><meta property="og:description" content="A guide on using telefy package for failed cron events."><meta property="og:url" content="https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/"><meta property="og:image" content="https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2025-05-14T13:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/"><meta property="twitter:title" content="Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide | Ibrahim"><meta property="twitter:description" content="A guide on using telefy package for failed cron events."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide | Ibrahim","image":"https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/index.png","datePublished":"2025-05-14T13:00:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Ibrahim" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.CXtNW2hF.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);box-shadow:inset 0 0 3px var(--border)}.aside-header[data-astro-cid-exacnq3a]{padding:10px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+div[data-astro-cid-2t7o7two]#toc-content{padding:5px 5px 10px}
+</style><style>[data-astro-transition-scope="astro-6z73t35a-1"] { view-transition-name: automate-word-press-cron-monitoring-with-telefy-a-server-side-guide; }@layer astro { ::view-transition-old(automate-word-press-cron-monitoring-with-telefy-a-server-side-guide) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(automate-word-press-cron-monitoring-with-telefy-a-server-side-guide) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(automate-word-press-cron-monitoring-with-telefy-a-server-side-guide) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(automate-word-press-cron-monitoring-with-telefy-a-server-side-guide) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-otazjenp-2"] { view-transition-name: word-press; }@layer astro { ::view-transition-old(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-3"] { view-transition-name: cron; }@layer astro { ::view-transition-old(cron) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(cron) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(cron) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(cron) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-4"] { view-transition-name: wordpress; }@layer astro { ::view-transition-old(wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-5"] { view-transition-name: server; }@layer astro { ::view-transition-old(server) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(server) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(server) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(server) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-6"] { view-transition-name: telefy; }@layer astro { ::view-transition-old(telefy) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(telefy) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(telefy) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(telefy) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-7"] { view-transition-name: telegram; }@layer astro { ::view-transition-old(telegram) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(telegram) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(telegram) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(telegram) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-8"] { view-transition-name: npm; }@layer astro { ::view-transition-old(npm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(npm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(npm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(npm) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> Ibrahim </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <a href="/Posts (page wordpress)/" class="capitalize opacity-70"> Posts (page wordpress) </a> <span aria-hidden="true">&raquo;</span> </li><li> <span class="capitalize opacity-75 lowercase" aria-current="page">  automate-wordpress-cron-monitoring-with-telefy </span> </li> </ul> </nav> <main id="main-content" class="mx-auto w-full max-w-7xl px-4 pb-12" data-pagefind-body data-astro-cid-2t7o7two> <div class="flex w-full" data-astro-cid-2t7o7two> <div class="w-3/4 me-2" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-6z73t35a-1"> Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide </h1> <div class="flex items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2025-05-14T13:00:00.000Z">14 May, 2025</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">⏰ 07:00 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>📖 4 min read</span> </div> <!-- Add Category Section --> <!-- {categories.length > 0 && (
+          <div class="category-section">
+            {/* <span class="text-sm font-medium text-muted-foreground mr-2">Category:</span> */}
+            <ul class="inline-flex gap-2">
+              {categories.map(cat => (
+                <li class="inline-block">
+                  <Category category={slugifyStr(cat)} categoryName={cat} className="category-post" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )} --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>WordPress relies heavily on scheduled tasks to run operations like publishing scheduled posts, sending emails, or clearing expired transients. By default, it uses a built-in pseudo-cron system (<code>wp-cron.php</code>) that is triggered by on-site visits. This behavior is unreliable, especially for low-traffic or high-performance sites. To achieve more dependable results, it’s best to shift to <strong>real server-side cron jobs</strong>.</p>
+<p>In this guide, you’ll learn:</p>
+<ul>
+<li>Why server-side cron is essential for WordPress.</li>
+<li>How to set up server-side cron.</li>
+<li>How to monitor cron results using <strong>Telefy</strong>, a command-line tool for sending Telegram alerts.</li>
+</ul>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#why-use-server-side-cron-instead-of-wordpress-default-cron">Why Use Server-Side Cron Instead of WordPress Default Cron?</a></li>
+<li><a href="#what-is-telefy">What is Telefy?</a>
+<ul>
+<li><a href="#features"><strong>Features</strong></a></li>
+<li><a href="#prerequisites"><strong>Prerequisites</strong></a></li>
+<li><a href="#installation"><strong>Installation</strong></a></li>
+<li><a href="#configuration"><strong>Configuration</strong></a></li>
+<li><a href="#obtaining-telegram-credentials"><strong>Obtaining Telegram Credentials</strong></a></li>
+</ul>
+</li>
+<li><a href="#monitor-wp-cronphp-execution-via-telefy">Monitor <code>wp-cron.php</code> Execution via Telefy</a>
+<ul>
+<li><a href="#step-1-prepare-the-shell-script">Step 1: Prepare the Shell Script</a></li>
+<li><a href="#step-2-schedule-via-crontab">Step 2: Schedule via Crontab</a></li>
+<li><a href="#step-3-configure-telefy">Step 3: Configure Telefy</a></li>
+</ul>
+</li>
+<li><a href="#benefits-of-this-setup">Benefits of This Setup</a></li>
+<li><a href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="why-use-server-side-cron-instead-of-wordpress-default-cron">Why Use Server-Side Cron Instead of WordPress Default Cron?</h2>
+<p>By default, WordPress executes <code>wp-cron.php</code> on every page load, which:</p>
+<ul>
+<li>Can fail silently if there’s no traffic.</li>
+<li>May cause performance issues under high load.</li>
+<li>Lacks visibility when something goes wrong.</li>
+</ul>
+<p><strong>Server-side cron advantages:</strong></p>
+<ul>
+<li>Guaranteed execution on schedule.</li>
+<li>Better performance control.</li>
+<li>Easier logging and debugging.</li>
+</ul>
+<hr>
+<h2 id="what-is-telefy">What is Telefy?</h2>
+<p><a href="www.npmjs.com/package/telefy"><strong>Telefy</strong></a> is a CLI tool that sends messages to your Telegram channel(s). You can:</p>
+<ul>
+<li>Send alerts to multiple channels.</li>
+<li>Use Markdown, HTML, or MarkdownV2 parse modes.</li>
+<li>Attach inline buttons.</li>
+<li>Combine with cron jobs or scripts for real-time error notification.</li>
+</ul>
+<h3 id="features"><strong>Features</strong></h3>
+<ul>
+<li>📤 <strong>Simple API</strong>: Easy-to-use functions for sending Telegram messages</li>
+<li>🔘 <strong>Inline Buttons</strong>: Support for adding clickable inline URL buttons</li>
+<li>📝 <strong>Markdown Support</strong>: Format messages with Markdown, HTML, or MarkdownV2</li>
+<li>💻 <strong>CLI Tool</strong>: Send messages directly from your command line with intuitive options</li>
+<li>🌐 <strong>Multi-Channel Support</strong>: Configure and send to multiple Telegram channels</li>
+<li>📢 <strong>Broadcast Mode</strong>: Send to all configured channels at once with <code>--all</code> option</li>
+<li>🚀 <strong>Promise-based</strong>: Modern async/await and Promise support</li>
+<li>🛡️ <strong>Error Handling</strong>: Detailed error messages with helpful suggestions</li>
+<li>⚙️ <strong>Environment Variables</strong>: Secure configuration using .env files</li>
+<li>🎨 <strong>Raw Mode</strong>: Optional MarkdownV2 formatting without automatic escaping</li>
+</ul>
+<h3 id="prerequisites"><strong>Prerequisites</strong></h3>
+<p>Before using this package, you’ll need:</p>
+<ol>
+<li>A <strong>Telegram Bot Token</strong> (get one from <a href="https://t.me/BotFather"><strong>@BotFather</strong></a>)</li>
+<li><strong>Your Chat ID</strong> (use <a href="https://t.me/userinfobot">@userinfobot</a> or <a href="https://t.me/get_id_bot">@get_id_bot</a>)</li>
+<li><strong>Node.js</strong> version 18.0.0 or higher</li>
+</ol>
+<h3 id="installation"><strong>Installation</strong></h3>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># Global installation for CLI usage</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">npm</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> install</span><span style="color:#2B5581;--shiki-dark:#82AAFF"> -g</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> telefy</span></span></code></pre>
+<p>For Mac users, you may need to configure the .env file under <code>/opt/homebrew/lib/node_modules/telefy</code></p>
+<h3 id="configuration"><strong>Configuration</strong></h3>
+<p>Create a <code>.env</code> file in your project root with one or more channel configurations:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span># Single channel configuration</span></span>
+<span class="line"><span>CHANNEL_NEWS_TOKEN=your_bot_token_here</span></span>
+<span class="line"><span>CHANNEL_NEWS_CHAT_ID=your_chat_id_here</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># Multiple channel configuration</span></span>
+<span class="line"><span>CHANNEL_ALERTS_TOKEN=another_bot_token_here</span></span>
+<span class="line"><span>CHANNEL_ALERTS_CHAT_ID=another_chat_id_here</span></span></code></pre>
+<h3 id="obtaining-telegram-credentials"><strong>Obtaining Telegram Credentials</strong></h3>
+<ol>
+<li>
+<p><strong>Bot Token:</strong></p>
+<ul>
+<li>Open Telegram and message <a href="https://t.me/BotFather">@BotFather</a></li>
+<li>Send <code>/start</code>, then <code>/newbot</code></li>
+<li>Follow the prompts to name your bot and receive a token</li>
+</ul>
+</li>
+<li>
+<p><strong>Chat ID:</strong></p>
+<ul>
+<li>Start a chat with your bot</li>
+<li>Send a message to your bot</li>
+<li>Visit <code>https://api.telegram.org/bot&#x3C;YOUR_BOT_TOKEN>/getUpdates</code> in your browser</li>
+<li>Find the chat ID in the JSON response under <code>"chat":{"id":&#x3C;CHAT_ID>}</code></li>
+</ul>
+</li>
+</ol>
+<p>It’s perfect for DevOps, WordPress admins, or developers looking to stay informed about automated scripts or issues in production.</p>
+<p>Learn more about telefy from the <a href="www.npmjs.com/package/telefy"><strong>npm repository</strong></a>.</p>
+<hr>
+<h2 id="monitor-wp-cronphp-execution-via-telefy">Monitor <code>wp-cron.php</code> Execution via Telefy</h2>
+<p>In this example, we’ll run the WordPress cron manually and send any output (typically errors or warnings) directly to a Telegram channel using Telefy.</p>
+<h3 id="step-1-prepare-the-shell-script">Step 1: Prepare the Shell Script</h3>
+<p>Create a file named <code>telefy_cron.sh</code>:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">#!/bin/bash</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># Define your PHP binary path and the WordPress wp-cron.php file</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#C5E478">php_bin</span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span><span style="color:#22863A;--shiki-dark:#ECC48D">/usr/bin/php</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#C5E478">wp_cron</span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span><span style="color:#22863A;--shiki-dark:#ECC48D">/Users/shuvoaftab/Sites/fluentinfo/wp-cron.php</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># Run the cron job and capture the output</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#C5E478">output</span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">$(</span><span style="color:#24292EFF;--shiki-dark:#C5E478">$php_bin</span><span style="color:#24292EFF;--shiki-dark:#C5E478"> $wp_cron</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> 2>&#x26;1</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"># Send message only if there is any output</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> [ </span><span style="color:#D32F2F;--shiki-dark:#C792EA">-n</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="color:#22863A;--shiki-dark:#C5E478">$output</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> ]; </span><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">then</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">  telefy</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="color:#22863A;--shiki-dark:#C5E478">$output</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span><span style="color:#2B5581;--shiki-dark:#82AAFF"> --channel</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> alerts</span><span style="color:#2B5581;--shiki-dark:#82AAFF"> --parse-mode</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> markdown</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">fi</span></span></code></pre>
+<p>You can get the WordPress path from your dashboard. Please go to <strong>Tools</strong> ⮕ <strong>Site Health</strong> ⮕ <strong>Info.</strong> Then get the path from the <strong>Directories and Sizes</strong> section as shown in the screenshot below:</p>
+<p><img alt="Get WordPress Directory Path" sizes="(min-width: 2544px) 2544px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2544; --h: 1314;" data-astro-image="responsive" width="2544" height="1314" src="/_astro/get_wp_path.C56OY9wR_ZdmDCu.webp" srcset="/_astro/get_wp_path.C56OY9wR_ZgiUTs.webp 640w, /_astro/get_wp_path.C56OY9wR_Z1Bl0zo.webp 750w, /_astro/get_wp_path.C56OY9wR_Z1iRydz.webp 828w, /_astro/get_wp_path.C56OY9wR_kSWvU.webp 1080w, /_astro/get_wp_path.C56OY9wR_Eqzqb.webp 1280w, /_astro/get_wp_path.C56OY9wR_FoSGq.webp 1668w, /_astro/get_wp_path.C56OY9wR_Z2mBPis.webp 2048w, /_astro/get_wp_path.C56OY9wR_ZdmDCu.webp 2544w"></p>
+<p>Make the cron script executable:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">chmod</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> +x</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> /path/to/telefy_cron.sh</span></span></code></pre>
+<h3 id="step-2-schedule-via-crontab">Step 2: Schedule via Crontab</h3>
+<p>Open your crontab:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">crontab</span><span style="color:#2B5581;--shiki-dark:#82AAFF"> -e</span></span></code></pre>
+<p>Add the following line to execute the script every minute:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#7FDBCA">*</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> /path/to/telefy_cron.sh</span></span></code></pre>
+<h3 id="step-3-configure-telefy">Step 3: Configure Telefy</h3>
+<p>Ensure your <code>.env</code> file contains channel configuration:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>CHANNEL_ALERTS_TOKEN=your_bot_token</span></span>
+<span class="line"><span>CHANNEL_ALERTS_CHAT_ID=your_channel_id</span></span></code></pre>
+<p>For usage, simply run:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">telefy</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="color:#22863A;--shiki-dark:#ECC48D">Test Message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">"</span><span style="color:#2B5581;--shiki-dark:#82AAFF"> --channel</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> alerts</span></span></code></pre>
+<hr>
+<h2 id="benefits-of-this-setup">Benefits of This Setup</h2>
+<ul>
+<li><strong>Real-time error reporting</strong>: See <code>wp-cron.php</code> issues as they happen.</li>
+<li><strong>Silent success</strong>: No output = no message. Keeps things noise-free.</li>
+<li><strong>Multi-environment compatible</strong>: Use different PHP paths or cron files.</li>
+<li><strong>Secure and minimal</strong>: Only messages with content are sent.</li>
+</ul>
+<hr>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Server-side cron jobs are a best practice for serious WordPress sites, and coupling them with a tool like <strong>Telefy</strong> ensures you’re not left in the dark if something fails. With just a few lines of code and a scheduled cron job, you can set up lightweight, real-time monitoring directly in your Telegram inbox.</p>
+<p>Stay alert. Stay efficient. Use Telefy.</p> </article> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/wordpress/automate-wordpress-cron-monitoring-with-telefy/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <button id="back-to-top" class="focus-outline py-1 whitespace-nowrap hover:opacity-75" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two>Back to Top</span> </button> </div> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two>  <a href="/posts/smtp/configure-fluent-smtp-with-zoho-mail" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Configure Fluent SMTP with Zoho Mail</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </div> <div class="w-1/4 p-2" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-8 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/word-press/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans " data-astro-transition-scope="astro-otazjenp-2">
+🗂 <span class="category-post">WordPress</span> </a> </li> </div> <div class="flex flex-col gap-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/cron/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-3">
+🏷 <span>cron</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-4">
+🏷 <span>wordpress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/server/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-5">
+🏷 <span>server</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/telefy/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-6">
+🏷 <span>telefy</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/telegram/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-7">
+🏷 <span>telegram</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/npm/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-8">
+🏷 <span>npm</span> </a> </li> </ul> </div>  </div> </aside>  <!-- Aside Section (25% width) --> <aside class="w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-xl font-bold" data-astro-cid-exacnq3a>Table of Contents</h2> </div> <div class="aside-content" data-astro-cid-exacnq3a>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div> <div class="edit-post flex items-center justify-between border-t border-muted p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/src/data/blog/wordpress/automate-wordpress-cron-monitoring-with-telefy.md" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/src/data/blog/wordpress/automate-wordpress-cron-monitoring-with-telefy.md" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div>  </div> </aside>  </div> </div> <div class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </main> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Ibrahim on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Ibrahim on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Ibrahim on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Ibrahim on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Ibrahim" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Ibrahim</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked */
+  function backToTop() {
+    document.querySelector("#back-to-top")?.addEventListener("click", () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      // Clone the TOC list and append to Aside
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+
+      // Apply styles to match the original TOC
+      clonedToc.classList.add("list-disc", "pl-4", "space-y-1", "text-green-500");
+
+      // Remove the original TOC from the article
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none"; // Ensure the TOC is hidden
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20; // Adjust this value based on your header height
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetId = link.getAttribute('href')?.substring(1); // Remove the '#' from href
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Update the URL hash without jumping
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 

@@ -1,0 +1,716 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Configure Fluent SMTP with cPanel Webmail | Ibrahim</title><meta name="title" content="Configure Fluent SMTP with cPanel Webmail | Ibrahim"><meta name="description" content="A guide to configuring your cPanel Webmail (Roundcube) with FluentSMTP for WordPress email delivery."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Configure Fluent SMTP with cPanel Webmail | Ibrahim"><meta property="og:description" content="A guide to configuring your cPanel Webmail (Roundcube) with FluentSMTP for WordPress email delivery."><meta property="og:url" content="https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/"><meta property="og:image" content="https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2022-05-07T05:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/"><meta property="twitter:title" content="Configure Fluent SMTP with cPanel Webmail | Ibrahim"><meta property="twitter:description" content="A guide to configuring your cPanel Webmail (Roundcube) with FluentSMTP for WordPress email delivery."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configure Fluent SMTP with cPanel Webmail | Ibrahim","image":"https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/index.png","datePublished":"2022-05-07T05:00:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Ibrahim" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.CXtNW2hF.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);box-shadow:inset 0 0 3px var(--border)}.aside-header[data-astro-cid-exacnq3a]{padding:10px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+div[data-astro-cid-2t7o7two]#toc-content{padding:5px 5px 10px}
+</style><style>[data-astro-transition-scope="astro-6z73t35a-1"] { view-transition-name: configure-fluent-smtp-with-c-panel-webmail; }@layer astro { ::view-transition-old(configure-fluent-smtp-with-c-panel-webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(configure-fluent-smtp-with-c-panel-webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(configure-fluent-smtp-with-c-panel-webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(configure-fluent-smtp-with-c-panel-webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-6z73t35a-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-6z73t35a-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-otazjenp-2"] { view-transition-name: word-press; }@layer astro { ::view-transition-old(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-otazjenp-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-otazjenp-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-3"] { view-transition-name: fluent-smtp; }@layer astro { ::view-transition-old(fluent-smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(fluent-smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(fluent-smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(fluent-smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-4"] { view-transition-name: word-press; }@layer astro { ::view-transition-old(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(word-press) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-5"] { view-transition-name: email; }@layer astro { ::view-transition-old(email) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(email) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(email) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(email) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-6"] { view-transition-name: c-panel; }@layer astro { ::view-transition-old(c-panel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(c-panel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(c-panel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(c-panel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-7"] { view-transition-name: webmail; }@layer astro { ::view-transition-old(webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(webmail) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-8"] { view-transition-name: roundcube; }@layer astro { ::view-transition-old(roundcube) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(roundcube) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(roundcube) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(roundcube) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-8"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-9"] { view-transition-name: smtp; }@layer astro { ::view-transition-old(smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(smtp) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-9"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-9"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-9"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-9"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-fvoq3jf6-10"] { view-transition-name: email-deliverability; }@layer astro { ::view-transition-old(email-deliverability) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(email-deliverability) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(email-deliverability) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(email-deliverability) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-10"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-10"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fvoq3jf6-10"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fvoq3jf6-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fvoq3jf6-10"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fvoq3jf6-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> Ibrahim </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <a href="/Posts (page smtp)/" class="capitalize opacity-70"> Posts (page smtp) </a> <span aria-hidden="true">&raquo;</span> </li><li> <span class="capitalize opacity-75 lowercase" aria-current="page">  configure-fluent-smtp-with-cpanel-webmail </span> </li> </ul> </nav> <main id="main-content" class="mx-auto w-full max-w-7xl px-4 pb-12" data-pagefind-body data-astro-cid-2t7o7two> <div class="flex w-full" data-astro-cid-2t7o7two> <div class="w-3/4 me-2" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-6z73t35a-1"> Configure Fluent SMTP with cPanel Webmail </h1> <div class="flex items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2022-05-07T05:00:00.000Z">7 May, 2022</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">⏰ 11:00 AM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>📖 5 min read</span> </div> <!-- Add Category Section --> <!-- {categories.length > 0 && (
+          <div class="category-section">
+            {/* <span class="text-sm font-medium text-muted-foreground mr-2">Category:</span> */}
+            <ul class="inline-flex gap-2">
+              {categories.map(cat => (
+                <li class="inline-block">
+                  <Category category={slugifyStr(cat)} categoryName={cat} className="category-post" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )} --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>cPanel is the most popular and widely used control panel for web hosting on the web. cPanel uses Postfix and Exim to receive and as a Mail Transfer Agent.<br>
+The goal of this tutorial is to send emails from WordPress using your Personal Domain Email <strong><a href="mailto:you@yourdomain.com">you@yourdomain.com</a></strong> by using the Fluent SMTP Plugin. If you have checked or reviewed my other article about <a href="../configure-gmail-with-fluent-smtp/">Configuring Gmail with Fluent SMTP</a> you will find it easier to follow this guide.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#prerequisites-to-configure-fluent-smtp-with-cpanel-webmail">Prerequisites to Configure Fluent SMTP with cPanel Webmail</a></li>
+<li><a href="#steps-to-configure-fluent-smtp-with-cpanel-webmail">Steps To Configure Fluent SMTP With CPanel Webmail</a></li>
+<li><a href="#the-procedure-to-configure-fluent-smtp-with-cpanel-webmail">The Procedure To Configure Fluent SMTP With CPanel Webmail</a>
+<ul>
+<li><a href="#check-emails-from-roundcube-email-client">Check Emails from Roundcube Email Client</a></li>
+<li><a href="#get-the-smtp-details">Get the SMTP details</a></li>
+<li><a href="#create-a-new-fluent-smtp-connection">Create a new Fluent SMTP Connection</a></li>
+<li><a href="#keypoints-of-necessary-details">Keypoints of necessary details</a></li>
+<li><a href="#test-the-connection">Test the Connection</a></li>
+</ul>
+</li>
+<li><a href="#bonus-manually-check-the-outgoing-server-or-smtp-host">Bonus: Manually check the <strong>Outgoing Server</strong> or <strong>SMTP Host</strong></a></li>
+<li><a href="#important-note">Important Note</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="prerequisites-to-configure-fluent-smtp-with-cpanel-webmail">Prerequisites to Configure Fluent SMTP with cPanel Webmail</h2>
+<p>In order to proceed, there are a few things that are needed beforehand to configure Fluent SMTP with cPanel Webmail as below:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Requirement</th><th>Description</th></tr></thead><tbody><tr><td><strong>Email Address</strong></td><td>An existing <strong><em><a href="mailto:you@yourdomain.com">you@yourdomain.com</a></em></strong> email address and a password.</td></tr><tr><td><strong>cPanel Email Access</strong></td><td>Sufficient permissions for accessing Emails.</td></tr><tr><td><strong>Administrative Permission</strong></td><td>WordPress Administrator role-based user access.</td></tr><tr><td><strong>Firewall Status</strong></td><td>Commonly used ports 25, 26, 465, 587 opened as needed.</td></tr><tr><td><strong>TLS Support</strong></td><td>TLS v1.0, v1.1, v1.2, v1.3 support from the server where WordPress is hosted.</td></tr></tbody></table>
+<h2 id="steps-to-configure-fluent-smtp-with-cpanel-webmail">Steps To Configure Fluent SMTP With CPanel Webmail</h2>
+<ol>
+<li>Grab the <strong>Email Address</strong> and the <strong>password</strong> and Check Emails from Roundcube Email Client.</li>
+<li>Get the <strong>SMTP</strong> details from <strong>Connect Devices</strong> page.</li>
+<li>Create a new Fluent SMTP Connection with <strong>Other SMTP</strong> Methods.</li>
+<li>Put the necessary details and Save.</li>
+<li>Test the Connection.</li>
+<li>Extra Bonus: Manually check the <strong>Outgoing Server</strong> or <strong>SMTP Host</strong>.</li>
+</ol>
+<h2 id="the-procedure-to-configure-fluent-smtp-with-cpanel-webmail">The Procedure To Configure Fluent SMTP With CPanel Webmail</h2>
+<h3 id="check-emails-from-roundcube-email-client">Check Emails from Roundcube Email Client</h3>
+<p>Let’s assume our target Email Address to be configured is <strong><a href="mailto:ibrahim@ibrahim.com">ibrahim@ibrahim.com</a></strong>.<br>
+Go to <strong>Email</strong> > <strong>Email Accounts</strong></p>
+<p><img alt="cPanel email dashboard showing email accounts" sizes="(min-width: 1895px) 1895px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1895; --h: 908;" data-astro-image="responsive" width="1895" height="908" src="/_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_Z1FrElW.webp" srcset="/_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_205Hk2.webp 640w, /_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_5Gjl6.webp 750w, /_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_2dD84F.webp 828w, /_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_Z1qKTyw.webp 1080w, /_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_jRi4d.webp 1280w, /_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_Z2ht2Jb.webp 1668w, /_astro/cpanel_email_dashboard-shuvoaftab.9MCmaWaT_Z1FrElW.webp 1895w"></p>
+<p>Select your Email Account &#x26; Click on <strong>Check Email</strong></p>
+<p><img alt="cPanel email accounts list" sizes="(min-width: 1881px) 1881px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1881; --h: 895;" data-astro-image="responsive" width="1881" height="895" src="/_astro/cpanel_email_accounts-shuvoaftab.4279i83e_Z230LjT.webp" srcset="/_astro/cpanel_email_accounts-shuvoaftab.4279i83e_11HJIU.webp 640w, /_astro/cpanel_email_accounts-shuvoaftab.4279i83e_Z2favny.webp 750w, /_astro/cpanel_email_accounts-shuvoaftab.4279i83e_Z13tgLU.webp 828w, /_astro/cpanel_email_accounts-shuvoaftab.4279i83e_MmPGu.webp 1080w, /_astro/cpanel_email_accounts-shuvoaftab.4279i83e_22Cgcc.webp 1280w, /_astro/cpanel_email_accounts-shuvoaftab.4279i83e_Z228G0f.webp 1668w, /_astro/cpanel_email_accounts-shuvoaftab.4279i83e_Z230LjT.webp 1881w"></p>
+<p>Select <strong>Roundcube</strong> as the default Email Client</p>
+<p><img alt="Select Roundcube as default email client in cPanel" sizes="(min-width: 1898px) 1898px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1898; --h: 896;" data-astro-image="responsive" width="1898" height="896" src="/_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_Z1gKsTu.webp" srcset="/_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_2vwc2v.webp 640w, /_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_Z1kVtJP.webp 750w, /_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_swgDJ.webp 828w, /_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_8YrN4.webp 1080w, /_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_2bC7lJ.webp 1280w, /_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_1tbNm2.webp 1668w, /_astro/cpanel_email_accounts_roundcube-shuvoaftab.A-o1eXVz_Z1gKsTu.webp 1898w"></p>
+<p>This is the Email Client Dashboard for all your Emails to check from cPanel.</p>
+<p><img alt="Roundcube email client dashboard in cPanel" sizes="(min-width: 1902px) 1902px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1902; --h: 908;" data-astro-image="responsive" width="1902" height="908" src="/_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_ZvUTey.webp" srcset="/_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_Z1S50Pd.webp 640w, /_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_Z2f82B9.webp 750w, /_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_21Yx3L.webp 828w, /_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_1m8LnH.webp 1080w, /_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_Z1egTKq.webp 1280w, /_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_E1Rkk.webp 1668w, /_astro/cpanel_email_accounts_roundcube_dashboard-shuvoaftab.zrt-88ub_ZvUTey.webp 1902w"></p>
+<h3 id="get-the-smtp-details">Get the SMTP details</h3>
+<p>The most important part of this tutorial is to get the correct SMTP details in order to connect from Fluent SMTP to the cPanel Email Server. Please Go to <strong>Email</strong> > <strong>Email Accounts</strong> > Select your Email Account &#x26; Click on <strong>Connect Devices</strong>. There you will find 2 categories of information which are SSL and Non-SSL connections. Keep this information for configuration details of Fluent SMTP.</p>
+<p><img alt="cPanel connect devices page showing SMTP details" sizes="(min-width: 1895px) 1895px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1895; --h: 908;" data-astro-image="responsive" width="1895" height="908" src="/_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_WeBpR.webp" srcset="/_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_3n3Wy.webp 640w, /_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_m5NmI.webp 750w, /_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_a3VpF.webp 828w, /_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_gv7zM.webp 1080w, /_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_Z1rr7i2.webp 1280w, /_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_15Hrnu.webp 1668w, /_astro/cpanel_email_connect_devices-shuvoaftab.3iLIawwz_WeBpR.webp 1895w"></p>
+<h3 id="create-a-new-fluent-smtp-connection">Create a new Fluent SMTP Connection</h3>
+<p>Now it’s time to configure Fluent SMTP. Create a new SMTP Connection and the method is the <strong>Other</strong> <strong>SMTP.</strong> Please keep in mind that these details vary from one server to another and from one hosting company to another company. I have used what I got from the test cPanel server.</p>
+<p>If your Domain has a mail.domain.com DNS published according to the cPanel Zone, you may use directly this mail.domain.com as SMTP Host. And if that hostname has an SSL certificate issued you can use the most commonly used port 465 and SSL Protocol in SMTP settings. Otherwise, you will have to use a Non-SSL connection and ports like 25,26,2525,2526 which are provided by your hosting server. You should consult your hosting provider for more accurate details for this when you configure your domain.</p>
+<h3 id="keypoints-of-necessary-details">Keypoints of necessary details</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Setting</th><th>Value/Description</th></tr></thead><tbody><tr><td><strong>From Email</strong></td><td>The email address <strong><a href="mailto:ibrahim@ibrahim.com">ibrahim@ibrahim.com</a></strong></td></tr><tr><td><strong>From Name</strong></td><td>The name you want to use (e.g., <strong>Ibrahim Sharif</strong>)</td></tr><tr><td><strong>SMTP Host</strong></td><td>In this example: <strong>premium43.web-hosting.com</strong></td></tr><tr><td><strong>SMTP Port</strong></td><td><strong>465</strong>, <strong>25</strong>, <strong>26</strong>, or <strong>587</strong></td></tr><tr><td><strong>Encryption</strong></td><td><strong>SSL</strong>, <strong>TLS</strong>, or <strong>None</strong></td></tr><tr><td><strong>Auto TLS</strong></td><td><strong>Yes</strong></td></tr><tr><td><strong>Authentication</strong></td><td>Yes. It’s better to store the access keys in the database.</td></tr><tr><td><strong>SMTP Username</strong></td><td>The cPanel Webmail email address (<strong><a href="mailto:ibrahim@ibrahim.com">ibrahim@ibrahim.com</a></strong>)</td></tr><tr><td><strong>SMTP Password</strong></td><td>The <strong>password</strong> set when the email address was created in cPanel</td></tr></tbody></table>
+<p><img alt="Fluent SMTP settings example for cPanel webmail" sizes="(min-width: 1485px) 1485px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1485; --h: 1147;" data-astro-image="responsive" width="1485" height="1147" src="/_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_Z146Rqo.webp" srcset="/_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_zxU44.webp 640w, /_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_1At60o.webp 750w, /_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_Z1Uu5n6.webp 828w, /_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_2v9IiF.webp 1080w, /_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_Z1hsL2L.webp 1280w, /_astro/cpanel_webmail_Fluent_SMTP_settings-shuvoaftab.c_JupD_G_Z146Rqo.webp 1485w"></p>
+<h3 id="test-the-connection">Test the Connection</h3>
+<p>Now it’s time to test the connection if it’s working or not! Go to Fluent SMTP > Email Test:<br>
+-> Use the From as your cPanel webmail email just configured.<br>
+-> Send To where you want to receive the test email.<br>
+-> HTML should be turned on to avoid suspicious activity by Spam Filters.</p>
+<p><img alt="Fluent SMTP email test sent successfully" sizes="(min-width: 1359px) 1359px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1359; --h: 684;" data-astro-image="responsive" width="1359" height="684" src="/_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_16rv4i.webp" srcset="/_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_Zg5e6d.webp 640w, /_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_Zcyg7h.webp 750w, /_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_Z1P9eSA.webp 828w, /_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_Z1ozPiI.webp 1080w, /_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_MfoCd.webp 1280w, /_astro/Fluent_SMTP_email_test_successfully_sent.Bj5QT9Rl_16rv4i.webp 1359w"></p>
+<p>Now click Send Test Email and check the destination Email Address.</p>
+<p><img alt="Test email received from cPanel webmail via Fluent SMTP" sizes="(min-width: 1485px) 1485px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1485; --h: 667;" data-astro-image="responsive" width="1485" height="667" src="/_astro/cpanel_email_received-shuvoaftab.CMClHKqr_1nfWRp.webp" srcset="/_astro/cpanel_email_received-shuvoaftab.CMClHKqr_ZN3uon.webp 640w, /_astro/cpanel_email_received-shuvoaftab.CMClHKqr_Z3eYfH.webp 750w, /_astro/cpanel_email_received-shuvoaftab.CMClHKqr_xjwq0.webp 828w, /_astro/cpanel_email_received-shuvoaftab.CMClHKqr_17k29l.webp 1080w, /_astro/cpanel_email_received-shuvoaftab.CMClHKqr_2eyrWx.webp 1280w, /_astro/cpanel_email_received-shuvoaftab.CMClHKqr_1nfWRp.webp 1485w"></p>
+<p>In this case, the test email is received and we are done configuring the cPanel Webmail Email address to send WordPress emails using the Fluent SMTP Plugin.</p>
+<h2 id="bonus-manually-check-the-outgoing-server-or-smtp-host">Bonus: Manually check the <strong>Outgoing Server</strong> or <strong>SMTP Host</strong></h2>
+<p>In case you find sometimes that using your domain as SMTP Host does not work, you need to manually find the Hostname your cPanel server is using. To do this please send an email to your own Gmail or by default cPanel sends a welcome email to each webmail which you can check for this step.</p>
+<p><img alt="Expand SMTP host details in cPanel email" sizes="(min-width: 1902px) 1902px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1902; --h: 908;" data-astro-image="responsive" width="1902" height="908" src="/_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_b33bD.webp" srcset="/_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_Z1GG2AW.webp 640w, /_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_Z23J4mS.webp 750w, /_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_2dnvi2.webp 828w, /_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_247INT.webp 1080w, /_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_ZwhWke.webp 1280w, /_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_1m0OKw.webp 1668w, /_astro/cpanel_email_bonus_check_SMTP_host_expand-shuvoaftab.BrPG0WKB_b33bD.webp 1902w"></p>
+<p>Click on <strong>More Details</strong> and then <strong>All Headers</strong>. Now we need to check the <strong>Received From</strong> field from the source as below:</p>
+<p><img alt="View all headers to find SMTP host in cPanel email" sizes="(min-width: 1902px) 1902px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1902; --h: 908;" data-astro-image="responsive" width="1902" height="908" src="/_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_ZTqIDM.webp" srcset="/_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_1EEafo.webp 640w, /_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_ZNxhEq.webp 750w, /_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_jaMrg.webp 828w, /_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_Z2ajE1k.webp 1080w, /_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_Z1131Hx.webp 1280w, /_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_1SSchM.webp 1668w, /_astro/cpanel_email_bonus_check_SMTP_host-shuvoaftab.CrPLtD2x_ZTqIDM.webp 1902w"></p>
+<p>Use this hostname in Fluent SMTP as SMTP Host. Sometimes using only a Non-SSL connection works because of the hosting server’s misconfiguration about SSL. If you need further help you may contact me for assistance.</p>
+<h2 id="important-note">Important Note</h2>
+<p>It is highly recommended to configure a cronjob replacing WordPress’s Default PHP-based Cronjob to operate Email sending and other scheduled jobs smoothly.<br>
+Some hosting may not allow running a cronjob below 5 Minutes. But it is still better than a PHP-Based cronjob.</p>
+<p>Emails landing in Spam Folders depend on numerous factors including IP reputation, Domain reputation, and Email Body Content.</p> </article> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/smtp/configure-fluent-smtp-with-cpanel-webmail/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <button id="back-to-top" class="focus-outline py-1 whitespace-nowrap hover:opacity-75" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two>Back to Top</span> </button> </div> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/smtp/configure-fluent-smtp-with-zoho-mail" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Configure Fluent SMTP with Zoho Mail</div> </div> </a> <a href="/posts/smtp/configure-fluent-smtp-with-yahoo" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Configure Fluent SMTP with Yahoo</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </div> <div class="w-1/4 p-2" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-8 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/word-press/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans " data-astro-transition-scope="astro-otazjenp-2">
+🗂 <span class="category-post">WordPress</span> </a> </li> </div> <div class="flex flex-col gap-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/fluent-smtp/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-3">
+🏷 <span>FluentSMTP</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/word-press/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-4">
+🏷 <span>WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/email/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-5">
+🏷 <span>Email</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/c-panel/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-6">
+🏷 <span>cPanel</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/webmail/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-7">
+🏷 <span>Webmail</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/roundcube/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-8">
+🏷 <span>Roundcube</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/smtp/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-9">
+🏷 <span>SMTP</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/email-deliverability/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post" data-astro-transition-scope="astro-fvoq3jf6-10">
+🏷 <span>Email Deliverability</span> </a> </li> </ul> </div>  </div> </aside>  <!-- Aside Section (25% width) --> <aside class="w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-xl font-bold" data-astro-cid-exacnq3a>Table of Contents</h2> </div> <div class="aside-content" data-astro-cid-exacnq3a>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div> <div class="edit-post flex items-center justify-between border-t border-muted p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/src/data/blog/smtp/configure-fluent-smtp-with-cpanel-webmail.md" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/src/data/blog/smtp/configure-fluent-smtp-with-cpanel-webmail.md" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div>  </div> </aside>  </div> </div> <div class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </main> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Ibrahim on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Ibrahim on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Ibrahim on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Ibrahim on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Ibrahim" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Ibrahim</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked */
+  function backToTop() {
+    document.querySelector("#back-to-top")?.addEventListener("click", () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      // Clone the TOC list and append to Aside
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+
+      // Apply styles to match the original TOC
+      clonedToc.classList.add("list-disc", "pl-4", "space-y-1", "text-green-500");
+
+      // Remove the original TOC from the article
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none"; // Ensure the TOC is hidden
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20; // Adjust this value based on your header height
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetId = link.getAttribute('href')?.substring(1); // Remove the '#' from href
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Update the URL hash without jumping
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 
