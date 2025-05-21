@@ -1,0 +1,594 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>How to Add Google Analytics to WordPress Without a Plugin | Blog</title><meta name="title" content="How to Add Google Analytics to WordPress Without a Plugin | Blog"><meta name="description" content="Learn how to manually integrate Google Analytics with your WordPress site for accurate, lightweight tracking."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="How to Add Google Analytics to WordPress Without a Plugin | Blog"><meta property="og:description" content="Learn how to manually integrate Google Analytics with your WordPress site for accurate, lightweight tracking."><meta property="og:url" content="https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/"><meta property="og:image" content="https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2019-03-10T10:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/"><meta property="twitter:title" content="How to Add Google Analytics to WordPress Without a Plugin | Blog"><meta property="twitter:description" content="Learn how to manually integrate Google Analytics with your WordPress site for accurate, lightweight tracking."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Add Google Analytics to WordPress Without a Plugin | Blog","image":"https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/index.png","datePublished":"2019-03-10T10:00:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.B7Ar7BvS.css">
+<style>aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-exacnq3a]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-exacnq3a]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow)}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+.previous-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.previous-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.next-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.next-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-5dydqeu4-1"] { view-transition-name: how-to-add-google-analytics-to-wordpress-without-a-plugin; }@layer astro { ::view-transition-old(how-to-add-google-analytics-to-wordpress-without-a-plugin) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(how-to-add-google-analytics-to-wordpress-without-a-plugin) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(how-to-add-google-analytics-to-wordpress-without-a-plugin) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(how-to-add-google-analytics-to-wordpress-without-a-plugin) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-logo-retina.png" alt="Ibrahim Logo" class="h-8 bg-white"> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <span class="capitalize opacity-75" aria-current="page">  Posts ( add-google-analytics-wordpress-without-plugin) </span> </li> </ul> </nav> <main id="main-content" class="flex flex-col lg:flex-row w-full max-w-7xl px-4 pb-12 mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <div class="w-full lg:w-3/4 lg:me-4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-5dydqeu4-1"> How to Add Google Analytics to WordPress Without a Plugin </h1> <div class="flex justify-between items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2019-03-10T10:00:00.000Z">10 Mar, 2019</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 04:00 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 9 min read</span> </div> <!-- Add Category Section --> <!-- {categories.length > 0 && (
+          <div class="category-section">
+            {/* <span class="text-sm font-medium text-muted-foreground mr-2">Category:</span> */}
+            <ul class="inline-flex gap-2">
+              {categories.map(cat => (
+                <li class="inline-block">
+                  <Category category={slugifyStr(cat)} categoryName={cat} className="category-post" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )} --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>If you’re running a WordPress site, understanding your audience is key to growth. Google Analytics is the gold standard for tracking visitor behavior, but many WordPress users default to plugins for integration. While plugins are convenient, they can bloat your site, slow it down, or even break during updates. Adding Google Analytics manually is a lightweight, reliable alternative that gives you full control.</p>
+<p>As a WordPress developer with years of experience optimizing sites for clients, I’ve seen the benefits of going plugin-free for analytics tracking. In this guide, I’ll walk you through the process of manually adding Google Analytics to your WordPress site. Whether you’re a blogger, marketer, or developer, this tutorial will help you set up tracking without the overhead of plugins.</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#what-is-google-analytics">What is Google Analytics?</a>
+<ul>
+<li><a href="#why-add-google-analytics-without-a-plugin">Why Add Google Analytics Without a Plugin?</a></li>
+<li><a href="#when-should-you-add-it">When Should You Add It?</a></li>
+<li><a href="#who-should-use-this-method">Who Should Use This Method?</a></li>
+<li><a href="#where-does-the-code-go">Where Does the Code Go?</a></li>
+<li><a href="#how-does-it-work">How Does It Work?</a></li>
+</ul>
+</li>
+<li><a href="#step-by-step-guide-to-adding-google-analytics-to-wordpress">Step-by-Step Guide to Adding Google Analytics to WordPress</a>
+<ul>
+<li><a href="#step-1-set-up-google-analytics">Step 1: Set Up Google Analytics</a></li>
+<li><a href="#step-2-access-your-wordpress-theme-files">Step 2: Access Your WordPress Theme Files</a></li>
+<li><a href="#step-3-add-google-analytics-code-to-wordpress">Step 3: Add Google Analytics Code to WordPress</a>
+<ul>
+<li><a href="#method-1-add-to-header-headerphp">Method 1: Add to Header (header.php)</a></li>
+<li><a href="#method-2-add-via-functionsphp">Method 2: Add via functions.php</a></li>
+</ul>
+</li>
+<li><a href="#step-4-verify-tracking">Step 4: Verify Tracking</a></li>
+</ul>
+</li>
+<li><a href="#real-world-use-cases">Real-World Use Cases</a></li>
+<li><a href="#pros-and-cons-of-manual-integration">Pros and Cons of Manual Integration</a></li>
+<li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+<li><a href="#comparison-between-plugins-and-manual-integration">Comparison between Plugins and Manual Integration</a></li>
+<li><a href="#benefits-and-key-takeaways">Benefits and Key Takeaways</a></li>
+<li><a href="#seo-and-performance-considerations">SEO and Performance Considerations</a></li>
+<li><a href="#further-reading">Further Reading</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="what-is-google-analytics">What is Google Analytics?</h2>
+<p>Google Analytics is a free tool that tracks website traffic, user behavior, and performance metrics like page views, bounce rates, and conversions. It’s essential for understanding how visitors interact with your WordPress site.</p>
+<h3 id="why-add-google-analytics-without-a-plugin">Why Add Google Analytics Without a Plugin?</h3>
+<p>Plugins like MonsterInsights or Analytify are popular, but they come with downsides:</p>
+<ul>
+<li><strong>Bloat</strong>: Plugins add extra code, which can slow your site.</li>
+<li><strong>Dependency</strong>: Updates or compatibility issues can break tracking.</li>
+<li><strong>Control</strong>: Manual integration lets you customize tracking exactly how you want.</li>
+</ul>
+<h3 id="when-should-you-add-it">When Should You Add It?</h3>
+<p>Add Google Analytics as soon as your site is live or during development to start collecting data. It’s particularly useful when launching a blog, e-commerce store, or portfolio site.</p>
+<h3 id="who-should-use-this-method">Who Should Use This Method?</h3>
+<p>This guide is for:</p>
+<ul>
+<li>WordPress users comfortable editing theme files.</li>
+<li>Developers seeking lightweight solutions.</li>
+<li>Bloggers or marketers avoiding plugin overload.</li>
+</ul>
+<h3 id="where-does-the-code-go">Where Does the Code Go?</h3>
+<p>You’ll add Google Analytics code to your WordPress theme’s header or footer, typically via the <code>functions.php</code> file or a child theme.</p>
+<h3 id="how-does-it-work">How Does It Work?</h3>
+<p>Google Analytics provides a JavaScript snippet that you embed in your site’s code. This snippet tracks user interactions and sends data to your Google Analytics dashboard.</p>
+<hr/>
+<h2 id="step-by-step-guide-to-adding-google-analytics-to-wordpress">Step-by-Step Guide to Adding Google Analytics to WordPress</h2>
+<p>Here’s how to manually integrate Google Analytics into your WordPress site. Follow these steps carefully to ensure accurate tracking.</p>
+<h3 id="step-1-set-up-google-analytics">Step 1: Set Up Google Analytics</h3>
+<ol>
+<li>
+<p><strong>Create a Google Analytics Account</strong>:</p>
+<ul>
+<li>Go to <a href="https://analytics.google.com">analytics.google.com</a>.</li>
+<li>Sign in with your Google account and click “Start Measuring.”</li>
+<li>Set up a property for your website, choosing “Web” as the platform.</li>
+</ul>
+</li>
+<li>
+<p><strong>Get Your Tracking ID or Measurement ID</strong>:</p>
+<ul>
+<li>After setup, you’ll receive a Tracking ID (e.g., <code>UA-12345678-1</code>) for Universal Analytics or a Measurement ID (e.g., <code>G-XXXXXXXXXX</code>) for Google Analytics 4 (GA4).</li>
+<li>Copy this ID. You’ll need it for the next steps.</li>
+</ul>
+</li>
+</ol>
+
+<h3 id="step-2-access-your-wordpress-theme-files">Step 2: Access Your WordPress Theme Files</h3>
+<ol>
+<li>
+<p><strong>Log in to WordPress</strong>:</p>
+<ul>
+<li>Navigate to your WordPress dashboard.</li>
+<li>Go to <strong>Appearance &gt; Theme File Editor</strong> or use an FTP client like FileZilla for safer editing.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Child Theme (Optional but Recommended)</strong>:</p>
+<ul>
+<li>Editing your theme directly risks losing changes during updates. A child theme preserves your customizations.</li>
+<li>Create a child theme using a plugin like <strong>Child Theme Configurator</strong> or manually:
+<ul>
+<li>Create a new folder in <code>wp-content/themes/</code> (e.g., <code>mytheme-child</code>).</li>
+<li>Add a <code>style.css</code> file with:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="css"><code><span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">/*</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">Theme Name: My Theme Child</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">Template: parent-theme-folder-name</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">*/</span></span></code></pre>
+</li>
+<li>Add a <code>functions.php</code> file for custom code.</li>
+</ul>
+</li>
+</ul>
+
+</li>
+</ol>
+<h3 id="step-3-add-google-analytics-code-to-wordpress">Step 3: Add Google Analytics Code to WordPress</h3>
+<p>There are two common methods to add the tracking code: via the theme’s header or through the <code>functions.php</code> file.</p>
+<h4 id="method-1-add-to-header-headerphp">Method 1: Add to Header (header.php)</h4>
+<ol>
+<li><strong>Locate header.php</strong>:
+<ul>
+<li>In the Theme File Editor, find <code>header.php</code> under your active theme (or child theme).</li>
+</ul>
+</li>
+<li><strong>Paste the Tracking Code</strong>:
+<ul>
+<li>For GA4, use this snippet (replace <code>G-XXXXXXXXXX</code> with your Measurement ID):
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="html"><code><span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">&lt;!-- Google Analytics --&gt;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&lt;</span><span style="color:#22863A;--shiki-dark:#CAECE6">script</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#C5E478;--shiki-dark-font-style:italic"> async</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#C5E478;--shiki-dark-font-style:italic"> src</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#22863A;--shiki-dark:#ECC48D">https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&gt;&lt;/</span><span style="color:#22863A;--shiki-dark:#CAECE6">script</span><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&gt;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&lt;</span><span style="color:#22863A;--shiki-dark:#CAECE6">script</span><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&gt;</span></span>
+<span class="line"><span style="color:#1976D2;font-style:inherit;--shiki-dark:#7FDBCA;--shiki-dark-font-style:italic">  window</span><span style="color:#24292EFF;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="color:#24292EFF;--shiki-dark:#BAEBE2">dataLayer</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> =</span><span style="color:#1976D2;font-style:inherit;--shiki-dark:#7FDBCA;--shiki-dark-font-style:italic"> window</span><span style="color:#24292EFF;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="color:#24292EFF;--shiki-dark:#BAEBE2">dataLayer</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> ||</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> [];</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">  function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> gtag</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">{</span><span style="color:#1976D2;font-style:inherit;--shiki-dark:#7FDBCA;--shiki-dark-font-style:italic">dataLayer</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">push</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="color:#24292EFF;--shiki-dark:#7FDBCA">arguments</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">);}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">  gtag</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">js</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> new</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Date</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">());</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">  gtag</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">config</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">G-XXXXXXXXXX</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&lt;/</span><span style="color:#22863A;--shiki-dark:#CAECE6">script</span><span style="color:#24292EFF;--shiki-dark:#7FDBCA">&gt;</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">&lt;!-- End Google Analytics --&gt;</span></span></code></pre>
+</li>
+<li>Paste this code just before the closing <code>&lt;/head&gt;</code> tag.</li>
+</ul>
+</li>
+<li><strong>Save Changes</strong>:
+<ul>
+<li>Click “Update File” and verify the code is live by viewing your site’s source code (Ctrl+U in Chrome).</li>
+</ul>
+</li>
+</ol>
+<h4 id="method-2-add-via-functionsphp">Method 2: Add via functions.php</h4>
+<ol>
+<li>
+<p><strong>Edit functions.php</strong>:</p>
+<ul>
+<li>In the Theme File Editor, open <code>functions.php</code> in your child theme.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add the Tracking Code</strong>:</p>
+<ul>
+<li>Use this PHP code to inject the tracking script into the <code>&lt;head&gt;</code> section:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">wp_head</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">add_google_analytics</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> add_google_analytics</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> { </span><span style="color:#D32F2F;--shiki-dark:#C792EA">?&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">  &lt;!</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">--</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Google</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Analytics</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> --</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">  &lt;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">script</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> async</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> src</span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#22863A;--shiki-dark:#ECC48D">https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;&lt;/</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">script</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">  &lt;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">script</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#82AAFF">    window</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">.</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">dataLayer</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> =</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> window</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">.</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">dataLayer</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> ||</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> [];</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">    function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> gtag</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">{</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">dataLayer</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">.</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">push</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#82AAFF">arguments</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    gtag</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">js</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> new</span><span style="color:#1976D2;--shiki-dark:#C5E478"> Date</span><span style="color:#212121;--shiki-dark:#D6DEEB">())</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    gtag</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">config</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">G-XXXXXXXXXX</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">  &lt;/</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">script</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">  &lt;!</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">--</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> End</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Google</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Analytics</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> --</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">&lt;?</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">php</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> }</span></span></code></pre>
+</li>
+<li>Replace <code>G-XXXXXXXXXX</code> with your Measurement ID.</li>
+</ul>
+</li>
+<li>
+<p><strong>Save and Test</strong>:</p>
+<ul>
+<li>Save the file and check your site’s source code to confirm the script appears.</li>
+</ul>
+
+</li>
+</ol>
+<h3 id="step-4-verify-tracking">Step 4: Verify Tracking</h3>
+<ol>
+<li><strong>Check Real-Time Reports</strong>:
+<ul>
+<li>In Google Analytics, go to <strong>Reports &gt; Real-Time</strong> and visit your site to see if your activity is tracked.</li>
+</ul>
+</li>
+<li><strong>Use Google Tag Assistant</strong>:
+<ul>
+<li>Install the Google Tag Assistant Chrome extension to verify the tracking code is firing correctly.</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<h2 id="real-world-use-cases">Real-World Use Cases</h2>
+<ol>
+<li><strong>Bloggers</strong>: Track which posts drive the most traffic to optimize content strategies. For example, I helped a travel blogger manually add GA4 to their WordPress site, revealing that their “budget travel tips” posts had a 40% higher engagement rate than others.</li>
+<li><strong>E-Commerce Stores</strong>: Monitor product page views and conversion funnels. A client running a WooCommerce store used manual GA4 integration to track add-to-cart events without plugin conflicts.</li>
+<li><strong>Portfolio Sites</strong>: Measure visitor demographics to tailor content. A freelance designer used manual tracking to discover most visitors were from mobile devices, prompting a mobile-first redesign. I also use this for my own portfolio site to track which projects attract the most interest.</li>
+<li><strong>Nonprofits</strong>: Track donation page performance and user engagement. A nonprofit I worked with used manual integration to analyze which campaigns drove the most donations, allowing them to focus their efforts effectively.</li>
+<li><strong>Local Businesses</strong>: Understand customer behavior on service pages. A local restaurant used GA4 to track how many visitors clicked on their online reservation system, leading to a 25% increase in bookings.</li>
+</ol>
+<hr/>
+<h2 id="pros-and-cons-of-manual-integration">Pros and Cons of Manual Integration</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Pros</strong></th><th><strong>Cons</strong></th></tr></thead><tbody><tr><td>Lightweight, no plugin bloat</td><td>Requires basic coding knowledge</td></tr><tr><td>Full control over tracking code</td><td>Risk of errors if code is misconfigured</td></tr><tr><td>No dependency on plugin updates</td><td>Manual updates needed for tracking ID changes</td></tr><tr><td>Works with any WordPress theme</td><td>Not ideal for complete beginners</td></tr></tbody></table>
+<hr/>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<ol>
+<li><strong>Incorrect Measurement ID</strong>: Double-check your ID to avoid tracking the wrong property.</li>
+<li><strong>Editing Parent Theme Directly</strong>: Always use a child theme to prevent losing changes during updates.</li>
+<li><strong>Placing Code in Wrong Location</strong>: Ensure the script is in the <code>&lt;head&gt;</code> section, not the <code>&lt;body&gt;</code>.</li>
+<li><strong>Not Testing</strong>: Always verify tracking with real-time reports or Tag Assistant.</li>
+<li><strong>Ignoring GDPR Compliance</strong>: If your site serves EU visitors, add a cookie consent banner to comply with GDPR.</li>
+<li><strong>Not Using Anonymized IP</strong>: For GDPR compliance, add <code>{ &#39;anonymize_ip&#39;: true }</code> to your <code>gtag(&#39;config&#39;)</code> call.</li>
+<li><strong>Overlooking Event Tracking</strong>: If you need custom event tracking (e.g., button clicks), plan this in advance to avoid re-editing the code.</li>
+<li><strong>Neglecting Site Speed</strong>: Monitor your site’s performance after adding the script to ensure it doesn’t slow down loading times.</li>
+<li><strong>Not Using a Backup</strong>: Always back up your site before making changes to theme files.</li>
+<li><strong>Forgetting to Update Tracking ID</strong>: If you change properties in Google Analytics, remember to update the ID in your code.</li>
+</ol>
+
+<hr/>
+<h2 id="comparison-between-plugins-and-manual-integration">Comparison between Plugins and Manual Integration</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Feature</strong></th><th><strong>Manual Integration</strong></th><th><strong>Plugins (e.g., MonsterInsights)</strong></th></tr></thead><tbody><tr><td><strong>Ease of Use</strong></td><td>Requires coding</td><td>User-friendly, no coding needed</td></tr><tr><td><strong>Performance</strong></td><td>Lightweight, no extra scripts</td><td>Adds scripts, may slow site</td></tr><tr><td><strong>Customization</strong></td><td>Full control over code</td><td>Limited by plugin options</td></tr><tr><td><strong>Cost</strong></td><td>Free</td><td>Free or premium versions</td></tr><tr><td><strong>Maintenance</strong></td><td>Manual updates</td><td>Automatic updates, but risk of breaking</td></tr></tbody></table>
+<p>Plugins are great for beginners, but manual integration is better for performance-conscious users or those with custom tracking needs.</p>
+<hr/>
+<h2 id="benefits-and-key-takeaways">Benefits and Key Takeaways</h2>
+<ul>
+<li><strong>Performance</strong>: Manual integration reduces site bloat, improving load times.</li>
+<li><strong>Control</strong>: Customize tracking for specific goals, like e-commerce or event tracking.</li>
+<li><strong>Reliability</strong>: Avoid plugin conflicts or update issues.</li>
+<li><strong>Cost-Free</strong>: No need for premium plugin subscriptions.</li>
+</ul>
+<p><strong>Key Takeaway</strong>: Manually adding Google Analytics to WordPress is a straightforward, efficient way to track your site’s performance without sacrificing speed or control.</p>
+<hr/>
+<h2 id="seo-and-performance-considerations">SEO and Performance Considerations</h2>
+<p>Before diving into the technical steps, it’s important to understand how Google Analytics can impact your site’s SEO and performance. This section covers what you need to know about analytics scripts, their effect on site speed, privacy considerations, and how to ensure your tracking setup supports your SEO goals.</p>
+<ul>
+<li><strong>SEO Impact</strong>: Google Analytics doesn’t directly affect SEO, but the insights it provides can help optimize content for better rankings. For example, identifying high-bounce-rate pages can guide content improvements.</li>
+<li><strong>Performance</strong>: The GA4 script is lightweight (about 40KB), but ensure your site is optimized with caching (e.g., WP Rocket) and a CDN (e.g., Cloudflare) to minimize load time impact.</li>
+<li><strong>Privacy</strong>: Use anonymized IP tracking in GA4 for GDPR compliance (<code>gtag(&#39;config&#39;, &#39;G-XXXXXXXXXX&#39;, { &#39;anonymize_ip&#39;: true });</code>).</li>
+</ul>
+<hr/>
+<p>Adding Google Analytics to WordPress without a plugin is a smart choice for anyone prioritizing performance and control. By following the steps above—setting up your Google Analytics account, adding the tracking code to your theme, and verifying functionality—you can start collecting valuable data in minutes. This method is reliable, lightweight, and perfect for WordPress users who want to avoid plugin bloat.</p>
+<p>Whether you’re a blogger tracking post performance or an e-commerce owner analyzing conversions, manual integration empowers you to tailor analytics to your needs. Take the time to set it up correctly, and you’ll unlock insights that drive growth.</p>
+
+<hr/>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://support.google.com/analytics/answer/9304153?hl=en">Google Analytics 4 Setup Guide</a> – Official guide to setting up GA4.</li>
+<li><a href="https://analytics.google.com/analytics/academy/">Google Analytics Academy</a> – Free courses to master Google Analytics.</li>
+<li><a href="https://developer.wordpress.org/themes/advanced-topics/child-themes/">Child Themes – Theme Handbook | Developer.WordPress.org</a> – Official guide to creating child themes.</li>
+<li><a href="https://www.analyticsmania.com/post/google-tag-manager-vs-google-analytics/">Google Tag Manager vs. Google Analytics</a> – Understand when to use GTM for advanced tracking.</li>
+<li><a href="https://www.cookiebot.com/en/google-analytics-gdpr/">GDPR Compliance for Google Analytics</a> – Ensure your tracking is compliant with EU regulations.</li>
+</ul>
+<hr/>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>
+<p><strong>Can I use this method with Google Tag Manager?</strong><br/>
+Yes, you can replace the GA4 script with a Google Tag Manager (GTM) container code. Follow the same steps, but paste the GTM script instead.</p>
+</li>
+<li>
+<p><strong>Will manual integration work with all WordPress themes?</strong><br/>
+Yes, as long as your theme has a <code>header.php</code> or supports the <code>wp_head</code> hook, this method works universally.</p>
+</li>
+<li>
+<p><strong>How do I know if Google Analytics is tracking correctly?</strong><br/>
+Use the Real-Time reports in Google Analytics or the Google Tag Assistant Chrome extension to confirm tracking is active.</p>
+</li>
+<li>
+<p><strong>Is manual integration GDPR-compliant?</strong><br/>
+By default, Google Analytics collects IP addresses. Add <code>{ &#39;anonymize_ip&#39;: true }</code> to your <code>gtag(&#39;config&#39;)</code> call and use a cookie consent plugin to ensure GDPR compliance.</p>
+</li>
+<li>
+<p><strong>Can I add custom events without plugins?</strong><br/>
+Yes, you can add custom events by extending the GA4 script with <code>gtag(&#39;event&#39;, &#39;event_name&#39;, { ... })</code>. Refer to Google’s documentation for details.</p>
+</li>
+</ul> </article> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/add-google-analytics-wordpress-without-plugin/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <button id="back-to-top" class="focus-outline py-1 whitespace-nowrap hover:opacity-75" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two>Back to Top</span> </button> </div> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/creating-scalable-wordpress-sites" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Creating Scalable WordPress Websites</div> </div> </a>  </div> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> <div class="w-full lg:w-1/4 pb-12" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-6 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content p-1" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/wordpress/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/tweaks/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">Tweaks</span> </a> </li> </ul> </div> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/google-analytics/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Google Analytics</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/event-tracking/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Event Tracking</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/analytics/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Analytics</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/tracking/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Tracking</span> </a> </li> </ul> </div>  </div> </div> </aside>  <!-- Aside Section (25% width) --> <aside class="w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Table of Contents</h2> </div> <div class="aside-content p-1" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div> <div class="edit-post flex items-center justify-between border-t border-muted p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_advanced/add-google-analytics-wordpress-without-plugin.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_advanced/add-google-analytics-wordpress-without-plugin.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div>  </div> </div> </aside>  </div> </main> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked */
+  function backToTop() {
+    document.querySelector("#back-to-top")?.addEventListener("click", () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      // Clone the TOC list and append to Aside
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+
+      // Apply styles to match the original TOC
+      clonedToc.classList.add("list-disc", "pl-4", "space-y-1", "text-green-500");
+
+      // Remove the original TOC from the article
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none"; // Ensure the TOC is hidden
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20; // Adjust this value based on your header height
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetId = link.getAttribute('href')?.substring(1); // Remove the '#' from href
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Update the URL hash without jumping
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 
