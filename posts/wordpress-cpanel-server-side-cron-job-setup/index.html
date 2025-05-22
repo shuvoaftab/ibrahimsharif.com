@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>WordPress Server-Side Cron Job Setup (cPanel) | Blog</title><meta name="title" content="WordPress Server-Side Cron Job Setup (cPanel) | Blog"><meta name="description" content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="WordPress Server-Side Cron Job Setup (cPanel) | Blog"><meta property="og:description" content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."><meta property="og:url" content="https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/"><meta property="og:image" content="https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2019-06-18T09:45:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/"><meta property="twitter:title" content="WordPress Server-Side Cron Job Setup (cPanel) | Blog"><meta property="twitter:description" content="This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"WordPress Server-Side Cron Job Setup (cPanel) | Blog","image":"https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/index.png","datePublished":"2019-06-18T09:45:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.DOZyDyzf.css">
+<style>aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-exacnq3a]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-exacnq3a]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow)}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+.previous-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.previous-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.next-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.next-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-5dydqeu4-1"] { view-transition-name: wordpress-server-side-cron-job-setup-cpanel; }@layer astro { ::view-transition-old(wordpress-server-side-cron-job-setup-cpanel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(wordpress-server-side-cron-job-setup-cpanel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(wordpress-server-side-cron-job-setup-cpanel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(wordpress-server-side-cron-job-setup-cpanel) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-logo-retina.png" alt="Ibrahim Logo" class="h-8 bg-white"> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <span class="capitalize opacity-75" aria-current="page">  Posts ( wordpress-cpanel-server-side-cron-job-setup) </span> </li> </ul> </nav> <main id="main-content" class="flex flex-col lg:flex-row w-full max-w-7xl px-4 pb-12 mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <div class="w-full lg:w-3/4 lg:me-4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-5dydqeu4-1"> WordPress Server-Side Cron Job Setup (cPanel) </h1> <div class="flex justify-between items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2019-06-18T09:45:00.000Z">18 Jun, 2019</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 03:45 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 9 min read</span> </div> <!-- Add Category Section --> <!-- {categories.length > 0 && (
+          <div class="category-section">
+            {/* <span class="text-sm font-medium text-muted-foreground mr-2">Category:</span> */}
+            <ul class="inline-flex gap-2">
+              {categories.map(cat => (
+                <li class="inline-block">
+                  <Category category={slugifyStr(cat)} categoryName={cat} className="category-post" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )} --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>Since the web spread developers, business owners, and individuals use different types of platforms for their websites and some of them are very complex and run scheduled jobs in the background at different time intervals. This can be a processing of data, cleaning of data, sequential ordering, and processing of other jobs as well. This can also be run per minute, per hour, per day, or even once a year.</p>
+<p>In this guide, We will be demonstrating configuring Cron Jobs for the WordPress website which is the top platform used by Website Owners on the web.</p>
+
+<p>By default, WordPress runs all the scheduled events with PHP and the cron script for WordPress is the wp-cron.php file under the root directory of WordPress. The issue is when no execution is occurring on the website either on the frontend and or especially on the backend, WordPress scheduled events tend to fail or miss the time! That is the important reason to consider disabling cron execution from PHP and to ensure the execution and processing of scheduled events server-side cron job is the best way among all the possibilities.</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#disable-default-php-based-scheduled-job">Disable default PHP-based Scheduled Job</a></li>
+<li><a href="#identifying-cron-command">Identifying Cron Command</a>
+<ul>
+<li><a href="#check-home-directory">Check Home Directory</a></li>
+<li><a href="#check-document-directory">Check Document Directory</a></li>
+<li><a href="#finding-php-binary-path">Finding PHP Binary Path</a></li>
+<li><a href="#confirming-php-version">Confirming PHP Version</a></li>
+</ul>
+</li>
+<li><a href="#cron-settings">Cron Settings</a>
+<ul>
+<li><a href="#cron-time-intervals">Cron Time Intervals</a></li>
+<li><a href="#cron-command">Cron Command</a></li>
+</ul>
+</li>
+<li><a href="#confirm-cron-command">Confirm Cron Command</a>
+<ul>
+<li><a href="#resolve-cron-command-500-error">Resolve Cron Command 500 Error</a></li>
+</ul>
+</li>
+<li><a href="#discarding-cron-command-output">Discarding Cron Command Output</a></li>
+<li><a href="#wrapping-up">Wrapping Up</a></li>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="disable-default-php-based-scheduled-job">Disable default PHP-based Scheduled Job</h2>
+<p>The initial step is to disable the default method as the PHP-based job and then we execute or invoke the wp-cron.php from the cron job. To do this please open the wp-config.php file and look for the section below:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/* Add any custom values between this line and the &quot;stop editing&quot; line. */</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/* That&#39;s all, stop editing! Happy publishing. */</span></span></code></pre>
+<p>We need to add a new Configuration Directive within these two lines which are below:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>define(&#39;DISABLE_WP_CRON&#39;, true);</span></span></code></pre>
+<p>Now the code will look similar as below:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/* Add any custom values between this line and the &quot;stop editing&quot; line. */</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>define(&#39;DISABLE_WP_CRON&#39;, true);</span></span>
+<span class="line"><span>/* That&#39;s all, stop editing! Happy publishing. */</span></span></code></pre>
+<p><img src="/_astro/wp-disable-cron.BWGop2dT_27RguW.webp" srcset="/_astro/wp-disable-cron.BWGop2dT_ZPv9Wa.webp 640w, /_astro/wp-disable-cron.BWGop2dT_1CLgWW.webp 750w, /_astro/wp-disable-cron.BWGop2dT_ZWtTiv.webp 828w, /_astro/wp-disable-cron.BWGop2dT_AKRJP.webp 1080w, /_astro/wp-disable-cron.BWGop2dT_1zMoH.webp 1280w, /_astro/wp-disable-cron.BWGop2dT_ZGLozz.webp 1668w, /_astro/wp-disable-cron.BWGop2dT_ZKJKcF.webp 2048w, /_astro/wp-disable-cron.BWGop2dT_uXodc.webp 2560w, /_astro/wp-disable-cron.BWGop2dT_27RguW.webp 2714w" alt="Disable WordPress cron in wp-config.php" sizes="(min-width: 2714px) 2714px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2714; --h: 1216; --fit: cover; --pos: center;" data-astro-image="responsive" width="2714" height="1216"></p>
+<p>This will disable or tell WordPress not to run the scheduled events from PHP anymore.</p>
+<h2 id="identifying-cron-command">Identifying Cron Command</h2>
+<p>Before setting up a server-side cron job for WordPress, it’s important to identify the correct paths for your website’s directory, the WordPress cron file, and the PHP binary. This ensures your scheduled tasks run smoothly and reliably. Let’s walk through how to gather this essential information.</p>
+<p>Now we need to find the website directory and the WordPress Cron file so that we can put that in the Cron Settings.</p>
+<h3 id="check-home-directory">Check Home Directory</h3>
+<p>When you log in to the cPanel dashboard, look at the right sidebar under the “General Information” section. Here, you will find details about your account, including the “Home Directory.” This directory is the root folder for your cPanel user, and all your website files are stored under this path.</p>
+<p>For example, if your cPanel username is <code>regiktux</code>, the home directory will typically be something like:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/home/regiktux</span></span></code></pre>
+<p><img src="/_astro/cpanel-home-directory.BuqluSZ3_ZqvYNO.webp" srcset="/_astro/cpanel-home-directory.BuqluSZ3_Ku9vK.webp 640w, /_astro/cpanel-home-directory.BuqluSZ3_Z1I2qVx.webp 750w, /_astro/cpanel-home-directory.BuqluSZ3_1oOI9V.webp 828w, /_astro/cpanel-home-directory.BuqluSZ3_Z2nTj0N.webp 1080w, /_astro/cpanel-home-directory.BuqluSZ3_Ag9Rz.webp 1280w, /_astro/cpanel-home-directory.BuqluSZ3_Z26AwGP.webp 1668w, /_astro/cpanel-home-directory.BuqluSZ3_1Wc8od.webp 2048w, /_astro/cpanel-home-directory.BuqluSZ3_ZM6bRR.webp 2560w, /_astro/cpanel-home-directory.BuqluSZ3_ZqvYNO.webp 2750w" alt="cPanel home directory info" sizes="(min-width: 2750px) 2750px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2750; --h: 782; --fit: cover; --pos: center;" data-astro-image="responsive" width="2750" height="782"></p>
+<h3 id="check-document-directory">Check Document Directory</h3>
+<p>Now we will check the Document Directory for the WordPress website. It can be found from the Domains option:</p>
+<p><img src="/_astro/cpanel-domains.BA65BB90_Z1Ql2Ko.webp" srcset="/_astro/cpanel-domains.BA65BB90_EQXKt.webp 640w, /_astro/cpanel-domains.BA65BB90_Z1fyVBq.webp 750w, /_astro/cpanel-domains.BA65BB90_28LisB.webp 828w, /_astro/cpanel-domains.BA65BB90_bRBPg.webp 1080w, /_astro/cpanel-domains.BA65BB90_Z1WCWAK.webp 1280w, /_astro/cpanel-domains.BA65BB90_1Tti1O.webp 1668w, /_astro/cpanel-domains.BA65BB90_Z8WLRo.webp 2048w, /_astro/cpanel-domains.BA65BB90_Z1Ql2Ko.webp 2174w" alt="cPanel domains list" sizes="(min-width: 2174px) 2174px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2174; --h: 660; --fit: cover; --pos: center;" data-astro-image="responsive" width="2174" height="660"></p>
+<p>Now we need to look for the Domain of the WordPress website and you will see the Document Directory where a Home Icon will represent the Home Directory as we have collected in the previous step. In this case, the Document Directory is <strong>🏠/ibrahimsharif.com</strong></p>
+<p><img src="/_astro/cpanel-domain-directory.BtElEOia_1iylFk.webp" srcset="/_astro/cpanel-domain-directory.BtElEOia_261pY6.webp 640w, /_astro/cpanel-domain-directory.BtElEOia_Z2aOKjd.webp 750w, /_astro/cpanel-domain-directory.BtElEOia_2iyfS2.webp 828w, /_astro/cpanel-domain-directory.BtElEOia_1lVn2R.webp 1080w, /_astro/cpanel-domain-directory.BtElEOia_Z21Yo57.webp 1280w, /_astro/cpanel-domain-directory.BtElEOia_1mTcFq.webp 1668w, /_astro/cpanel-domain-directory.BtElEOia_25BNnA.webp 2048w, /_astro/cpanel-domain-directory.BtElEOia_FxypN.webp 2560w, /_astro/cpanel-domain-directory.BtElEOia_1iylFk.webp 2740w" alt="cPanel domain directory info" sizes="(min-width: 2740px) 2740px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2740; --h: 740; --fit: cover; --pos: center;" data-astro-image="responsive" width="2740" height="740"></p>
+<p>So our total path for the domain is:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/home/regiktux/ibrahimsharif.com</span></span></code></pre>
+<p>And the WordPress Cron path is:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/home/regiktux/ibrahimsharif.com/wp-cron.php</span></span></code></pre>
+<h3 id="finding-php-binary-path">Finding PHP Binary Path</h3>
+<p>Now we need to find the PHP Binary Executable Path, which is necessary for setting up the cron job correctly. The PHP binary is the program that executes PHP scripts on your server. Depending on your hosting environment, there may be multiple PHP versions installed, so it’s important to use the correct path.</p>
+<p>To determine the PHP binary path, you can use the Terminal or SSH Shell provided by your hosting provider. If you have access to cPanel, you can use the Terminal feature, or you can connect via SSH if that’s enabled for your account.</p>
+<p>Please run the following command in the terminal to locate all available PHP binaries on your server:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>whereis php</span></span></code></pre>
+<p>This will show results like below and as you can see <strong>/usr/bin/php</strong> and <strong>/usr/local/bin/php</strong> both are available here and are the most common path for PHP Binary Executable.</p>
+<p><img src="/_astro/cpanel-terminal-find-php.XXHG7cDW_1c0Mpl.webp" srcset="/_astro/cpanel-terminal-find-php.XXHG7cDW_Z1dCMIf.webp 640w, /_astro/cpanel-terminal-find-php.XXHG7cDW_2jeTSc.webp 750w, /_astro/cpanel-terminal-find-php.XXHG7cDW_jkItM.webp 828w, /_astro/cpanel-terminal-find-php.XXHG7cDW_ZHAGX5.webp 1080w, /_astro/cpanel-terminal-find-php.XXHG7cDW_1z6tu2.webp 1280w, /_astro/cpanel-terminal-find-php.XXHG7cDW_L8x28.webp 1668w, /_astro/cpanel-terminal-find-php.XXHG7cDW_ZO7Fcc.webp 2048w, /_astro/cpanel-terminal-find-php.XXHG7cDW_XeBwN.webp 2560w, /_astro/cpanel-terminal-find-php.XXHG7cDW_1c0Mpl.webp 2742w" alt="Find PHP binary in cPanel terminal" sizes="(min-width: 2742px) 2742px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2742; --h: 520; --fit: cover; --pos: center;" data-astro-image="responsive" width="2742" height="520"></p>
+<h3 id="confirming-php-version">Confirming PHP Version</h3>
+<p>If you find both of them then both of their versions may be different and we need to confirm the PHP version by executing the below command:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/usr/bin/php -v</span></span></code></pre>
+<p>This command shows the PHP version for that exact PHP binary and here you can see it is 7.4.33</p>
+<p><img src="/_astro/cpanel-php-version-cli.knZfLXzI_14hG1b.webp" srcset="/_astro/cpanel-php-version-cli.knZfLXzI_Z29YoeF.webp 640w, /_astro/cpanel-php-version-cli.knZfLXzI_Z2te8SC.webp 750w, /_astro/cpanel-php-version-cli.knZfLXzI_1FhiU1.webp 828w, /_astro/cpanel-php-version-cli.knZfLXzI_Z9ogw1.webp 1080w, /_astro/cpanel-php-version-cli.knZfLXzI_1vdcwR.webp 1280w, /_astro/cpanel-php-version-cli.knZfLXzI_NxhFN.webp 1668w, /_astro/cpanel-php-version-cli.knZfLXzI_14hG1b.webp 1878w" alt="PHP version in cPanel CLI" sizes="(min-width: 1878px) 1878px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1878; --h: 326; --fit: cover; --pos: center;" data-astro-image="responsive" width="1878" height="326"></p>
+<h2 id="cron-settings">Cron Settings</h2>
+<p>Now please go to the Cron Jobs option in your cPanel dashboard. You can usually find this under the “Advanced” section or by searching for “Cron Jobs” in the cPanel search bar. Clicking on this option will open the Cron Jobs management page, where you can create, edit, or remove scheduled tasks for your hosting account.</p>
+<p>On the Cron Jobs page, you will see sections for adding a new cron job, viewing current cron jobs, and setting up email notifications for cron outputs. Locate the “Add New Cron Job” section to proceed with configuring your WordPress cron command.</p>
+<p><img src="/_astro/cpanel-cron-jobs.1CbEm3yZ_1LeC8B.webp" srcset="/_astro/cpanel-cron-jobs.1CbEm3yZ_ZIkkBM.webp 640w, /_astro/cpanel-cron-jobs.1CbEm3yZ_ZRjiGi.webp 750w, /_astro/cpanel-cron-jobs.1CbEm3yZ_Z13FDa9.webp 828w, /_astro/cpanel-cron-jobs.1CbEm3yZ_fXTKQ.webp 1080w, /_astro/cpanel-cron-jobs.1CbEm3yZ_Z1dBwys.webp 1280w, /_astro/cpanel-cron-jobs.1CbEm3yZ_5Qkc4.webp 1668w, /_astro/cpanel-cron-jobs.1CbEm3yZ_Z19gsn5.webp 2048w, /_astro/cpanel-cron-jobs.1CbEm3yZ_1LeC8B.webp 2216w" alt="cPanel cron jobs menu" sizes="(min-width: 2216px) 2216px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2216; --h: 672; --fit: cover; --pos: center;" data-astro-image="responsive" width="2216" height="672"></p>
+<p>This will offer some input fields to set the Cron Intervals and the Cron Command as below:</p>
+<p><img src="/_astro/cpanel-cron-settings.B1d3extI_ZnM5i2.webp" srcset="/_astro/cpanel-cron-settings.B1d3extI_Z27t7qU.webp 640w, /_astro/cpanel-cron-settings.B1d3extI_Z26N9uF.webp 750w, /_astro/cpanel-cron-settings.B1d3extI_Z1GsoFc.webp 828w, /_astro/cpanel-cron-settings.B1d3extI_ZWHeWC.webp 1080w, /_astro/cpanel-cron-settings.B1d3extI_1ic3ae.webp 1280w, /_astro/cpanel-cron-settings.B1d3extI_ZnM5i2.webp 1390w" alt="cPanel cron job settings" sizes="(min-width: 1390px) 1390px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 1390; --h: 1238; --fit: cover; --pos: center;" data-astro-image="responsive" width="1390" height="1238"></p>
+<h3 id="cron-time-intervals">Cron Time Intervals</h3>
+<p>When setting up a Cron job for WordPress, it’s common to schedule the task to run every minute. This ensures WordPress scheduled tasks (like publishing posts or sending emails) are triggered promptly.</p>
+<p>A typical Cron schedule uses five fields:</p>
+<ul>
+<li>Minute (0-59)</li>
+<li>Hour (0-23)</li>
+<li>Day of Month (1-31)</li>
+<li>Month (1-12)</li>
+<li>Day of Week (0-7, where 0 and 7 are Sunday)</li>
+</ul>
+<p>Using asterisks (*) in all fields (<code>* * * * *</code>) means the job runs every minute. Most of the case, the suitable recommended time interval for running the Cron job is per minute. Putting a Star(*) means EVERY. Here all 5 stars mean Every Minute on Every Hour on Every Day on Every Month on Every Weekday.</p>
+<h3 id="cron-command">Cron Command</h3>
+<p>Now we need to put the Cron Command which is the PHP Binary and the WordPress Cron file. The command for running WordPress Cron Script including the PHP Binary is:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></span></code></pre>
+<p>And the total command including time intervals which is the resulting final output is:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></span></code></pre>
+<h2 id="confirm-cron-command">Confirm Cron Command</h2>
+<p>To ensure your cron job is set up correctly, it’s important to manually test the command before relying on automated scheduling. You can do this by running the cron command directly in your terminal or SSH shell. This helps verify that the PHP binary path, the WordPress cron file path, and file permissions are all correct.</p>
+<p>For example, run the following command in your terminal:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></span></code></pre>
+<h3 id="resolve-cron-command-500-error">Resolve Cron Command 500 Error</h3>
+<p>The command we used in this case executed shows an error of 500 which is server side as below:</p>
+<p><img src="/_astro/cron-command-error.DDxxVrxT_Z2k0tew.webp" srcset="/_astro/cron-command-error.DDxxVrxT_ZGvfis.webp 640w, /_astro/cron-command-error.DDxxVrxT_260AOy.webp 750w, /_astro/cron-command-error.DDxxVrxT_n3D3e.webp 828w, /_astro/cron-command-error.DDxxVrxT_Zikb3b.webp 1080w, /_astro/cron-command-error.DDxxVrxT_Z1Wid6H.webp 1280w, /_astro/cron-command-error.DDxxVrxT_3uuWk.webp 1668w, /_astro/cron-command-error.DDxxVrxT_2bJwKc.webp 2048w, /_astro/cron-command-error.DDxxVrxT_1deJF4.webp 2560w, /_astro/cron-command-error.DDxxVrxT_Z2k0tew.webp 2608w" alt="Cron command 500 error screenshot" sizes="(min-width: 2608px) 2608px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2608; --h: 306; --fit: cover; --pos: center;" data-astro-image="responsive" width="2608" height="306"></p>
+<p>A successful command should output a Response Status of 200, indicating that the wp-cron.php script executed without any server-side errors. If you encounter a 500 Internal Server Error, it typically means there is a problem with the server configuration, file permissions, or the PHP environment.</p>
+<p>One of the most common causes for this error is incorrect file permissions on the wp-cron.php file. By default, the file should be readable and executable by the server. Setting the file permission to 755 (read, write, and execute for the owner, and read and execute for group and others) usually resolves this issue. You can change the file permission using your cPanel File Manager or by running the following command in your terminal:</p>
+<p><img src="/_astro/wp-cron-file-permission.iIW_-55m_2jjKwt.webp" srcset="/_astro/wp-cron-file-permission.iIW_-55m_6p6Nt.webp 640w, /_astro/wp-cron-file-permission.iIW_-55m_1YsUV5.webp 750w, /_astro/wp-cron-file-permission.iIW_-55m_Z2aHquE.webp 828w, /_astro/wp-cron-file-permission.iIW_-55m_8YGo.webp 1080w, /_astro/wp-cron-file-permission.iIW_-55m_Z1kvxUs.webp 1280w, /_astro/wp-cron-file-permission.iIW_-55m_ZbAcKi.webp 1668w, /_astro/wp-cron-file-permission.iIW_-55m_Z1fqWSo.webp 2048w, /_astro/wp-cron-file-permission.iIW_-55m_2jjKwt.webp 2108w" alt="File permission set to 755 for wp-cron.php" sizes="(min-width: 2108px) 2108px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2108; --h: 762; --fit: cover; --pos: center;" data-astro-image="responsive" width="2108" height="762"></p>
+<p>After changing the file permission to 755 running again the cron command runs successfully and shows the successful response status as below:</p>
+<p><img src="/_astro/cpanel-successful-cron-run.BcWSYhK3_1Wbvs6.webp" srcset="/_astro/cpanel-successful-cron-run.BcWSYhK3_qhCRm.webp 640w, /_astro/cpanel-successful-cron-run.BcWSYhK3_Z1HJTxw.webp 750w, /_astro/cpanel-successful-cron-run.BcWSYhK3_Z1y7gnI.webp 828w, /_astro/cpanel-successful-cron-run.BcWSYhK3_Z26FMqS.webp 1080w, /_astro/cpanel-successful-cron-run.BcWSYhK3_Z2mJsvJ.webp 1280w, /_astro/cpanel-successful-cron-run.BcWSYhK3_16vngY.webp 1668w, /_astro/cpanel-successful-cron-run.BcWSYhK3_lJULm.webp 2048w, /_astro/cpanel-successful-cron-run.BcWSYhK3_1Wbvs6.webp 2086w" alt="Successful cron run in cPanel" sizes="(min-width: 2086px) 2086px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2086; --h: 282; --fit: cover; --pos: center;" data-astro-image="responsive" width="2086" height="282"></p>
+<h2 id="discarding-cron-command-output">Discarding Cron Command Output</h2>
+<p>After running the command it showed us an output that we do not need or should discard through running the Cron Job. Our original command is:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>/usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php</span></span></code></pre>
+<p>By default, when a cron job runs, any output (including errors) generated by the command is sent to your account’s email address configured in cPanel. Over time, this can clutter your inbox with unnecessary messages, especially if the cron job runs frequently and does not produce meaningful output.</p>
+<p>To prevent this, you can redirect both the standard output and standard error streams to <code>/dev/null</code>, which effectively discards all output. This is done by appending <code>&gt; /dev/null 2&gt;&amp;1</code> to the end of your cron command. Here’s what each part means:</p>
+<ul>
+<li><code>&gt;</code> redirects standard output (stdout) to the specified location (<code>/dev/null</code> in this case, which is a special file that discards all data written to it).</li>
+<li><code>2&gt;&amp;1</code> redirects standard error (stderr, file descriptor 2) to the same location as standard output (file descriptor 1).</li>
+</ul>
+<p>So, the final cron command to run WordPress scheduled tasks silently, without sending any output or error messages, is:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>* * * * * /usr/bin/php /home/regiktux/ibrahimsharif.com/wp-cron.php &gt; /dev/null 2&gt;&amp;1</span></span></code></pre>
+<p>This does not output anything but does the job silently as shown below:</p>
+<p><img src="/_astro/cpanel-cron-discard-output.BfknOFRm_yjiRK.webp" srcset="/_astro/cpanel-cron-discard-output.BfknOFRm_1F8bP1.webp 640w, /_astro/cpanel-cron-discard-output.BfknOFRm_ZtubXm.webp 750w, /_astro/cpanel-cron-discard-output.BfknOFRm_Z2ag8J6.webp 828w, /_astro/cpanel-cron-discard-output.BfknOFRm_Zif3zt.webp 1080w, /_astro/cpanel-cron-discard-output.BfknOFRm_2hLkYf.webp 1280w, /_astro/cpanel-cron-discard-output.BfknOFRm_Z1kYAB8.webp 1668w, /_astro/cpanel-cron-discard-output.BfknOFRm_FYu7j.webp 2048w, /_astro/cpanel-cron-discard-output.BfknOFRm_yjiRK.webp 2342w" alt="Cron output discarded in cPanel" sizes="(min-width: 2342px) 2342px, 100vw" loading="lazy" decoding="async" fetchpriority="auto" style="--w: 2342; --h: 140; --fit: cover; --pos: center;" data-astro-image="responsive" width="2342" height="140"></p>
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>By following the steps above, you have successfully configured a server-side cron job for your WordPress website using cPanel. This approach ensures that scheduled tasks in WordPress (such as publishing scheduled posts, sending emails, or running plugin maintenance routines) are executed reliably, regardless of site traffic or user activity.</p>
+<p><strong>Key takeaways:</strong></p>
+<ul>
+<li>Disabling the default PHP-based cron in WordPress prevents missed or delayed scheduled events.</li>
+<li>Identifying the correct paths for your PHP binary and WordPress installation is crucial for a working cron job.</li>
+<li>Testing your cron command manually helps catch permission or configuration issues early.</li>
+<li>Redirecting output to <code>/dev/null</code> keeps your inbox clean from unnecessary cron emails.</li>
+</ul>
+<p>With this setup, your WordPress scheduled events will run smoothly and efficiently. If you ever need to adjust the frequency or troubleshoot issues, you can revisit the Cron Jobs section in cPanel or check your server logs for more details.</p>
+<p>Happy automating your WordPress site!</p>
+<hr/>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://developer.wordpress.org/plugins/cron/">Official WordPress Cron Jobs Documentation</a></li>
+<li><a href="https://docs.cpanel.net/cpanel/advanced/cron-jobs/">cPanel Cron Jobs Documentation</a></li>
+</ul> </article> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/wordpress-cpanel-server-side-cron-job-setup/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <button id="back-to-top" class="focus-outline py-1 whitespace-nowrap hover:opacity-75" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two>Back to Top</span> </button> </div> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/creating-scalable-wordpress-sites" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Creating Scalable WordPress Websites</div> </div> </a> <a href="/posts/add-google-analytics-wordpress-without-plugin" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>How to Add Google Analytics to WordPress Without a Plugin</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> <div class="w-full lg:w-1/4 pb-12" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-6 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content p-1" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/wordpress/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/server/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">Server</span> </a> </li> </ul> </div> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/cron-job/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Cron Job</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/server/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Server</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/woocommerce/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WooCommerce</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/hosting/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Hosting</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/cpanel/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>cPanel</span> </a> </li> </ul> </div>  </div> </div> </aside>  <!-- Aside Section (25% width) --> <aside class="w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Table of Contents</h2> </div> <div class="aside-content p-1" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div> <div class="edit-post flex items-center justify-between border-t border-muted p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_advanced/wordpress-cpanel-server-side-cron-job-setup.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_advanced/wordpress-cpanel-server-side-cron-job-setup.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div>  </div> </div> </aside>  </div> </main> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked */
+  function backToTop() {
+    document.querySelector("#back-to-top")?.addEventListener("click", () => {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      // Clone the TOC list and append to Aside
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+
+      // Apply styles to match the original TOC
+      clonedToc.classList.add("list-disc", "pl-4", "space-y-1", "text-green-500");
+
+      // Remove the original TOC from the article
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none"; // Ensure the TOC is hidden
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20; // Adjust this value based on your header height
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetId = link.getAttribute('href')?.substring(1); // Remove the '#' from href
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Update the URL hash without jumping
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 
