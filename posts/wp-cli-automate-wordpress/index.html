@@ -106,14 +106,14 @@ Categories
 <li><a href="#c-search-and-replace-in-the-database">C. Search and Replace in the Database</a></li>
 </ul>
 </li>
-<li><a href="#5-user-management">5. User Management</a>
+<li><a href="#user-management">User Management</a>
 <ul>
 <li><a href="#a-listing-users">A. Listing Users</a></li>
 <li><a href="#b-creating-a-new-user">B. Creating a New User</a></li>
 <li><a href="#c-changing-user-password">C. Changing User Password</a></li>
 </ul>
 </li>
-<li><a href="#6-automating-tasks-with-wp-cli">6. Automating Tasks with WP-CLI</a>
+<li><a href="#automating-tasks-with-wp-cli">Automating Tasks with WP-CLI</a>
 <ul>
 <li><a href="#a-scheduling-cron-jobs">A. Scheduling Cron Jobs</a></li>
 <li><a href="#b-automating-backups">B. Automating Backups</a></li>
@@ -198,7 +198,7 @@ Categories
 <p>Performing search and replace operations in your WordPress database is often necessary during site migrations, domain changes, or bulk content updates. WP-CLI makes this process safe and efficient, allowing you to update URLs, fix typos, or modify content across your entire database with a single command—saving time and reducing manual errors.</p>
 <pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> search-replace</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">oldsite.com</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">newsite.com</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span></span></code></pre>
 <hr/>
-<h2 id="5-user-management">5. User Management</h2>
+<h2 id="user-management">User Management</h2>
 <p>User management is a vital part of maintaining a secure and organized WordPress site. WP-CLI allows you to efficiently list, create, update, and delete user accounts directly from the command line. This streamlines administrative tasks, supports automation, and makes it easier to manage users across multiple sites or environments.</p>
 <h3 id="a-listing-users">A. Listing Users</h3>
 <p>Managing users is crucial for maintaining site security, assigning roles, and controlling access to your WordPress site. WP-CLI makes user management fast and efficient, allowing you to list all users, review their roles, and audit accounts directly from the command line—ideal for both single sites and multisite networks.</p>
@@ -210,7 +210,7 @@ Categories
 <p>Changing user passwords is a common administrative task, especially when onboarding new users or responding to security incidents. WP-CLI allows you to quickly and securely update user passwords directly from the command line, streamlining password resets and enhancing overall site security without needing to access the WordPress dashboard.</p>
 <pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> user</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> update</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> admin</span><span style="color:#2B5581;--shiki-dark:#82AAFF"> --user_pass=newpassword</span></span></code></pre>
 <hr/>
-<h2 id="6-automating-tasks-with-wp-cli">6. Automating Tasks with WP-CLI</h2>
+<h2 id="automating-tasks-with-wp-cli">Automating Tasks with WP-CLI</h2>
 <p>Automating routine tasks is one of the most powerful features of WP-CLI. By leveraging command-line scripts and scheduling tools, you can streamline maintenance, backups, updates, and more—saving time and reducing manual effort. This section explores practical ways to automate WordPress management using WP-CLI for greater efficiency and reliability.</p>
 <h3 id="a-scheduling-cron-jobs">A. Scheduling Cron Jobs</h3>
 <p>Scheduling tasks with WP-CLI allows you to automate essential maintenance and operational routines for your WordPress site. By integrating WP-CLI commands with system cron jobs, you can ensure regular execution of updates, backups, and other tasks—minimizing manual intervention and keeping your site running smoothly with minimal effort.</p>
