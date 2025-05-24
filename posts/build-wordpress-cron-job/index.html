@@ -1,0 +1,550 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/build-wordpress-cron-job/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Building and Managing WP-Cron Jobs in WordPress | Blog</title><meta name="title" content="Building and Managing WP-Cron Jobs in WordPress | Blog"><meta name="description" content="A comprehensive guide to building, managing, and optimizing WP-Cron jobs in WordPress."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Building and Managing WP-Cron Jobs in WordPress | Blog"><meta property="og:description" content="A comprehensive guide to building, managing, and optimizing WP-Cron jobs in WordPress."><meta property="og:url" content="https://ibrahimsharif.com/posts/build-wordpress-cron-job/"><meta property="og:image" content="https://ibrahimsharif.com/posts/build-wordpress-cron-job/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2020-11-03T14:20:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/build-wordpress-cron-job/"><meta property="twitter:title" content="Building and Managing WP-Cron Jobs in WordPress | Blog"><meta property="twitter:description" content="A comprehensive guide to building, managing, and optimizing WP-Cron jobs in WordPress."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/build-wordpress-cron-job/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Building and Managing WP-Cron Jobs in WordPress | Blog","image":"https://ibrahimsharif.com/posts/build-wordpress-cron-job/index.png","datePublished":"2020-11-03T14:20:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.3bgA3D2t.css">
+<style>aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-exacnq3a]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-exacnq3a]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow)}
+aside[data-astro-cid-s6iqbw7n]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-s6iqbw7n]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-s6iqbw7n]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow);position:relative}.toc[data-astro-cid-s6iqbw7n] .widget-wrapper[data-astro-cid-s6iqbw7n]{overflow-y:auto;max-height:90vh;scrollbar-width:thin}.toc-arrow[data-astro-cid-s6iqbw7n]{position:sticky;bottom:10px;display:flex;justify-content:center;align-items:center;width:100%;opacity:0;transition:opacity .3s ease;pointer-events:none}.toc-arrow[data-astro-cid-s6iqbw7n].visible{opacity:1;animation:pulseTOC 1.5s infinite}.toc-arrow[data-astro-cid-s6iqbw7n].hidden{display:none}@keyframes pulseTOC{0%{transform:translateY(0);opacity:1}50%{transform:translateY(20px);opacity:1}to{transform:translateY(0);opacity:1}}.toc-arrow[data-astro-cid-s6iqbw7n] svg[data-astro-cid-s6iqbw7n]{width:100%;height:24px;background:var(--muted);stroke:var(--accent)}.previous-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.previous-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.next-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.next-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.back-to-top[data-astro-cid-2t7o7two]{position:fixed;bottom:1rem;right:1rem;z-index:1000;background:var(--accent);color:var(--foreground);border-radius:.5rem;box-shadow:0 4px 6px #0000001a;animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%{transform:scale(1);box-shadow:0 4px 6px #0000001a}50%{transform:scale(1.05);box-shadow:0 6px 8px #00000026}to{transform:scale(1);box-shadow:0 4px 6px #0000001a}}.hidden[data-astro-cid-2t7o7two]{display:none}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-5dydqeu4-1"] { view-transition-name: building-and-managing-wp-cron-jobs-in-wordpress; }@layer astro { ::view-transition-old(building-and-managing-wp-cron-jobs-in-wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(building-and-managing-wp-cron-jobs-in-wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(building-and-managing-wp-cron-jobs-in-wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(building-and-managing-wp-cron-jobs-in-wordpress) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-logo-retina.png" alt="Ibrahim Logo" class="h-8 bg-white"> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <span class="capitalize opacity-75" aria-current="page">  ( BUILD WORDPRESS CRON JOB ) </span> </li> </ul> </nav> <main id="main-content" class="flex flex-col lg:flex-row w-full max-w-7xl px-4 pb-12 mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <div class="w-full lg:w-3/4 lg:me-4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-5dydqeu4-1"> Building and Managing WP-Cron Jobs in WordPress </h1> <div class="flex justify-between items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2020-11-03T14:20:00.000Z">3 Nov, 2020</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 08:20 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 13 min read</span> </div> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>WordPress includes a built-in scheduling system called WP-Cron, which allows developers and site administrators to automate routine tasks such as publishing scheduled posts, performing database cleanups, sending email notifications, and clearing caches. Unlike traditional server-side cron jobs, WP-Cron is triggered by site activity—specifically, when someone visits your website—rather than running at fixed intervals set by the operating system.</p>
+<p>This unique approach makes it easy to set up scheduled tasks without requiring server access, but it also introduces some challenges, such as missed executions on low-traffic sites or performance bottlenecks on busy sites. In this comprehensive guide, you’ll learn how to create, manage, troubleshoot, and optimize WP-Cron jobs to ensure your WordPress site runs smoothly and efficiently.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#understanding-wp-cron">Understanding WP-Cron</a></li>
+<li><a href="#key-features-of-wp-cron">Key Features of WP-Cron</a></li>
+<li><a href="#advantages-and-disadvantages-of-wp-cron">Advantages and Disadvantages of WP-Cron</a>
+<ul>
+<li><a href="#advantages">Advantages</a></li>
+<li><a href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li><a href="#a-comparison-on-wp-cron-and-systemserver-side-cron-jobs">A Comparison on WP-Cron and System(Server-side) Cron Jobs</a></li>
+<li><a href="#wordpress-cron-job-management-guide">WordPress Cron Job Management Guide</a>
+<ul>
+<li><a href="#checking-existing-cron-jobs">Checking Existing Cron Jobs</a></li>
+<li><a href="#debug-with-wp-crontrol">Debug with WP Crontrol</a></li>
+<li><a href="#scheduling-custom-cron-jobs">Scheduling Custom Cron Jobs</a>
+<ul>
+<li><a href="#step-1-define-a-custom-cron-interval">Step 1: Define a Custom Cron Interval</a></li>
+<li><a href="#step-2-schedule-an-event">Step 2: Schedule an Event</a></li>
+<li><a href="#step-3-define-the-cron-task">Step 3: Define the Cron Task</a></li>
+</ul>
+</li>
+<li><a href="#removing-and-rescheduling-cron-jobs">Removing and Rescheduling Cron Jobs</a></li>
+</ul>
+</li>
+<li><a href="#disabling-wp-cron-for-performance">Disabling WP-Cron for Performance</a>
+<ul>
+<li><a href="#setting-up-a-system-cron-job">Setting Up a System Cron Job</a></li>
+</ul>
+</li>
+<li><a href="#monitoring-and-debugging-cron-jobs">Monitoring and Debugging Cron Jobs</a>
+<ul>
+<li><a href="#check-running-cron-jobs">Check Running Cron Jobs</a></li>
+<li><a href="#log-cron-execution">Log Cron Execution</a></li>
+<li><a href="#debugging-with-wp-cli">Debugging with WP-CLI</a></li>
+</ul>
+</li>
+<li><a href="#best-practices-for-wp-cron">Best Practices for WP-Cron</a></li>
+<li><a href="#troubleshooting-common-wp-cron-issues">Troubleshooting Common WP-Cron Issues</a>
+<ul>
+<li><a href="#missed-cron-jobs">Missed Cron Jobs</a></li>
+<li><a href="#cron-jobs-not-running">Cron Jobs Not Running</a></li>
+<li><a href="#debugging-failed-cron-jobs">Debugging Failed Cron Jobs</a></li>
+</ul>
+</li>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="understanding-wp-cron">Understanding WP-Cron</h2>
+<p>Unlike traditional system cron jobs that are triggered by the server at precise intervals, WP-Cron relies on site traffic to initiate scheduled tasks. This means that whenever someone visits your WordPress site, WP-Cron checks if any scheduled events are due and executes them if necessary. While this approach eliminates the need for server-level configuration and works well for many sites, it introduces some limitations:</p>
+<ul>
+<li>On low-traffic sites, scheduled tasks may be delayed or missed entirely if no one visits the site at the scheduled time.</li>
+<li>On high-traffic sites, WP-Cron can be triggered excessively, potentially leading to performance bottlenecks as multiple processes attempt to run scheduled tasks simultaneously.</li>
+<li>WP-Cron runs within the context of a web request, so long-running or resource-intensive tasks can impact page load times for visitors.</li>
+</ul>
+<p>Understanding these differences is crucial for effectively managing and optimizing scheduled tasks in WordPress environments.</p>
+<hr/>
+<h2 id="key-features-of-wp-cron">Key Features of WP-Cron</h2>
+<p>WP-Cron offers a range of features that make it a versatile and accessible tool for automating tasks within WordPress. Understanding these features will help you leverage WP-Cron effectively for routine maintenance, content scheduling, and custom automation. In this section, we’ll explore the core capabilities of WP-Cron and how they can benefit your site’s workflow and performance.</p>
+<ul>
+<li><strong>Automated Task Scheduling</strong>: WP-Cron allows you to schedule tasks to run at specific intervals or times, such as publishing posts, sending emails, or cleaning up databases.</li>
+<li><strong>Custom Intervals</strong>: You can define custom intervals for your scheduled tasks, such as every 5 minutes, hourly, or daily.</li>
+<li><strong>Event Hooks</strong>: WP-Cron uses action hooks to trigger tasks, allowing you to define custom functions that execute when a scheduled event occurs.</li>
+<li><strong>Easy Management</strong>: WP-Cron jobs can be managed through plugins like WP Crontrol, which provide a user-friendly interface to view, edit, and delete scheduled tasks.</li>
+<li><strong>No Server Access Required</strong>: WP-Cron does not require server-level access or configuration, making it accessible to all WordPress users, regardless of their hosting environment.</li>
+<li><strong>Debugging Tools</strong>: WP-CLI and plugins like WP Crontrol provide tools to debug and monitor scheduled tasks, helping you identify issues and ensure tasks run as expected.</li>
+</ul>
+<hr/>
+<h2 id="advantages-and-disadvantages-of-wp-cron">Advantages and Disadvantages of WP-Cron</h2>
+<p>WP-Cron is a powerful tool for scheduling tasks in WordPress, but it comes with its own set of advantages and disadvantages. Understanding these can help you make informed decisions about how to use WP-Cron effectively on your site.</p>
+<h3 id="advantages">Advantages</h3>
+<ul>
+<li><strong>Ease of Use</strong>: WP-Cron is built into WordPress, making it easy to set up and manage without requiring server-level access or configuration.</li>
+<li><strong>Flexibility</strong>: You can create custom intervals and define specific tasks to run, allowing for tailored automation based on your site’s needs.</li>
+<li><strong>No Additional Costs</strong>: WP-Cron is included with WordPress, so you don’t need to pay for additional services or plugins to schedule tasks.</li>
+</ul>
+<h3 id="disadvantages">Disadvantages</h3>
+<ul>
+<li><strong>Reliability</strong>: WP-Cron relies on site traffic to trigger tasks, which can lead to missed executions on low-traffic sites or delayed tasks if no one visits the site at the scheduled time.</li>
+<li><strong>Performance Impact</strong>: On high-traffic sites, WP-Cron can lead to performance issues as multiple tasks may run simultaneously, potentially slowing down page load times.</li>
+<li><strong>Limited Precision</strong>: WP-Cron is not as precise as traditional system cron jobs, which can lead to tasks running later than expected if the site experiences high traffic or server load.</li>
+</ul>
+<hr/>
+<h2 id="a-comparison-on-wp-cron-and-systemserver-side-cron-jobs">A Comparison on WP-Cron and System(Server-side) Cron Jobs</h2>
+<p>WP-Cron and traditional system cron jobs both serve the purpose of automating scheduled tasks, but they operate in fundamentally different ways. Understanding these differences is essential for choosing the right approach for your WordPress site. The following table highlights the key distinctions between WP-Cron and system cron jobs, including their trigger mechanisms, reliability, performance impact, and typical use cases.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Feature</th><th>WP-Cron</th><th>System Cron</th><th>Server Access Needed</th><th>Reliability</th><th>Performance Impact</th><th>Custom Intervals</th><th>Suitable For</th></tr></thead><tbody><tr><td>Trigger Mechanism</td><td>On site visit</td><td>Scheduled by server</td><td>No</td><td>Medium (traffic-based)</td><td>Can be high</td><td>Yes</td><td>Most WordPress sites</td></tr><tr><td>Server Access Required</td><td>No</td><td>Yes</td><td>Yes</td><td>High</td><td>Low</td><td>Yes</td><td>Advanced users</td></tr><tr><td>Precision</td><td>Low (traffic-dependent)</td><td>High (exact timing)</td><td>Yes</td><td>High</td><td>Low</td><td>Yes</td><td>Critical tasks</td></tr><tr><td>Performance Impact</td><td>Can be high on busy sites</td><td>Minimal</td><td>No</td><td>High</td><td>Low</td><td>Yes</td><td>High-traffic sites</td></tr><tr><td>Ease of Setup</td><td>Easy</td><td>Moderate/Complex</td><td>No</td><td>Medium</td><td>Medium</td><td>Yes</td><td>Beginners</td></tr><tr><td>Custom Intervals</td><td>Yes</td><td>Yes</td><td>Yes</td><td>High</td><td>Low</td><td>Yes</td><td>All users</td></tr><tr><td>Use Case Example</td><td>Blog post scheduling</td><td>Database backups</td><td>Yes</td><td>High</td><td>Low</td><td>Yes</td><td>Maintenance tasks</td></tr></tbody></table>
+<hr/>
+<h2 id="wordpress-cron-job-management-guide">WordPress Cron Job Management Guide</h2>
+<p>Managing WP-Cron jobs effectively is crucial for maintaining your site’s performance and ensuring that scheduled tasks run smoothly. This guide will walk you through the essential steps for checking, scheduling, and debugging cron jobs in WordPress.</p>
+<h3 id="checking-existing-cron-jobs">Checking Existing Cron Jobs</h3>
+<p>To check existing cron jobs in WordPress, you have several options:</p>
+<ol>
+<li><strong>Using WP-CLI</strong>: WP-CLI provides a convenient way to list all scheduled cron events directly from the command line. Run the following command in your WordPress directory:</li>
+</ol>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> cron</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> event</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> list</span></span></code></pre>
+<ol start="2">
+<li><strong>Using a Code Snippet</strong>: Or add this snippet to display scheduled events:</li>
+</ol>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">print_r</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">_get_cron_array</span><span style="color:#212121;--shiki-dark:#D6DEEB">())</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<h3 id="debug-with-wp-crontrol">Debug with WP Crontrol</h3>
+<p>WP Crontrol is a powerful plugin that enhances your ability to manage WP-Cron jobs. It provides a user-friendly interface to view, edit, and delete scheduled cron events directly from the WordPress dashboard. With WP Crontrol, you can:</p>
+<p>For debugging and easier management, consider installing a plugin like <strong>WP Crontrol</strong>. This plugin allows you to view, edit, add, and delete scheduled cron events directly from the WordPress dashboard. With WP Crontrol, you can:</p>
+<ul>
+<li>See all registered cron events and their next run times.</li>
+<li>Manually run or delete specific cron jobs.</li>
+<li>Add new custom cron events and intervals without writing code.</li>
+<li>Inspect arguments passed to scheduled events for troubleshooting.</li>
+<li>Identify and resolve issues with missed or failing cron jobs.</li>
+</ul>
+<p>WP Crontrol is especially useful for non-developers or anyone who prefers a graphical interface over command-line tools. You can install it from the Plugins menu in your WordPress admin area, then navigate to <strong>Tools &gt; Cron Events</strong> to start managing your site’s scheduled tasks.</p>
+<h3 id="scheduling-custom-cron-jobs">Scheduling Custom Cron Jobs</h3>
+<p>Scheduling custom cron jobs in WordPress allows you to automate specific tasks tailored to your site’s needs, such as sending notifications, cleaning up data, or syncing with external services. By defining your own cron intervals and hooking custom functions, you can extend WordPress’s automation capabilities beyond the default options. In this section, you’ll learn how to create, schedule, and manage your own custom cron jobs to streamline your site’s operations.</p>
+<h4 id="step-1-define-a-custom-cron-interval">Step 1: Define a Custom Cron Interval</h4>
+<p>By default, WordPress provides three built-in scheduling intervals for cron jobs: <code>hourly</code>, <code>twicedaily</code>, and <code>daily</code>. However, many real-world use cases require more granular or custom timing—such as running a task every five minutes, every 10 minutes, or even once a week. To accommodate these needs, you can define your own custom intervals by hooking into the <code>cron_schedules</code> filter.</p>
+<p>Here’s how you can add a custom interval (for example, every 5 minutes):</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> custom_cron_schedules</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">(</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4">$schedules</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#BEC5D4">    $schedules</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">[</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">every_five_minutes</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">] </span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#6F42C1;--shiki-dark:#C5E478"> array</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">(</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#D9F5DD">        &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">interval</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> =&gt;</span><span style="color:#1976D2;--shiki-dark:#F78C6C"> 300</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"> // 5 minutes</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#D9F5DD">        &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">display</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">  =&gt;</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> __</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Every 5 Minutes</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    );</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $schedules</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_filter</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">cron_schedules</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_schedules</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<h4 id="step-2-schedule-an-event">Step 2: Schedule an Event</h4>
+<p>Before you can schedule a custom cron event, it’s important to ensure that your event is not already scheduled to avoid duplicate tasks. In this step, you’ll check for an existing scheduled event and, if none exists, register your custom cron job using the interval you defined earlier. This approach helps maintain efficient task scheduling and prevents unnecessary resource usage on your WordPress site.</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="color:#D32F2F;--shiki-dark:#C792EA">!</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp_next_scheduled</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">) {</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    wp_schedule_event</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#C5E478">time</span><span style="color:#212121;--shiki-dark:#D6DEEB">(),</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">every_five_minutes</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<h4 id="step-3-define-the-cron-task">Step 3: Define the Cron Task</h4>
+<p>Before you define the actual task for your custom cron job, it’s important to understand what this function will do. The cron task is the function that WordPress will execute each time your scheduled event runs. This could be anything from sending emails, cleaning up old data, syncing with external APIs, or generating reports. Below is an example of how to define a simple cron task that writes a message to the error log every time it runs.</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> custom_cron_task</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    error_log</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Custom cron job executed at </span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;--shiki-dark:#C5E478"> date</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Y-m-d H:i:s</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">))</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_task</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<h3 id="removing-and-rescheduling-cron-jobs">Removing and Rescheduling Cron Jobs</h3>
+<p>To remove a scheduled cron job, you need to clear the scheduled hook associated with your custom event. This is useful when you want to stop a recurring task, clean up after a plugin uninstall, or prevent duplicate jobs from running. Use the following function to remove all scheduled events for a specific hook:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp_clear_scheduled_hook</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p>To reschedule:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp_unschedule_event</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp_next_scheduled</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">),</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp_schedule_event</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#C5E478">time</span><span style="color:#212121;--shiki-dark:#D6DEEB">(),</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">hourly</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<h2 id="disabling-wp-cron-for-performance">Disabling WP-Cron for Performance</h2>
+<p>For high-traffic sites, consider disabling WP-Cron and using a system cron job instead. Add this to <code>wp-config.php</code>:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">define</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">DISABLE_WP_CRON</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#82AAFF"> true</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p>This will prevent WP-Cron from running on every page load, which can improve performance by reducing the overhead of checking for scheduled tasks on each visit. Instead, you can set up a system cron job to trigger WP-Cron at regular intervals. This approach ensures that scheduled tasks run reliably without impacting site performance during user visits.</p>
+<h3 id="setting-up-a-system-cron-job">Setting Up a System Cron Job</h3>
+<p>To set up a system cron job, you need to access your server’s command line interface (CLI) and create a cron job that calls the WP-Cron script at regular intervals. This method is more reliable than relying on site traffic to trigger WP-Cron, especially for high-traffic or mission-critical sites.</p>
+<p>This will prevent WP-Cron from running automatically on every page load, which can help improve performance by reducing the overhead of checking for scheduled tasks on each visit.</p>
+<p>Then set up a system cron job (Linux example):</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#7FDBCA">*</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">/5 </span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">*</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> *</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> wget -q -O - https://yoursite.com/wp-cron.php</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">?</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">doing_wp_cron </span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">&gt;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> /dev/null </span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">2&gt;&amp;1</span></span></code></pre>
+<p>To learn more about setting up system cron jobs, refer to your server’s documentation or consult with your hosting provider. They can provide specific instructions based on your server environment and configuration.</p>
+<blockquote>
+<p>I also recommend checking this in-depth article on <a href="http://localhost:4321/posts/wordpress-cpanel-server-side-cron-job-setup/">Configuring a Server-side cron job in cPanel</a> for more information on disabling WP-Cron and setting up system cron jobs.</p>
+</blockquote>
+<h2 id="monitoring-and-debugging-cron-jobs">Monitoring and Debugging Cron Jobs</h2>
+<p>Monitoring and debugging WP-Cron jobs is essential to ensure your scheduled tasks are running as expected and to quickly identify any issues that may arise. By keeping an eye on cron activity, you can catch missed or failed jobs, optimize performance, and maintain the reliability of your WordPress site’s automation. In this section, you’ll learn practical techniques and tools for tracking, logging, and troubleshooting WP-Cron events.</p>
+<h3 id="check-running-cron-jobs">Check Running Cron Jobs</h3>
+<p>To check the currently running cron jobs, you can use the following code snippet. This will display all scheduled cron events, including their next run times and associated hooks.</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">print_r</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">get_option</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">cron</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">))</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<h3 id="log-cron-execution">Log Cron Execution</h3>
+<p>Logging cron execution is a valuable practice for monitoring the performance and reliability of your scheduled tasks. By logging the execution of cron jobs, you can track when tasks run, identify any issues that may arise, and ensure that your automation processes are functioning as intended. In this section, you’ll learn how to implement logging for your WP-Cron jobs using simple code snippets.</p>
+<p>To log the execution of a cron job, you can use the <code>error_log()</code> function to write messages to the PHP error log. This allows you to track when your cron tasks are executed and any relevant information about their execution. Here’s an example of how to log the execution of a custom cron job:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> log_cron_execution</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    error_log</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Cron executed at: </span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> current_time</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mysql</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">))</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">custom_cron_hook</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">log_cron_execution</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<h3 id="debugging-with-wp-cli">Debugging with WP-CLI</h3>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">wp</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> cron</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> event</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> run</span><span style="color:#2B5581;--shiki-dark:#ECC48D"> custom_cron_hook</span></span></code></pre>
+<p>This command will execute the specified cron event immediately, allowing you to test and debug your cron tasks without waiting for the scheduled time. You can also use the <code>wp cron event list</code> command to view all scheduled events and their next run times.</p>
+<hr/>
+<h2 id="best-practices-for-wp-cron">Best Practices for WP-Cron</h2>
+<p>WP-Cron is a flexible and convenient tool, but to get the most out of it, it’s important to follow some best practices. By optimizing how you schedule, monitor, and manage cron jobs, you can minimize performance issues, avoid missed tasks, and keep your WordPress site running smoothly. The following tips will help you implement WP-Cron jobs more efficiently and ensure reliable automation for your website.</p>
+<ul>
+<li>Use proper intervals to avoid performance issues</li>
+<li>Clear unused cron jobs regularly</li>
+<li>Monitor execution logs to ensure tasks run as expected</li>
+<li>Consider replacing WP-Cron with a system cron for better reliability</li>
+</ul>
+<hr/>
+<h2 id="troubleshooting-common-wp-cron-issues">Troubleshooting Common WP-Cron Issues</h2>
+<p>WP-Cron can sometimes encounter issues that prevent scheduled tasks from running as expected. Understanding common problems and their solutions will help you maintain the reliability of your automation processes. In this section, we’ll explore some of the most frequent WP-Cron issues and provide practical troubleshooting tips to resolve them.</p>
+<h3 id="missed-cron-jobs">Missed Cron Jobs</h3>
+<p>Missed cron jobs can occur when your site experiences low traffic or when scheduled tasks are delayed due to server load. To address this issue, consider the following solutions:</p>
+<ul>
+<li><strong>Increase Traffic</strong>: If your site has low traffic, consider using a service like <a href="https://uptimerobot.com/">UptimeRobot</a> to ping your site at regular intervals, ensuring that WP-Cron is triggered.</li>
+<li><strong>Use a System Cron Job</strong>: For high-traffic sites, consider disabling WP-Cron and setting up a system cron job to run WP-Cron at regular intervals. This approach ensures that scheduled tasks run reliably without relying on site traffic.</li>
+</ul>
+<h3 id="cron-jobs-not-running">Cron Jobs Not Running</h3>
+<p>If your cron jobs are not running as expected, check the following:</p>
+<ul>
+<li><strong>Check for Conflicts</strong>: Other plugins or themes may conflict with WP-Cron. Disable plugins one by one to identify the culprit.</li>
+<li><strong>Check Server Configuration</strong>: Ensure that your server’s PHP settings allow WP-Cron to run. Some hosting providers may have restrictions that prevent WP-Cron from executing properly.</li>
+<li><strong>Check for Errors</strong>: Use the <code>error_log()</code> function to log cron execution and check for any errors in the PHP error log. This can help you identify issues with your cron tasks.</li>
+</ul>
+<h3 id="debugging-failed-cron-jobs">Debugging Failed Cron Jobs</h3>
+<p>If a cron job fails to execute, you can use the following steps to debug the issue:</p>
+<ol>
+<li><strong>Check the Error Log</strong>: Look for any error messages in the PHP error log that may indicate why the cron job failed.</li>
+<li><strong>Test the Function</strong>: Manually run the function associated with the cron job to see if it executes without errors. This can help you identify issues with the function itself.</li>
+<li><strong>Check for Dependencies</strong>: Ensure that any dependencies required by the cron job (such as external APIs or database connections) are available and functioning correctly.</li>
+<li><strong>Use WP-CLI</strong>: Use the <code>wp cron event run</code> command to manually trigger the cron job and check for any errors or issues that may arise during execution.</li>
+</ol>
+<hr/>
+<p>In this guide, we’ve explored the ins and outs of WP-Cron, from understanding its unique scheduling mechanism to creating, managing, and debugging cron jobs. We’ve also discussed the advantages and disadvantages of using WP-Cron compared to traditional system cron jobs, as well as best practices for optimizing your scheduled tasks.</p>
+<p>WP-Cron is a powerful tool for scheduling tasks in WordPress. By understanding its strengths and weaknesses, you can optimize scheduled tasks, improve site performance, and ensure reliability. Whether you’re scheduling automated tasks, debugging issues, or switching to a system cron, mastering WP-Cron will elevate your WordPress development skills.</p>
+<hr/>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://developer.wordpress.org/plugins/cron/">WordPress Cron API</a></li>
+<li><a href="https://developer.wordpress.org/cli/commands/cron/">WP-CLI Cron Commands</a></li>
+</ul> </article> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/build-wordpress-cron-job/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/build-wordpress-cron-job/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/build-wordpress-cron-job/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/build-wordpress-cron-job/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/build-wordpress-cron-job/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/build-wordpress-cron-job/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> </div> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/add-dark-mode-wordpress-website" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>How to Add Dark Mode to Your WordPress Website</div> </div> </a> <a href="/posts/wordpress-debugging-techniques" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Advanced WordPress Debugging Techniques</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> <div class="w-full lg:w-1/4 pb-12" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-6 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content p-2" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/wordpress/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/development/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">Development</span> </a> </li> </ul> </div> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/cron-job/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Cron Job</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wp-cron/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WP-Cron</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/task-scheduling/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Task Scheduling</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/optimization/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Optimization</span> </a> </li> </ul> </div>  </div> </div> </aside>  <aside class="toc w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-s6iqbw7n> <div class="aside-header" data-astro-cid-s6iqbw7n> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-s6iqbw7n>Table of Contents</h2> </div> <div class="aside-content p-2" data-astro-cid-s6iqbw7n> <div class="widget-wrapper" data-astro-cid-s6iqbw7n>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div> <div class="edit-post flex items-center justify-between border-t border-muted p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_development/build-wordpress-cron-job.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_development/build-wordpress-cron-job.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div>  <div class="toc-arrow" aria-hidden="true" data-astro-cid-s6iqbw7n> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-s6iqbw7n> <path d="M12 5v14M5 12l7 7 7-7" data-astro-cid-s6iqbw7n></path> </svg> </div> </div> </div> </aside>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".toc .widget-wrapper");if(!e)return;const t=e.querySelector(".toc-arrow");if(!t)return;const s=()=>{const i=e.scrollHeight>e.clientHeight,r=e.scrollTop+e.clientHeight>=e.scrollHeight-1;i?r?(t.classList.remove("visible"),t.classList.add("hidden")):(t.classList.remove("hidden"),t.classList.add("visible")):t.classList.add("hidden")};s(),e.addEventListener("scroll",s),window.addEventListener("resize",s)});</script> </div> </main> <button id="back-to-top" class="back-to-top focus-outline p-2 whitespace-nowrap hover:opacity-75 hidden" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two></span> </button> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function backToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    if (backToTopButton) {
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+
+      // Toggle visibility based on scroll position
+      document.addEventListener("scroll", () => {
+        const scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+        if (scrollPosition > 100) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      });
+    }
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+      clonedToc.classList.add("list-decimal", "pl-4", "space-y-1", "text-green-500");
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none";
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 
