@@ -76,4 +76,9 @@ function delayedScriptLoading(src, delay) {
     setTimeout(() => loadScript(src), delay); // Fallback
 }
 
-delayedScriptLoading(crispChat, normalInterval);
+// delayedScriptLoading(crispChat, normalInterval);
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Load the Crisp Chat script after the DOM is fully loaded
+    delayedScriptLoading(crispChat, normalInterval);
+});
