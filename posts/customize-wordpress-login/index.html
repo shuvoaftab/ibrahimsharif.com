@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/customize-wordpress-login/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Customizing WordPress Login Pages | Blog</title><meta name="title" content="Customizing WordPress Login Pages | Blog"><meta name="description" content="Adding Functionality and Branding by Customizing WordPress Login Pages."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Customizing WordPress Login Pages | Blog"><meta property="og:description" content="Adding Functionality and Branding by Customizing WordPress Login Pages."><meta property="og:url" content="https://ibrahimsharif.com/posts/customize-wordpress-login/"><meta property="og:image" content="https://ibrahimsharif.com/posts/customize-wordpress-login/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2018-12-09T08:15:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/customize-wordpress-login/"><meta property="twitter:title" content="Customizing WordPress Login Pages | Blog"><meta property="twitter:description" content="Adding Functionality and Branding by Customizing WordPress Login Pages."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/customize-wordpress-login/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Customizing WordPress Login Pages | Blog","image":"https://ibrahimsharif.com/posts/customize-wordpress-login/index.png","datePublished":"2018-12-09T08:15:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.3bgA3D2t.css">
+<style>aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-exacnq3a]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-exacnq3a]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow)}
+aside[data-astro-cid-s6iqbw7n]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-s6iqbw7n]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-s6iqbw7n]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow);position:relative}.toc[data-astro-cid-s6iqbw7n] .widget-wrapper[data-astro-cid-s6iqbw7n]{overflow-y:auto;max-height:80vh;scrollbar-width:thin}.toc-arrow[data-astro-cid-s6iqbw7n]{position:sticky;bottom:10px;display:flex;justify-content:center;align-items:center;width:100%;opacity:0;transition:opacity .3s ease;pointer-events:none}.toc-arrow[data-astro-cid-s6iqbw7n].visible{opacity:1;animation:pulseTOC 1.5s infinite}.toc-arrow[data-astro-cid-s6iqbw7n].hidden{display:none}@keyframes pulseTOC{0%{transform:translateY(0);opacity:1}50%{transform:translateY(20px);opacity:1}to{transform:translateY(0);opacity:1}}.toc-arrow[data-astro-cid-s6iqbw7n] svg[data-astro-cid-s6iqbw7n]{width:100%;height:25px;background:var(--muted);stroke:var(--accent)}.previous-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.previous-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.next-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.next-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.back-to-top[data-astro-cid-2t7o7two]{position:fixed;bottom:1rem;right:1rem;z-index:1000;background:var(--accent);color:var(--foreground);border-radius:.5rem;box-shadow:0 4px 6px #0000001a;animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%{transform:scale(1);box-shadow:0 4px 6px #0000001a}50%{transform:scale(1.05);box-shadow:0 6px 8px #00000026}to{transform:scale(1);box-shadow:0 4px 6px #0000001a}}.hidden[data-astro-cid-2t7o7two]{display:none}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-5dydqeu4-1"] { view-transition-name: customizing-wordpress-login-pages; }@layer astro { ::view-transition-old(customizing-wordpress-login-pages) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(customizing-wordpress-login-pages) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(customizing-wordpress-login-pages) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(customizing-wordpress-login-pages) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-logo-retina.png" alt="Ibrahim Logo" class="h-8 bg-white"> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <span class="capitalize opacity-75" aria-current="page">  ( CUSTOMIZE WORDPRESS LOGIN ) </span> </li> </ul> </nav> <main id="main-content" class="flex flex-col lg:flex-row w-full max-w-7xl px-4 pb-12 mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <div class="w-full lg:w-3/4 lg:me-4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-5dydqeu4-1"> Customizing WordPress Login Pages </h1> <div class="flex justify-between items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2018-12-09T08:15:00.000Z">9 Dec, 2018</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 02:15 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 17 min read</span> </div> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>The WordPress login page is one of the first things users interact with when accessing a website. While WordPress provides a basic login page by default, customizing it can enhance the user experience, reinforce branding, and even add extra functionality for security and performance. Whether you’re a developer or a site owner looking to improve the login page, this guide will help you explore the different ways to customize WordPress login pages to match your brand and business needs.</p>
+<p>In this post, we will discuss various techniques for customizing WordPress login pages, including branding, functionality enhancements, and security improvements.</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#why-customize-the-wordpress-login-page">Why Customize the WordPress Login Page?</a></li>
+<li><a href="#how-to-change-the-logo">How to Change the Logo</a>
+<ul>
+<li><a href="#using-code">Using Code</a></li>
+<li><a href="#using-plugin">Using Plugin</a></li>
+</ul>
+</li>
+<li><a href="#how-to-change-the-colors">How to Change the Colors</a>
+<ul>
+<li><a href="#using-code-1">Using Code</a></li>
+<li><a href="#using-plugin-1">Using Plugin</a></li>
+</ul>
+</li>
+<li><a href="#how-to-add-a-custom-welcome-message">How to Add a Custom Welcome Message</a></li>
+<li><a href="#customizing-the-login-form-fields">Customizing the Login Form Fields</a>
+<ul>
+<li><a href="#how-to-add-custom-fields">How to Add Custom Fields</a></li>
+<li><a href="#handling-custom-field-data">Handling Custom Field Data</a></li>
+</ul>
+</li>
+<li><a href="#adding-login-page-branding-with-custom-backgrounds">Adding Login Page Branding with Custom Backgrounds</a>
+<ul>
+<li><a href="#how-to-add-a-custom-background">How to Add a Custom Background</a></li>
+</ul>
+</li>
+<li><a href="#enhancing-security-on-the-login-page">Enhancing Security on the Login Page</a></li>
+<li><a href="#redirecting-after-login">Redirecting After Login</a></li>
+<li><a href="#how-to-set-up-a-custom-redirect">How to Set Up a Custom Redirect</a></li>
+<li><a href="#frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="why-customize-the-wordpress-login-page">Why Customize the WordPress Login Page?</h2>
+<p>Before we dive into the technical details, it’s important to understand the value and impact of customizing the WordPress login page. The login page is often the first point of contact for site administrators, contributors, and even clients. A well-designed and branded login page not only creates a professional impression but also reinforces trust and credibility.</p>
+<p>Customizing the login page allows you to:</p>
+<ul>
+<li>Strengthen your brand identity by incorporating your logo, colors, and messaging.</li>
+<li>Provide a more intuitive and welcoming experience for users, reducing confusion and support requests.</li>
+<li>Implement additional security measures, such as custom fields or two-factor authentication, to protect your site from unauthorized access.</li>
+<li>Offer tailored instructions or support links directly on the login screen, improving user onboarding and satisfaction.</li>
+<li>Differentiate your site from the default WordPress look, making it feel more like a unique, custom-built solution.</li>
+</ul>
+<p>Let’s explore the main reasons in detail:</p>
+<ul>
+<li><strong>Brand Consistency</strong>: Your login page should reflect the visual identity of your website or business. Customizing colors, logos, and fonts helps maintain consistency across your site.</li>
+<li><strong>Security</strong>: Customizing the login page can help prevent brute-force attacks by hiding common paths and adding extra security measures.</li>
+<li><strong>User Experience</strong>: By adding custom fields or instructions, you can improve the login experience for your users, especially if they are regular customers or employees.</li>
+<li><strong>Reducing Spam</strong>: Modifying the login page can help eliminate unnecessary distractions, prevent bot attacks, and reduce the risk of spam.</li>
+</ul>
+<p>Now, let’s walk through the steps and techniques to customize the login page.</p>
+<hr/>
+<p>The default WordPress login page prominently displays the WordPress logo above the login form. For a more professional and branded experience, you can easily replace this default logo with your own company logo or a custom image that reflects your site’s identity.</p>
+<p>Customizing the login logo not only reinforces your brand presence but also creates a cohesive look and feel for users and clients accessing your site. This simple change can make your login page appear more polished and trustworthy, especially for membership sites, client portals, or any site where users regularly log in.</p>
+<h2 id="how-to-change-the-logo">How to Change the Logo</h2>
+<p>Customizing the WordPress login logo is a simple yet effective way to reinforce your site’s branding and create a more professional appearance for users and clients. By default, the login page displays the WordPress logo, but you can easily replace it with your own logo using a small code snippet in your theme’s <code>functions.php</code> file or by using a plugin.</p>
+<h3 id="using-code">Using Code</h3>
+<p>To change the login logo using code, you can add a function to your theme’s <code>functions.php</code> file. This method is ideal for those comfortable with coding and looking for a lightweight solution without additional plugins.</p>
+<ol>
+<li>
+<p>Prepare your logo image and upload it to your theme’s directory, for example: <code>/wp-content/themes/your-theme/images/custom-logo.png</code>.</p>
+</li>
+<li>
+<p>Open your theme’s <code>functions.php</code> file.</p>
+</li>
+<li>
+<p>Add the following code to replace the default WordPress logo with your custom logo:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_login_logo</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;style type=&quot;text/css&quot;&gt;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        .login h1 a {</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-image: url(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> get_template_directory_uri</span><span style="color:#212121;--shiki-dark:#D6DEEB">()</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">/images/custom-logo.png);</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-size: contain;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            width: 320px;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            height: 80px;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">    &lt;/style&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">login_head</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_login_logo</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Replace <code>&#39;/images/custom-logo.png&#39;</code> with the path to your logo image.</li>
+<li>This code snippet uses the <code>login_head</code> action hook to inject custom CSS into the login page, changing the default logo to your custom one.</li>
+</ul>
+</li>
+</ol>
+<h3 id="using-plugin">Using Plugin</h3>
+<p>If you’re not comfortable with coding, you can use a plugin like <strong>Custom Login Page Customizer</strong> or <strong>LoginPress</strong> to change the logo easily via the WordPress customizer. These plugins provide a user-friendly interface that allows you to upload your own logo, adjust its size and position, and preview changes in real time—no need to touch any code.</p>
+<p>Using a plugin is ideal for site owners who want flexibility and ease of use, or for those who want to experiment with different designs without editing theme files. Most of these plugins also offer additional customization options, such as changing background images, button styles, and adding custom CSS, making it easy to create a fully branded login experience.</p>
+<hr/>
+<h2 id="how-to-change-the-colors">How to Change the Colors</h2>
+<p>To create a seamless and branded experience, you should match the login page’s color scheme with your website’s overall design. This includes customizing the background color, form background, button colors, text colors, and even link styles. By carefully selecting colors that align with your brand guidelines, you can make the login page feel like a natural extension of your site, rather than a generic WordPress screen.</p>
+<p>Consider updating the following elements for a cohesive look:</p>
+<ul>
+<li><strong>Background color:</strong> Set a background color that matches or complements your site’s palette.</li>
+<li><strong>Form background and borders:</strong> Adjust the form’s background and border colors for better contrast and readability.</li>
+<li><strong>Button colors:</strong> Style the login button to use your brand’s primary or accent color.</li>
+<li><strong>Text and label colors:</strong> Ensure all text is legible and consistent with your site’s typography and color scheme.</li>
+<li><strong>Link colors:</strong> Update link colors to match your site’s style, including hover and active states.</li>
+</ul>
+<p>These changes not only reinforce your branding but also improve accessibility and user experience by ensuring sufficient contrast and visual clarity.</p>
+<h3 id="using-code-1">Using Code</h3>
+<p>You can add custom CSS to change the colors of the login page elements:</p>
+<ol>
+<li>
+<p>Open your theme’s <code>functions.php</code> file or create a custom plugin.</p>
+</li>
+<li>
+<p>Add the following code to modify the colors:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_login_styles</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;style type=&quot;text/css&quot;&gt;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        body.login {</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-color: #f5f5f5;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        .login form {</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-color: #ffffff;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            border: 1px solid #ccc;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        .login label {</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            color: #333333;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        .login .button-primary {</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-color: #0073aa;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            border-color: #006799;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">    &lt;/style&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">login_head</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_login_styles</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong><code>background-color: #f5f5f5;</code></strong>: Changes the background color of the login page.</li>
+<li><strong><code>.login form</code></strong>: Targets the form background and border color.</li>
+<li><strong><code>.login .button-primary</code></strong>: Modifies the login button’s color to match your branding.</li>
+</ul>
+</li>
+</ol>
+<h3 id="using-plugin-1">Using Plugin</h3>
+<p>If you prefer not to write custom code, several plugins make it easy to customize the login page colors and styles through a visual interface. Popular options like <strong>LoginPress</strong>, <strong>Custom Login Page Customizer</strong>, and <strong>Theme My Login</strong> allow you to adjust background colors, form styles, button colors, and more directly from the WordPress Customizer or a dedicated settings panel.</p>
+<p>These plugins typically offer real-time previews, so you can see your changes instantly, and often include additional features such as custom fonts, background images, and even animation effects. This approach is ideal for users who want full control over the appearance of the login page without editing theme files or writing CSS.</p>
+<hr/>
+<h2 id="how-to-add-a-custom-welcome-message">How to Add a Custom Welcome Message</h2>
+<p>Adding a personalized welcome message or custom instructions to the WordPress login page is a simple yet effective way to improve user experience and provide helpful guidance. This can be especially useful for membership sites, client portals, or any site where users may need extra context or support when logging in.</p>
+<p>By displaying a custom message, you can:</p>
+<ul>
+<li>Greet users with a branded or friendly welcome.</li>
+<li>Provide important instructions, such as password requirements or support contact information.</li>
+<li>Share announcements, reminders, or links to resources.</li>
+<li>Reinforce your site’s professionalism and attention to detail.</li>
+</ul>
+<p>You can achieve this by adding a function to your theme’s <code>functions.php</code> file, which hooks into the WordPress login page and displays your custom message above the login form. This approach is lightweight, does not require a plugin, and gives you full control over the content and styling of your message.</p>
+<ol>
+<li>
+<p>Open your theme’s <code>functions.php</code> file.</p>
+</li>
+<li>
+<p>Add the following code to insert a message:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_login_message</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">(</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4">$message</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    if</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="color:#6F42C1;--shiki-dark:#C5E478">empty</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB">$</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">message</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">) {</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">        return</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &quot;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;p class=&#39;message&#39;&gt;Welcome to the Admin Area! Please log in to continue.&lt;/p&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    }</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $message</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_filter</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">login_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_login_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>This code adds a custom message below the login form, welcoming users and giving them instructions or reminders.</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<h2 id="customizing-the-login-form-fields">Customizing the Login Form Fields</h2>
+<p>WordPress allows you to extend the default login form by adding extra fields to collect additional information from users during the login process. This can be useful for a variety of purposes, such as implementing custom authentication workflows, gathering user preferences, or adding extra security measures.</p>
+<p>For example, you might want to add a “Remember Me” checkbox, a custom security question, a phone number field, or even a CAPTCHA to prevent automated login attempts. By customizing the login form fields, you can tailor the login experience to better fit your site’s requirements and improve both usability and security.</p>
+<p>Custom fields can be added using WordPress hooks and actions, giving you full control over the form’s appearance and functionality. You can also validate and process the data submitted through these fields, ensuring that only valid and necessary information is collected during login.</p>
+<p>Below, we’ll cover how to add custom fields to the login form, display them to users, and handle the submitted data securely.</p>
+<h3 id="how-to-add-custom-fields">How to Add Custom Fields</h3>
+<p>You can use the <code>login_form</code> action hook to add extra fields to the login form:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_login_fields</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;p&gt;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        &lt;label for=&quot;phone&quot;&gt;Phone Number&lt;/label&gt;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        &lt;input type=&quot;text&quot; name=&quot;phone&quot; id=&quot;phone&quot; class=&quot;input&quot; value=&quot;&quot; size=&quot;20&quot; /&gt;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">    &lt;/p&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">login_form</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_login_fields</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>This code snippet adds a custom “Phone Number” field below the standard username and password fields. You can change the field type to <code>email</code>, <code>text</code>, or <code>number</code> depending on your requirements.</li>
+</ul>
+<h3 id="handling-custom-field-data">Handling Custom Field Data</h3>
+<p>After adding custom fields to the login form, you need to handle the data submitted by users. This involves validating the input, displaying error messages if necessary, and potentially using the data for authentication or logging purposes.</p>
+<p>You can use the <code>authenticate</code> filter to process the custom field data during the login process. Here’s an example of how to validate and handle a custom “Phone Number” field:</p>
+<hr/>
+<h2 id="adding-login-page-branding-with-custom-backgrounds">Adding Login Page Branding with Custom Backgrounds</h2>
+<p>You can also add a custom background image, gradient, or pattern to your login page to further reinforce your site’s branding and create a visually engaging experience for users. A well-chosen background can make your login page feel more inviting and professional, helping it stand out from the default WordPress look.</p>
+<p>Consider using your brand’s colors, subtle textures, or even a full-width hero image that aligns with your website’s design language. For best results, ensure your background image is optimized for web use (compressed and appropriately sized) to maintain fast loading times. You may also want to overlay a semi-transparent color or gradient to improve contrast and readability of the login form.</p>
+<p>By thoughtfully customizing the background, you can create a cohesive and memorable first impression for anyone accessing your site’s login page.</p>
+<h3 id="how-to-add-a-custom-background">How to Add a Custom Background</h3>
+<ol>
+<li>
+<p>Upload your background image to your website (e.g., <code>/wp-content/uploads/background.jpg</code>).</p>
+</li>
+<li>
+<p>Add the following code to your theme’s <code>functions.php</code>:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_login_background</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;style type=&quot;text/css&quot;&gt;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        body.login {</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-image: url(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> get_template_directory_uri</span><span style="color:#212121;--shiki-dark:#D6DEEB">()</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">/images/background.jpg);</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-size: cover;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">            background-position: center;</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">        }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#ECC48D">    &lt;/style&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">login_head</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_login_background</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>This code injects custom CSS into the WordPress login page to set a background image.</li>
+<li>The <code>background-image</code> property points to your uploaded image; make sure the path matches the actual location of your file.</li>
+<li><code>background-size: cover;</code> ensures the image covers the entire background area, scaling as needed.</li>
+<li><code>background-position: center;</code> keeps the image centered regardless of screen size.</li>
+<li>You can further enhance the effect by adding properties like <code>background-repeat: no-repeat;</code> to prevent tiling, or overlay a semi-transparent color for better contrast:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#24292EFF;--shiki-dark:#82AAFF">body</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">.</span><span style="color:#1976D2;--shiki-dark:#FFCB8B">login</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">::</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">before</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    content: </span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;&quot;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    position: </span><span style="color:#24292EFF;--shiki-dark:#82AAFF">absolute</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    top: </span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">; </span><span style="color:#24292EFF;--shiki-dark:#82AAFF">left</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">: </span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">; </span><span style="color:#24292EFF;--shiki-dark:#82AAFF">right</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">: </span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">; </span><span style="color:#24292EFF;--shiki-dark:#82AAFF">bottom</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">: </span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    background: </span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">rgba</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#F78C6C">0</span><span style="color:#212121;--shiki-dark:#D6DEEB">.</span><span style="color:#1976D2;--shiki-dark:#F78C6C">3</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">; </span><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">/* dark overlay for readability */</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#82AAFF">    z</span><span style="color:#D32F2F;--shiki-dark:#C792EA">-</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">index</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">: </span><span style="color:#1976D2;--shiki-dark:#F78C6C">1</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#7FDBCA">.</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">login</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> form</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">login</span><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic"> #login_error, .login .message, .login .success {</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    position: </span><span style="color:#24292EFF;--shiki-dark:#82AAFF">relative</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#82AAFF">    z</span><span style="color:#D32F2F;--shiki-dark:#C792EA">-</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">index</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">: </span><span style="color:#1976D2;--shiki-dark:#F78C6C">2</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+</li>
+<li>Adjust the overlay color and opacity as needed to match your branding and ensure the login form remains readable.</li>
+<li>Always optimize your background image for web (compressed and appropriately sized) to maintain fast loading times.</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<h2 id="enhancing-security-on-the-login-page">Enhancing Security on the Login Page</h2>
+<p>The login page is often a primary target for brute force attacks and unauthorized access attempts. Strengthening the security of your WordPress login page is essential to protect your website and user data. Here are several effective strategies to enhance login page security:</p>
+<ul>
+<li>
+<p><strong>Change the Default Login URL:</strong> By default, WordPress uses <code>wp-login.php</code> and <code>wp-admin</code> as login URLs, which are well-known to attackers. Using a plugin like <strong>WPS Hide Login</strong> allows you to set a custom login URL, making it harder for bots and malicious users to find your login page.</p>
+</li>
+<li>
+<p><strong>Enable Two-Factor Authentication (2FA):</strong> Adding 2FA requires users to provide a second form of verification (such as a code from a mobile app) in addition to their password. Plugins like <strong>Two Factor Authentication</strong> or <strong>Wordfence Security</strong> make it easy to implement 2FA, significantly reducing the risk of unauthorized access.</p>
+</li>
+<li>
+<p><strong>Limit Login Attempts:</strong> By restricting the number of failed login attempts, you can prevent brute force attacks where attackers try multiple password combinations. Plugins such as <strong>Limit Login Attempts Reloaded</strong> or <strong>Login Lockdown</strong> allow you to set limits and temporarily block IP addresses after repeated failures.</p>
+</li>
+<li>
+<p><strong>Add CAPTCHA or reCAPTCHA:</strong> Integrating CAPTCHA or Google reCAPTCHA on the login form helps block automated bots from attempting to log in. Many security plugins offer this feature, or you can add it manually with a few lines of code.</p>
+</li>
+<li>
+<p><strong>Enforce Strong Passwords:</strong> Encourage or require users to use strong passwords by using plugins or built-in WordPress features. Strong passwords are harder to guess and provide an additional layer of security.</p>
+</li>
+<li>
+<p><strong>Monitor Login Activity:</strong> Keep track of login attempts and user activity using security plugins. Monitoring helps you quickly detect suspicious behavior and respond to potential threats.</p>
+</li>
+</ul>
+<p>By combining these techniques, you can greatly reduce the risk of unauthorized access and ensure your WordPress login page is as secure as possible.</p>
+<hr/>
+<h2 id="redirecting-after-login">Redirecting After Login</h2>
+<p>Sometimes, you may want users to land on a custom page after they log in, instead of the default WordPress dashboard. This is especially useful for membership sites, client portals, or any scenario where you want to guide users to a specific area—such as a welcome page, profile editor, or custom dashboard—immediately after authentication.</p>
+<p>WordPress provides a flexible way to control post-login redirection using the <code>login_redirect</code> filter. With this filter, you can programmatically determine where users are sent after logging in, based on their role, capabilities, or even custom user meta fields.</p>
+<p><strong>Common use cases for custom login redirects include:</strong></p>
+<ul>
+<li>Redirecting all users to the homepage or a custom landing page.</li>
+<li>Sending users with specific roles (like subscribers or customers) to a dedicated dashboard.</li>
+<li>Returning users to the page they originally tried to access before being prompted to log in.</li>
+<li>Directing administrators to the WordPress dashboard, while other users go elsewhere.</li>
+</ul>
+<p>By implementing a custom redirect, you can streamline the user experience and ensure users land exactly where you want them after logging in.</p>
+<h2 id="how-to-set-up-a-custom-redirect">How to Set Up a Custom Redirect</h2>
+<p>Add this code to your <code>functions.php</code>:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_login_redirect</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">(</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4">$redirect_to</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $request</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $user</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    // Redirect users based on their roles</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    if</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="color:#6F42C1;--shiki-dark:#C5E478">in_array</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">administrator</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> (</span><span style="color:#D32F2F;--shiki-dark:#C792EA">array</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB">)</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> $</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">user</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">-&gt;</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">roles</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">) {</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">        return</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> admin_url</span><span style="color:#212121;--shiki-dark:#D6DEEB">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">; </span><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// Admin users go to the dashboard</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">    }</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> home_url</span><span style="color:#212121;--shiki-dark:#D6DEEB">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">; </span><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// Other users go to the homepage</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_filter</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">login_redirect</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_login_redirect</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#F78C6C"> 10</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#F78C6C"> 3</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>This code will redirect administrators to the WordPress dashboard (<code>/wp-admin</code>), ensuring they have immediate access to site management tools.</li>
+<li>All other users (such as subscribers, editors, or custom roles) will be redirected to the homepage (<code>/</code>), providing a seamless experience and preventing unnecessary access to the admin area.</li>
+<li>You can further customize the logic by checking for additional roles or user meta fields, or by redirecting to different pages based on user preferences or site requirements.</li>
+<li>For example, to redirect users with a custom role (e.g., “customer”) to a dedicated dashboard, you could add another conditional check:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="color:#6F42C1;--shiki-dark:#C5E478">in_array</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">customer</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> (</span><span style="color:#D32F2F;--shiki-dark:#C792EA">array</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB">)</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> $</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">user</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">-&gt;</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">roles</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">) {</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> home_url</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;/</span><span style="color:#22863A;--shiki-dark:#5CA7E4">customer-dashboard</span><span style="color:#22863A;--shiki-dark:#D9F5DD">/&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">)</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+</li>
+<li>This approach gives you granular control over the post-login experience, allowing you to tailor the workflow for different types of users and improve overall site usability.</li>
+</ul>
+<hr/>
+<p>Customizing the WordPress login page offers a great opportunity to improve the user experience, enhance security, and maintain brand consistency. Whether you’re changing the logo, adding custom functionality, or improving security, there are plenty of ways to make your login page reflect your brand and business goals.</p>
+<p>By using a combination of custom CSS, PHP code, and plugins, you can fully customize the WordPress login page to suit your needs. Whether you’re looking for a simple logo change or a complete overhaul of the login process, the flexibility of WordPress allows you to create a login page that’s not only functional but also visually appealing and secure.</p>
+<hr/>
+<h2 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</h2>
+<ul>
+<li>
+<p><strong>Can I customize the WordPress login page without coding?</strong><br/>
+Yes, you can use plugins like LoginPress, Custom Login Page Customizer, or Theme My Login to visually customize the login page without writing any code. These plugins offer options for changing logos, colors, backgrounds, and more.</p>
+</li>
+<li>
+<p><strong>Will customizing the login page affect WordPress updates?</strong><br/>
+If you add custom code to your theme’s <code>functions.php</code> file, updates to your theme may overwrite your changes. To avoid this, use a child theme or a custom plugin for your modifications. Plugins used for customization are generally safe during WordPress updates.</p>
+</li>
+<li>
+<p><strong>How do I revert to the default WordPress login page?</strong><br/>
+To revert changes, simply remove or comment out the custom code from your <code>functions.php</code> file or deactivate the plugin you used for customization. The login page will return to its default appearance and behavior.</p>
+</li>
+<li>
+<p><strong>Is it safe to add custom fields to the login form?</strong><br/>
+Yes, but you must validate and sanitize all user input to prevent security vulnerabilities. Always use WordPress functions for data handling and avoid exposing sensitive information.</p>
+</li>
+<li>
+<p><strong>Can I redirect users to different pages after login based on their role?</strong><br/>
+Absolutely. By using the <code>login_redirect</code> filter, you can programmatically redirect users to different pages depending on their role, capabilities, or other criteria.</p>
+</li>
+<li>
+<p><strong>Do login page customizations slow down my website?</strong><br/>
+If implemented properly, login page customizations have minimal impact on site performance. However, using large images or poorly optimized plugins can slow down the login page. Always optimize assets and choose reputable plugins.</p>
+</li>
+<li>
+<p><strong>How can I add Google reCAPTCHA to the login page?</strong><br/>
+You can add Google reCAPTCHA using security plugins like Wordfence or by manually integrating reCAPTCHA with custom code. This helps prevent automated login attempts and enhances security.</p>
+</li>
+<li>
+<p><strong>Can I add custom events to the login page without plugins?</strong><br/>
+Yes, you can add custom JavaScript events or tracking (such as Google Analytics events) by enqueueing your own scripts using the <code>login_enqueue_scripts</code> action in your theme or plugin.</p>
+</li>
+<li>
+<p><strong>How do I change the login page URL for security?</strong><br/>
+Use plugins like WPS Hide Login or Rename wp-login.php to set a custom login URL and help protect against automated attacks.</p>
+</li>
+<li>
+<p><strong>Can I add social login options to the WordPress login page?</strong><br/>
+Yes, plugins like Nextend Social Login or Social Login by miniOrange allow users to log in with Google, Facebook, Twitter, and other social accounts.</p>
+</li>
+<li>
+<p><strong>Is it possible to customize the login page for multisite networks?</strong><br/>
+Yes, you can customize the login page for WordPress multisite using the same hooks and plugins, but ensure your changes are network-activated or placed in the correct theme/plugin for network-wide effect.</p>
+</li>
+<li>
+<p><strong>How do I add a custom redirect after logout?</strong><br/>
+Use the <code>wp_logout</code> action or plugins to redirect users to a specific page after they log out, such as the homepage or a custom goodbye page.</p>
+</li>
+<li>
+<p><strong>Can I style the login page differently for different user roles?</strong><br/>
+Yes, you can use conditional logic in your custom CSS or PHP to apply different styles or messages based on the user’s role or capabilities.</p>
+</li>
+<li>
+<p><strong>How do I add a privacy policy or terms link to the login page?</strong><br/>
+Add a custom HTML link using the <code>login_footer</code> action or with a plugin to display privacy policy or terms of service links below the login form.</p>
+</li>
+<li>
+<p><strong>Can I disable the “Remember Me” checkbox on the login page?</strong><br/>
+Yes, you can remove or hide the “Remember Me” checkbox using custom CSS or by unsetting it with the <code>login_form</code> action in your theme or plugin.</p>
+</li>
+<li>
+<p><strong>How do I add custom error messages to the login page?</strong><br/>
+Use the <code>login_errors</code> filter to customize or hide error messages shown on failed login attempts for better user experience or security.</p>
+</li>
+<li>
+<p><strong>Can I add a custom favicon to the login page?</strong><br/>
+Yes, use the <code>login_head</code> action to output a <code>&lt;link rel=&quot;icon&quot;&gt;</code> tag with your favicon URL for branding consistency.</p>
+</li>
+<li>
+<p><strong>How do I make the login page mobile-friendly?</strong><br/>
+Ensure your custom CSS is responsive, or use plugins that provide mobile-optimized login page templates.</p>
+</li>
+<li>
+<p><strong>Is it possible to add animations or transitions to the login form?</strong><br/>
+Yes, you can add CSS animations or transitions to the login form elements by injecting custom styles via the <code>login_head</code> action.</p>
+</li>
+<li>
+<p><strong>Can I log login attempts for auditing purposes?</strong><br/>
+Yes, use security plugins or custom code to log login attempts, including successful and failed logins, for monitoring and auditing.</p>
+</li>
+<li>
+<p><strong>How do I add a language switcher to the login page?</strong><br/>
+Use multilingual plugins like WPML or Polylang, or add custom code to display a language selector on the login page.</p>
+</li>
+</ul> </article> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/customize-wordpress-login/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/customize-wordpress-login/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/customize-wordpress-login/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/customize-wordpress-login/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/customize-wordpress-login/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/customize-wordpress-login/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> </div> <hr class="my-6 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/add-google-analytics-wordpress-without-plugin" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>How to Add Google Analytics to WordPress Without a Plugin</div> </div> </a> <a href="/posts/collect-wordpress-troubleshooting-data" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Collect WordPress Website Troubleshooting Data</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> <div class="w-full lg:w-1/4 pb-12" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-6 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content p-2" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/wordpress/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/design/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📚 <span class="category-post">Design</span> </a> </li> </ul> </div> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/login-page/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Login Page</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/branding/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Branding</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/customization/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Customization</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/user-experience/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>User Experience</span> </a> </li> </ul> </div>  </div> </div> </aside>  <aside class="toc w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-s6iqbw7n> <div class="aside-header" data-astro-cid-s6iqbw7n> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-s6iqbw7n>Table of Contents</h2> </div> <div class="aside-content p-2" data-astro-cid-s6iqbw7n> <div class="widget-wrapper" data-astro-cid-s6iqbw7n>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div> <div class="edit-post flex items-center justify-between border-t border-muted p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_development/customize-wordpress-login.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_development/customize-wordpress-login.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="italic max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div>  <div class="toc-arrow" aria-hidden="true" data-astro-cid-s6iqbw7n> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-s6iqbw7n> <path d="M12 5v14M5 12l7 7 7-7" data-astro-cid-s6iqbw7n></path> </svg> </div> </div> </div> </aside>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".toc .widget-wrapper");if(!e)return;const t=e.querySelector(".toc-arrow");if(!t)return;const s=()=>{const i=e.scrollHeight>e.clientHeight,r=e.scrollTop+e.clientHeight>=e.scrollHeight-1;i?r?(t.classList.remove("visible"),t.classList.add("hidden")):(t.classList.remove("hidden"),t.classList.add("visible")):t.classList.add("hidden")};s(),e.addEventListener("scroll",s),window.addEventListener("resize",s)});</script> </div> </main> <button id="back-to-top" class="back-to-top focus-outline p-2 whitespace-nowrap hover:opacity-75 hidden" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two></span> </button> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function backToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    if (backToTopButton) {
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+
+      // Toggle visibility based on scroll position
+      document.addEventListener("scroll", () => {
+        const scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+        if (scrollPosition > 100) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      });
+    }
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+      clonedToc.classList.add("list-decimal", "pl-4", "space-y-1", "text-green-500");
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none";
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 
