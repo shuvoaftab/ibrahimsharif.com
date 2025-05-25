@@ -1,0 +1,773 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Understanding WordPress Hooks: Actions vs Filters Explained | Blog</title><meta name="title" content="Understanding WordPress Hooks: Actions vs Filters Explained | Blog"><meta name="description" content="Learn how WordPress hooks work and how to use actions and filters like a developer."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Understanding WordPress Hooks: Actions vs Filters Explained | Blog"><meta property="og:description" content="Learn how WordPress hooks work and how to use actions and filters like a developer."><meta property="og:url" content="https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/"><meta property="og:image" content="https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2023-06-14T15:05:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/"><meta property="twitter:title" content="Understanding WordPress Hooks: Actions vs Filters Explained | Blog"><meta property="twitter:description" content="Learn how WordPress hooks work and how to use actions and filters like a developer."><meta property="twitter:image" content="https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Understanding WordPress Hooks: Actions vs Filters Explained | Blog","image":"https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/index.png","datePublished":"2023-06-14T15:05:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.CFJ0C5ms.css">
+<style>aside[data-astro-cid-exacnq3a]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-exacnq3a]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-exacnq3a]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow)}
+aside[data-astro-cid-s6iqbw7n]{background-color:var(--aside-bg, #f9fafb);border-radius:5px}.aside-header[data-astro-cid-s6iqbw7n]{padding:7px;background-color:var(--aside-header-bg, #f3f4f6);border-bottom:1px solid var(--border-color, #e5e7eb)}.aside-content[data-astro-cid-s6iqbw7n]{background-color:var(--aside-content-bg, #ffffff);box-shadow:inset 0 0 3px var(--aside-shadow);position:relative}.toc[data-astro-cid-s6iqbw7n] .widget-wrapper[data-astro-cid-s6iqbw7n]{overflow-y:auto;max-height:80vh;scrollbar-width:thin}.toc-arrow[data-astro-cid-s6iqbw7n]{position:sticky;bottom:10px;display:flex;justify-content:center;align-items:center;width:100%;opacity:0;transition:opacity .3s ease;pointer-events:none}.toc-arrow[data-astro-cid-s6iqbw7n].visible{opacity:1;animation:pulseTOC 3s infinite}.toc-arrow[data-astro-cid-s6iqbw7n].hidden{display:none}@keyframes pulseTOC{0%{transform:translateY(0);opacity:.5}50%{transform:translateY(20px);opacity:1}to{transform:translateY(0);opacity:.5}}.toc-arrow[data-astro-cid-s6iqbw7n] svg[data-astro-cid-s6iqbw7n]{width:100%;height:25px;background:var(--muted);stroke:var(--accent)}.previous-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.previous-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.next-post[data-astro-cid-2t7o7two]{border:1px solid var(--border);border-radius:.5rem;padding:1rem}.next-post[data-astro-cid-2t7o7two]:hover{background:var(--hover)}.back-to-top[data-astro-cid-2t7o7two]{position:fixed;bottom:1rem;left:1rem;z-index:1000;background:#343f60bf;color:#fff;border-radius:.5rem;box-shadow:0 4px 6px #0000001a;animation:pulse 3s ease-in-out infinite}@keyframes pulse{0%{transform:scale(1);box-shadow:0 4px 6px #0000001a}50%{transform:scale(1.05);box-shadow:0 6px 8px #00000026}to{transform:scale(1);box-shadow:0 4px 6px #0000001a}}.hidden[data-astro-cid-2t7o7two]{display:none}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-5dydqeu4-1"] { view-transition-name: understanding-wordpress-hooks-actions-vs-filters-explained; }@layer astro { ::view-transition-old(understanding-wordpress-hooks-actions-vs-filters-explained) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(understanding-wordpress-hooks-actions-vs-filters-explained) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(understanding-wordpress-hooks-actions-vs-filters-explained) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(understanding-wordpress-hooks-actions-vs-filters-explained) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-5dydqeu4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-5dydqeu4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-logo-retina.png" alt="Ibrahim Logo" class="h-8 bg-white"> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts" class="active-nav">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <nav class="mx-auto my-6 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <span class="capitalize opacity-75" aria-current="page">  ( UNDERSTANDING WORDPRESS HOOKS ACTIONS VS FILTERS EXPLAINED ) </span> </li> </ul> </nav> <main id="main-content" class="flex flex-col lg:flex-row w-full max-w-7xl px-4 pb-12 mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <div class="w-full lg:w-3/4 lg:me-4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-5dydqeu4-1"> Understanding WordPress Hooks: Actions vs Filters Explained </h1> <div class="flex justify-between items-center border-b border-muted gap-4 my-2 pb-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2023-06-14T15:05:00.000Z">14 Jun, 2023</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 09:05 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 18 min read</span> </div> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>WordPress hooks are the backbone of its extensibility, empowering developers to modify, extend, or enhance site functionality without ever touching the core WordPress files. Think of hooks as strategic anchor points scattered throughout the WordPress codebase—places where you can “hook” your own custom code to change how WordPress behaves or outputs data. This system is what enables plugins and themes to seamlessly add features, alter content, or interact with other plugins, all while keeping your site update-safe.</p>
+<p>There are two main types of hooks: <strong>actions</strong> and <strong>filters</strong>. Actions let you execute your own code at specific moments in the WordPress lifecycle, such as when a post is published or a page loads. Filters, on the other hand, allow you to intercept and modify data before it’s displayed or saved, like tweaking a post title or customizing excerpt text. Together, actions and filters form the foundation of nearly every WordPress customization, from simple tweaks to complex plugins.</p>
+<p>If you’re new to WordPress development, hooks can seem a bit mysterious at first. But once you understand how they work, you’ll unlock a world of possibilities for customizing your site. In this guide, I’ll break down the differences between actions and filters, walk you through practical, real-world examples, and share insights from my own experience building custom plugins and themes. By the end, you’ll have the confidence and know-how to leverage hooks in your own projects and take your WordPress skills to the next level.</p>
+
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#what-are-wordpress-hooks">What Are WordPress Hooks?</a>
+<ul>
+<li><a href="#why-use-hooks">Why Use Hooks?</a></li>
+<li><a href="#when-to-use-hooks">When to Use Hooks?</a></li>
+<li><a href="#where-to-use-hooks">Where to Use Hooks?</a></li>
+</ul>
+</li>
+<li><a href="#understanding-actions-vs-filters">Understanding Actions vs. Filters</a>
+<ul>
+<li><a href="#actions">Actions</a></li>
+<li><a href="#filters">Filters</a></li>
+</ul>
+</li>
+<li><a href="#step-by-step-guide-to-using-hooks">Step-by-Step Guide to Using Hooks</a>
+<ul>
+<li><a href="#what-will-we-build">What Will We Build?</a></li>
+<li><a href="#step-1-set-up-a-custom-plugin">Step 1: Set Up a Custom Plugin</a></li>
+<li><a href="#step-2-add-an-action">Step 2: Add an Action</a></li>
+<li><a href="#step-3-add-a-filter">Step 3: Add a Filter</a></li>
+<li><a href="#step-4-add-a-settings-page-optional">Step 4: Add a Settings Page (Optional)</a>
+<ul>
+<li><a href="#create-an-admin-settings-page-to-customize-the-footer-message">Create an Admin Settings Page to Customize the Footer Message</a></li>
+</ul>
+</li>
+<li><a href="#step-5-activate-and-test">Step 5: Activate and Test</a></li>
+<li><a href="#step-6-debug-and-optimize">Step 6: Debug and Optimize</a></li>
+</ul>
+</li>
+<li><a href="#pros-and-cons-of-using-hooks">Pros and Cons of Using Hooks</a></li>
+<li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+<li><a href="#benefits-of-using-hooks">Benefits of Using Hooks</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="what-are-wordpress-hooks">What Are WordPress Hooks?</h2>
+<p>WordPress hooks are mechanisms that let developers inject custom code into specific points of the WordPress execution process, making the platform highly extensible and customizable. Hooks act as “interception points” in the core code, where you can attach your own functions to alter or extend default behavior—without modifying WordPress itself.</p>
+<p>There are two main types of hooks:</p>
+<ul>
+<li>
+<p><strong>Actions</strong>: Actions allow you to add or execute custom code at specific moments in the WordPress lifecycle. For example, you might use an action to send an email when a post is published, add a custom message to the footer, or enqueue scripts and styles. Actions do not modify data—they simply perform tasks at certain events.</p>
+</li>
+<li>
+<p><strong>Filters</strong>: Filters let you intercept and modify data before it is displayed on the site or saved to the database. For instance, you can use a filter to change the content of a post before it’s rendered, adjust the excerpt length, or customize the output of a widget. Filters always receive data, modify it, and return the new value.</p>
+</li>
+</ul>
+<p>By leveraging hooks, developers can create plugins and themes that interact seamlessly with WordPress and other plugins, ensuring changes are update-safe and maintainable. Understanding how and when to use actions and filters is fundamental to professional WordPress development.</p>
+<h3 id="why-use-hooks">Why Use Hooks?</h3>
+<ul>
+<li><strong>Customization</strong>: Hooks empower you to add, remove, or modify features at almost any point in WordPress, all without touching core files. This means you can tailor your site’s behavior and appearance to fit any need, from simple tweaks to advanced functionality.</li>
+<li><strong>Safety</strong>: By using hooks in plugins or child themes, your customizations remain intact even after WordPress core, theme, or plugin updates. This update-safe approach protects your work and reduces maintenance headaches.</li>
+<li><strong>Flexibility</strong>: Hooks are used everywhere—from blogs and portfolios to e-commerce stores and membership sites. You can extend WordPress to support custom workflows, integrations, or business logic, making it suitable for virtually any project.</li>
+<li><strong>Reusability</strong>: Well-written hook-based code is modular and portable. You can reuse your custom functions across multiple sites or projects, speeding up development and ensuring consistency.</li>
+<li><strong>Community Standards</strong>: Hooks are the foundation of WordPress’s plugin and theme ecosystem. Following this approach means your code aligns with best practices, making it easier for other developers to understand, maintain, and extend your work.</li>
+<li><strong>Collaboration</strong>: Since hooks are a shared convention, they make it easier for teams or third-party plugins/themes to interact and build on each other’s work without conflict.</li>
+</ul>
+<h3 id="when-to-use-hooks">When to Use Hooks?</h3>
+<ul>
+<li><strong>Theme Customization</strong>: Use hooks to add, remove, or modify theme features such as custom headers, footers, sidebars, or navigation menus. For example, you can insert a banner before the content, add social icons to the footer, or change the way post metadata is displayed—all without editing the theme’s core files.</li>
+<li><strong>Plugin Development</strong>: Hooks are essential for building plugins that interact with WordPress or other plugins. You can create new features, extend existing functionality, or modify plugin behavior by hooking into specific actions or filters. For instance, you might add a custom post type, integrate with third-party APIs, or alter WooCommerce checkout fields.</li>
+<li><strong>Performance Tweaks</strong>: Optimize your site by using hooks to remove unnecessary scripts, styles, or meta tags, and to defer or conditionally load assets. You can also use hooks to clean up the WordPress head section, disable emojis, or limit resource-heavy features on certain pages for faster load times.</li>
+<li><strong>Client Projects</strong>: Deliver tailored solutions for clients by leveraging hooks to implement custom workflows, automate tasks, or add business-specific features. This approach ensures your changes are update-safe and maintainable, making it easier to support and scale client sites over time.</li>
+<li><strong>Content Personalization</strong>: Use hooks to dynamically modify content based on user roles, location, or device. For example, display targeted messages to logged-in users, show region-specific offers, or adjust layouts for mobile visitors.</li>
+<li><strong>Security Enhancements</strong>: Strengthen your site by hooking into login, registration, or comment actions to add custom validation, logging, or notifications. You can also use hooks to restrict access, sanitize user input, or integrate with security plugins.</li>
+</ul>
+<h3 id="where-to-use-hooks">Where to Use Hooks?</h3>
+<p>Hooks can be used in several places within your WordPress setup, each serving different purposes and offering varying levels of flexibility and maintainability:</p>
+<ul>
+<li>
+<p><strong>Child Themes</strong>: Place your hook-related code in the <code>functions.php</code> file of a child theme to customize or extend the parent theme’s behavior without modifying its core files. This is ideal for theme-specific tweaks, such as adding custom widgets, modifying layouts, or injecting content in specific template locations. Using a child theme ensures your changes are preserved when the parent theme is updated.</p>
+</li>
+<li>
+<p><strong>Custom Plugins</strong>: For functionality that should be independent of the active theme—or reused across multiple sites—create a custom plugin. Plugins are the recommended way to package features, integrations, or enhancements that aren’t tied to a theme’s design. By leveraging hooks in plugins, you can add or modify features, integrate with third-party services, or alter WordPress behavior globally, all while keeping your code modular and update-safe.</p>
+</li>
+<li>
+<p><strong>Must-Use (MU) Plugins</strong>: These are special plugins placed in the <code>wp-content/mu-plugins</code> directory. MU plugins are automatically activated and cannot be deactivated from the admin dashboard. They’re perfect for essential site-wide customizations or security enhancements that must always run, such as enforcing login restrictions or disabling XML-RPC.</p>
+</li>
+<li>
+<p><strong>WordPress Core</strong>: WordPress itself provides thousands of built-in hooks—both actions and filters—embedded throughout its core codebase. You can “tap into” these hooks to run your custom functions at key points in the WordPress lifecycle, such as during initialization, when content is saved, or when pages are rendered. The <a href="https://codex.wordpress.org/Plugin_API/Hooks">WordPress Codex</a> and <a href="https://developer.wordpress.org/plugins/hooks/">Developer Reference</a> offer comprehensive lists and documentation for all available hooks.</p>
+</li>
+<li>
+<p><strong>Third-Party Plugins and Themes</strong>: Many popular plugins and themes expose their own custom hooks, allowing you to extend or modify their functionality without editing their source code. For example, WooCommerce provides hooks for customizing checkout fields, emails, and product displays, while page builders like Elementor or WPBakery offer hooks for adding custom widgets or controls.</p>
+</li>
+</ul>
+<p><strong>Best Practice:</strong><br/>
+Always add your hook code to a child theme or a custom plugin, not directly to the parent theme or WordPress core files. This approach keeps your changes update-safe and easier to maintain.</p>
+<blockquote>
+<p>Use tools like <a href="https://wordpress.org/plugins/query-monitor/">Query Monitor</a> or the <a href="https://wordpress.org/plugins/debug-bar/">Debug Bar</a> plugin to discover available hooks on your site and debug hook-related issues.</p>
+</blockquote>
+<hr/>
+<h2 id="understanding-actions-vs-filters">Understanding Actions vs. Filters</h2>
+<h3 id="actions">Actions</h3>
+<p>Actions are triggered at specific points during WordPress’s execution, such as when a post is published, a user logs in, or a page is rendered. When you “hook” a function to an action, you’re telling WordPress to run your custom code at that exact moment in the workflow. Actions are ideal for performing tasks, injecting content, or triggering side effects—they don’t modify existing data, but rather allow you to add new behavior.</p>
+<p><strong>When to use actions:</strong></p>
+<ul>
+<li>Sending notification emails after a post is published</li>
+<li>Enqueuing scripts and styles on the front end</li>
+<li>Adding custom HTML to the header or footer</li>
+<li>Logging user activity or analytics events</li>
+<li>Registering custom post types or taxonomies</li>
+</ul>
+<p><em>Example</em>: Adding a welcome message to the footer using the <code>wp_footer</code> action:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">wp_footer</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_footer_message</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;p style=&quot;text-align: center;&quot;&gt;Thanks for visiting!&lt;/p&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<h3 id="filters">Filters</h3>
+<p>Filters modify data before it’s displayed on the site or saved to the database. When you “hook” a function to a filter, you’re telling WordPress to pass specific data (like a post title, excerpt, or content) through your function, allowing you to change, extend, or sanitize it before it’s used or shown to visitors.</p>
+<p>Filters always receive at least one parameter—the data to be filtered—and must return a value (the modified or original data). This makes filters ideal for customizing output, enforcing formatting, or integrating with other plugins and services.</p>
+<p><strong>When to use filters:</strong></p>
+<ul>
+<li>Changing post titles or content before display</li>
+<li>Modifying excerpt length or “read more” text</li>
+<li>Adjusting widget output or menu items</li>
+<li>Sanitizing or formatting user input</li>
+<li>Integrating with SEO or translation plugins</li>
+</ul>
+<p><em>Example</em>: Modifying the post title to append custom text:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_filter</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">the_title</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my_custom_title</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> my_custom_title</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">(</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $title</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $title</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D"> - My Blog</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p><em>Key Difference</em>: Actions <em>do</em> something (e.g., output text), while filters <em>modify</em> something (e.g., change data). Let’s summarize the differences in a table:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Feature</th><th>Actions</th><th>Filters</th><th>Example Hook Name</th><th>Receives Data?</th><th>Must Return Value?</th><th>Typical Use Case</th></tr></thead><tbody><tr><td>Purpose</td><td>Execute code</td><td>Modify data</td><td><code>wp_footer</code></td><td>No</td><td>No</td><td>Add footer HTML</td></tr><tr><td>Data Flow</td><td>One-way (no return)</td><td>Two-way (input/output)</td><td><code>the_title</code></td><td>Yes</td><td>Yes</td><td>Change post title</td></tr><tr><td>Parameters</td><td>Usually none or event</td><td>Data to be filtered</td><td><code>init</code></td><td>Sometimes</td><td>No</td><td>Register post types</td></tr><tr><td>Return Value</td><td>Ignored</td><td>Required</td><td><code>excerpt_more</code></td><td>Yes</td><td>Yes</td><td>Customize excerpt “read more”</td></tr><tr><td>Side Effects</td><td>Yes (output, DB, etc.)</td><td>No (should not output)</td><td><code>admin_notices</code></td><td>No</td><td>No</td><td>Show admin messages</td></tr><tr><td>Chaining</td><td>Not chainable</td><td>Chainable (multiple mods)</td><td><code>the_content</code></td><td>Yes</td><td>Yes</td><td>Append content to posts</td></tr><tr><td>Typical Use Location</td><td>Any plugin/theme file</td><td>Any plugin/theme file</td><td><code>widget_title</code></td><td>Yes</td><td>Yes</td><td>Modify widget titles</td></tr></tbody></table>
+
+<hr/>
+<h2 id="step-by-step-guide-to-using-hooks">Step-by-Step Guide to Using Hooks</h2>
+<p>Let’s create a simple plugin that uses both actions and filters to add a custom welcome message and modify post excerpts. This hands-on example will help you understand how hooks work in practice and how you can leverage them to customize your WordPress site safely and efficiently.</p>
+<h3 id="what-will-we-build">What Will We Build?</h3>
+<ul>
+<li><strong>A custom plugin</strong> that:
+<ul>
+<li>Adds a personalized welcome message to the site footer using an <strong>action</strong>.</li>
+<li>Modifies the post excerpt to include a styled “Read More” link using a <strong>filter</strong>.</li>
+<li>Optionally, provides a settings page in the WordPress admin so you can change the footer message without editing code.</li>
+</ul>
+</li>
+</ul>
+<p>By following these steps, you’ll learn how to:</p>
+<ul>
+<li>Structure a basic WordPress plugin.</li>
+<li>Use <code>add_action</code> and <code>add_filter</code> to hook your functions into WordPress.</li>
+<li>Safely output and modify data.</li>
+<li>Make your customizations update-safe and easy to maintain.</li>
+</ul>
+<p>Let’s dive in!</p>
+<h3 id="step-1-set-up-a-custom-plugin">Step 1: Set Up a Custom Plugin</h3>
+<ol>
+<li>Navigate to <code>wp-content/plugins/</code> in your WordPress installation.</li>
+<li>Create a folder named <code>my-hooks-plugin</code>.</li>
+<li>Add a file named <code>my-hooks-plugin.php</code> with this header:</li>
+</ol>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">&lt;?</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">php</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">/*</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Plugin Name: My Hooks Plugin</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Plugin URI: https://yourwebsite.com/my-hooks-plugin</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Description: A plugin to demonstrate WordPress actions and filters.</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Version: 1.0.0</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Author: Your Name</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Author URI: https://yourwebsite.com</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    License: GPL2</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    License URI: https://www.gnu.org/licenses/gpl-2.0.html</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    Text Domain: my-hooks-plugin</span></span>
+<span class="line"><span style="color:#C2C3C5;font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">*/</span></span></code></pre>
+<p><strong>Explanation:</strong> This header provides WordPress with essential information about your plugin, such as its name, description, version, and author. It’s required for WordPress to recognize and manage your plugin.</p>
+<h3 id="step-2-add-an-action">Step 2: Add an Action</h3>
+<p>Add a custom welcome message to the footer using the <code>wp_footer</code> action. This action hook is triggered just before the closing <code>&lt;/body&gt;</code> tag on every page, making it the perfect place to inject site-wide messages, scripts, or custom HTML. By hooking your function to <code>wp_footer</code>, you ensure your code runs at the right moment without editing theme files directly.</p>
+<p>Here’s how you can do it:</p>
+<ol>
+<li>Use <code>add_action</code> to attach your function to the <code>wp_footer</code> hook.</li>
+<li>Define your function to output the desired HTML or message.</li>
+<li>(Optional) Use inline styles or enqueue a stylesheet for custom appearance.</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">wp_footer</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_footer_message</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;div class=&quot;mhp-footer&quot; style=&quot;text-align: center; padding: 10px; background: #f1f1f1;&quot;&gt;Welcome to my site!&lt;/div&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+
+<h3 id="step-3-add-a-filter">Step 3: Add a Filter</h3>
+<p>You can customize the text that appears at the end of post excerpts in WordPress by using the <code>excerpt_more</code> filter. This is especially useful if you want to add a “Read More” link that directs visitors to the full post.</p>
+<p>Here’s how you can do it in your theme’s <code>functions.php</code> file:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_filter</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">excerpt_more</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_custom_excerpt_more</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_custom_excerpt_more</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">(</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $more</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    global</span><span style="color:#24292EFF;--shiki-dark:#BEC5D4"> $post</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D"> &lt;a href=&quot;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> get_permalink</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> $</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">post</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA">-&gt;</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">ID</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&quot; class=&quot;read-more&quot;&gt;Read More&lt;/a&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>Add CSS for styling in a new file, <code>css/style.css</code>, inside the plugin folder:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">.</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#C5E478;--shiki-dark-font-style:italic">read-more</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#1976D2;--shiki-dark:#80CBC4">    color</span><span style="color:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="color:#1976D2;--shiki-dark:#F78C6C"> #</span><span style="color:#1976D2;--shiki-dark:#FFEB95">1a73e8</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#1976D2;--shiki-dark:#80CBC4">    font-weight</span><span style="color:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="color:#1976D2;--shiki-dark:#FF6363"> bold</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#1976D2;--shiki-dark:#80CBC4">    text-decoration</span><span style="color:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="color:#1976D2;--shiki-dark:#FF6363"> none</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">.</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#C5E478;--shiki-dark-font-style:italic">read-more</span><span style="color:#6F42C1;--shiki-dark:#C5E478">:</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#C5E478;--shiki-dark-font-style:italic">hover</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#1976D2;--shiki-dark:#80CBC4">    text-decoration</span><span style="color:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="color:#1976D2;--shiki-dark:#FF6363"> underline</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>Enqueue the stylesheet in <code>my-hooks-plugin.php</code>:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">wp_enqueue_scripts</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_enqueue_styles</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_enqueue_styles</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    wp_enqueue_style</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp-style</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> plugin_dir_url</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#1976D2;--shiki-dark:#82AAFF"> __FILE__</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">css/style.css</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#6F42C1;--shiki-dark:#C5E478"> array</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB">()</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">1.0.0</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>This code modifies the default excerpt behavior by appending a custom “Read More” link that points to the full post. The link is styled using CSS to match your site’s design.</p>
+<h3 id="step-4-add-a-settings-page-optional">Step 4: Add a Settings Page (Optional)</h3>
+<h4 id="create-an-admin-settings-page-to-customize-the-footer-message">Create an Admin Settings Page to Customize the Footer Message</h4>
+<p>To make your plugin is more user-friendly, you can add a settings page in the WordPress admin dashboard. This allows site administrators to update the footer message without editing code.</p>
+<p>Here’s how to do it:</p>
+<ol>
+<li>
+<p><strong>Add a menu item under “Settings”</strong><br/>
+Use the <code>add_options_page</code> function to create a new settings page.</p>
+</li>
+<li>
+<p><strong>Register a setting</strong><br/>
+Use <code>register_setting</code> to store the footer message in the WordPress database.</p>
+</li>
+<li>
+<p><strong>Add a settings section and field</strong><br/>
+Use <code>add_settings_section</code> and <code>add_settings_field</code> to display the input field.</p>
+</li>
+<li>
+<p><strong>Display the settings page</strong><br/>
+Output the form using <code>settings_fields</code>, <code>do_settings_sections</code>, and <code>submit_button</code>.</p>
+</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">admin_menu</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_add_admin_menu</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_add_admin_menu</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    add_options_page</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">My Hooks Plugin Settings</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Hooks Plugin</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">manage_options</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my-hooks-plugin</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_settings_page</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">admin_init</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_settings_init</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_settings_init</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    register_setting</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_options_group</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    add_settings_section</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_section</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Plugin Settings</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#82AAFF"> null</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my-hooks-plugin</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    add_settings_field</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Footer Message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message_field</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my-hooks-plugin</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_section</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_footer_message_field</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#BEC5D4">    $value</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> =</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> get_option</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Welcome to my site!</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;input type=&quot;text&quot; name=&quot;mhp_footer_message&quot; value=&quot;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> esc_attr</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> $</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">value</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&quot; /&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_settings_page</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">    ?&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">    &lt;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">div</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> class=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#22863A;--shiki-dark:#ECC48D">wrap</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">        &lt;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">h1</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">My</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Hooks</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Plugin</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> Settings</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&lt;/</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">h1</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">        &lt;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">form</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> method</span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#22863A;--shiki-dark:#ECC48D">post</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#24292EFF;--shiki-dark:#82AAFF"> action</span><span style="color:#D32F2F;--shiki-dark:#C792EA">=</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#22863A;--shiki-dark:#ECC48D">options.php</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&quot;</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">            &lt;?</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">php</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">            settings_fields</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_options_group</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">            do_settings_sections</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">my-hooks-plugin</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">            submit_button</span><span style="color:#212121;--shiki-dark:#D6DEEB">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">            ?&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">        &lt;/</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">form</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">    &lt;/</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">div</span><span style="color:#D32F2F;--shiki-dark:#C792EA">&gt;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">    &lt;?</span><span style="color:#24292EFF;--shiki-dark:#82AAFF">php</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>Update the action to use the setting:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">add_action</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">wp_footer</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#D32F2F;--shiki-dark:#C792EA">function</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> mhp_footer_message</span><span style="color:#24292EFF;--shiki-dark:#D9F5DD">()</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#BEC5D4">    $message</span><span style="color:#D32F2F;--shiki-dark:#C792EA"> =</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> get_option</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">mhp_footer_message</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">Welcome to my site!</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">    echo</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;div class=&quot;mhp-footer&quot; style=&quot;text-align: center; padding: 10px; background: #f1f1f1;&quot;&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#6F42C1;font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> esc_html</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#6F42C1;--shiki-dark:#D6DEEB"> $</span><span style="color:#6F42C1;--shiki-dark:#BEC5D4">message</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#D32F2F;--shiki-dark:#7FDBCA"> .</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">&lt;/div&gt;</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<h3 id="step-5-activate-and-test">Step 5: Activate and Test</h3>
+<p>Before activating your plugin, it’s important to verify that everything is set up correctly and understand what to expect. In this step, you’ll enable your custom plugin from the WordPress dashboard, then visit your site to see the new footer message and the updated “Read More” link in action. This quick test ensures your hooks are working as intended and gives you a chance to spot any issues before going live.</p>
+<ol>
+<li>Go to <code>Plugins &gt; Installed Plugins</code>, activate “My Hooks Plugin.”</li>
+<li>Visit a post to see the custom “Read More” link in the excerpt.</li>
+<li>Check the footer for the welcome message.</li>
+<li>Test on multiple devices and with plugins like <strong>Yoast SEO</strong> for compatibility.</li>
+</ol>
+
+<h3 id="step-6-debug-and-optimize">Step 6: Debug and Optimize</h3>
+<p>Debugging and optimizing your hook-based customizations is crucial for maintaining a stable, high-performing WordPress site. Even small mistakes in hooks can lead to unexpected behavior, errors, or performance issues. In this section, you’ll learn practical tips for troubleshooting problems, monitoring performance, and ensuring your custom code runs efficiently and safely alongside other plugins and themes.</p>
+<ul>
+<li>Enable <code>WP_DEBUG</code> in <code>wp-config.php</code> to catch errors:</li>
+</ul>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="php"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">define</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">WP_DEBUG</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#82AAFF"> true</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#C5E478">define</span><span style="color:#212121;--shiki-dark:#D6DEEB">(</span><span style="color:#22863A;--shiki-dark:#D9F5DD"> &#39;</span><span style="color:#22863A;--shiki-dark:#ECC48D">WP_DEBUG_LOG</span><span style="color:#22863A;--shiki-dark:#D9F5DD">&#39;</span><span style="color:#212121;--shiki-dark:#D6DEEB">,</span><span style="color:#1976D2;--shiki-dark:#82AAFF"> true</span><span style="color:#212121;--shiki-dark:#D6DEEB"> )</span><span style="color:#24292EFF;--shiki-dark:#D6DEEB">;</span></span></code></pre>
+<ul>
+<li>Use <strong>Query Monitor</strong> to check performance impact.</li>
+<li>Test with different themes to ensure compatibility.</li>
+</ul>
+
+<hr/>
+<h2 id="pros-and-cons-of-using-hooks">Pros and Cons of Using Hooks</h2>
+<p>Hooks are a cornerstone of WordPress development, but like any powerful tool, they come with both advantages and drawbacks. Understanding the pros and cons of using hooks will help you make informed decisions about when and how to use them in your projects. Below is a quick overview to help you weigh their benefits against potential challenges.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td>Non-destructive customization</td><td>Requires PHP knowledge</td></tr><tr><td>Update-safe in plugins/child themes</td><td>Can cause conflicts if misused</td></tr><tr><td>Highly flexible for any feature</td><td>Debugging complex hooks can be tricky</td></tr><tr><td>Follows WordPress best practices</td><td>Overuse may impact performance</td></tr><tr><td>Modular and reusable code</td><td>Learning curve for beginners</td></tr></tbody></table>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<p>Hooks are powerful, but even experienced developers can make mistakes that lead to bugs, security issues, or performance problems. By being aware of common pitfalls, you can write safer, more reliable code and avoid headaches down the road. Here are some of the most frequent mistakes to watch out for when working with WordPress hooks:</p>
+<ol>
+<li><strong>Not Sanitizing Output</strong>: Always use <code>esc_html</code> or <code>sanitize_text_field</code> to prevent security risks.</li>
+<li><strong>Incorrect Hook Names</strong>: Double-check hook names in the WordPress Codex.</li>
+<li><strong>Overloading Hooks</strong>: Avoid adding heavy code to frequently called hooks like <code>init</code>.</li>
+<li><strong>Not Testing</strong>: Test on a staging site to avoid breaking the live site.</li>
+<li><strong>Ignoring Priority</strong>: Use the priority parameter (e.g., <code>add_action( &#39;wp_footer&#39;, &#39;my_function&#39;, 20 )</code>) to control execution order.</li>
+</ol>
+<hr/>
+<h2 id="benefits-of-using-hooks">Benefits of Using Hooks</h2>
+<p>Hooks are one of the most powerful features in WordPress, enabling developers to customize and extend the platform without altering core files. By using actions and filters, you can add new functionality, modify existing behavior, and ensure your changes are update-safe. In this section, we’ll explore the key benefits of using hooks in your WordPress projects and why they’re essential for professional development.</p>
+<ul>
+<li><strong>Flexibility</strong>: Customize nearly any aspect of WordPress.</li>
+<li><strong>Safety</strong>: Keep changes update-safe in plugins or child themes.</li>
+<li><strong>Efficiency</strong>: Write reusable code for multiple projects.</li>
+<li><strong>Professionalism</strong>: Follow WordPress coding standards.</li>
+<li><strong>Learning</strong>: Deepen your understanding of WordPress’s architecture.</li>
+</ul>
+<hr/>
+<p>WordPress hooks—actions and filters—are your ticket to unlocking the platform’s full potential. By understanding how they work and applying them in plugins or child themes, you can add custom features, modify content, and create tailored solutions without breaking your site. Start with the simple examples in this guide, and soon you’ll be hooking into WordPress like a pro. Whether you’re tweaking a blog or building for clients, hooks are a must-have skill.</p>
+<p>Ready to try hooks? Create your first action or filter and share your results in the comments! Subscribe for more WordPress development tips.</p>
+<hr/>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<ul>
+<li>
+<p><strong>What’s the difference between an action and a filter in WordPress?</strong></p>
+<ul>
+<li>Actions let you run custom code at specific points in the WordPress lifecycle (like sending an email after a post is published).</li>
+<li>Filters let you modify data before it’s displayed or saved (like changing a post title or excerpt).</li>
+</ul>
+</li>
+<li>
+<p><strong>Where should I add my hook code—plugin or theme?</strong></p>
+<ul>
+<li>For site-wide or reusable functionality, use a custom plugin.</li>
+<li>For theme-specific tweaks, use your child theme’s <code>functions.php</code>.</li>
+<li>Avoid editing parent themes or WordPress core files.</li>
+</ul>
+</li>
+<li>
+<p><strong>How do I find available hooks in WordPress or a plugin?</strong></p>
+<ul>
+<li>Check the <a href="https://developer.wordpress.org/plugins/hooks/">WordPress Developer Reference</a>.</li>
+<li>Review plugin/theme documentation.</li>
+<li>Use tools like <a href="https://wordpress.org/plugins/query-monitor/">Query Monitor</a> to discover hooks running on your site.</li>
+</ul>
+</li>
+<li>
+<p><strong>Can I use multiple functions on the same hook?</strong></p>
+<ul>
+<li>Yes! You can attach multiple functions to the same action or filter.</li>
+<li>Use the priority parameter to control the order in which they run.</li>
+</ul>
+</li>
+<li>
+<p><strong>What happens if I forget to return a value in a filter?</strong></p>
+<ul>
+<li>If your filter function doesn’t return a value, the data being filtered may be lost or empty.</li>
+<li>Always return the modified or original value in filter callbacks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Are hooks safe to use with future WordPress updates?</strong></p>
+<ul>
+<li>Yes, as long as you use hooks in plugins or child themes and avoid editing core files, your customizations will remain update-safe.</li>
+</ul>
+</li>
+<li>
+<p><strong>Can hooks slow down my site?</strong></p>
+<ul>
+<li>Overusing hooks or adding heavy code to frequently called hooks can impact performance.</li>
+<li>Keep your hook functions efficient and test for speed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Can I add custom hooks for my own plugins or themes?</strong></p>
+<ul>
+<li>Yes, you can create your own actions and filters using <code>do_action()</code> and <code>apply_filters()</code> in your code.</li>
+<li>This allows other developers (or yourself) to extend your plugin or theme.</li>
+</ul>
+</li>
+<li>
+<p><strong>How do I remove a function from a hook?</strong></p>
+<ul>
+<li>Use <code>remove_action()</code> or <code>remove_filter()</code> with the same function name and priority used in <code>add_action()</code> or <code>add_filter()</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Can hooks be used for security enhancements?</strong></p>
+<ul>
+<li>Yes, you can hook into login, registration, or comment actions to add validation, logging, or restrictions.</li>
+<li>Always sanitize and validate data in your hook functions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Do hooks work with page builders or third-party plugins?</strong></p>
+<ul>
+<li>Many popular plugins and page builders provide their own hooks.</li>
+<li>Check their documentation for available hooks and usage examples.</li>
+</ul>
+</li>
+<li>
+<p><strong>Is it possible to debug hook execution order?</strong></p>
+<ul>
+<li>Yes, use plugins like Query Monitor or Debug Bar to inspect which hooks are running and in what order.</li>
+<li>You can also temporarily add logging statements in your hooked functions for troubleshooting.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://developer.wordpress.org/plugins/hooks/">WordPress Plugin API</a></li>
+<li><a href="https://codex.wordpress.org/Plugin_API/Action_Reference">WordPress Codex: Action Reference</a></li>
+<li><a href="https://codex.wordpress.org/Plugin_API/Filter_Reference">WordPress Codex: Filter Reference</a></li>
+<li><a href="https://wpbeginner.com/showcase/best-wordpress-development-tools/">Best WordPress Development Tools</a></li>
+</ul>
+<p>Found this guide helpful? Subscribe for weekly WordPress tutorials or share your favorite hook in the comments!</p> </article> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/understanding-wordpress-hooks-actions-vs-filters-explained/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <div class="edit-post flex items-center justify-between p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_development/understanding-wordpress-hooks-actions-vs-filters-explained.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_wordpress/_development/understanding-wordpress-hooks-actions-vs-filters-explained.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/build-email-list-wordpress-beginners-guide" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>How to Build an Email List with WordPress (Beginner’s Guide)</div> </div> </a> <a href="/posts/setup-payment-gateways-woocommerce" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>How to Set Up Payment Gateways in WooCommerce</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> <div class="w-full lg:w-1/4 pb-12" data-astro-cid-2t7o7two> <aside class="w-full top-4 mb-6 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-exacnq3a> <div class="aside-header" data-astro-cid-exacnq3a> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-exacnq3a>Category &amp; Tags</h2> </div> <div class="aside-content p-2" data-astro-cid-exacnq3a> <div class="widget-wrapper" data-astro-cid-exacnq3a>  <div class="flex flex-col border-b border-muted gap-2 p-2" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/wordpress/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📒 <span class="category-post">WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1"> <a href="/categories/development/" class="relative pr-2 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans ">
+📒 <span class="category-post">Development</span> </a> </li> </ul> </div> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>WordPress</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/hooks/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Hooks</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/actions/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Actions</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/filters/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Filters</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/plugin-development/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>Plugin Development</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/php/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans tag-post">
+🏷 <span>PHP</span> </a> </li> </ul> </div>  </div> </div> </aside>  <aside class="toc w-full sticky top-4 aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-s6iqbw7n> <div class="aside-header" data-astro-cid-s6iqbw7n> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-s6iqbw7n>Table of Contents</h2> </div> <div class="aside-content p-2" data-astro-cid-s6iqbw7n> <div class="widget-wrapper" data-astro-cid-s6iqbw7n>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div>  <div class="toc-arrow" aria-hidden="true" data-astro-cid-s6iqbw7n> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-s6iqbw7n> <path d="M12 5v14M5 12l7 7 7-7" data-astro-cid-s6iqbw7n></path> </svg> </div> </div> </div> </aside>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".toc .widget-wrapper");if(!e)return;const t=e.querySelector(".toc-arrow");if(!t)return;const s=()=>{const i=e.scrollHeight>e.clientHeight,r=e.scrollTop+e.clientHeight>=e.scrollHeight-1;i?r?(t.classList.remove("visible"),t.classList.add("hidden")):(t.classList.remove("hidden"),t.classList.add("visible")):t.classList.add("hidden")};s(),e.addEventListener("scroll",s),window.addEventListener("resize",s)});</script> </div> </main> <button id="back-to-top" class="back-to-top focus-outline p-2 whitespace-nowrap hover:opacity-75 hidden" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span data-astro-cid-2t7o7two></span> </button> <footer class="w-full mt-auto"> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  <!-- Crisp and Custom JS for page --> <!-- <script is:inline src="/assets/js/main.js"></script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function backToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    if (backToTopButton) {
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+
+      // Toggle visibility based on scroll position
+      document.addEventListener("scroll", () => {
+        const scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+        if (scrollPosition > 100) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      });
+    }
+  }
+  backToTop();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+      clonedToc.classList.add("list-decimal", "pl-4", "space-y-1", "text-green-500");
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none";
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 20;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script> 
