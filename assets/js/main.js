@@ -1,7 +1,7 @@
 // const veryLongInterval = 20000;
 // const longInterval = 10000;
-const normalInterval = 5000;
-// const shortInterval = 2000;
+// const normalInterval = 5000;
+const shortInterval = 2000;
 // const veryShortInterval = 1000;
 
 // let extraStyle = "res/css/main.css";
@@ -80,5 +80,10 @@ function delayedScriptLoading(src, delay) {
 
 document.addEventListener("DOMContentLoaded", function () {
     // Load the Crisp Chat script after the DOM is fully loaded
-    delayedScriptLoading(crispChat, normalInterval);
+    delayedScriptLoading(crispChat, shortInterval);
+    
 });
+
+// document.addEventListener("astro:page-load", () => {
+//     delayedScriptLoading(crispChat, normalInterval);
+// });
