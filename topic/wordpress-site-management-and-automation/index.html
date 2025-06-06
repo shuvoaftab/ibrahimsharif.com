@@ -1,0 +1,569 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>WordPress Site Management &amp; Automation | Blog</title><meta name="title" content="WordPress Site Management &#38; Automation | Blog"><meta name="description" content="A comprehensive 2025 guide to managing and automating WordPress sites, with expert tips on backups, cron jobs, CI/CD pipelines, and WP-CLI for efficient workflows."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="WordPress Site Management &#38; Automation | Blog"><meta property="og:description" content="A comprehensive 2025 guide to managing and automating WordPress sites, with expert tips on backups, cron jobs, CI/CD pipelines, and WP-CLI for efficient workflows."><meta property="og:url" content="https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/"><meta property="og:image" content="https://ibrahimsharif.com/_astro/wordpress-site-management-and-automation.DeKkTTFq.jpg"><!-- Article Published/Modified time --><meta property="article:published_time" content="2025-04-07T13:51:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/"><meta property="twitter:title" content="WordPress Site Management &#38; Automation | Blog"><meta property="twitter:description" content="A comprehensive 2025 guide to managing and automating WordPress sites, with expert tips on backups, cron jobs, CI/CD pipelines, and WP-CLI for efficient workflows."><meta property="twitter:image" content="https://ibrahimsharif.com/_astro/wordpress-site-management-and-automation.DeKkTTFq.jpg"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"WordPress Site Management & Automation | Blog","image":"https://ibrahimsharif.com/_astro/wordpress-site-management-and-automation.DeKkTTFq.jpg","datePublished":"2025-04-07T13:51:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><!-- <ClientRouter /> --><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.BwvKmgRr.css">
+<style>footer[data-astro-cid-xsyc7abh]{padding-inline:0}
+.related-post-card[data-astro-cid-7uzl234s]{display:flex;flex-direction:column;height:100%}.related-post-card[data-astro-cid-7uzl234s]:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0000001a}.line-clamp-1[data-astro-cid-7uzl234s]{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}.line-clamp-2[data-astro-cid-7uzl234s]{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}article[data-astro-cid-7uzl234s] img[data-astro-cid-7uzl234s]{margin:unset;border:none;border-radius:unset}
+.back-to-top[data-astro-cid-5l3afzhg]{position:fixed;bottom:2rem;z-index:1000;width:3rem;height:3rem;background:#343f60e6;color:#fff;border-radius:50%;box-shadow:0 4px 12px #00000026;transition:all .3s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center}.back-to-top[data-astro-cid-5l3afzhg]:hover{background:#343f60;transform:translateY(-2px) scale(1.05);box-shadow:0 8px 20px #0003}.progress-ring[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out}.progress-ring-circle[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out;filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}.hidden[data-astro-cid-5l3afzhg]{opacity:0;pointer-events:none;transform:translateY(20px) scale(.8)}.dark .back-to-top[data-astro-cid-5l3afzhg]{background:#ffffff1a;color:#fff}.dark .back-to-top[data-astro-cid-5l3afzhg]:hover{background:#fff3}.sr-only[data-astro-cid-5l3afzhg]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style><style>[data-astro-transition-scope="astro-g6fwbmd2-1"] { view-transition-name: wordpress-site-management-automation; }@layer astro { ::view-transition-old(wordpress-site-management-automation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(wordpress-site-management-automation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(wordpress-site-management-automation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(wordpress-site-management-automation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-g6fwbmd2-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-g6fwbmd2-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-g6fwbmd2-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-g6fwbmd2-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-g6fwbmd2-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-g6fwbmd2-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-g6fwbmd2-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-g6fwbmd2-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class=" top-0 z-50 w-full border-b shadow-sm transition-all dark:border-gray-700"> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-logo-retina.png" alt="Ibrahim Logo" class="h-8 bg-white"> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/topics">
+Topics
+</a> </li> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/categories">
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-7xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <main id="main-content" class="w-full max-w-7xl mx-auto" data-pagefind-body> <nav class="breadcrumb mx-auto py-4 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">&raquo;</span> </li> <li> <a href="/topics/" class="capitalize opacity-70"> Topics </a> <span aria-hidden="true" class="opacity-80 mx-1">&raquo;</span> </li><li> <span class="opacity-75" aria-current="page"> Wordpress Site Management and Automation </span> </li> </ul> </nav> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="main-content w-full max-w-7xl mx-auto px-4 py-6"> <!-- Topic Header --> <header class="mb-8"> <h1 class="text-2xl font-bold text-accent sm:text-3xl lg:text-4xl mb-4" data-astro-transition-scope="astro-g6fwbmd2-1"> WordPress Site Management &amp; Automation </h1> <div class="flex flex-wrap items-center gap-4 mb-2"> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2025-04-07T13:51:00.000Z">7 Apr, 2025</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 07:51 PM</span> </span> </div> <span class="flex items-center gap-1"> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path> </svg> 55 related posts
+</span> </div> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <!-- Topic Description --> <div class="text-lg py-6 max-w-7xl"> A comprehensive 2025 guide to managing and automating WordPress sites, with expert tips on backups, cron jobs, CI/CD pipelines, and WP-CLI for efficient workflows. </div> <!-- Related Tags & Categories Preview --> <div class="flex flex-wrap gap-4 mb-6"> <div class="flex flex-wrap items-center gap-2"> <span class="text-sm font-medium">Covers:</span> <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium"> Automation </span><span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium"> CI/CD </span><span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium"> WP-Cron </span><span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium"> Management </span><span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-medium"> WP-CLI </span> <span class="text-sm text-gray-500">+2 more</span> </div> <div class="flex flex-wrap items-center gap-2"> <span class="text-sm font-medium">Categories:</span> <span class="inline-block bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-medium"> WordPress </span><span class="inline-block bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-medium"> Server </span> </div> </div> </header> <hr> <!-- Featured Image --> <div class="w-full mb-8"> <img src="/_astro/wordpress-site-management-and-automation.DeKkTTFq.jpg" alt="Featured image for WordPress Site Management &#38; Automation" class="w-full object-cover rounded-lg shadow-lg" loading="eager"> </div> <!-- Topic Content --> <article class="prose prose-lg topic-details max-w-none mb-12"> <p>Welcome to <strong>WordPress Site Management &amp; Automation</strong>! Whether you run a personal blog, a bustling eCommerce store, or manage multiple client sites, keeping WordPress secure, efficient, and up-to-date is a constant challenge. In 2025, automation isn’t just a convenience—it’s essential for saving time, minimizing human error, and ensuring your site’s reliability and performance.</p>
+<p>This comprehensive guide will walk you through the latest expert strategies for WordPress management, including automated backups, mastering cron jobs, building robust CI/CD pipelines, and leveraging the power of WP-CLI. You’ll discover practical tools, real-world workflows, and actionable tips to streamline every aspect of site administration. By embracing automation, you’ll free up valuable hours, reduce stress, and gain the confidence that your WordPress sites are always running at their best.</p>
+<p>Let’s dive in and transform your WordPress management with automation for 2025 and beyond!</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#why-automate-wordpress-in-2025">Why Automate WordPress in 2025?</a></li>
+<li><a href="#1-automating-backups">1. Automating Backups</a>
+<ul>
+<li><a href="#11-why-backups-matter">1.1 Why Backups Matter</a></li>
+<li><a href="#12-free--paid-options">1.2 Free &amp; Paid Options</a></li>
+<li><a href="#13-best-practices">1.3 Best Practices</a></li>
+</ul>
+</li>
+<li><a href="#2-mastering-wordpress-cron-jobs">2. Mastering WordPress Cron Jobs</a>
+<ul>
+<li><a href="#21-what-is-wp-cron">2.1 What Is WP-Cron?</a></li>
+<li><a href="#22-build-a-custom-cron-job">2.2 Build a Custom Cron Job</a></li>
+<li><a href="#23-server-side-cron">2.3 Server-Side Cron</a></li>
+</ul>
+</li>
+<li><a href="#3-scheduling-with-wp_schedule_event">3. Scheduling with WP_Schedule_Event</a>
+<ul>
+<li><a href="#31-how-it-works">3.1 How It Works</a></li>
+<li><a href="#32-example">3.2 Example</a></li>
+</ul>
+</li>
+<li><a href="#4-cicd-pipelines-for-wordpress">4. CI/CD Pipelines for WordPress</a>
+<ul>
+<li><a href="#41-why-cicd">4.1 Why CI/CD?</a></li>
+<li><a href="#42-setting-up">4.2 Setting Up</a></li>
+</ul>
+</li>
+<li><a href="#5-automating-with-wp-cli">5. Automating with WP-CLI</a>
+<ul>
+<li><a href="#51-why-wp-cli">5.1 Why WP-CLI?</a></li>
+<li><a href="#52-key-commands">5.2 Key Commands</a></li>
+<li><a href="#53-automation-scripts">5.3 Automation Scripts</a></li>
+</ul>
+</li>
+<li><a href="#6-additional-automation-tips">6. Additional Automation Tips</a>
+<ul>
+<li><a href="#61-monitor-uptime">6.1 Monitor Uptime</a></li>
+<li><a href="#62-auto-updates">6.2 Auto-Updates</a></li>
+<li><a href="#63-tie-ins">6.3 Tie-Ins</a></li>
+</ul>
+</li>
+<li><a href="#7-tools-for-management">7. Tools for Management</a></li>
+<li><a href="#8-2025-management-checklist">8. 2025 Management Checklist</a></li>
+<li><a href="#9-automation--site-health">9. Automation &amp; Site Health</a></li>
+<li><a href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="why-automate-wordpress-in-2025">Why Automate WordPress in 2025?</h2>
+<p>Managing WordPress sites manually—handling updates, backups, plugin maintenance, and content scheduling—can quickly become overwhelming, especially as your site or portfolio grows. Each manual task not only consumes valuable time but also increases the risk of human error, missed updates, or inconsistent processes. By embracing automation, you can streamline these repetitive chores, ensure critical tasks are performed reliably, and free yourself to focus on higher-value work like content creation and strategy. Automation offers:</p>
+<ul>
+<li><strong>Efficiency</strong>: Handle repetitive tasks in seconds.</li>
+<li><strong>Reliability</strong>: Consistent backups, updates, and more.</li>
+<li><strong>Scalability</strong>: Manage one or dozens of sites effortlessly.</li>
+<li><strong>Uptime</strong>: Catch issues before they crash your site.</li>
+<li><strong>SEO Edge</strong>: Fast, reliable sites rank better.</li>
+</ul>
+<blockquote>
+<p><strong>Stat Alert</strong>: 80% of WordPress pros use automation tools to cut admin time by 50%, per 2024 WPMU DEV surveys. Join them in 2025!</p>
+</blockquote>
+<hr/>
+<h2 id="1-automating-backups">1. Automating Backups</h2>
+<p>Regular backups are essential for every WordPress site, protecting your data from unexpected disasters like hacking, server failures, or accidental deletions. By automating backups, you ensure that your site can be quickly restored with minimal downtime, saving you time and stress. In this section, we’ll explore why backups matter, the best tools for the job, and how to set up a reliable backup routine for 2025.</p>
+<p>Backups are your safety net against hacks, crashes, and errors.</p>
+<h3 id="11-why-backups-matter">1.1 Why Backups Matter</h3>
+<ul>
+<li><strong>Risks</strong>: Hacks, server failures, or human error can wipe data.</li>
+<li><strong>Goal</strong>: Daily backups to restore fast.</li>
+<li><strong>Storage</strong>: Keep off-site (cloud, not server).</li>
+</ul>
+<h3 id="12-free--paid-options">1.2 Free &amp; Paid Options</h3>
+<ul>
+<li><strong>Free</strong>:
+<ul>
+<li><strong>UpdraftPlus</strong>: Backs up to Google Drive, Dropbox.</li>
+<li><strong>Setup</strong>: Install, schedule daily, pick a cloud.</li>
+</ul>
+</li>
+<li><strong>Paid</strong>:
+<ul>
+<li><strong>BackupBuddy</strong>: Full site backups, easy restores.</li>
+<li><strong>VaultPress (Jetpack)</strong>: Real-time, secure cloud saves.</li>
+</ul>
+</li>
+<li><strong>How</strong>: Install via Dashboard &gt; Plugins &gt; Add New, configure schedule.</li>
+<li><strong>Guide</strong>: See <a href="/posts/set-automated-backups-wordpress-free-paid-options/">Set Automated Backups for WordPress: Free &amp; Paid Options</a> for step-by-step help.</li>
+</ul>
+<h3 id="13-best-practices">1.3 Best Practices</h3>
+<ul>
+<li><strong>Frequency</strong>: Daily for active sites, weekly for static.</li>
+<li><strong>Test</strong>: Restore a backup to confirm it works.</li>
+<li><strong>Storage</strong>: Use Dropbox, Google Drive, or AWS S3.</li>
+</ul>
+<blockquote>
+<p><strong>Pro Tip</strong>: Keep 2-3 weeks of backups—old ones save you from late-discovered hacks!</p>
+</blockquote>
+<hr/>
+<h2 id="2-mastering-wordpress-cron-jobs">2. Mastering WordPress Cron Jobs</h2>
+<p>Cron jobs automate tasks like publishing posts or clearing caches. In WordPress, cron jobs are essential for scheduling routine operations—everything from sending emails and updating plugins to running custom scripts. Understanding how WordPress handles these scheduled tasks, and how you can optimize or extend them, is key to keeping your site running smoothly and efficiently. In this section, you’ll learn how to master WordPress cron jobs for reliable automation in 2025.</p>
+<h3 id="21-what-is-wp-cron">2.1 What Is WP-Cron?</h3>
+<ul>
+<li><strong>Definition</strong>: WordPress’s built-in scheduler (wp-cron.php).</li>
+<li><strong>Uses</strong>: Schedule posts, run plugin tasks, send emails.</li>
+<li><strong>Limit</strong>: Relies on site traffic—misses tasks if quiet.</li>
+</ul>
+<h3 id="22-build-a-custom-cron-job">2.2 Build a Custom Cron Job</h3>
+<ul>
+<li><strong>Code</strong>: Add to your plugin or functions.php:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>add_action(&#39;my_custom_cron&#39;, &#39;my_cron_function&#39;);</span></span>
+<span class="line"><span>function my_cron_function() {</span></span>
+<span class="line"><span>  // E.g., log a message</span></span>
+<span class="line"><span>  error_log(&#39;My 2025 cron ran at &#39; . date(&#39;Y-m-d H:i:s&#39;));</span></span>
+<span class="line"><span>}</span></span></code></pre>
+</li>
+<li><strong>Schedule</strong>: Hook it:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>if (!wp_next_scheduled(&#39;my_custom_cron&#39;)) {</span></span>
+<span class="line"><span>  wp_schedule_event(time(), &#39;daily&#39;, &#39;my_custom_cron&#39;);</span></span>
+<span class="line"><span>}</span></span></code></pre>
+</li>
+<li><strong>Learn</strong>: Check <a href="/posts/build-wordpress-cron-job/">Build a WordPress Cron Job</a> for examples.</li>
+</ul>
+<h3 id="23-server-side-cron">2.3 Server-Side Cron</h3>
+<ul>
+<li><strong>Why</strong>: WP-Cron slows sites, misses low-traffic runs.</li>
+<li><strong>How</strong>:
+<ol>
+<li>Disable WP-Cron: Add to <code>wp-config.php</code>: <code>define(&#39;DISABLE_WP_CRON&#39;, true);</code></li>
+<li>Set server cron: In cPanel, add <code>wget -q -O - yoursite.com/wp-cron.php</code> every 15 minutes.</li>
+</ol>
+</li>
+<li><strong>Benefit</strong>: Reliable, traffic-independent.</li>
+<li><strong>Guide</strong>: Follow <a href="/posts/wordpress-cpanel-server-side-cron-job-setup/">WordPress cPanel Server-Side Cron Job Setup</a> for details.</li>
+</ul>
+<p><strong>More</strong>: Explore <a href="/tags/wp-cron/">WP-Cron Tag</a> for tips.</p>
+<hr/>
+<h2 id="3-scheduling-with-wp_schedule_event">3. Scheduling with WP_Schedule_Event</h2>
+<p>Scheduling tasks in WordPress goes beyond the basics—WP_Schedule_Event gives you granular control over when and how your custom events run. Whether you need to automate database cleanups, send scheduled emails, or trigger any routine process, this powerful function lets you set precise intervals and manage recurring jobs programmatically. In this section, you’ll learn how to leverage WP_Schedule_Event for advanced automation and reliability.</p>
+<p>Fine-tune recurring tasks with precision.</p>
+<h3 id="31-how-it-works">3.1 How It Works</h3>
+<ul>
+<li><strong>Purpose</strong>: Schedule custom events via code.</li>
+<li><strong>Intervals</strong>: Hourly, daily, or custom.</li>
+</ul>
+<h3 id="32-example">3.2 Example</h3>
+<ul>
+<li><strong>Code</strong>: Schedule a task:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>add_action(&#39;init&#39;, function() {</span></span>
+<span class="line"><span>  if (!wp_next_scheduled(&#39;my_daily_task&#39;)) {</span></span>
+<span class="line"><span>    wp_schedule_event(time(), &#39;daily&#39;, &#39;my_daily_task&#39;);</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>});</span></span>
+<span class="line"><span>add_action(&#39;my_daily_task&#39;, function() {</span></span>
+<span class="line"><span>  // E.g., clear old transients</span></span>
+<span class="line"><span>  delete_expired_transients();</span></span>
+<span class="line"><span>});</span></span></code></pre>
+</li>
+<li><strong>Custom Interval</strong>:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>add_filter(&#39;cron_schedules&#39;, function($schedules) {</span></span>
+<span class="line"><span>  $schedules[&#39;every_15_minutes&#39;] = array(</span></span>
+<span class="line"><span>    &#39;interval&#39; =&gt; 900,</span></span>
+<span class="line"><span>    &#39;display&#39; =&gt; &#39;Every 15 Minutes&#39;</span></span>
+<span class="line"><span>  );</span></span>
+<span class="line"><span>  return $schedules;</span></span>
+<span class="line"><span>});</span></span></code></pre>
+</li>
+<li><strong>Resource</strong>: Dive into <a href="/posts/using-wp-schedule-event/">Using WP_Schedule_Event</a> for advanced setups.</li>
+</ul>
+<hr/>
+<h2 id="4-cicd-pipelines-for-wordpress">4. CI/CD Pipelines for WordPress</h2>
+<p>Continuous Integration/Continuous Deployment (CI/CD) automates development. In the fast-paced world of WordPress development, CI/CD pipelines are essential for maintaining code quality, speeding up deployments, and reducing human error. By integrating automated testing, code reviews, and deployment processes, you can ensure that every change to your site is thoroughly vetted and safely delivered to production. Whether you’re a solo developer or part of a larger team, adopting CI/CD practices helps you catch bugs early, streamline updates, and maintain a reliable, professional workflow. In this section, you’ll learn how to set up and optimize CI/CD pipelines tailored for WordPress in 2025.</p>
+<h3 id="41-why-cicd">4.1 Why CI/CD?</h3>
+<ul>
+<li><strong>Efficiency</strong>: Auto-test and deploy code.</li>
+<li><strong>Reliability</strong>: Catch bugs before live.</li>
+<li><strong>Scale</strong>: Ideal for teams or big sites.</li>
+</ul>
+<h3 id="42-setting-up">4.2 Setting Up</h3>
+<ul>
+<li><strong>Tools</strong>: GitHub Actions, GitLab CI, or Jenkins.</li>
+<li><strong>Steps</strong>:
+<ol>
+<li><strong>Version Control</strong>: Push code to GitHub.</li>
+<li><strong>Test</strong>: Run unit tests (e.g., PHPUnit).</li>
+<li><strong>Deploy</strong>: Auto-push to staging or live via FTP or SSH.</li>
+</ol>
+</li>
+<li><strong>Example Workflow</strong> (GitHub Actions):
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>name: Deploy WordPress</span></span>
+<span class="line"><span>on: push</span></span>
+<span class="line"><span>jobs:</span></span>
+<span class="line"><span>  deploy:</span></span>
+<span class="line"><span>    runs-on: ubuntu-latest</span></span>
+<span class="line"><span>    steps:</span></span>
+<span class="line"><span>      - uses: actions/checkout@v3</span></span>
+<span class="line"><span>      - name: Deploy to Server</span></span>
+<span class="line"><span>        uses: appleboy/ssh-action@master</span></span>
+<span class="line"><span>        with:</span></span>
+<span class="line"><span>          host: yourserver.com</span></span>
+<span class="line"><span>          username: user</span></span>
+<span class="line"><span>          key: ${{ secrets.SSH_KEY }}</span></span>
+<span class="line"><span>          script: |</span></span>
+<span class="line"><span>            cd /path/to/site</span></span>
+<span class="line"><span>            git pull</span></span></code></pre>
+</li>
+<li><strong>Guide</strong>: See <a href="/posts/wordpress-ci-cd-pipeline/">WordPress CI/CD Pipeline</a> for a full setup.</li>
+</ul>
+<hr/>
+<h2 id="5-automating-with-wp-cli">5. Automating with WP-CLI</h2>
+<p>WP-CLI is a command-line tool to manage WordPress fast.</p>
+<p>Managing WordPress sites through the dashboard can be slow and repetitive, especially when handling multiple sites or performing bulk operations. WP-CLI (WordPress Command Line Interface) empowers you to automate and streamline nearly every aspect of WordPress management directly from your terminal. With WP-CLI, you can install plugins, update themes, manage users, export databases, and much more—all with simple commands or scripts. This section introduces how WP-CLI can save you time, reduce errors, and enable advanced automation for your WordPress workflows in 2025.</p>
+<h3 id="51-why-wp-cli">5.1 Why WP-CLI?</h3>
+<ul>
+<li><strong>Speed</strong>: Update plugins, users in seconds.</li>
+<li><strong>Batch</strong>: Run tasks across sites.</li>
+<li><strong>Power</strong>: Script complex automation.</li>
+</ul>
+<h3 id="52-key-commands">5.2 Key Commands</h3>
+<ul>
+<li><strong>Install</strong>: <code>wp core install --url=yoursite.com --title=&quot;My Site&quot;</code></li>
+<li><strong>Plugins</strong>: <code>wp plugin install jetpack --activate</code></li>
+<li><strong>Backups</strong>: <code>wp db export backup.sql</code></li>
+<li><strong>Users</strong>: <code>wp user create bob bob@example.com --role=editor</code></li>
+<li><strong>Setup</strong>: Install via <code>curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar</code>.</li>
+</ul>
+<h3 id="53-automation-scripts">5.3 Automation Scripts</h3>
+<ul>
+<li><strong>Example</strong>: Batch update and clean:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>#!/bin/bash</span></span>
+<span class="line"><span>wp plugin update --all</span></span>
+<span class="line"><span>wp cache flush</span></span>
+<span class="line"><span>wp transient delete --all</span></span></code></pre>
+</li>
+<li><strong>Run</strong>: Save as <code>update.sh</code>, execute with <code>bash update.sh</code>.</li>
+<li><strong>Deep Dive</strong>: Explore <a href="/posts/wp-cli-automate-wordpress/">WP-CLI: Automate WordPress</a> for pro tips.</li>
+</ul>
+<hr/>
+<h2 id="6-additional-automation-tips">6. Additional Automation Tips</h2>
+<p>Boost efficiency with these 2025 strategies.</p>
+<p>Managing a WordPress site goes beyond just backups and updates—there are countless ways to automate and optimize your workflow for even greater efficiency. In this section, we’ll cover additional automation tips that can help you monitor uptime, enable automatic updates, and tie your site management into broader security and performance strategies. Whether you’re running a single site or managing multiple projects, these practical tips will help you save time, reduce manual effort, and keep your WordPress sites running smoothly in 2025.</p>
+<h3 id="61-monitor-uptime">6.1 Monitor Uptime</h3>
+<ul>
+<li><strong>Tools</strong>: UptimeRobot, Jetpack Downtime Monitoring.</li>
+<li><strong>Why</strong>: Get alerts for crashes, fix fast.</li>
+<li><strong>Setup</strong>: Sign up, add yoursite.com, set alerts.</li>
+</ul>
+<h3 id="62-auto-updates">6.2 Auto-Updates</h3>
+<ul>
+<li><strong>Enable</strong>: In <code>wp-config.php</code>, add:
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>define(&#39;WP_AUTO_UPDATE_CORE&#39;, true);</span></span></code></pre>
+</li>
+<li><strong>Plugins</strong>: Use “Easy Updates Manager” for control.</li>
+<li><strong>Caution</strong>: Test updates on staging first.</li>
+</ul>
+<h3 id="63-tie-ins">6.3 Tie-Ins</h3>
+<ul>
+<li><strong>Security</strong>: Auto-backups pair with <a href="/posts/secure-wordpress-site-from-hackers-2025-edition/">Secure WordPress Site from Hackers: 2025 Edition</a>.</li>
+<li><strong>Performance</strong>: Speed up with <a href="/posts/wocommerce-performance-optimization/">WooCommerce Performance Optimization</a>.</li>
+</ul>
+<hr/>
+<h2 id="7-tools-for-management">7. Tools for Management</h2>
+<p>Managing WordPress sites efficiently in 2025 requires the right set of tools to automate, monitor, and streamline your workflow. With so many options available, it’s important to choose solutions that fit your needs—whether you’re running a single blog or managing dozens of client sites. This section highlights essential tools for WordPress site management and automation, covering everything from command-line utilities and backup plugins to multi-site dashboards and cron monitoring services. By leveraging these tools, you can save time, reduce manual effort, and ensure your sites remain secure, up-to-date, and performing at their best.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>Purpose</th><th>Why It’s Great</th></tr></thead><tbody><tr><td>WP-CLI</td><td>Command-line automation</td><td>Fast, batch tasks</td></tr><tr><td>UpdraftPlus</td><td>Automated backups</td><td>Free, cloud storage</td></tr><tr><td>ManageWP</td><td>Multi-site management</td><td>Central dashboard</td></tr><tr><td>Cronitor</td><td>Monitor cron jobs</td><td>Tracks failures, alerts</td></tr></tbody></table>
+<ul>
+<li><strong>Explore</strong>: More at <a href="/tags/automation/">Automation Tag</a>.</li>
+</ul>
+<hr/>
+<h2 id="8-2025-management-checklist">8. 2025 Management Checklist</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Set backups: <a href="/posts/set-automated-backups-wordpress-free-paid-options/">Set Automated Backups for WordPress: Free &amp; Paid Options</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Build cron: <a href="/posts/build-wordpress-cron-job/">Build a WordPress Cron Job</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Go server-side: <a href="/posts/wordpress-cpanel-server-side-cron-job-setup/">WordPress cPanel Server-Side Cron Job Setup</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add CI/CD: <a href="/posts/wordpress-ci-cd-pipeline/">WordPress CI/CD Pipeline</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Use WP-CLI: <a href="/posts/wp-cli-automate-wordpress/">WP-CLI: Automate WordPress</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Schedule tasks: <a href="/posts/using-wp-schedule-event/">Using WP_Schedule_Event</a>.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Check <a href="/tags/automation/">Automation Tag</a> and <a href="/tags/wp-cron/">WP-Cron Tag</a>.</li>
+</ul>
+<hr/>
+<h2 id="9-automation--site-health">9. Automation &amp; Site Health</h2>
+<p>Automation isn’t just about saving time—it’s about maintaining a healthy, high-performing WordPress site. By automating key management tasks, you reduce the risk of human error, ensure critical processes like backups and updates happen on schedule, and gain valuable insights into your site’s health. Automated monitoring tools can alert you to downtime or performance issues before they impact your visitors, while scheduled maintenance keeps your site running smoothly. In this section, we’ll explore how automation directly contributes to better site health, improved reliability, and a stronger foundation for growth in 2025.</p>
+<ul>
+<li><strong>Uptime</strong>: Automated checks keep you live.</li>
+<li><strong>Efficiency</strong>: Cut hours of manual work.</li>
+<li><strong>SEO</strong>: Fast, reliable sites rank higher.</li>
+<li><strong>Bonus</strong>: Pair with <a href="/posts/improve-core-web-vitals-wordpress-site/">Improve Core Web Vitals for Your WordPress Site</a>.</li>
+</ul>
+<hr/>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>WordPress site management and automation in 2025 streamline your workflow. From backups and cron jobs to CI/CD and WP-CLI, you’ve got tools to save time and boost reliability. Start today: schedule a backup, set a cron, or try WP-CLI. Explore more at <a href="/tags/automation/">Automation Tag</a> and stay sharp with <a href="/tags/wp-cron/">WP-Cron Tag</a>.</p>
+<p>Questions? Comment or contact me! Let’s automate WordPress in 2025!</p> </article> <hr class="my-4 border-dashed"> <!-- Actions --> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4 mb-12"> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/topic/wordpress-site-management-and-automation/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <!-- Topic Edit Link (simplified version for topics) --> <div class="flex items-center gap-2"> <a href="https://github.com/shuvoaftab/blogposts/edit/main/src/data/topics/wordpress-site-management-and-automation.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path> </svg>
+Edit this topic
+</a> </div> </div> <hr class="my-4 border-dashed"> <!-- Related Posts Section --> <section class="mt-12" data-astro-cid-7uzl234s><h2 class="text-2xl font-bold mb-6" data-astro-cid-7uzl234s>Posts related on this topic:</h2><div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-astro-cid-7uzl234s><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/wordpress-ci-cd-pipeline" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/wordpress-ci-cd-pipeline.DjUinh2C.jpg" alt="Featured image for Deploying WordPress with CI/CD Pipelines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Development</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Deploying WordPress with CI/CD Pipelines</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>How to Deploy WordPress with CI/CD Pipelines.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2023-03-08T11:15:00.000Z">8 Mar, 2023</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 05:15 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>CI/CD</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Deployment</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++2 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/wp-cli-automate-wordpress" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/wp-cli-automate-wordpress.DM6Sqkkv.jpg" alt="Featured image for Using WP-CLI: Automate and Manage WordPress at Scale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Server</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Using WP-CLI: Automate and Manage WordPress at Scale</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>How to Automate and Manage WordPress from the Command Line using WP-CLI.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2024-08-07T16:20:00.000Z">7 Aug, 2024</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 10:20 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Automation</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Command Line</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++2 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/use-wp-cli-manage-wordpress-command-line" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/use-wp-cli-manage-wordpress-command-line.CM5gqDvO.jpg" alt="Featured image for How to Use WP-CLI to Manage WordPress from the Command Line" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Server</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>How to Use WP-CLI to Manage WordPress from the Command Line</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>Speed up WordPress management with WP-CLI. Learn how to install, use, and automate tasks like updates, backups, and more from the command line.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2021-10-05T08:00:00.000Z">5 Oct, 2021</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 02:00 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WP-CLI</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Command Line</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++3 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/using-wp-schedule-event" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/using-wp-schedule-event.Bf-ryrgH.jpg" alt="Featured image for How to Use WP_Schedule_Event for Scheduling Automated Tasks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Server</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>How to Use WP_Schedule_Event for Scheduling Automated Tasks</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>A guide on using WP_Schedule_Event in WordPress.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2021-08-09T10:50:00.000Z">9 Aug, 2021</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 04:50 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WP_Schedule_Event</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Cron Job</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++2 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/build-wordpress-cron-job" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/build-wordpress-cron-job.CJjEh9zt.jpg" alt="Featured image for Building and Managing WP-Cron Jobs in WordPress" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Development</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Building and Managing WP-Cron Jobs in WordPress</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>A comprehensive guide to building, managing, and optimizing WP-Cron jobs in WordPress.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2020-11-03T14:20:00.000Z">3 Nov, 2020</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 08:20 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Cron Job</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WP-Cron</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++2 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/automate-wordpress-cron-monitoring-with-telefy" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/automate-wordpress-cron-monitoring-with-telefy.BvEDbpzC.jpg" alt="Featured image for Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Server</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Automate WordPress Cron Monitoring with Telefy: A Server-Side Guide</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>A guide on using telefy package for failed cron events.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2025-05-12T13:40:00.000Z">12 May, 2025</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 07:40 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Cron Job</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Server</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++3 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/wordpress-cpanel-server-side-cron-job-setup" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/wordpress-cpanel-server-side-cron-job-setup.bgs9hbFT.jpg" alt="Featured image for WordPress Server-Side Cron Job Setup (cPanel)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Server</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>WordPress Server-Side Cron Job Setup (cPanel)</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>This guide is to assist you configuring Server-side Cron Job for your WordPress or WooCommerce Website.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2019-06-18T09:45:00.000Z">18 Jun, 2019</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 03:45 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Cron Job</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Server</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++3 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/secure-wordpress-site-from-hackers-2025-edition" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/secure-wordpress-site-from-hackers-2025-edition.Bu81hfi1.jpg" alt="Featured image for WordPress Security 2025: Ultimate Guide to Protect Your Site from Hackers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Security</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>WordPress Security 2025: Ultimate Guide to Protect Your Site from Hackers</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>Learn comprehensive WordPress security measures for 2025. Get tips on updates, passwords, plugins (Wordfence, Sucuri, etc.), Cloudflare, server firewalls (CSF), and best practices to keep hackers out.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2025-05-14T13:00:00.000Z">14 May, 2025</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 07:00 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress Security</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Malware Protection</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Server Hardening</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++2 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/configure-fluent-smtp-with-cpanel-webmail" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/configure-fluent-smtp-with-cpanel-webmail.NLY5UN56.jpg" alt="Featured image for Configure Fluent SMTP with cPanel Webmail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Hosting</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Configure Fluent SMTP with cPanel Webmail</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>A guide to configuring your cPanel Webmail (Roundcube) with FluentSMTP for WordPress email delivery.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2022-05-07T05:00:00.000Z">7 May, 2022</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 11:00 AM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>FluentSMTP</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Email</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++5 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/creating-scalable-wordpress-sites" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/creating-scalable-wordpress-sites.B7W1l_G6.jpg" alt="Featured image for Creating Scalable WordPress Websites" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Performance</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Creating Scalable WordPress Websites</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>How to guide on Creating Scalable WordPress Websites.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2020-01-05T12:10:00.000Z">5 Jan, 2020</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 06:10 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Scalability</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Hosting</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++2 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/improving-wordpress-performance-object-caching-redis-memcached" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/improving-wordpress-performance-object-caching-redis-memcached.B9OtMd_g.jpg" alt="Featured image for Improving WordPress Performance with Object Caching (Redis/Memcached)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>Server</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>Improving WordPress Performance with Object Caching (Redis/Memcached)</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>Boost your WordPress site’s speed with object caching using Redis or Memcached. Learn how they work and follow this step-by-step guide to implement them.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2021-06-15T09:00:00.000Z">15 Jun, 2021</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 03:00 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Object Caching</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Redis</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++3 more
+</span></div></div></a></article><article class="related-post-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300" data-astro-cid-7uzl234s><a href="/posts/set-automated-backups-wordpress-free-paid-options" class="block group h-full" data-astro-cid-7uzl234s><div class="w-full aspect-video overflow-hidden relative" data-astro-cid-7uzl234s><img src="/_astro/set-automated-backups-wordpress-free-paid-options.BIzDgikX.jpg" alt="Featured image for How to Set Up Automated Backups in WordPress (Free &#38; Paid Options)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-7uzl234s><div class="absolute top-2 right-2 flex flex-wrap gap-1" data-astro-cid-7uzl234s><span class="inline-block rounded-sm bg-white/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-black shadow-sm" data-astro-cid-7uzl234s>WordPress</span></div></div><div class="p-4 flex flex-col flex-grow" data-astro-cid-7uzl234s><h3 class="font-semibold mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors" data-astro-cid-7uzl234s>How to Set Up Automated Backups in WordPress (Free &amp; Paid Options)</h3><p class="text-sm text-gray-600 mb-3 line-clamp-2 flex-grow" data-astro-cid-7uzl234s>Learn how to set up automated backups for your WordPress site using free and paid plugins, cloud storage, and best practices to keep your data safe.</p><div class="flex items-center justify-between text-xs text-gray-500 mb-2" data-astro-cid-7uzl234s><div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem] scale-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm"> <time datetime="2025-04-20T10:00:00.000Z">20 Apr, 2025</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 04:00 PM</span> </span> </div></div><div class="flex flex-wrap gap-1 mt-2" data-astro-cid-7uzl234s><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>WordPress</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>Backups</span><span class="inline-block bg-(--muted) px-2 py-1 rounded text-xs" data-astro-cid-7uzl234s>UpdraftPlus</span><span class="text-xs text-gray-400 px-1" data-astro-cid-7uzl234s>
++3 more
+</span></div></div></a></article></div></section><!-- Default with images --><!-- <RelatedPosts posts={relatedPosts} /> --><!-- Without images --><!-- <RelatedPosts posts={relatedPosts} showImages={false} /> --><!-- List layout with images --><!-- <RelatedPosts posts={relatedPosts} variant="list" showImages={true} /> --><!-- Grid layout without images --><!-- <RelatedPosts posts={relatedPosts} variant="grid" showImages={false} /> --> <hr class="my-4 border-dashed"> <!-- Topic Statistics --> <div class="mt-8 p-6 bg-gray-200 rounded-lg"> <h3 class="text-lg font-semibold mb-2 text-accent">📊 Topic Statistics</h3> <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center"> <div> <div class="text-2xl font-bold text-blue-600">55</div> <div class="text-sm text-gray-600">Total Posts</div> </div> <div> <div class="text-2xl font-bold text-green-600">7</div> <div class="text-sm text-gray-600">Related Tags</div> </div> <div> <div class="text-2xl font-bold text-purple-600">2</div> <div class="text-sm text-gray-600">Categories</div> </div> <div> <div class="text-2xl font-bold text-orange-600"> 5 </div> <div class="text-sm text-gray-600">Perfect Matches</div> </div> </div> </div> <div id="giscus-container" class="giscus mt-6"> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> <footer class="w-full max-w-7xl mt-auto" data-astro-cid-xsyc7abh> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="footer flex flex-col items-center justify-between px-4 py-6 sm:flex-row-reverse sm:py-4" data-astro-cid-xsyc7abh> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row" data-astro-cid-xsyc7abh> <span data-astro-cid-xsyc7abh>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  </main>  <button id="back-to-top" class="back-to-top focus-outline relative whitespace-nowrap hover:opacity-90 hidden left-4" aria-label="Back to top" title="Back to top" data-astro-cid-5l3afzhg> <!-- Circular progress ring --> <svg class="progress-ring absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 50 50" data-astro-cid-5l3afzhg> <circle class="progress-ring-bg" cx="25" cy="25" r="22" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" data-astro-cid-5l3afzhg></circle> <circle id="progress-ring-circle" class="progress-ring-circle" cx="25" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" data-astro-cid-5l3afzhg></circle> </svg> <!-- Arrow icon --> <svg class="relative z-10 w-5 h-5 rotate-90" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-5l3afzhg> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" data-astro-cid-5l3afzhg></path> </svg> <span class="sr-only" data-astro-cid-5l3afzhg>Back to top</span> </button> <script>(function(){const showAfter = 150;
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function initBackToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    const progressCircle = document.querySelector("#progress-ring-circle");
+    
+    if (backToTopButton && progressCircle) {
+      const circumference = 2 * Math.PI * 22; // radius = 22
+      
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      // Update progress and visibility based on scroll position
+      function updateProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        
+        // Calculate scroll percentage
+        const scrollPercent = scrollTop / documentHeight;
+        
+        // Update progress ring
+        const offset = circumference - (scrollPercent * circumference);
+        progressCircle.style.strokeDashoffset = offset.toString();
+        
+        // Toggle visibility
+        if (scrollTop > showAfter) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      }
+
+      // Initial check
+      updateProgress();
+
+      // Listen for scroll events
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      // Cleanup function for page navigation
+      document.addEventListener("astro:before-swap", () => {
+        window.removeEventListener("scroll", updateProgress);
+      });
+    }
+  }
+
+  // Initialize on page load
+  initBackToTop();
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initBackToTop);
+})();</script>   <!-- Crisp and Custom JS for page --> <script data-astro-rerun src="/assets/js/main.js"></script> <!-- <script is:inline data-astro-rerun>
+      document.addEventListener("astro:page-load", () => {
+        setTimeout(() => {
+            window.$crisp = []; window.CRISP_WEBSITE_ID = "8d20914b-0995-4bdd-aa36-a2274ec8cca6"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+        }, 500);
+      });
+    </script> --> </body></html> <script data-astro-rerun>
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+    /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  // Change all Link Colors
+  // Use CSS variables for link colors to support dark/light themes
+  document.querySelectorAll('.main-content article.prose a').forEach(link => {
+    link.classList.add('transition-colors');
+    link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    link.addEventListener('mouseenter', () => {
+      link.style.setProperty('color', 'var(--topic-link-hover-color)', 'important');
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    });
+  });
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>
