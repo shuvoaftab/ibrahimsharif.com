@@ -1,0 +1,642 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind | Blog</title><meta name="title" content="Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind | Blog"><meta name="description" content="A behind-the-scenes look at managing a critical bug during a FluentCRM release, with lessons on teamwork, communication, and staying calm under pressure."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind | Blog"><meta property="og:description" content="A behind-the-scenes look at managing a critical bug during a FluentCRM release, with lessons on teamwork, communication, and staying calm under pressure."><meta property="og:url" content="https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/"><meta property="og:image" content="https://ibrahimsharif.com/_astro/handling-a-release-day-crisis-without-losing-my-mind.UT-oBijo.jpg"><!-- Article Published/Modified time --><meta property="article:published_time" content="2024-06-18T19:09:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/"><meta property="twitter:title" content="Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind | Blog"><meta property="twitter:description" content="A behind-the-scenes look at managing a critical bug during a FluentCRM release, with lessons on teamwork, communication, and staying calm under pressure."><meta property="twitter:image" content="https://ibrahimsharif.com/_astro/handling-a-release-day-crisis-without-losing-my-mind.UT-oBijo.jpg"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind | Blog","image":"https://ibrahimsharif.com/_astro/handling-a-release-day-crisis-without-losing-my-mind.UT-oBijo.jpg","datePublished":"2024-06-18T19:09:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><!-- <ClientRouter /> --><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.y4oVlBwV.css">
+<style>footer[data-astro-cid-xsyc7abh]{padding-inline:0}
+</style>
+<link rel="stylesheet" href="/_astro/index.Cq7fEnt7.css">
+<style>.back-to-top[data-astro-cid-5l3afzhg]{position:fixed;bottom:1rem;z-index:1000;width:3rem;height:3rem;background:#343f60e6;color:#fff;border-radius:50%;box-shadow:0 4px 12px #00000026;transition:all .3s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center}.back-to-top[data-astro-cid-5l3afzhg]:hover{background:#343f60;transform:translateY(-2px) scale(1.05);box-shadow:0 8px 20px #0003}.progress-ring[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out}.progress-ring-circle[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out;filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}.hidden[data-astro-cid-5l3afzhg]{opacity:0;pointer-events:none;transform:translateY(20px) scale(.8)}.dark .back-to-top[data-astro-cid-5l3afzhg]{background:#ffffff1a;color:#fff}.dark .back-to-top[data-astro-cid-5l3afzhg]:hover{background:#fff3}.sr-only[data-astro-cid-5l3afzhg]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style><style>[data-astro-transition-scope="astro-2atpulty-1"] { view-transition-name: controlled-chaos-handling-a-release-day-crisis-without-losing-my-mind; }@layer astro { ::view-transition-old(controlled-chaos-handling-a-release-day-crisis-without-losing-my-mind) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(controlled-chaos-handling-a-release-day-crisis-without-losing-my-mind) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(controlled-chaos-handling-a-release-day-crisis-without-losing-my-mind) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(controlled-chaos-handling-a-release-day-crisis-without-losing-my-mind) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class="sticky top-0 z-1000 w-full dark:border-gray-700 shadow-md border-b" data-astro-cid-jov6nfgc> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4" data-astro-cid-jov6nfgc>
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row" data-astro-cid-jov6nfgc> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background sm:items-center px-4" data-astro-cid-jov6nfgc> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static" data-astro-cid-jov6nfgc> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-rogue-script.svg" alt="Ibrahim Logo" class="logo-svg h-8 sm:h-10 md:h-12 lg:h-14" data-astro-cid-jov6nfgc> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0" data-astro-cid-jov6nfgc> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items" data-astro-cid-jov6nfgc> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-y-0" data-astro-cid-jov6nfgc> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/topics" data-astro-cid-jov6nfgc>
+Topics
+</a> </li> <li class="col-span-2 menu-link active-nav" data-astro-cid-jov6nfgc> <a href="/posts" data-astro-cid-jov6nfgc>
+Posts
+</a> </li> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/tags" data-astro-cid-jov6nfgc>
+Tags
+</a> </li> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/categories" data-astro-cid-jov6nfgc>
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only" data-astro-cid-jov6nfgc>Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center" data-astro-cid-jov6nfgc> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only" data-astro-cid-jov6nfgc>Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center" data-astro-cid-jov6nfgc> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite" data-astro-cid-jov6nfgc> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <!-- <Hr /> --> </header>  <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <main id="main-content" class="w-full max-w-7xl mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <nav class="breadcrumb mx-auto py-4 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">▶</span> </li> <li> <a href="/posts/" class="capitalize opacity-70"> Posts </a> <span aria-hidden="true" class="opacity-80 mx-1">▶</span> </li><li> <span class="opacity-75" aria-current="page"> Handling a Release Day Crisis Without Losing My Mind </span> </li> </ul> </nav> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="main-content flex flex-col lg:flex-row w-full max-w-7xl px-4 py-8 mx-auto" data-astro-cid-2t7o7two> <div class="w-full lg:w-1/4 lg:me-8" data-astro-cid-2t7o7two> <!-- <Aside title="Category & Tags" className="w-full top-4 mb-6 hidden md:block">
+        
+      </Aside> --> <aside class="toc w-full sticky top-4 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-s6iqbw7n> <div class="aside-header" data-astro-cid-s6iqbw7n> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-s6iqbw7n>Table of Contents</h2> </div> <div class="aside-content p-2" data-astro-cid-s6iqbw7n> <div class="widget-wrapper" data-astro-cid-s6iqbw7n>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div>  <div class="toc-arrow" aria-hidden="true" data-astro-cid-s6iqbw7n> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-s6iqbw7n> <path d="M12 5v14M5 12l7 7 7-7" data-astro-cid-s6iqbw7n></path> </svg> </div> </div> </div> </aside>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".toc .widget-wrapper");if(!e)return;const t=e.querySelector(".toc-arrow");if(!t)return;const s=()=>{const i=e.scrollHeight>e.clientHeight,r=e.scrollTop+e.clientHeight>=e.scrollHeight-1;i?r?(t.classList.remove("visible"),t.classList.add("hidden")):(t.classList.remove("hidden"),t.classList.add("visible")):t.classList.add("hidden")};s(),e.addEventListener("scroll",s),window.addEventListener("resize",s)});</script> </div> <div class="w-full lg:w-3/4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-2atpulty-1"> Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind </h1> <div class="flex justify-between items-center gap-4 mt-2 mb-1" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2024-06-18T19:09:00.000Z">19 Jun, 2024</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 01:09 AM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 14 min read</span> </div> <div class="flex flex-col border-b border-muted gap-2 pb-2 mb-4" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/career/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans rounded-sm category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>Career</span> </a> </li> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/wordpress/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans rounded-sm category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>WordPress</span> </a> </li> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/leadership/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans rounded-sm category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>Leadership</span> </a> </li>  </ul> </div> <div class="w-full featuredImage mb-8" data-astro-cid-2t7o7two> <img src="/_astro/handling-a-release-day-crisis-without-losing-my-mind.UT-oBijo.jpg" alt="Featured image for Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind" class="w-full h-auto object-cover shadow-md ring-(--border) ring rounded-lg" loading="eager" data-astro-cid-2t7o7two> </div> <!-- <p> FeaturedImage:: {featuredImage}</p> --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>When you’re responsible for a major software release, the stakes are high and the pressure is real. No matter how thorough your testing, there’s always a chance that something unexpected will go wrong the moment your update goes live. In this post, I’ll share a behind-the-scenes look at one of my most challenging release days as the support lead for FluentCRM. From the first wave of urgent support tickets to the rapid assembly of our crisis “war room,” you’ll see how a structured protocol, clear communication, and teamwork helped us turn a potential disaster into a story of resilience and growth. Whether you’re a developer, support agent, or team lead, these lessons in controlled chaos can help you prepare for your own high-stakes moments.</p>
+<p>Imagine a city’s fire brigade. Most days are routine, but when a major fire breaks out, every member knows their role, trusts the process, and acts with urgency and calm. A release-day crisis is our version of a four-alarm fire—success depends on drills, teamwork, and clear protocols, not heroics.</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#overview-of-release-cycles">Overview of Release Cycles</a></li>
+<li><a href="#the-high-stakes-of-release-day">The High Stakes of Release Day</a></li>
+<li><a href="#when-the-tickets-started-pouring-in">When the Tickets Started Pouring In</a></li>
+<li><a href="#springing-into-action-the-war-room">Springing Into Action: The War Room</a></li>
+<li><a href="#digging-into-the-bug">Digging Into the Bug</a>
+<ul>
+<li><a href="#the-war-room-activating-our-crisis-protocol">The “War Room”: Activating Our Crisis Protocol</a></li>
+<li><a href="#the-coordinated-fix-and-recovery">The Coordinated Fix and Recovery</a></li>
+</ul>
+</li>
+<li><a href="#rebuilding-trust-after-the-storm">Rebuilding Trust After the Storm</a></li>
+<li><a href="#the-aftermath-what-we-learned">The Aftermath: What We Learned</a></li>
+<li><a href="#best-practices-for-your-own-crisis-plan">Best Practices for Your Own Crisis Plan</a>
+<ul>
+<li><a href="#ad-hoc-vs-protocol-driven-crisis-response-comparison">Ad Hoc vs. Protocol-Driven Crisis Response Comparison</a></li>
+</ul>
+</li>
+</ul>
+<p></p></details><p></p>
+<h2 id="overview-of-release-cycles">Overview of Release Cycles</h2>
+<p>Release cycles in software development are like the seasons of nature—predictable yet full of surprises. At WPManageNinja, we follow a structured release cycle for FluentCRM, our email automation plugin for WordPress. Each cycle includes planning, development, testing, and finally, the much-anticipated release day. But as any seasoned developer knows, release days can be unpredictable.</p>
+<p>Our team spends weeks preparing for a new version, ensuring every feature is polished and every bug is squashed. We run extensive tests, covering everything from functionality to performance. But despite our best efforts, the WordPress ecosystem’s complexity means that unexpected issues can still arise. This post dives into one such incident, where a seemingly minor bug turned into a major crisis, testing our team’s resilience and communication skills.</p>
+<p>A successful software release relies on a structured cycle, clear roles, and cross-team collaboration. Here’s a high-level overview of our process at WPManageNinja for FluentCRM:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Stage</th><th>Key Activities</th></tr></thead><tbody><tr><td><strong>1. Planning &amp; Development</strong></td><td>Gather feedback, prioritize features, define scope, align teams, and prepare documentation &amp; marketing.</td></tr><tr><td><strong>2. Development</strong></td><td>Code in sprints, use feature branches, conduct code reviews, and collaborate between dev &amp; support.</td></tr><tr><td><strong>3. Testing &amp; QA</strong></td><td>Automated/manual tests, cross-team reviews, staging environments, and exploratory testing.</td></tr><tr><td><strong>4. Release Day</strong></td><td>Announce updates, monitor for issues, and maintain real-time team communication.</td></tr><tr><td><strong>5. Post-Release Monitoring</strong></td><td>Track analytics, gather feedback, issue hotfixes if needed, and hold debrief meetings.</td></tr></tbody></table>
+<p>This structured approach helps us minimize surprises, respond quickly to issues, and continuously improve with each release.
+clearly to users.</p>
+<hr/>
+<h2 id="the-high-stakes-of-release-day">The High Stakes of Release Day</h2>
+<p>Release days are a rollercoaster. Weeks or months of coding, testing, and refining come down to a single moment when you push the update live. At WPManageNinja, launching a new version of FluentCRM—a plugin powering email automation for over 50,000 WordPress sites—is always a mix of excitement and nerves. You’re thrilled to share new features but haunted by the question: <em>What if something breaks?</em></p>
+<p>For FluentCRM 2.9.2 released on August 12, 2024, we were confident. Here’s what shipped in that release:</p>
+<p><strong>Changelog:</strong></p>
+<ul>
+<li><strong>New:</strong> Built-in Automation Templates</li>
+<li><strong>New:</strong> FluentSMTP logs to the Emails Section of Profile</li>
+<li><strong>New:</strong> Email Filter to the Emails Section of Profile</li>
+<li><strong>Fixed:</strong> Email Editor Issue</li>
+<li><strong>Fixed:</strong> ActiveCampaign Import Contacts Issue</li>
+<li><strong>Fixed:</strong> Event Tracking Fetch Issue</li>
+<li><strong>Fixed:</strong> Sending Double opt-in Email</li>
+<li><strong>Fixed:</strong> Webhook Issue</li>
+<li><strong>Fixed:</strong> Automation Twice Run Issue</li>
+<li><strong>Improvement:</strong> UI of the Custom Fields</li>
+<li><strong>Other Improvements &amp; Bug Fixes</strong></li>
+</ul>
+<p>The update brought some new features, fixed some bugs, and improved UI as well. We thought we’d covered every angle. But within hours of the release, our support portal lit up with reports of a fatal error, and I realized we were in for a fight.</p>
+<hr/>
+<h2 id="when-the-tickets-started-pouring-in">When the Tickets Started Pouring In</h2>
+<p>The first ticket hit like a warning shot: <code>&quot;Why did my campaign send twice to every subscriber?&quot;</code> Soon, dozens more followed. Users reported duplicate emails being sent out, automations firing multiple times, and sequences restarting unexpectedly. Some even saw their servers buckle under the load—CPU usage spiked, hosting providers sent warnings, and email sending limits were quickly exceeded. One user wrote, <code>“My customers are getting bombarded with duplicate emails—this is hurting my reputation!”</code> Another said, <code>“My server is stuck processing hundreds of requests, and my site is barely responsive. What happened?”</code></p>
+<p>The volume was overwhelming. Our support team, usually calm and methodical, felt the pressure. Sujoy, one of our agents, later shared, “I saw the inbox hit triple digits, and my heart sank. I didn’t know where to start.” As the lead, I felt the weight of every ticket. This wasn’t just a bug—it was a threat to our users’ trust and their business operations.</p>
+<p>The root cause? A critical bug in the latest release had inadvertently registered duplicate cron jobs within WordPress. This meant scheduled tasks—responsible for sending emails, processing campaigns, and running automations—were firing two or even three times for every intended run. The result: duplicate email sends, repeated automations, and servers overwhelmed by a flood of background processes.</p>
+<hr/>
+<h2 id="springing-into-action-the-war-room">Springing Into Action: The War Room</h2>
+<p>We didn’t panic, thanks to a crisis management protocol we’d built over time. Nicknamed the “War Room” approach, it’s a structured plan born from past hiccups, like a compatibility issue with a payment gateway plugin that taught us the value of preparation. The protocol is simple but effective, and has become a cornerstone of how we handle high-pressure incidents.</p>
+<p><strong>Here’s how our “War Room” protocol works in practice:</strong></p>
+<ul>
+<li><strong>Dedicated Channel:</strong> As soon as a crisis is identified, we create a focused Slack channel (e.g., <code>#fluentcrm-crisis-0824</code>) for real-time, distraction-free collaboration. This channel becomes the heartbeat of our response, ensuring that all updates, findings, and decisions are centralized and visible to everyone involved.</li>
+<li><strong>Clear Roles:</strong> We immediately assign specific roles to team members. A support lead takes charge of user communication—triaging tickets, providing updates, and managing expectations—while a development lead focuses on technical diagnosis and solution engineering. Other team members are delegated to tasks like documentation, QA, or monitoring.</li>
+<li><strong>Canned Responses:</strong> To prevent confusion and ensure consistency, we use pre-written messages for initial ticket responses. These acknowledge the issue, set expectations for users, and reassure them that a fix is underway. This step is crucial for maintaining user trust and reducing anxiety during uncertain times.</li>
+<li><strong>Staging Environment:</strong> We quickly replicate the reported issue in a controlled staging environment that mirrors affected user setups as closely as possible. This allows us to safely diagnose, test, and validate fixes without risking further disruption to live sites.</li>
+<li><strong>Frequent Updates:</strong> Communication is continuous. We commit to providing users with hourly updates—even if there’s no new information, a simple progress report (“We’re still working on it, here’s what we’ve tried so far…”) goes a long way in keeping users calm and informed.</li>
+</ul>
+<p>I kicked things off by setting up “ on Slack. Sujoy took charge of support, triaging tickets and sending responses like, <strong>“We’re aware of the issue and working on a fix. We’ll update you soon.”</strong> Meanwhile, another senior support agent spun up a staging site to mirror an affected user’s setup, allowing our developers to reproduce and analyze the bug in real time. The protocol gave us a roadmap, turning chaos into focus and ensuring that every team member knew exactly what to do.</p>
+<blockquote>
+<p>“War Room” is a term borrowed from military strategy, where a dedicated space is used for crisis management and decision-making. In our case, it became a virtual hub for our support and development teams to collaborate in real-time. But as we work onsite, we also have a physical war room—essentially our Department Head’s office—where we can gather, brainstorm, and tackle issues together face-to-face. This blend of virtual and physical collaboration has been key to our success in managing crises effectively.</p>
+</blockquote>
+<hr/>
+<h2 id="digging-into-the-bug">Digging Into the Bug</h2>
+<h3 id="the-war-room-activating-our-crisis-protocol">The “War Room”: Activating Our Crisis Protocol</h3>
+<p>Panic is the enemy in a situation like this. My first action was not to dive into a ticket, but to declare a “Code Red” and activate our crisis management protocol—a playbook we had developed specifically for this kind of scenario.</p>
+<ol>
+<li>
+<p><strong>Step 1: Assemble the War Room.</strong> I immediately created a dedicated, private Slack channel named <code>#fluentcrm-crisis-0824</code>. I pulled in my entire support team of five agents and the lead developer for FluentCRM. All non-critical was managed by junior agents as in regular ways. This channel was now our single source of truth and our command center.</p>
+</li>
+<li>
+<p><strong>Step 2: Triage and Contain.</strong> I assigned two of my most experienced agents a single, critical task: manage the influx of new tickets. Their job was not to solve the problem, but to contain it. We used a pre-written “known issue” canned response:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>Thank you for your report. We are currently experiencing a critical issue with FluentCRM version 2.9.2 that is causing duplicate email sends and other unexpected behaviors. Our team is actively investigating the problem and working on a hotfix.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>We understand the impact this is having on your site and your business, and we sincerely apologize for the inconvenience. Please refrain from making any changes to your campaigns or automations until we have a resolution.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>We have logged your ticket and will notify you here as soon as a solution is available. We sincerely apologize for the disruption.</span></span>
+<span class="line"><span>Thanks for your patience and cooperation.</span></span></code></pre>
+<p>This step was crucial. It prevented user panic, stopped our agents from duplicating diagnostic efforts, and showed our user base that we were aware, in control, and actively working on a fix.</p>
+</li>
+<li>
+<p><strong>Step 3: Diagnose and Replicate.</strong> While the triage team managed the queue, I worked directly with the lead developer and another senior agent in our “war room.” Our mission was to replicate the bug reliably. Using the data from the tickets, we spun up a fresh WordPress installation on a test server running NGINX, installed our new version. We started to reproduce the issue. Within 30 minutes, we had a staging site that mirrored the problem: duplicate emails being sent out, automations firing multiple times, and server load spiking.</p>
+</li>
+<li>
+<p><strong>Step 4: Communicate and Update.</strong> As we worked, I kept the team updated in the Slack channel. Every hour, I posted a brief status update:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>Update: We have successfully replicated the issue in our staging environment. The team is now investigating the root cause and working on a fix.</span></span></code></pre>
+<pre class="astro-code astro-code-themes min-light night-owl" style="background-color:#ffffff;--shiki-dark-bg:#011627;color:#24292eff;--shiki-dark:#d6deeb;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>Update: We have identified the root cause of the issue. A conflict in the cron job registration is causing duplicate tasks to run. The team is working on a patch.</span></span></code></pre>
+<p>This transparency was key. It reassured users that we were making progress and kept our team focused.</p>
+</li>
+</ol>
+<h3 id="the-coordinated-fix-and-recovery">The Coordinated Fix and Recovery</h3>
+<p>With the bug now reliably reproduced, our lead developer quickly identified the root cause: a flaw in our cron job registration logic. Due to a subtle oversight in the update, the plugin was registering multiple identical cron jobs within WordPress. As a result, every scheduled task—responsible for sending emails, processing campaigns, running automations, and managing sequences—was being triggered two or even three times for each intended run.</p>
+<p>Once we understood the issue, the developer engineered a patch to ensure cron jobs were registered only once and that any duplicates were cleaned up. We immediately launched our emergency QA process, testing the fix in a staging environment to confirm that duplicate jobs were removed and normal operations were restored. Within three hours of the first report, we were able to push a hotfix release, version 2.9.21, to the WordPress repository. We also included an existing Pull Request for the “Email Builder Issue” fix, which was already in the pipeline.</p>
+<blockquote>
+<p>All of this was accomplished within just 4 hours under the “War Room” protocol, and we managed to close all tickets within 6 hours of the first report. The team worked tirelessly, but we kept our composure and followed the protocol. The hotfix was released on August 13, 2024 (UTC+06:00), allowing us to restore normal operations for our users.</p>
+</blockquote>
+<hr/>
+<h2 id="rebuilding-trust-after-the-storm">Rebuilding Trust After the Storm</h2>
+<p>Fixing the bug was only half the job. But the work didn’t end there. The triage team then began the methodical process of <strong>“closing the loop.”</strong> They revisited every single one of the dozens of tickets that had been opened, personally notifying each user that a fix was available and providing a direct link to update. We also included clear instructions on how to remove any lingering duplicate cron jobs, ensuring users could fully recover from the issue.</p>
+<p>We needed to show users we cared about their experience. We emailed every affected user, confirming the fix and offering a discount on our premium support plan as a gesture of goodwill. We also posted an announcement on our Facebook official group, explaining the issue, the fix, and how to avoid similar conflicts.</p>
+<p>The response was humbling. Users who’d been frustrated left 5-star reviews on WordPress.org, like this one: “The team fixed a scary issue fast and kept us updated. I’m sticking with FluentCRM.” Our follow-up turned a crisis into a chance to strengthen trust.</p>
+<hr/>
+<h2 id="the-aftermath-what-we-learned">The Aftermath: What We Learned</h2>
+<p>This crisis taught us lessons that go beyond code:</p>
+<ul>
+<li><strong>No Test Is Foolproof</strong>: WordPress’s ecosystem is vast, with countless plugins and hosting setups. Even 200 test cases can miss edge cases.</li>
+<li><strong>Process Beats Panic</strong>: A clear protocol kept us focused, reducing resolution time from a potential 12 hours to 4.</li>
+<li><strong>Teamwork Makes the Difference</strong>: My role was to enable Maria, Alex, and others, not to micromanage.</li>
+<li><strong>Transparency Wins Trust</strong>: Honest communication turned frustrated users into loyal ones.</li>
+<li><strong>You Cannot Prevent Every Crisis</strong>: The WordPress ecosystem is simply too vast and chaotic. Even with a world-class QA process, surprises happen—but you <em>can</em> control your response.</li>
+<li><strong>Process Keeps You Calm</strong>: In high-stress situations, a clear, pre-defined playbook removes guesswork and lets the team focus on their roles—triage, communication, or diagnostics.</li>
+<li><strong>Leadership Is About Empowerment</strong>: My job wasn’t to be the hero, but to be the calm center of the storm—directing traffic, facilitating communication, and trusting my team to execute.</li>
+</ul>
+<p>These lessons resonate with the WordPress community, where plugins like FluentCRM(50,000+) and FluentSMTP (400,000+ installs) thrive on reliability and support. That four-hour crisis taught me more about leadership than six months of normal operations. The day ended not with relief, but with a quiet sense of pride in my team. They stared down a significant crisis and performed with incredible professionalism. Ultimately, my most important role as a leader is to build the systems and confidence that allow my team to be heroes themselves.</p>
+<hr/>
+<h2 id="best-practices-for-your-own-crisis-plan">Best Practices for Your Own Crisis Plan</h2>
+<p>Crises are part of life in WordPress, where plugins interact in unpredictable ways. By sharing these stories, I help the community prepare for their own challenges, boosting trust and SEO for terms like “WordPress plugin crisis management.”</p>
+<p>Here’s what we’ve found works for managing crises in WordPress support:</p>
+<ul>
+<li><strong>Build a Protocol</strong>: Document steps for common scenarios, like bugs or server issues. Include roles and communication templates.</li>
+<li><strong>Use the Right Tools</strong>: Slack for collaboration, Jira for tracking, and staging sites for testing are game-changers.</li>
+<li><strong>Prepare Communication</strong>: Have canned responses ready to save time and ensure consistency.</li>
+<li><strong>Test Fixes Thoroughly</strong>: Use staging environments to avoid introducing new issues.</li>
+<li><strong>Keep Users Informed</strong>: Hourly updates, even if brief, show you’re on top of things.</li>
+<li><strong>Follow Up</strong>: Post-crisis outreach rebuilds trust and gathers feedback.</li>
+<li><strong>Learn and Adapt</strong>: After a crisis, hold a debrief to identify what worked, what didn’t, and how to improve.</li>
+<li><strong>Run Drills</strong>: Regularly test your protocol with mock crises to keep the team sharp and ready.</li>
+<li><strong>Foster a Culture of Calm</strong>: Encourage your team to stay composed under pressure. A calm team is more effective in crisis situations.</li>
+<li><strong>Prioritize User Experience</strong>: Always keep the user’s perspective in mind. How will your actions affect them? Clear, empathetic communication is key.</li>
+<li><strong>Document Everything</strong>: Record every step taken during the crisis for future reference and process improvement.</li>
+<li><strong>Celebrate Successes</strong>: After resolving a crisis, take time to acknowledge the team’s hard work. This builds morale and reinforces the value of teamwork.</li>
+</ul>
+<h3 id="ad-hoc-vs-protocol-driven-crisis-response-comparison">Ad Hoc vs. Protocol-Driven Crisis Response Comparison</h3>
+<p>In the heat of a crisis, the difference between an ad hoc response and a protocol-driven approach is like night and day. Here’s a quick comparison of how each method impacts key aspects of crisis management:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aspect</th><th>Ad Hoc Response</th><th>Protocol-Driven Response</th></tr></thead><tbody><tr><td>Time to Hotfix</td><td>Slow, variable</td><td>Fast, predictable</td></tr><tr><td>Team Stress</td><td>High</td><td>Managed</td></tr><tr><td>User Communication</td><td>Inconsistent</td><td>Proactive, clear</td></tr><tr><td>Ticket Duplication</td><td>Frequent</td><td>Minimized</td></tr><tr><td>Post-Crisis Learning</td><td>Rare</td><td>Systematic</td></tr><tr><td>Team Stress</td><td>High</td><td>Managed</td></tr><tr><td>User Communication</td><td>Inconsistent</td><td>Proactive, clear</td></tr><tr><td>Ticket Duplication</td><td>Frequent</td><td>Minimized</td></tr><tr><td>Post-Crisis Learning</td><td>Rare</td><td>Systematic</td></tr></tbody></table>
+<blockquote>
+<p>These aspects show how a structured approach transforms outcomes, benefiting users and teams alike.</p>
+</blockquote>
+<hr/>
+<p>This crisis was a reminder that challenges are opportunities to grow. What’s your release-day story? Share it below or connect with me on <a href="https://www.linkedin.com/in/ibrahimsharif/">LinkedIn</a> to swap ideas on building resilient WordPress teams. Let’s make the ecosystem stronger together.</p> </article> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/personal-story/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Personal Story </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/crisis-management/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Crisis Management </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#WordPress </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/customer-support/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Customer Support </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/teamwork/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Teamwork </a> </li> </ul> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/handling-a-release-day-crisis-without-losing-my-mind/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <div class="edit-post flex items-center justify-between p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_stories_personal/handling-a-release-day-crisis-without-losing-my-mind.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_stories_personal/handling-a-release-day-crisis-without-losing-my-mind.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions</div> </div> </a> <a href="/posts/1-star-review-that-changed-our-entire-approach" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>The 1-Star Review That Changed Our Entire Approach to Documentation and Communication</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <!-- Add Similar Posts Component --> <section class="similar-posts mt-12" data-astro-cid-mk2jfx7z><div class="mb-6" data-astro-cid-mk2jfx7z><h2 id="similar-posts" class="text-2xl font-bold text-accent mb-2" data-astro-cid-mk2jfx7z>You might also like</h2><div class="w-16 h-0.5 bg-accent" data-astro-cid-mk2jfx7z></div></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-astro-cid-mk2jfx7z><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/a-team-win-that-taught-me-important-job-of-leader" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/a-team-win-that-made-me-a-better-leader.BdCqBYYx.jpg" alt="Featured image for A Team Win That Taught Me an Important Job as a Leader" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn><div class="absolute top-2 px-2 flex flex-wrap gap-1" data-astro-cid-tuwwsatn><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Career</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Leadership</span></div></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:a-team-win-that-taught-me-an-important-job-as-a-leader" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>A Team Win That Taught Me an Important Job as a Leader</h3></div></a></div></div><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.CC6LwKeE.jpg" alt="Featured image for Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn><div class="absolute top-2 px-2 flex flex-wrap gap-1" data-astro-cid-tuwwsatn><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Career</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Technical Support</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>WordPress</span></div></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:debugging-a-nightmare-plugin-conflict-a-lesson-in-challenging-assumptions" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions</h3></div></a></div></div><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/when-fluentsmtp-faced-an-incident-that-we-solved-urgently" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/when-fluentsmtp-faced-a-major-email-block-how-we-solved-it_2.BZjnVCGR.jpg" alt="Featured image for When a Tech Giant Changed their API: The Story of the FluentSMTP Hotfix" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn><div class="absolute top-2 px-2 flex flex-wrap gap-1" data-astro-cid-tuwwsatn><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Career</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Experience</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Case Study</span></div></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:when-a-tech-giant-changed-their-api-the-story-of-the-fluentsmtp-hotfix" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>When a Tech Giant Changed their API: The Story of the FluentSMTP Hotfix</h3></div></a></div></div></div></section> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> </div> <footer class="w-full max-w-7xl mt-auto" data-astro-cid-xsyc7abh> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="footer flex flex-col items-center justify-between px-4 py-6 sm:flex-row-reverse sm:py-4" data-astro-cid-xsyc7abh> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row" data-astro-cid-xsyc7abh> <span data-astro-cid-xsyc7abh>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  </main>  <button id="back-to-top" class="back-to-top focus-outline relative whitespace-nowrap hover:opacity-90 hidden left-4" aria-label="Back to top" title="Back to top" data-astro-cid-5l3afzhg> <!-- Circular progress ring --> <svg class="progress-ring absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 50 50" data-astro-cid-5l3afzhg> <circle class="progress-ring-bg" cx="25" cy="25" r="22" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" data-astro-cid-5l3afzhg></circle> <circle id="progress-ring-circle" class="progress-ring-circle" cx="25" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" data-astro-cid-5l3afzhg></circle> </svg> <!-- Arrow icon --> <svg class="relative z-10 w-5 h-5 rotate-90" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-5l3afzhg> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" data-astro-cid-5l3afzhg></path> </svg> <span class="sr-only" data-astro-cid-5l3afzhg>Back to top</span> </button> <script>(function(){const showAfter = 100;
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function initBackToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    const progressCircle = document.querySelector("#progress-ring-circle");
+    
+    if (backToTopButton && progressCircle) {
+      const circumference = 2 * Math.PI * 22; // radius = 22
+      
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      // Update progress and visibility based on scroll position
+      function updateProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        
+        // Calculate scroll percentage
+        const scrollPercent = scrollTop / documentHeight;
+        
+        // Update progress ring
+        const offset = circumference - (scrollPercent * circumference);
+        progressCircle.style.strokeDashoffset = offset.toString();
+        
+        // Toggle visibility
+        if (scrollTop > showAfter) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      }
+
+      // Initial check
+      updateProgress();
+
+      // Listen for scroll events
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      // Cleanup function for page navigation
+      document.addEventListener("astro:before-swap", () => {
+        window.removeEventListener("scroll", updateProgress);
+      });
+    }
+  }
+
+  // Initialize on page load
+  initBackToTop();
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initBackToTop);
+})();</script>   <!-- Crisp and Custom JS for page --> <script data-astro-rerun src="/assets/js/main.js"></script> <!-- <script is:inline data-astro-rerun>
+      document.addEventListener("astro:page-load", () => {
+        setTimeout(() => {
+            window.$crisp = []; window.CRISP_WEBSITE_ID = "8d20914b-0995-4bdd-aa36-a2274ec8cca6"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+        }, 500);
+      });
+    </script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  // function createProgressBar() {
+  //   const progressContainer = document.createElement("div");
+  //   progressContainer.className =
+  //     "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+  //   const progressBar = document.createElement("div");
+  //   progressBar.className = "progress-bar h-1 w-0 bg-accent";
+  //   progressBar.id = "myBar";
+  //   progressContainer.appendChild(progressBar);
+  //   document.body.appendChild(progressContainer);
+  // }
+  // createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  // function updateScrollProgress() {
+  //   document.addEventListener("scroll", () => {
+  //     const winScroll =
+  //       document.body.scrollTop || document.documentElement.scrollTop;
+  //     const height =
+  //       document.documentElement.scrollHeight -
+  //       document.documentElement.clientHeight;
+  //     const scrolled = (winScroll / height) * 100;
+  //     if (document) {
+  //       const myBar = document.getElementById("myBar");
+  //       if (myBar) {
+  //         myBar.style.width = scrolled + "%";
+  //       }
+  //     }
+  //   });
+  // }
+  // updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("article h2, article h3, article h4, article h5, article h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+      clonedToc.classList.add("list-decimal", "pl-4", "space-y-1", "text-green-500");
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none";
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 80;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  function highlightActiveTocLink() {
+    const tocLinks = Array.from(document.querySelectorAll('#toc-content a'));
+    if (!tocLinks.length) return;
+
+    // Get all headings that have an id referenced by the TOC
+    const headingIds = tocLinks.map(link => link.getAttribute('href')?.slice(1)).filter(Boolean);
+    const headings = headingIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    function onScroll() {
+      let activeIndex = 0;
+      const scrollPosition = window.scrollY + 100; // Offset for sticky header
+
+      headings.forEach((heading, i) => {
+        if (heading.offsetTop <= scrollPosition) {
+          activeIndex = i;
+        }
+      });
+
+      tocLinks.forEach((link, i) => {
+        if (i === activeIndex) {
+          link.classList.add('toc-active');
+          link.style.setProperty('color', 'var(--topic-link-active-color)', 'important');
+        } else {
+          link.classList.remove('toc-active');
+          link.style.setProperty('color', 'var(--foreground)', 'important');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  highlightActiveTocLink();
+  // Change all Link Colors
+  // Use CSS variables for link colors to support dark/light themes
+  document.querySelectorAll('.main-content article.prose a').forEach(link => {
+    link.classList.add('transition-colors');
+    link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    link.addEventListener('mouseenter', () => {
+      link.style.setProperty('color', 'var(--topic-link-hover-color)', 'important');
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    });
+  });
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+
+    // Auto-generate labels from table headers
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+      const tables = document.querySelectorAll('table');
+      
+      tables.forEach(table => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+        
+        // Only apply mobile card layout if there are more than 2 columns
+        if (headers.length > 2) {
+          const headerTexts = headers.map(th => th.textContent.trim());
+          const rows = table.querySelectorAll('tbody tr');
+          
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (index > 0 && headerTexts[index]) { // Skip first cell (it's the title)
+                cell.setAttribute('data-label', headerTexts[index]);
+              }
+            });
+            
+            // Add a class to identify tables that should use mobile layout
+            table.classList.add('mobile-card-layout');
+          });
+        }
+      });
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+      const tables = document.querySelectorAll('table');
+      
+      tables.forEach(table => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+        
+        // Only apply mobile card layout if there are more than 2 columns
+        if (headers.length > 2) {
+          const headerTexts = headers.map(th => th.textContent.trim());
+          const rows = table.querySelectorAll('tbody tr');
+          
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (index > 0 && headerTexts[index]) {
+                cell.setAttribute('data-label', headerTexts[index]);
+              }
+            });
+            
+            table.classList.add('mobile-card-layout');
+          });
+        } else {
+          // Remove mobile layout for tables with 2 or fewer columns
+          table.classList.remove('mobile-card-layout');
+        }
+      });
+    } else {
+      // Remove mobile layout classes when not on mobile
+      document.querySelectorAll('table').forEach(table => {
+        table.classList.remove('mobile-card-layout');
+      });
+    }
+  });
+</script> 

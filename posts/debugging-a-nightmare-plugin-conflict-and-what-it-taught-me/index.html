@@ -1,0 +1,680 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions | Blog</title><meta name="title" content="Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions | Blog"><meta name="description" content="A deep dive into resolving an 'impossible' WordPress bug involving FluentCRM, a backup plugin, and a Varnish cache, revealing the power of listening to users and questioning initial assumptions."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions | Blog"><meta property="og:description" content="A deep dive into resolving an 'impossible' WordPress bug involving FluentCRM, a backup plugin, and a Varnish cache, revealing the power of listening to users and questioning initial assumptions."><meta property="og:url" content="https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/"><meta property="og:image" content="https://ibrahimsharif.com/_astro/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.CC6LwKeE.jpg"><!-- Article Published/Modified time --><meta property="article:published_time" content="2024-07-20T10:40:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/"><meta property="twitter:title" content="Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions | Blog"><meta property="twitter:description" content="A deep dive into resolving an 'impossible' WordPress bug involving FluentCRM, a backup plugin, and a Varnish cache, revealing the power of listening to users and questioning initial assumptions."><meta property="twitter:image" content="https://ibrahimsharif.com/_astro/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.CC6LwKeE.jpg"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions | Blog","image":"https://ibrahimsharif.com/_astro/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.CC6LwKeE.jpg","datePublished":"2024-07-20T10:40:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><!-- <ClientRouter /> --><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.y4oVlBwV.css">
+<style>footer[data-astro-cid-xsyc7abh]{padding-inline:0}
+</style>
+<link rel="stylesheet" href="/_astro/index.Cq7fEnt7.css">
+<style>.back-to-top[data-astro-cid-5l3afzhg]{position:fixed;bottom:1rem;z-index:1000;width:3rem;height:3rem;background:#343f60e6;color:#fff;border-radius:50%;box-shadow:0 4px 12px #00000026;transition:all .3s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center}.back-to-top[data-astro-cid-5l3afzhg]:hover{background:#343f60;transform:translateY(-2px) scale(1.05);box-shadow:0 8px 20px #0003}.progress-ring[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out}.progress-ring-circle[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out;filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}.hidden[data-astro-cid-5l3afzhg]{opacity:0;pointer-events:none;transform:translateY(20px) scale(.8)}.dark .back-to-top[data-astro-cid-5l3afzhg]{background:#ffffff1a;color:#fff}.dark .back-to-top[data-astro-cid-5l3afzhg]:hover{background:#fff3}.sr-only[data-astro-cid-5l3afzhg]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style><style>[data-astro-transition-scope="astro-2atpulty-1"] { view-transition-name: debugging-a-nightmare-plugin-conflict-a-lesson-in-challenging-assumptions; }@layer astro { ::view-transition-old(debugging-a-nightmare-plugin-conflict-a-lesson-in-challenging-assumptions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(debugging-a-nightmare-plugin-conflict-a-lesson-in-challenging-assumptions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(debugging-a-nightmare-plugin-conflict-a-lesson-in-challenging-assumptions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(debugging-a-nightmare-plugin-conflict-a-lesson-in-challenging-assumptions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class="sticky top-0 z-1000 w-full dark:border-gray-700 shadow-md border-b" data-astro-cid-jov6nfgc> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4" data-astro-cid-jov6nfgc>
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row" data-astro-cid-jov6nfgc> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background sm:items-center px-4" data-astro-cid-jov6nfgc> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static" data-astro-cid-jov6nfgc> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-rogue-script.svg" alt="Ibrahim Logo" class="logo-svg h-8 sm:h-10 md:h-12 lg:h-14" data-astro-cid-jov6nfgc> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0" data-astro-cid-jov6nfgc> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items" data-astro-cid-jov6nfgc> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-y-0" data-astro-cid-jov6nfgc> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/topics" data-astro-cid-jov6nfgc>
+Topics
+</a> </li> <li class="col-span-2 menu-link active-nav" data-astro-cid-jov6nfgc> <a href="/posts" data-astro-cid-jov6nfgc>
+Posts
+</a> </li> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/tags" data-astro-cid-jov6nfgc>
+Tags
+</a> </li> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/categories" data-astro-cid-jov6nfgc>
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only" data-astro-cid-jov6nfgc>Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center" data-astro-cid-jov6nfgc> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only" data-astro-cid-jov6nfgc>Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center" data-astro-cid-jov6nfgc> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite" data-astro-cid-jov6nfgc> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <!-- <Hr /> --> </header>  <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <main id="main-content" class="w-full max-w-7xl mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <nav class="breadcrumb mx-auto py-4 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="opacity-80">🏠 Home</a> <span aria-hidden="true" class="opacity-80">▶</span> </li> <li> <a href="/posts/" class="capitalize opacity-70"> Posts </a> <span aria-hidden="true" class="opacity-80 mx-1">▶</span> </li><li> <span class="opacity-75" aria-current="page"> Debugging a Nightmare Plugin Conflict and What It Taught Me </span> </li> </ul> </nav> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="main-content flex flex-col lg:flex-row w-full max-w-7xl px-4 py-8 mx-auto" data-astro-cid-2t7o7two> <div class="w-full lg:w-1/4 lg:me-8" data-astro-cid-2t7o7two> <!-- <Aside title="Category & Tags" className="w-full top-4 mb-6 hidden md:block">
+        
+      </Aside> --> <aside class="toc w-full sticky top-4 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-s6iqbw7n> <div class="aside-header" data-astro-cid-s6iqbw7n> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-s6iqbw7n>Table of Contents</h2> </div> <div class="aside-content p-2" data-astro-cid-s6iqbw7n> <div class="widget-wrapper" data-astro-cid-s6iqbw7n>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div>  <div class="toc-arrow" aria-hidden="true" data-astro-cid-s6iqbw7n> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-s6iqbw7n> <path d="M12 5v14M5 12l7 7 7-7" data-astro-cid-s6iqbw7n></path> </svg> </div> </div> </div> </aside>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".toc .widget-wrapper");if(!e)return;const t=e.querySelector(".toc-arrow");if(!t)return;const s=()=>{const i=e.scrollHeight>e.clientHeight,r=e.scrollTop+e.clientHeight>=e.scrollHeight-1;i?r?(t.classList.remove("visible"),t.classList.add("hidden")):(t.classList.remove("hidden"),t.classList.add("visible")):t.classList.add("hidden")};s(),e.addEventListener("scroll",s),window.addEventListener("resize",s)});</script> </div> <div class="w-full lg:w-3/4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-2atpulty-1"> Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions </h1> <div class="flex justify-between items-center gap-4 mt-2 mb-1" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2024-07-20T10:40:00.000Z">20 Jul, 2024</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">🕓 04:40 PM</span> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 13 min read</span> </div> <div class="flex flex-col border-b border-muted gap-2 pb-2 mb-4" data-astro-cid-2t7o7two> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/career/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans rounded-sm category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>Career</span> </a> </li> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/technical-support/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans rounded-sm category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>Technical Support</span> </a> </li> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/wordpress/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans rounded-sm category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>WordPress</span> </a> </li>  </ul> </div> <div class="w-full featuredImage mb-8" data-astro-cid-2t7o7two> <img src="/_astro/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.CC6LwKeE.jpg" alt="Featured image for Debugging a Nightmare Plugin Conflict: A Lesson in Challenging Assumptions" class="w-full h-auto object-cover shadow-md ring-(--border) ring rounded-lg" loading="eager" data-astro-cid-2t7o7two> </div> <!-- <p> FeaturedImage:: {featuredImage}</p> --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>Debugging complex WordPress issues often feels like navigating a maze of hidden traps and misleading clues. As support engineers, we rely on experience and intuition, but sometimes those very instincts can lead us astray. In this post, I will share the story of a particularly confounding plugin conflict that defied all my expectations—a case where the real solution only emerged when I set aside my assumptions and truly listened to the user. This experience not only tested my technical skills but also reshaped my approach to problem-solving, reminding me that the oddest details can hold the key to even the most “impossible” bugs.</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#the-ticket-that-made-me-question-myself">The Ticket That Made Me Question Myself</a></li>
+<li><a href="#the-initial-dive-following-the-playbook">The Initial Dive: Following the Playbook</a>
+<ul>
+<li><a href="#suspecting-the-server">Suspecting the Server</a></li>
+</ul>
+</li>
+<li><a href="#the-users-clue-it-happens-on-tuesdays">The User’s Clue: “It Happens on Tuesdays”</a>
+<ul>
+<li><a href="#the-users-environment-a-complex-setup">The User’s Environment: A Complex Setup</a>
+<ul>
+<li><a href="#a-story-of-complexity">A Story of Complexity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#the-culprit-an-invisible-visitor">The Culprit: An Invisible Visitor</a></li>
+<li><a href="#the-fix-simple-yet-profound">The Fix: Simple, Yet Profound</a></li>
+<li><a href="#the-lesson-assumptions-are-the-enemy">The Lesson: Assumptions Are the Enemy</a></li>
+<li><a href="#turning-a-nightmare-into-a-teaching-tool">Turning a Nightmare into a Teaching Tool</a></li>
+<li><a href="#best-practices-for-complex-debugging">Best Practices for Complex Debugging</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="the-ticket-that-made-me-question-myself">The Ticket That Made Me Question Myself</h2>
+<p>As a Product Support Lead at WPManageNinja, I’ve resolved over 5,000 support tickets for FluentCRM and FluentSMTP by 2024, tackling everything from email deliverability issues to complex cron job failures. But one ticket from 2022 stands out as the most perplexing and humbling case of my support career. A long-time FluentCRM user reported that their welcome email automation for new course sign-ups was firing twice, but only for some users, and almost always on Tuesdays. The specificity of the issue—<em>Tuesdays</em>—felt like a riddle from a detective novel, not a WordPress support ticket.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Instinct</th><th>Thought</th></tr></thead><tbody><tr><td>First</td><td>User error. Maybe he did not follow the correct steps.</td></tr><tr><td>Second</td><td>Their description had to be exaggerated. Maybe I need to dig deeper myself to find the real issue due to insufficient information.</td></tr></tbody></table>
+<p>I assumed the user was either misconfiguring their automation or experiencing a classic plugin conflict. After all, double-firing emails is a common symptom of misconfigured automations or conflicts with other plugins or having multiple email campaigns or triggering automation multiple times.</p>
+<p>I was wrong on both counts.</p>
+<p>But as I dove deeper into the issue, I realized that this seemingly trivial detail was the key to unraveling a complex interaction between FluentCRM, a backup plugin, and a Varnish cache.</p>
+<p>The user’s description seemed like a coincidence, a detail that could be safely ignored. After all, bugs don’t have calendars, right? But as I dove deeper into the issue, I realized that this seemingly trivial detail was the key to unraveling a complex interaction between FluentCRM, a backup plugin, and a Varnish cache.</p>
+<p>This case, which took days to unravel, taught me a profound lesson: assumptions are the enemy of effective debugging. By dismissing the user’s “Tuesday” clue as a coincidence, I nearly missed the key to solving an issue that involved FluentCRM, a backup plugin, and a Varnish cache interacting in ways I’d never imagined. This is the story of that nightmare bug, the exhaustive process to crack it, and how it reshaped my approach to WordPress support.</p>
+<p>To be more specific, this case involved:</p>
+<ul>
+<li><strong>FluentCRM</strong>: Our email marketing automation plugin with 30,000+ active installs.</li>
+<li><strong>A Backup Plugin</strong>: A popular backup solution that included a feature to verify backup integrity by programmatically visiting pages.</li>
+<li><strong>Varnish Cache</strong>: A high-performance caching layer that was configured to optimize the site’s speed.</li>
+</ul>
+<blockquote>
+<p>This case is from my early days of working with FluentCRM in 2022, and it highlights the importance of listening to users and questioning assumptions.</p>
+</blockquote>
+<hr/>
+<h2 id="the-initial-dive-following-the-playbook">The Initial Dive: Following the Playbook</h2>
+<p>With over 12,000 support responses under my belt and a Top Rated badge from my Upwork freelancing days, I approached this ticket with confidence. Our FluentCRM plugin, with 30,000+ active installs, is a robust tool for email marketing automation. Double-firing emails suggested a classic plugin conflict or misconfiguration, so I followed our standard debugging playbook on the user’s staging site:</p>
+<p>I systematically explored several classic debugging approaches:</p>
+<p><strong>1. Plugin Conflict Check</strong><br/>
+<em>Description:</em> The most common source of WordPress issues is a conflict between plugins. By isolating plugins, you can quickly determine if another plugin is interfering with core functionality. I started with this step, as it’s often the quickest way to identify conflicts.</p>
+<p><strong>Investigation Process:</strong></p>
+<ul>
+<li>Deactivated all plugins except the one I was testing (e.g., FluentCRM).</li>
+<li>Checked if the issue persisted.</li>
+<li>Reactivated plugins one by one, testing after each activation.</li>
+<li>Noted which plugin re-introduced the problem.</li>
+<li>In my case, this step confirmed the issue wasn’t caused by a typical plugin conflict, pushing me to look deeper.</li>
+</ul>
+<p><strong>2. Cache Flush and Bypass</strong><br/>
+<em>Description:</em> Caching layers like Varnish or server-level caches can serve outdated or duplicate content, leading to unpredictable behavior. Flushing or bypassing the cache helps rule out this layer as the culprit.</p>
+<p><strong>Investigation Process:</strong></p>
+<ul>
+<li>Cleared/purged all caches (WordPress, Server, Cloudflare CDN).</li>
+<li>Temporarily disabled caching plugins or server-level cache (e.g., Varnish).</li>
+<li>Tested the problematic workflow again.</li>
+<li>If the issue disappeared, caching was likely involved.</li>
+<li>In this story, flushing and bypassing Varnish cache didn’t resolve the double emails, indicating the root cause was elsewhere.</li>
+</ul>
+<p><strong>3. Enabling Debug Logging</strong><br/>
+<em>Description:</em> Turning on <code>WP_DEBUG</code> and reviewing the <code>debug.log</code> file can reveal hidden errors or warnings that aren’t visible in the admin interface, providing deeper insight into what’s happening behind the scenes.</p>
+<p><strong>Investigation Process:</strong></p>
+<ul>
+<li>Added <code>define(&#39;WP_DEBUG&#39;, true);</code> and <code>define(&#39;WP_DEBUG_LOG&#39;, true);</code> to my <code>wp-config.php</code>.</li>
+<li>Reproduced the issue.</li>
+<li>Checked the <code>wp-content/debug.log</code> file for errors or warnings.</li>
+<li>Looked for clues related to the plugins or processes involved.</li>
+<li>In my case, debug logs showed no errors, which ruled out obvious PHP issues and pointed to a more subtle interaction.</li>
+</ul>
+<blockquote>
+<p>These investigation steps are now part of my standard troubleshooting playbook, and I’ve documented them for our support team to help others resolve similar “hidden” bugs.</p>
+</blockquote>
+<p>This was baffling. A plugin conflict surviving a full deactivation test is rare, hinting at something outside the WordPress application layer. My experience configuring NGINX and Apache servers for WordPress led me to examine the environment next.</p>
+<h3 id="suspecting-the-server">Suspecting the Server</h3>
+<p>The client’s site ran on a high-performance NGINX setup with advanced caching rules, a configuration I’d optimized during my freelancing days for clients on AWS and DigitalOcean. Caching was my prime suspect—perhaps NGINX was serving stale responses, triggering the automation twice. I asked the client to purge the NGINX cache. No effect. We then bypassed NGINX caching entirely for the site’s URLs. The double emails continued. I was stumped.</p>
+<p>At this point, I’d spent six hours chasing dead ends. Yet, nothing in the server logs or NGINX configuration explained the bug. I started to question whether the issue was even with FluentCRM.</p>
+<hr/>
+<h2 id="the-users-clue-it-happens-on-tuesdays">The User’s Clue: “It Happens on Tuesdays”</h2>
+<p>After exhausting the usual suspects, I returned to the user’s description. “It happens on Tuesdays.” My instinct was to dismiss this as a coincidence, but I couldn’t shake the feeling that it was significant. I decided to dig deeper into the user’s environment and processes.</p>
+<h3 id="the-users-environment-a-complex-setup">The User’s Environment: A Complex Setup</h3>
+<p>The user’s site was a complex setup with multiple plugins, custom code, and scheduled tasks. They had a weekly backup process that ran every Tuesday at 2 AM, using a popular backup plugin. This detail seemed innocuous at first, but I decided to investigate further.</p>
+<p>But that was just the tip of the iceberg. As I dug deeper, I discovered several other factors that made this environment especially challenging:</p>
+<ul>
+<li><strong>Multiple Subdomains</strong>: The main site had a few subdomains (like <code>courses.example.com</code> and <code>community.example.com</code>) running separate WordPress installs, each with their own set of plugins and automations. Some automations in FluentCRM were triggered by actions on these subdomains, adding more moving parts to the debugging process.</li>
+<li><strong>Custom Cron Jobs</strong>: Beyond WordPress’s built-in cron, the server had several custom cron jobs set up for tasks like syncing user data, clearing caches, and running periodic reports. Some of these jobs interacted with FluentCRM via REST API calls, which could potentially trigger automations or emails.</li>
+<li><strong>CDN for Media Assets</strong>: The site used a CDN to serve media assets, which sometimes caused cache invalidation issues or delayed propagation of changes—another layer of complexity when tracking down timing-related bugs.</li>
+<li><strong>Fluent Plugins Integration</strong>: The user had integrated other Fluent plugins, such as Fluent Booking and Fluent Boards, with FluentCRM. Actions like booking a meeting or updating a project board could trigger automations in FluentCRM, making it harder to pinpoint the exact source of duplicate triggers.</li>
+</ul>
+<h4 id="a-story-of-complexity">A Story of Complexity</h4>
+<p>For example, one Tuesday, a user signed up for a course on a subdomain (<code>courses.example.com</code>). Minutes later, a custom cron job synced the new user data to the main site, triggering a FluentCRM automation. At almost the same time, the backup plugin’s integrity check “visited” the confirmation page, and the CDN delayed the cache purge for that asset. Meanwhile, a project update in Fluent Boards also fired an automation for the same user. The result? The user received two (sometimes three) welcome emails—each triggered by a different combination of these interconnected systems.</p>
+<p>This tangled web of subdomains, cron jobs, CDN caching, and multiple Fluent plugins made the debugging process feel like untangling a ball of yarn. Every clue pointed to a different layer of the stack, and only by mapping out all these interactions could I finally see how the pieces fit together.</p>
+<hr/>
+<h2 id="the-culprit-an-invisible-visitor">The Culprit: An Invisible Visitor</h2>
+<p>The client used a popular backup plugin, one I’d encountered during my work with WooCommerce sites. Buried in its advanced settings was a feature called “Verify Backup Integrity.” After each Tuesday backup, the plugin programmatically “visited” recent pages and posts to ensure they loaded correctly from the backup. It did this using server-side <code>curl</code> requests that mimicked real user visits, complete with a standard user agent.</p>
+<p>Here’s how it caused chaos:</p>
+<ul>
+<li><strong>The Trigger</strong>: FluentCRM’s automation relied on a tracking script that fired when a user visited the course sign-up confirmation page.</li>
+<li><strong>The Invisible Visit</strong>: The backup plugin’s <code>curl</code> request loaded this page, triggering the script as if a real user had visited.</li>
+<li><strong>The Timing</strong>: If a user signed up just before the Tuesday backup ran, the plugin’s “visit” could occur within minutes, firing the automation a second time.</li>
+<li><strong>The Randomness</strong>: Only users signing up near the backup window were affected, explaining why the issue seemed sporadic.</li>
+</ul>
+<p>This was a perfect storm: FluentCRM’s tracking, the backup plugin’s integrity check, and the server’s seamless handling of <code>curl</code> requests created an “impossible” bug. It only happened on Tuesdays because that’s when the backup ran. It only affected some users due to the tight timing window.</p>
+<hr/>
+<h2 id="the-fix-simple-yet-profound">The Fix: Simple, Yet Profound</h2>
+<p>After 2 days of debugging, the solution was deceptively simple. FluentCRM has an action hook that manually triggers the automation and allows excluding specific user agents from tracking by a snippet. I identified the backup plugin’s <code>curl</code> user agent string and added it to the exclusion list. We tested the fix on the staging site, then waited for the next Tuesday. No duplicate emails. The client confirmed the issue was resolved, leaving a glowing 5-star review on WordPress mentioning “Support” in his review.</p>
+<p>The fix took five minutes, but the journey to find it took more than 10 hours across three days. The real victory wasn’t just resolving the ticket. It was learning to challenge my assumptions and listen to the user’s “weird” clues.</p>
+<hr/>
+<h2 id="the-lesson-assumptions-are-the-enemy">The Lesson: Assumptions Are the Enemy</h2>
+<p>This ticket taught me that assumptions can blind you to the truth. I’d initially dismissed the Tuesday detail as a coincidence, assuming the issue was a standard plugin conflict or user error.</p>
+<p>This lesson now shapes every similar ticket I handled later. Whether it’s a cron job failure, an email deliverability issue, or a plugin conflict, I start by asking open-ended questions and treating every detail, no matter how odd, as a potential clue. This approach has slashed our average time to resolution from approximately 6.5 hours to 2.1 hours for complex tickets and reduced escalations to developers from 28% to 8%, meaning at least 1 out of 5 tickets were not needed to be escalated.</p>
+<p>I also learned the value of documenting these “hidden” bugs. I created a new section in our internal support manual, “Debugging Scheduled and Environmental Issues,” which includes a checklist for identifying time-based bugs. This has helped new support agents quickly grasp complex issues, reducing onboarding time.</p>
+<hr/>
+<h2 id="turning-a-nightmare-into-a-teaching-tool">Turning a Nightmare into a Teaching Tool</h2>
+<p>The “Tuesday bug” became more than a resolved ticket—it became a teaching tool. I added a new section to our internal support manual: “Debugging Scheduled and Environmental Issues.” It includes a comprehensive checklist for identifying time-based bugs, such as:</p>
+<ul>
+<li><strong>Ask about scheduled processes:</strong>
+<ul>
+<li>Are there any regular backups, cron jobs, or automated updates?</li>
+<li>What is their schedule (daily, weekly, specific days/times)?</li>
+<li>Do any of these processes interact with the database or trigger site automations?</li>
+</ul>
+</li>
+<li><strong>Check for server-side requests mimicking user behavior:</strong>
+<ul>
+<li>Do backup or security plugins perform integrity checks by visiting site pages?</li>
+<li>Are there any automated scripts or bots (e.g., uptime monitors, health checks) that could trigger workflows?</li>
+<li>Review server logs for non-browser user agents accessing key URLs.</li>
+</ul>
+</li>
+<li><strong>Review database query logs for anomalies:</strong>
+<ul>
+<li>Look for duplicate or unexpected entries around the time of reported issues.</li>
+<li>Compare timestamps of related actions (e.g., user signups, automation triggers, email sends).</li>
+</ul>
+</li>
+<li><strong>Correlate issue timing with external events:</strong>
+<ul>
+<li>Are there patterns tied to specific days, times, or server maintenance windows?</li>
+<li>Cross-reference incident times with server or plugin update logs.</li>
+</ul>
+</li>
+<li><strong>Audit custom code and integrations:</strong>
+<ul>
+<li>Are there custom scripts, REST API calls, or third-party integrations that run on a schedule?</li>
+<li>Could any of these inadvertently trigger automations or duplicate actions?</li>
+</ul>
+</li>
+<li><strong>Check cache and CDN behaviors:</strong>
+<ul>
+<li>Does cache purging or CDN propagation align with the timing of the issue?</li>
+<li>Are there delays or race conditions that could cause repeated triggers?</li>
+</ul>
+</li>
+<li><strong>Document findings and test hypotheses:</strong>
+<ul>
+<li>Keep a timeline of all scheduled events and observed anomalies.</li>
+<li>Test fixes by simulating the scheduled processes in a staging environment.</li>
+</ul>
+</li>
+</ul>
+<p>By following this expanded checklist, our support team can systematically uncover the root causes of elusive, time-based bugs—turning even the most perplexing cases into opportunities for learning and process improvement.</p>
+<hr/>
+<h2 id="best-practices-for-complex-debugging">Best Practices for Complex Debugging</h2>
+<p>Before diving into the checklist, it’s important to recognize that debugging complex WordPress issues requires more than just technical know-how—it demands a systematic approach, curiosity, and a willingness to question your own assumptions. Over the years, I’ve found that the most stubborn bugs often hide in the interactions between plugins, server processes, and scheduled tasks. The following best practices are distilled from real-world experience and are designed to help you navigate these tricky scenarios efficiently. Whether you’re a support engineer, developer, or site owner, adopting these habits can dramatically improve your troubleshooting success and reduce the time spent on elusive problems.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Practice</th><th>Description</th></tr></thead><tbody><tr><td><strong>Listen Deeply</strong></td><td>Treat every user detail, even the odd ones, as potential clues.</td></tr><tr><td><strong>Check the Environment</strong></td><td>Look beyond plugins to backups, cron jobs, and server processes.</td></tr><tr><td><strong>Map the Workflow</strong></td><td>Diagram or outline the full process, including all triggers, automations, and integrations, to visualize where things might go wrong.</td></tr><tr><td><strong>Reproduce in Isolation</strong></td><td>Try to replicate the issue on a clean staging environment with minimal plugins and default settings.</td></tr><tr><td><strong>Use Monitoring Tools</strong></td><td>Leverage server logs, request tracing, and monitoring plugins to catch subtle or time-based issues.</td></tr><tr><td><strong>Communicate Transparently</strong></td><td>Keep users informed about progress, findings, and next steps to build trust and gather more insights.</td></tr><tr><td><strong>Review Change History</strong></td><td>Check for recent updates to plugins, themes, or server configurations that might have introduced the issue.</td></tr><tr><td><strong>Consider External Services</strong></td><td>Don’t overlook the impact of CDNs, third-party APIs, or external cron services on site behavior.</td></tr><tr><td><strong>Document Everything</strong></td><td>Log each step to build a knowledge base for future issues.</td></tr><tr><td><strong>Collaborate</strong></td><td>Engage users and developers to uncover hidden workflows.</td></tr><tr><td><strong>Test Thoroughly</strong></td><td>Verify fixes over time, especially for scheduled bugs.</td></tr><tr><td><strong>Share Knowledge</strong></td><td>Publish solutions internally and publicly to benefit the community.</td></tr></tbody></table>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>Debugging this “impossible” WordPress bug was a humbling reminder that even the most experienced engineers can be led astray by their own assumptions. The real breakthrough came not from technical wizardry, but from listening closely to the user and methodically investigating every clue—no matter how odd it seemed. This experience reinforced the importance of curiosity, documentation, and collaboration in technical support. By embracing a systematic approach and questioning our initial instincts, we can turn even the most perplexing issues into valuable learning opportunities.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul>
+<li>Never dismiss user observations, even if they seem coincidental.</li>
+<li>Systematically rule out each layer: plugins, server, scheduled tasks, and external services.</li>
+<li>Document unusual cases to help your team and future users.</li>
+<li>Foster a culture of open communication and continuous learning in support teams.</li>
+</ul>
+<p>By applying these lessons, support engineers and developers can resolve complex issues more efficiently and build stronger relationships with users.</p> </article> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/personal-story/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Personal Story </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/debugging/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Debugging </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/wordpress/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#WordPress </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/technical-support/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Technical Support </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/problem-solving/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Problem Solving </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/plugin-conflicts/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Plugin Conflicts </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/user-experience/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#User Experience </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/case-study/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Case Study </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/troubleshooting/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Troubleshooting </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/support-engineering/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Support Engineering </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/automation/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Automation </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/best-practices/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Best Practices </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/lessons-learned/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Lessons Learned </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/incident-response/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Incident Response </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/root-cause-analysis/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Root Cause Analysis </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/caching/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Caching </a> </li> </ul> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <div class="edit-post flex items-center justify-between p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_stories_personal/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_stories_personal/debugging-a-nightmare-plugin-conflict-and-what-it-taught-me.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/top-10-must-woocommerce-plugins-online-stores" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Top 10 Must-Have WooCommerce Plugins for Online Stores</div> </div> </a> <a href="/posts/handling-a-release-day-crisis-without-losing-my-mind" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <!-- Add Similar Posts Component --> <section class="similar-posts mt-12" data-astro-cid-mk2jfx7z><div class="mb-6" data-astro-cid-mk2jfx7z><h2 id="similar-posts" class="text-2xl font-bold text-accent mb-2" data-astro-cid-mk2jfx7z>You might also like</h2><div class="w-16 h-0.5 bg-accent" data-astro-cid-mk2jfx7z></div></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-astro-cid-mk2jfx7z><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/handling-a-release-day-crisis-without-losing-my-mind" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/handling-a-release-day-crisis-without-losing-my-mind.UT-oBijo.jpg" alt="Featured image for Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn><div class="absolute top-2 px-2 flex flex-wrap gap-1" data-astro-cid-tuwwsatn><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Career</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>WordPress</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Leadership</span></div></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:controlled-chaos-handling-a-release-day-crisis-without-losing-my-mind" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>Controlled Chaos: Handling a Release-Day Crisis Without Losing My Mind</h3></div></a></div></div><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/a-team-win-that-taught-me-important-job-of-leader" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/a-team-win-that-made-me-a-better-leader.BdCqBYYx.jpg" alt="Featured image for A Team Win That Taught Me an Important Job as a Leader" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn><div class="absolute top-2 px-2 flex flex-wrap gap-1" data-astro-cid-tuwwsatn><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Career</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Leadership</span></div></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:a-team-win-that-taught-me-an-important-job-as-a-leader" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>A Team Win That Taught Me an Important Job as a Leader</h3></div></a></div></div><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/when-fluentsmtp-faced-an-incident-that-we-solved-urgently" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/when-fluentsmtp-faced-a-major-email-block-how-we-solved-it_2.BZjnVCGR.jpg" alt="Featured image for When a Tech Giant Changed their API: The Story of the FluentSMTP Hotfix" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn><div class="absolute top-2 px-2 flex flex-wrap gap-1" data-astro-cid-tuwwsatn><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Career</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Experience</span><span class="inline-block rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white shadow-sm" data-astro-cid-tuwwsatn>Case Study</span></div></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:when-a-tech-giant-changed-their-api-the-story-of-the-fluentsmtp-hotfix" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>When a Tech Giant Changed their API: The Story of the FluentSMTP Hotfix</h3></div></a></div></div></div></section> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> </div> <footer class="w-full max-w-7xl mt-auto" data-astro-cid-xsyc7abh> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="footer flex flex-col items-center justify-between px-4 py-6 sm:flex-row-reverse sm:py-4" data-astro-cid-xsyc7abh> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row" data-astro-cid-xsyc7abh> <span data-astro-cid-xsyc7abh>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  </main>  <button id="back-to-top" class="back-to-top focus-outline relative whitespace-nowrap hover:opacity-90 hidden left-4" aria-label="Back to top" title="Back to top" data-astro-cid-5l3afzhg> <!-- Circular progress ring --> <svg class="progress-ring absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 50 50" data-astro-cid-5l3afzhg> <circle class="progress-ring-bg" cx="25" cy="25" r="22" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" data-astro-cid-5l3afzhg></circle> <circle id="progress-ring-circle" class="progress-ring-circle" cx="25" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" data-astro-cid-5l3afzhg></circle> </svg> <!-- Arrow icon --> <svg class="relative z-10 w-5 h-5 rotate-90" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-5l3afzhg> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" data-astro-cid-5l3afzhg></path> </svg> <span class="sr-only" data-astro-cid-5l3afzhg>Back to top</span> </button> <script>(function(){const showAfter = 100;
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function initBackToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    const progressCircle = document.querySelector("#progress-ring-circle");
+    
+    if (backToTopButton && progressCircle) {
+      const circumference = 2 * Math.PI * 22; // radius = 22
+      
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      // Update progress and visibility based on scroll position
+      function updateProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        
+        // Calculate scroll percentage
+        const scrollPercent = scrollTop / documentHeight;
+        
+        // Update progress ring
+        const offset = circumference - (scrollPercent * circumference);
+        progressCircle.style.strokeDashoffset = offset.toString();
+        
+        // Toggle visibility
+        if (scrollTop > showAfter) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      }
+
+      // Initial check
+      updateProgress();
+
+      // Listen for scroll events
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      // Cleanup function for page navigation
+      document.addEventListener("astro:before-swap", () => {
+        window.removeEventListener("scroll", updateProgress);
+      });
+    }
+  }
+
+  // Initialize on page load
+  initBackToTop();
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initBackToTop);
+})();</script>   <!-- Crisp and Custom JS for page --> <script data-astro-rerun src="/assets/js/main.js"></script> <!-- <script is:inline data-astro-rerun>
+      document.addEventListener("astro:page-load", () => {
+        setTimeout(() => {
+            window.$crisp = []; window.CRISP_WEBSITE_ID = "8d20914b-0995-4bdd-aa36-a2274ec8cca6"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+        }, 500);
+      });
+    </script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  // function createProgressBar() {
+  //   const progressContainer = document.createElement("div");
+  //   progressContainer.className =
+  //     "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+  //   const progressBar = document.createElement("div");
+  //   progressBar.className = "progress-bar h-1 w-0 bg-accent";
+  //   progressBar.id = "myBar";
+  //   progressContainer.appendChild(progressBar);
+  //   document.body.appendChild(progressContainer);
+  // }
+  // createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  // function updateScrollProgress() {
+  //   document.addEventListener("scroll", () => {
+  //     const winScroll =
+  //       document.body.scrollTop || document.documentElement.scrollTop;
+  //     const height =
+  //       document.documentElement.scrollHeight -
+  //       document.documentElement.clientHeight;
+  //     const scrolled = (winScroll / height) * 100;
+  //     if (document) {
+  //       const myBar = document.getElementById("myBar");
+  //       if (myBar) {
+  //         myBar.style.width = scrolled + "%";
+  //       }
+  //     }
+  //   });
+  // }
+  // updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("article h2, article h3, article h4, article h5, article h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+      clonedToc.classList.add("list-decimal", "pl-4", "space-y-1", "text-green-500");
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none";
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 80;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  function highlightActiveTocLink() {
+    const tocLinks = Array.from(document.querySelectorAll('#toc-content a'));
+    if (!tocLinks.length) return;
+
+    // Get all headings that have an id referenced by the TOC
+    const headingIds = tocLinks.map(link => link.getAttribute('href')?.slice(1)).filter(Boolean);
+    const headings = headingIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    function onScroll() {
+      let activeIndex = 0;
+      const scrollPosition = window.scrollY + 100; // Offset for sticky header
+
+      headings.forEach((heading, i) => {
+        if (heading.offsetTop <= scrollPosition) {
+          activeIndex = i;
+        }
+      });
+
+      tocLinks.forEach((link, i) => {
+        if (i === activeIndex) {
+          link.classList.add('toc-active');
+          link.style.setProperty('color', 'var(--topic-link-active-color)', 'important');
+        } else {
+          link.classList.remove('toc-active');
+          link.style.setProperty('color', 'var(--foreground)', 'important');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  highlightActiveTocLink();
+  // Change all Link Colors
+  // Use CSS variables for link colors to support dark/light themes
+  document.querySelectorAll('.main-content article.prose a').forEach(link => {
+    link.classList.add('transition-colors');
+    link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    link.addEventListener('mouseenter', () => {
+      link.style.setProperty('color', 'var(--topic-link-hover-color)', 'important');
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    });
+  });
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+
+    // Auto-generate labels from table headers
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+      const tables = document.querySelectorAll('table');
+      
+      tables.forEach(table => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+        
+        // Only apply mobile card layout if there are more than 2 columns
+        if (headers.length > 2) {
+          const headerTexts = headers.map(th => th.textContent.trim());
+          const rows = table.querySelectorAll('tbody tr');
+          
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (index > 0 && headerTexts[index]) { // Skip first cell (it's the title)
+                cell.setAttribute('data-label', headerTexts[index]);
+              }
+            });
+            
+            // Add a class to identify tables that should use mobile layout
+            table.classList.add('mobile-card-layout');
+          });
+        }
+      });
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+      const tables = document.querySelectorAll('table');
+      
+      tables.forEach(table => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+        
+        // Only apply mobile card layout if there are more than 2 columns
+        if (headers.length > 2) {
+          const headerTexts = headers.map(th => th.textContent.trim());
+          const rows = table.querySelectorAll('tbody tr');
+          
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (index > 0 && headerTexts[index]) {
+                cell.setAttribute('data-label', headerTexts[index]);
+              }
+            });
+            
+            table.classList.add('mobile-card-layout');
+          });
+        } else {
+          // Remove mobile layout for tables with 2 or fewer columns
+          table.classList.remove('mobile-card-layout');
+        }
+      });
+    } else {
+      // Remove mobile layout classes when not on mobile
+      document.querySelectorAll('table').forEach(table => {
+        table.classList.remove('mobile-card-layout');
+      });
+    }
+  });
+</script> 
