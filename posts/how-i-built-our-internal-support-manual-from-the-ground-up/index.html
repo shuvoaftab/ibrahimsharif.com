@@ -1,0 +1,619 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth" data-astro-cid-6nfzclq6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/"><meta name="generator" content="Astro v5.5.2"><!-- General Meta Tags --><title>How I Built Our Internal Support Manual from the Ground Up | Blog</title><meta name="title" content="How I Built Our Internal Support Manual from the Ground Up | Blog"><meta name="description" content="A personal story about the process of creating our team's first comprehensive internal support manual, and how it became the foundation for scaling our remote team."><meta name="author" content="Ibrahim Sharif"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="How I Built Our Internal Support Manual from the Ground Up | Blog"><meta property="og:description" content="A personal story about the process of creating our team's first comprehensive internal support manual, and how it became the foundation for scaling our remote team."><meta property="og:url" content="https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/"><meta property="og:image" content="https://ibrahimsharif.com/_astro/how-i-built-our-internal-support-manual-from-the-ground-up.D8OrByq-.jpg"><!-- Article Published/Modified time --><meta property="article:published_time" content="2025-02-16T14:50:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/"><meta property="twitter:title" content="How I Built Our Internal Support Manual from the Ground Up | Blog"><meta property="twitter:description" content="A personal story about the process of creating our team's first comprehensive internal support manual, and how it became the foundation for scaling our remote team."><meta property="twitter:image" content="https://ibrahimsharif.com/_astro/how-i-built-our-internal-support-manual-from-the-ground-up.D8OrByq-.jpg"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How I Built Our Internal Support Manual from the Ground Up | Blog","image":"https://ibrahimsharif.com/_astro/how-i-built-our-internal-support-manual-from-the-ground-up.D8OrByq-.jpg","datePublished":"2025-02-16T14:50:00.000Z","author":[{"@type":"Person","name":"Ibrahim Sharif","url":"https://github.com/shuvoaftab/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Blog" href="https://ibrahimsharif.com/rss.xml"><meta name="theme-color" content=""><!-- <ClientRouter /> --><script src="/toggle-theme.js"></script><script src="https://js.sentry-cdn.com/4b7ca5c7e5ab1d6ff1db8b7d4a88d871.min.js" crossorigin="anonymous"></script><!-- Google Tag Manager --><script src="/assets/js/gtm.js"></script><!-- End Google Tag Manager --><link rel="stylesheet" href="/_astro/index.EN_0vmnN.css">
+<style>footer[data-astro-cid-xsyc7abh]{padding-inline:0}
+</style>
+<link rel="stylesheet" href="/_astro/index.Cq7fEnt7.css">
+<style>.back-to-top[data-astro-cid-5l3afzhg]{position:fixed;bottom:1rem;z-index:1000;width:3rem;height:3rem;background:#343f60e6;color:#fff;border-radius:50%;box-shadow:0 4px 12px #00000026;transition:all .3s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center}.back-to-top[data-astro-cid-5l3afzhg]:hover{background:#343f60;transform:translateY(-2px) scale(1.05);box-shadow:0 8px 20px #0003}.progress-ring[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out}.progress-ring-circle[data-astro-cid-5l3afzhg]{transition:stroke-dashoffset .1s ease-out;filter:drop-shadow(0 0 2px rgba(255,255,255,.3))}.hidden[data-astro-cid-5l3afzhg]{opacity:0;pointer-events:none;transform:translateY(20px) scale(.8)}.dark .back-to-top[data-astro-cid-5l3afzhg]{background:#ffffff1a;color:#fff}.dark .back-to-top[data-astro-cid-5l3afzhg]:hover{background:#fff3}.sr-only[data-astro-cid-5l3afzhg]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style><style>[data-astro-transition-scope="astro-2atpulty-1"] { view-transition-name: how-i-built-our-internal-support-manual-from-the-ground-up; }@layer astro { ::view-transition-old(how-i-built-our-internal-support-manual-from-the-ground-up) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(how-i-built-our-internal-support-manual-from-the-ground-up) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(how-i-built-our-internal-support-manual-from-the-ground-up) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(how-i-built-our-internal-support-manual-from-the-ground-up) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-2atpulty-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-2atpulty-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>.twitter-tweet:not(.twitter-tweet-rendered){padding:var(--tc-padding, 1em);border:1px solid var(--tc-border-color, #cfd9de)}.twitter-tweet:not(.twitter-tweet-rendered)>:first-child{margin-top:0}.twitter-tweet:not(.twitter-tweet-rendered)>:last-child{margin-bottom:0}.twitter-tweet.twitter-tweet-rendered{color-scheme:normal}
+</style><style>lite-vimeo{font-size:10px;background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover}lite-vimeo:after{content:"";display:block;padding-bottom:56.25%}lite-vimeo>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}lite-vimeo>.ltv-playbtn{content:"";position:absolute;inset:0;width:100%;background:transparent;outline:0;border:0;cursor:pointer}lite-vimeo>.ltv-playbtn:before{width:6.5em;height:4em;background:#172322bf;opacity:.8;border-radius:.25rem;transition:all .2s cubic-bezier(0,0,.2,1)}lite-vimeo>.ltv-playbtn:focus:before{outline:auto}lite-vimeo:hover>.ltv-playbtn:before{background-color:#00adef;background-color:var(--ltv-color, #00adef);opacity:1}lite-vimeo>.ltv-playbtn:after{border-style:solid;border-width:1em 0 1em 1.7em;border-color:transparent transparent transparent #fff}lite-vimeo>.ltv-playbtn:before,lite-vimeo>.ltv-playbtn:after{content:"";position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0)}lite-vimeo.ltv-activated:before,lite-vimeo.ltv-activated>.ltv-playbtn{cursor:unset;opacity:0;pointer-events:none}
+</style><style>lite-youtube>iframe{all:unset!important;width:100%!important;height:100%!important;position:absolute!important;inset:0!important;border:0!important}
+</style><style>.avatar[data-astro-cid-nz7vzevv]{border-radius:var(--bluesky-radius-full);overflow:hidden;background-color:var(--bluesky-color-border);flex-shrink:0}.avatar[data-astro-cid-nz7vzevv] img[data-astro-cid-nz7vzevv]{width:100%;height:100%;object-fit:cover}.medium[data-astro-cid-nz7vzevv]{width:2.5rem;height:2.5rem}.small[data-astro-cid-nz7vzevv]{width:1rem;height:1rem}
+</style><style>.card[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.card[data-astro-cid-ld7lp7sc]:hover{background:var(--bluesky-color-background-hover)}.cover-image[data-astro-cid-ld7lp7sc]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-ld7lp7sc]{padding:var(--bluesky-content-padding)}.header[data-astro-cid-ld7lp7sc]{display:flex;gap:var(--bluesky-card-gap);align-items:center}.avatar[data-astro-cid-ld7lp7sc]{width:var(--bluesky-avatar-md);height:var(--bluesky-avatar-md)}.title-group[data-astro-cid-ld7lp7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-2xs)}.title[data-astro-cid-ld7lp7sc]{font-weight:var(--bluesky-font-weight-semibold);line-height:var(--bluesky-line-height-title);margin:0;color:var(--bluesky-color-text)}.subtitle[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-subtitle);margin:0}.description[data-astro-cid-ld7lp7sc]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);line-height:var(--bluesky-line-height-normal);margin:var(--bluesky-space-xs) 0 0 0}
+</style><style>.record-with-media[data-astro-cid-fealz7sc]{display:flex;flex-direction:column;gap:var(--bluesky-space-sm)}
+</style><style>.external-link[data-astro-cid-poog3yx5]{display:flex;flex-direction:column;width:100%;border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);overflow:hidden;text-decoration:none;color:var(--bluesky-color-text);background:var(--bluesky-color-background);transition:var(--bluesky-card-transition)}.thumbnail[data-astro-cid-poog3yx5]{aspect-ratio:var(--bluesky-aspect-ratio-thumb);width:100%;height:auto;object-fit:cover}.content[data-astro-cid-poog3yx5]{padding:var(--bluesky-content-padding)}.domain[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title[data-astro-cid-poog3yx5]{font-weight:var(--bluesky-font-weight-semibold);margin:0;color:var(--bluesky-color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.description[data-astro-cid-poog3yx5]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text-secondary);margin:var(--bluesky-space-xs) 0 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+</style><style>.image-grid-container[data-astro-cid-mv4v2qhz]{width:100%;max-width:var(--bluesky-content-max-width);margin:0 auto;aspect-ratio:var(--bluesky-aspect-ratio-thumb)}.image-grid[data-astro-cid-mv4v2qhz]{width:100%;height:100%;display:grid;gap:var(--bluesky-space-xs);border-radius:var(--bluesky-radius-md);overflow:hidden}.image-grid-item[data-astro-cid-mv4v2qhz]{position:relative;overflow:hidden;width:100%;height:100%;background-color:var(--bluesky-color-border)}.image-grid-item[data-astro-cid-mv4v2qhz] img[data-astro-cid-mv4v2qhz]{width:100%;height:100%;object-fit:cover}.image-grid--1[data-astro-cid-mv4v2qhz]{grid-template-columns:1fr}.image-grid--2[data-astro-cid-mv4v2qhz],.image-grid--3[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr)}.image-grid--3[data-astro-cid-mv4v2qhz] .image-grid-item[data-astro-cid-mv4v2qhz]:first-child{grid-row:span 2}.image-grid--4[data-astro-cid-mv4v2qhz]{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+</style><style>lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}lite-youtube:before{content:attr(data-title);display:block;position:absolute;top:0;background-image:linear-gradient(180deg,#000000ab,#0000008a 14%,#00000026 54%,#0000000d 72%,#0000 94%);height:99px;width:100%;font-family:YouTube Noto,Roboto,Arial,Helvetica,sans-serif;color:#eee;text-shadow:0 0 2px rgba(0,0,0,.5);font-size:18px;padding:25px 20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-sizing:border-box}lite-youtube:hover:before{color:#fff}lite-youtube:after{content:"";display:block;padding-bottom:56.25%}lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}lite-youtube>.lty-playbtn{display:block;width:100%;height:100%;background:no-repeat center/68px 48px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');position:absolute;cursor:pointer;z-index:1;filter:grayscale(100%);transition:filter .1s cubic-bezier(0,0,.2,1);border:0}lite-youtube:hover>.lty-playbtn,lite-youtube .lty-playbtn:focus{filter:none}lite-youtube.lyt-activated{cursor:unset}lite-youtube.lyt-activated:before,lite-youtube.lyt-activated>.lty-playbtn{opacity:0;pointer-events:none}.lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
+</style><style>.media-container[data-astro-cid-bb4d2rie]{width:100%;overflow:hidden;border-radius:var(--bluesky-radius-md);position:relative;background-color:var(--bluesky-color-border)}.media-container[data-astro-cid-bb4d2rie]>img[data-astro-cid-bb4d2rie]{width:100%;height:100%;object-fit:cover}
+</style><style>.post-container[data-astro-cid-djn3nggo]{border:var(--bluesky-card-border);border-radius:var(--bluesky-radius-md);display:flex;flex-direction:column;gap:var(--bluesky-space-xs);padding:var(--bluesky-space-sm);text-decoration:none;color:var(--bluesky-color-text);transition:var(--bluesky-card-transition)}.post-link[data-astro-cid-djn3nggo]{text-decoration:none}.post-container[data-astro-cid-djn3nggo]:hover{background-color:var(--bluesky-color-background-hover)}.user-info[data-astro-cid-djn3nggo]{display:flex;gap:var(--bluesky-space-xs);align-items:center}.user-text[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--bluesky-color-text)}.name[data-astro-cid-djn3nggo]{font-weight:var(--bluesky-font-weight-bold);color:var(--bluesky-color-text)}.handle[data-astro-cid-djn3nggo]{color:var(--bluesky-color-text-secondary);margin-left:var(--bluesky-space-xs)}.content[data-astro-cid-djn3nggo]{font-size:var(--bluesky-font-size-sm);color:var(--bluesky-color-text);margin:0;line-height:var(--bluesky-line-height-normal)}
+</style><style>.bluesky-post-container{--bluesky-color-overlay: rgba(0, 0, 0, .5);--bluesky-color-link: rgb(59 130 246);--bluesky-color-text--light: #000000;--bluesky-color-text-secondary--light: rgb(66 87 108);--bluesky-color-border--light: #e5e5e5;--bluesky-color-background--light: #ffffff;--bluesky-color-background-hover--light: #fafafa;--bluesky-color-text--dark: white;--bluesky-color-text-secondary--dark: rgb(174, 187, 201);--bluesky-color-border--dark: rgb(46, 64, 82);--bluesky-color-background--dark: hsl(211, 20%, 20%);--bluesky-color-background-hover--dark: hsl(211, 20%, 15%);--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light );--bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;--bluesky-font-size-sm: .875rem;--bluesky-font-size-base: 1rem;--bluesky-font-size-lg: 1.125rem;--bluesky-font-weight-normal: 400;--bluesky-font-weight-medium: 500;--bluesky-font-weight-semibold: 600;--bluesky-font-weight-bold: 700;--bluesky-line-height-tight: 1.2;--bluesky-line-height-normal: 1.4;--bluesky-line-height-relaxed: 1.6;--bluesky-line-height-title: 21px;--bluesky-line-height-subtitle: 18px;--bluesky-space-2xs: .125rem;--bluesky-space-xs: .25rem;--bluesky-space-sm: .5rem;--bluesky-space-md: .75rem;--bluesky-space-lg: 1rem;--bluesky-space-xl: 1.25rem;--bluesky-space-2xl: 1.5rem;--bluesky-radius-sm: .25rem;--bluesky-radius-md: .5rem;--bluesky-radius-lg: .75rem;--bluesky-radius-full: 9999px;--bluesky-content-max-width: 600px;--bluesky-content-min-width: 300px;--bluesky-content-padding-x: var(--bluesky-space-lg);--bluesky-content-padding-y: var(--bluesky-space-md);--bluesky-content-padding: var(--bluesky-content-padding-y) var(--bluesky-content-padding-x);--bluesky-card-gap: var(--bluesky-space-sm);--bluesky-card-border: 1px solid var(--bluesky-color-border);--bluesky-card-padding: var(--bluesky-content-padding);--bluesky-card-transition: background-color .2s ease;--bluesky-aspect-ratio-thumb: 1.91/1;--bluesky-aspect-ratio-square: 1/1;--bluesky-aspect-ratio-video: 16/9;--bluesky-icon-size-sm: 1rem;--bluesky-icon-size-md: 1.5rem;--bluesky-icon-size-lg: 2rem}@media (prefers-color-scheme: dark){.bluesky-post-container{--bluesky-color-text: var(--bluesky-color-text--light);--bluesky-color-text-secondary: var(--bluesky-color-text-secondary--light);--bluesky-color-border: var(--bluesky-color-border--light);--bluesky-color-background: var(--bluesky-color-background--light);--bluesky-color-background-hover: var( --bluesky-color-background-hover--light )}}@supports (--color: light-dark(var(--a), var(--b))){.bluesky-post-container{--bluesky-color-text: light-dark( var(--bluesky-color-text--light), var(--bluesky-color-text--dark) );--bluesky-color-text-secondary: light-dark( var(--bluesky-color-text-secondary--light), var(--bluesky-color-text-secondary--dark) );--bluesky-color-border: light-dark( var(--bluesky-color-border--light), var(--bluesky-color-border--dark) );--bluesky-color-background: light-dark( var(--bluesky-color-background--light), var(--bluesky-color-background--dark) );--bluesky-color-background-hover: light-dark( var(--bluesky-color-background-hover--light), var(--bluesky-color-background-hover--dark) )}}
+</style><style>.play-button[data-astro-cid-v2yxwka7]{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6rem;height:6rem;border-radius:var(--bluesky-radius-full);background-color:var(--bluesky-color-overlay);display:flex;align-items:center;justify-content:center}.play-icon[data-astro-cid-v2yxwka7]{width:60%;height:60%;object-fit:cover}.thumbnail[data-astro-cid-v2yxwka7]{width:100%;height:100%;object-fit:cover}
+</style></head> <body data-astro-cid-6nfzclq6> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXHKH8MB" height="0" width="0" style="display:none;visibility:hidden" data-astro-cid-6nfzclq6></iframe></noscript> <!-- End Google Tag Manager (noscript) -->  <header class="sticky top-0 z-1000 w-full dark:border-gray-700 shadow-md border-b" data-astro-cid-jov6nfgc> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4" data-astro-cid-jov6nfgc>
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-7xl flex-col items-center justify-between sm:flex-row" data-astro-cid-jov6nfgc> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background sm:items-center px-4" data-astro-cid-jov6nfgc> <a href="/" class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static" data-astro-cid-jov6nfgc> <!-- {SITE.title} --> <img src="/assets/images/ibrahim-rogue-script.svg" alt="Ibrahim Logo" class="logo-svg h-8 sm:h-10 md:h-12 lg:h-14" data-astro-cid-jov6nfgc> </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0" data-astro-cid-jov6nfgc> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items" data-astro-cid-jov6nfgc> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-y-0" data-astro-cid-jov6nfgc> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/topics" data-astro-cid-jov6nfgc>
+Topics
+</a> </li> <li class="col-span-2 menu-link active-nav" data-astro-cid-jov6nfgc> <a href="/posts" data-astro-cid-jov6nfgc>
+Posts
+</a> </li> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/tags" data-astro-cid-jov6nfgc>
+Tags
+</a> </li> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/categories" data-astro-cid-jov6nfgc>
+Categories
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
+            </a>
+          </li> --> <li class="col-span-2 menu-link" data-astro-cid-jov6nfgc> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only" data-astro-cid-jov6nfgc>Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center" data-astro-cid-jov6nfgc> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only" data-astro-cid-jov6nfgc>Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center" data-astro-cid-jov6nfgc> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite" data-astro-cid-jov6nfgc> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" data-astro-cid-jov6nfgc="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <!-- <Hr /> --> </header>  <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <main id="main-content" class="w-full max-w-7xl mx-auto" data-pagefind-body data-astro-cid-2t7o7two> <nav class="breadcrumb mx-auto py-4 w-full max-w-7xl px-4" aria-label="breadcrumb"> <ul class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"> <li> <a href="/" class="hover:text-accent">⌘ Home</a> <span aria-hidden="true" class="opacity-40 me-1"> ⎇ </span> </li> <li> <a href="/posts/" class=" hover:text-accent capitalize opacity-90"> Posts </a> <span aria-hidden="true" class="opacity-40 mx-1"> ⎇ </span> </li><li> <span class=" hover:text-accent opacity-80" aria-current="page"> How I Built Our Internal Support Manual from the Ground Up </span> </li> </ul> </nav> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="main-content flex flex-col lg:flex-row w-full max-w-7xl px-4 py-8 mx-auto" data-astro-cid-2t7o7two> <div class="w-full lg:w-1/4 lg:me-8" data-astro-cid-2t7o7two> <!-- <Aside title="Category & Tags" className="w-full top-4 mb-6 hidden md:block">
+        
+      </Aside> --> <aside class="toc w-full sticky top-4 hidden md:block aside bg-gray-50 rounded-sm shadow-md" data-astro-cid-s6iqbw7n> <div class="aside-header" data-astro-cid-s6iqbw7n> <h2 class="text-lg md:text-xl font-bold" data-astro-cid-s6iqbw7n>Table of Contents</h2> </div> <div class="aside-content p-2" data-astro-cid-s6iqbw7n> <div class="widget-wrapper" data-astro-cid-s6iqbw7n>  <div class="sidebar-menu prose" data-astro-cid-2t7o7two> <div id="toc-content" class="text-sm" data-astro-cid-2t7o7two></div> </div>  <div class="toc-arrow" aria-hidden="true" data-astro-cid-s6iqbw7n> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-s6iqbw7n> <path d="M12 5v14M5 12l7 7 7-7" data-astro-cid-s6iqbw7n></path> </svg> </div> </div> </div> </aside>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".toc .widget-wrapper");if(!e)return;const t=e.querySelector(".toc-arrow");if(!t)return;const s=()=>{const i=e.scrollHeight>e.clientHeight,r=e.scrollTop+e.clientHeight>=e.scrollHeight-1;i?r?(t.classList.remove("visible"),t.classList.add("hidden")):(t.classList.remove("hidden"),t.classList.add("visible")):t.classList.add("hidden")};s(),e.addEventListener("scroll",s),window.addEventListener("resize",s)});</script> </div> <div class="w-full lg:w-3/4" data-astro-cid-2t7o7two> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-cid-2t7o7two data-astro-transition-scope="astro-2atpulty-1"> How I Built Our Internal Support Manual from the Ground Up </h1> <div class="flex items-center border-b gap-4 my-2" data-astro-cid-2t7o7two> <div class="flex items-end space-x-2 opacity-80"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">Published:</span> <span class="text-sm sm:text-base"> <time datetime="2025-02-16T14:50:00.000Z">16 Feb, 2025</time> <!-- <span aria-hidden="true">  ▶ </span> --> <span class="sr-only">&nbsp;at&nbsp;</span> <!-- <span class="text-nowrap">🕓 {time}</span> --> </span> </div> <span class="reading" data-astro-cid-2t7o7two>⏰ 16 min read</span> <!-- <div class="flex flex-col border-b border-muted gap-2 pb-2 mb-4"> --> <ul class="flex flex-wrap gap-2" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/career/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans bg-(--muted) category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>Career</span> </a> </li> <li class="group inline-block group-hover:cursor-pointer my-1" data-astro-cid-ls35d56c> <a href="/categories/technical-support/" class="relative pr-2 p-1 text-base group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 font-sans bg-(--muted) category-post" data-astro-cid-ls35d56c>
+📂 <span data-astro-cid-ls35d56c>Technical Support</span> </a> </li>  </ul> <!-- </div> --> </div> <div class="w-full featuredImage mb-8" data-astro-cid-2t7o7two> <img src="/_astro/how-i-built-our-internal-support-manual-from-the-ground-up.D8OrByq-.jpg" alt="Featured image for How I Built Our Internal Support Manual from the Ground Up" class="w-full h-auto object-cover shadow-md ring-(--border) ring rounded-lg" loading="eager" data-astro-cid-2t7o7two> </div> <!-- <p> FeaturedImage:: {featuredImage}</p> --> <article id="article" class="mx-auto prose mt-8 max-w-7xl" data-astro-cid-2t7o7two> <p>For years, our support team relied on informal knowledge sharing and the expertise of a few key individuals to solve complex customer issues. As our company grew and transitioned to a multi-shift environment that sometimes had a remote working component, it became clear that this approach was unsustainable. The lack of a centralized, accessible resource meant onboarding new team members was slow, and knowledge gaps led to inconsistent support experiences. Faced with the challenge of scaling our team and maintaining high standards, I set out to build our first comprehensive internal support manual from scratch. This journey was not just about documenting processes—it was about transforming how our team collaborated, learned, and delivered value. In this article, I’ll share the steps, challenges, and lessons learned from creating a living manual that became the backbone of our support operations and a catalyst for team growth.</p>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p></p><details><summary>Open Table of Contents</summary><p></p>
+<ul>
+<li><a href="#the-knowledge-silo">The Knowledge Silo</a></li>
+<li><a href="#the-catalyst-onboarding-a-new-evening-shift-team">The Catalyst: Onboarding a new Evening Shift Team</a></li>
+<li><a href="#the-architecture-what-goes-into-a-teams-brain">The Architecture: What Goes into a Team’s “Brain”?</a></li>
+<li><a href="#the-four-pillars-of-our-support-playbook">The Four Pillars of Our Support Playbook</a></li>
+<li><a href="#the-outcome-a-foundation-for-consistency-and-growth">The Outcome: A Foundation for Consistency and Growth</a></li>
+<li><a href="#the-lesson-from-doer-to-enabler">The Lesson: From Doer to Enabler</a></li>
+<li><a href="#team-performance-before-and-after-manual-adoption">Team Performance Before and After Manual Adoption</a></li>
+<li><a href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+<p></p></details><p></p>
+<h2 id="the-knowledge-silo">The Knowledge Silo</h2>
+<p>For a long time, much of our team’s most valuable support knowledge lived in one place: every support agent’s head. When I joined WPManageNinja in 2022, I quickly realized that our collective expertise was scattered—fragmented across Telegram channels and Discord threads, buried in old emails and tickets, or simply locked away in the memories of individual team members. Over nearly three years, as the senior specialist for our most technical products, I had accumulated a mental library of obscure server conflicts, intricate email deliverability fixes, advanced WordPress debugging steps, the critical role of browser dev-tools in troubleshooting, and a catalog of common but non-obvious user mistakes. This deep institutional knowledge was my greatest asset as a problem-solver. Ironically, it was also our team’s biggest liability.</p>
+<p>The risks of this knowledge silo became painfully clear when I was tasked with a new challenge: to build and train a new, evening shift support team of four people. Suddenly, my personal knowledge became a bottleneck. I couldn’t be available as before across all shifts, and the team couldn’t scale if most of the difficult questions had to wait for me. There were cases when a few tickets were waiting for replies for more than 3-5 days, simply because the answers lived in my head or in the heads of a few others. The realization hit hard: if I left, or even just took a vacation, critical expertise would vanish with me. To succeed, I had to find a way to clone my brain—not just for my own sanity, but for the team’s survival and growth. The answer was clear: we needed to build our team’s collective brain—our first comprehensive, internal support manual.</p>
+<p>Every support agent has their own unique experiences and specialties, but the best teams are those that actively share their knowledge and learn from each other. The manual would become our team’s shared resource, a living document that captured our collective wisdom and made it accessible to everyone, regardless of shift or location. It would be the foundation for training new hires, ensuring consistency in our support processes, and empowering every team member to contribute, innovate, and grow. By transforming individual expertise into a collaborative asset, we could finally break down silos and build a resilient, scalable support operation.</p>
+<hr/>
+<h2 id="the-catalyst-onboarding-a-new-evening-shift-team">The Catalyst: Onboarding a new Evening Shift Team</h2>
+<p>When I first started managing support, our team was small. We could quickly share knowledge through casual conversations, Telegram messages, and ad-hoc training sessions. But as we grew and introduced a multi-shift system, everything changed. In 2024, we have 3 shifts: Day/Morning, Evening/Night, and Weekend. Each shift had its own set of challenges, and the need for a structured onboarding process became critical.</p>
+<p>Onboarding new hires in a hybrid environment is fundamentally different. There is no “learning by osmosis” for everyone, especially for those who spend part of their shift working remotely. For example, our Evening shift team works 3 hours in the office and then continues for 6 hours from home. This means you can’t just lean over to the next desk to ask a quick question or pick up subtle cues from overheard conversations during the remote portion of the shift. Every piece of knowledge transfer must be deliberate, clear, and documented. As I began to design the “long and rigorous training phase” for our new team members, I realized that my collection of personal notes and saved replies was completely inadequate for this new reality.</p>
+<p>We needed a single, searchable, and constantly updated source of truth that would serve as the foundation for both our training and our daily operations. After evaluating our options, I decided to build it from the ground up using Notion—a tool our team already relied on for collaboration, both in-office and during remote hours. This decision marked a turning point: instead of relying on scattered resources and informal chats, we would invest in a living manual that could scale with us, adapt to new challenges, and empower every team member, no matter where they worked.</p>
+<p>The process of building this manual was not just about transferring information; it was about rethinking how we shared knowledge, onboarded new hires, and maintained consistency across shifts and work locations. By centralizing our expertise, we laid the groundwork for a more resilient, agile, and collaborative support team—one that could thrive even as our work patterns evolved.</p>
+<p>With the foundation set, the next challenge was to architect a manual that truly captured the depth and breadth of our team’s collective wisdom.</p>
+<hr/>
+<h2 id="the-architecture-what-goes-into-a-teams-brain">The Architecture: What Goes into a Team’s “Brain”?</h2>
+<p>Imagine a team of explorers venturing into unknown territory. Without a map, each person risks getting lost, repeating mistakes, or missing the best path. The internal support manual is that map—drawn from the experience of those who have gone before, updated with every new discovery, and essential for guiding new explorers safely and efficiently to their destination.</p>
+<p>But a truly effective manual is more than just a static map—it’s a living, evolving guidebook. It not only charts the terrain but also records the shortcuts, the pitfalls, and the lessons learned from every journey. It grows richer with each new expedition, capturing the collective wisdom of the team and ensuring that no one has to start from scratch or repeat avoidable errors. In a fast-paced support environment, where every minute counts and every issue can be unique, having such a dynamic resource is invaluable.</p>
+<p>When I set out to build our internal support manual, I knew it had to be more than just a collection of articles. It needed to be a comprehensive resource that could serve as the foundation for our team’s knowledge sharing, training, and daily operations. I wanted it to be a living document that would evolve with us, capturing not just the “how” but also the “why” behind our processes and decisions.</p>
+<p>I realized that the manual needed to serve multiple audiences at once: the new hire looking for step-by-step instructions, the seasoned agent searching for advanced troubleshooting tips, and the team lead seeking to standardize workflows and drive continuous improvement. It had to be approachable yet thorough, structured yet flexible, and above all, easy to update as our products and processes changed.</p>
+<p>To achieve this, I architected the manual around four key pillars, each designed to address a specific aspect of our support operations. It was more than a list of facts; it was a library of our team’s collective wisdom, designed to be both comprehensive and practical, and to evolve as our needs changed.</p>
+<hr/>
+<h2 id="the-four-pillars-of-our-support-playbook">The Four Pillars of Our Support Playbook</h2>
+<p>I architected the manual, which we nicknamed the “Support Playbook,” around four key pillars. It was more than a list of facts; it was a library of our team’s collective wisdom, designed to be both comprehensive and practical, and to evolve as our needs changed. Most importantly, it was designed to be collaborative, allowing every team member to contribute and learn from each other. Every other support agent and seniors were involved in the process. Here’s a breakdown of the four pillars that formed the backbone of our manual:</p>
+<ol>
+<li>
+<p><strong>The Technical Library:</strong><br/>
+This was the core of our manual—the heart of our collective technical expertise. I began with a massive “brain dump,” documenting everything I was planning to teach in our live training sessions, but soon realized it needed to go further. The Technical Library became a repository for:</p>
+<ul>
+<li>Deep-dive articles on email processing and deliverability, including real-world troubleshooting scenarios and annotated screenshots.</li>
+<li>Troubleshooting checklists for different server environments like NGINX, Apache, and LiteSpeed, with step-by-step diagnostic flows and links to relevant logs or configuration files.</li>
+<li>Step-by-step guides for diagnosing complex caching and firewall conflicts, illustrated with diagrams and sample error messages.</li>
+<li>A glossary of technical terms and acronyms, ensuring new hires could quickly get up to speed.</li>
+<li>“Lessons learned” write-ups from past incidents, so we never repeated the same mistake twice.
+This section was designed to be living and collaborative—agents were encouraged to add new findings, update outdated steps, and flag unclear instructions.</li>
+</ul>
+</li>
+<li>
+<p><strong>The Process Playbooks:</strong><br/>
+This section codified our workflows and turned our strategies into actionable checklists. It included:</p>
+<ul>
+<li>Our ticket prioritization framework, detailing how and when to use our <code>[Urgent]</code> and <code>[High-Value]</code> tags, with real ticket examples and decision trees.</li>
+<li>Our complete operational plan for handling high-stakes events like the Black Friday/Cyber Monday traffic spikes, including communication protocols, escalation paths, and contingency plans for outages.</li>
+<li>Clear guidelines on the escalation path for tickets that required senior intervention, with flowcharts and contact lists for each escalation tier.</li>
+<li>Standard operating procedures (SOPs) for recurring tasks—like plugin updates, server migrations, or customer handoffs—ensuring consistency and reducing errors.</li>
+<li>Retrospective summaries after major incidents, capturing what worked, what didn’t, and how we could improve.
+By documenting not just what to do, but why we do it, the Process Playbooks empowered agents to make informed decisions even in unfamiliar situations.</li>
+</ul>
+</li>
+<li>
+<p><strong>The Communication Guide:</strong><br/>
+To ensure consistency, this section outlined our brand’s voice and tone, and provided practical tools for effective communication. It included:</p>
+<ul>
+<li>Templates for common interactions—such as onboarding new users, handling billing questions, or following up on unresolved issues—so agents could respond quickly without sacrificing quality.</li>
+<li>Our framework for handling difficult or frustrated customers with empathy and professionalism, including sample phrases, de-escalation techniques, and reminders to always “assume positive intent.”</li>
+<li>Guidelines for written communication, covering everything from grammar and punctuation to the use of emojis and GIFs in different contexts.</li>
+<li>A style guide for internal and external documentation, ensuring our knowledge base articles and public responses reflected a unified voice.</li>
+<li>Examples of “what to say” and “what not to say” in sensitive situations, helping agents avoid common pitfalls.
+This guide helped new and experienced agents alike maintain a high standard of communication, reinforcing our team’s reputation for clarity and care.</li>
+</ul>
+</li>
+<li>
+<p><strong>The Snippet Vault:</strong><br/>
+This was a simple but powerful database of pre-approved, tested code snippets and canned responses for the most common technical questions, designed to increase both the speed and accuracy of our replies. The Snippet Vault included:</p>
+<ul>
+<li>Frequently used troubleshooting commands for SSH, database queries, and server diagnostics, with explanations for when and how to use each.</li>
+<li>Ready-to-go responses for common issues—like password resets, plugin conflicts, or feature requests—tailored for different customer personas.</li>
+<li>Code samples for custom integrations, API usage, and advanced configuration, reviewed and updated regularly by senior engineers.</li>
+<li>A tagging system for quick searching, so agents could find the right snippet in seconds.</li>
+<li>A feedback mechanism for agents to suggest improvements or flag outdated snippets.
+By centralizing these resources, we reduced response times, minimized errors, and ensured that every customer received accurate, up-to-date information.</li>
+</ul>
+</li>
+</ol>
+<p>Together, these four pillars transformed our manual from a static document into a dynamic, collaborative platform—one that empowered every agent to learn, contribute, and deliver exceptional support.</p>
+<hr/>
+<h2 id="the-outcome-a-foundation-for-consistency-and-growth">The Outcome: A Foundation for Consistency and Growth</h2>
+<p>Internal documentation is the backbone of scalable, high-performing WordPress and SaaS support teams. By centralizing knowledge, processes, and best practices, companies reduce onboarding time, improve ticket resolution speed, and ensure consistent customer experiences.</p>
+<p>The impact of building our internal support manual was both immediate and transformative. Before its creation, onboarding new hires was a slow, often overwhelming process—one that relied heavily on shadowing, scattered notes, and the availability of senior team members. Now, new agents could self-serve their training, accessing a structured, comprehensive manual at their own pace. This shift reduced our average onboarding time from 6 or more weeks to just 2-3 weeks, enabling us to scale our team rapidly without sacrificing quality or confidence.</p>
+<p>Consistency in support was another major win. With a single, authoritative source of truth, our responses became more uniform in tone, technical accuracy, and overall quality. Agents no longer had to second-guess their approach or rely on outdated snippets; instead, they could trust that the Playbook reflected our latest best practices. This led to a measurable improvement in customer satisfaction scores and a noticeable reduction in errors and escalations.</p>
+<p>Perhaps the most profound change was cultural. The manual empowered every agent to take ownership of their learning and contributions. Instead of waiting for answers or feeling isolated, team members were encouraged to “check the Playbook first”—and, crucially, to improve it whenever they spotted a gap or a better way to explain something. This collaborative spirit turned the manual into a living document, one that evolved alongside our products and processes. It was no longer just my project; it became a shared asset, with agents regularly contributing new solutions, updating outdated steps, and celebrating documentation wins as a team.</p>
+<p>The results were quantifiable and compelling:</p>
+<ul>
+<li><strong>Accelerated Onboarding:</strong> New hires ramped up faster, gaining confidence and autonomy early in their journey.</li>
+<li><strong>Consistent Support:</strong> Every agent worked from the same set of standards, ensuring reliable, high-quality customer experiences.</li>
+<li><strong>Empowered Agents:</strong> The Playbook fostered a sense of ownership and initiative, reducing dependency on any single person and encouraging continuous learning.</li>
+<li><strong>Living Knowledge Base:</strong> Regular contributions kept our documentation fresh, relevant, and responsive to real-world challenges.</li>
+<li><strong>Operational Improvements:</strong> We saw a 63% reduction in average first response time, a 16% decrease in repeat tickets per user, and our CSAT score jumped to 4.9. A clear evidence that better documentation drives better outcomes.</li>
+</ul>
+<p>One of the most rewarding outcomes was seeing agents I had trained through this new process grow into top performers—confident, resourceful, and eager to help others. The manual became not just a tool for efficiency, but a catalyst for professional growth and team cohesion.</p>
+<p>By investing in a robust internal support manual, we laid the groundwork for a resilient, adaptable, and high-performing team—one that could scale, innovate, and thrive in a fast-changing environment.</p>
+<hr/>
+<h2 id="the-lesson-from-doer-to-enabler">The Lesson: From Doer to Enabler</h2>
+<p>Building that first support manual was one of the most defining projects of my career. It marked the moment I fully transitioned from being an individual “doer”—the person with all the answers—to a true “team builder” and enabler. The process of writing everything down forced me to clarify my own thinking, standardize our processes, and create a truly scalable system for knowledge sharing.</p>
+<p>Through this journey, I learned that a great support team isn’t built on the expertise of a single person. It’s built on a foundation of shared knowledge, clear processes, and mutual trust. Our internal manual became the cornerstone of that system, empowering every agent to learn, contribute, and grow. It has been instrumental in our team’s success and resilience.</p>
+<p>One of our most challenging tickets—a complex SMTP relay issue—was solved through a collaborative effort between two agents. Instead of letting the solution fade into memory, we turned it into a detailed manual chapter, complete with screenshots and troubleshooting steps. That chapter has since helped dozens of agents and hundreds of users, proving the lasting value of documenting every hard-won lesson. Over time, these stories accumulated, transforming our manual into a living record of our team’s growth and problem-solving prowess.</p>
+<p>As support teams grow and remote work becomes the norm, the future of internal documentation will be shaped by collaborative tools, AI-powered search, and real-time updates. Teams that treat their manuals as living products—constantly evolving and open to all—will see faster growth, higher retention, and stronger SEO through better public documentation and user experiences. The manual is no longer just a static resource; it’s a dynamic platform for continuous improvement, innovation, and team cohesion.</p>
+<p>Ultimately, building our internal support manual was about more than just documentation—it was about building a culture. By making knowledge accessible, encouraging contributions from everyone, and celebrating documentation wins, we created an environment where learning and improvement are part of our daily work. The manual became a catalyst for professional development, a bridge between individual expertise and collective success, and a foundation for scaling our team with confidence.</p>
+<p>If there’s one lesson I’d share with anyone embarking on a similar journey, it’s this: invest in your team’s collective brain. The time you spend building and nurturing your internal manual will pay dividends in efficiency, consistency, and team spirit for years to come.</p>
+<hr/>
+<h2 id="team-performance-before-and-after-manual-adoption">Team Performance Before and After Manual Adoption</h2>
+<p>Implementing a comprehensive internal support manual fundamentally changed the way our team operated. Before its introduction, our processes were often inconsistent, and knowledge was fragmented across individuals and informal channels. This made onboarding new hires slow and left even experienced agents second-guessing their approach to complex issues. By centralizing our collective expertise and standardizing workflows, we created a single source of truth that everyone could rely on. The manual not only accelerated training and improved the quality of support, but also fostered a culture of collaboration and continuous improvement. Agents became more confident, support became more consistent, and our team was able to scale without losing its effectiveness.</p>
+<p>The following table highlights the most significant changes we observed after adopting the manual, illustrating just how impactful structured documentation can be for team performance and growth.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Aspect</th><th>Before Manual</th><th>After Manual</th><th>Impact</th><th>Notes</th></tr></thead><tbody><tr><td>Onboarding Experience</td><td>Ad hoc, slow</td><td>Structured, fast</td><td>2-3x faster onboarding</td><td>Reduced from 6+ weeks to 2-3 weeks</td></tr><tr><td>Ticket Consistency</td><td>Variable</td><td>High</td><td>Fewer escalations, more reliable answers</td><td>Standardized responses and processes</td></tr><tr><td>Agent Confidence</td><td>Uneven</td><td>Strong</td><td>Higher autonomy, less second-guessing</td><td>Agents self-serve and contribute to manual</td></tr><tr><td>Knowledge Sharing</td><td>Siloed</td><td>Collaborative</td><td>Increased contributions</td><td>Manual is a living, team-owned document</td></tr><tr><td>Team Scalability</td><td>Limited</td><td>High</td><td>Easier to add new shifts/roles</td><td>Documentation supports remote and hybrid onboarding</td></tr><tr><td>First Response Time</td><td>2-3 hours avg.</td><td>&lt;1 hour avg.</td><td>63% reduction</td><td>Faster access to troubleshooting steps and snippets</td></tr><tr><td>Repeat Tickets per User</td><td>High</td><td>Lower</td><td>16% decrease</td><td>Agents resolve root causes more consistently</td></tr><tr><td>CSAT Score</td><td>4.7</td><td>4.9</td><td>Improved customer satisfaction</td><td>Reflects better, more consistent support experiences</td></tr><tr><td>Documentation Updates</td><td>Rare, reactive</td><td>Frequent, proactive</td><td>Keeps knowledge current</td><td>Agents encouraged to update and improve manual regularly</td></tr><tr><td>Team Morale</td><td>Mixed</td><td>High</td><td>Stronger sense of ownership</td><td>Agents feel empowered and valued as contributors</td></tr></tbody></table>
+<hr/>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Building our internal support manual was a transformative experience for our team. It not only provided a structured approach to knowledge sharing but also fostered a culture of collaboration and continuous improvement. By investing in our team’s collective brain, we laid the foundation for a resilient, adaptable, and high-performing support operation that can scale with confidence.</p>
+<p>The journey of creating the manual taught us invaluable lessons about the power of documentation, the importance of shared knowledge, and the impact of a well-structured support system. As we continue to evolve and grow, our manual will remain a living document—constantly updated, enriched by every team member’s contributions, and always focused on delivering exceptional support to our customers.</p> </article> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col gap-2 pb-2" data-astro-cid-2t7o7two> <ul class="" data-astro-cid-2t7o7two> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/personal-story/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Personal Story </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/leadership/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Leadership </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/knowledge-management/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Knowledge Management </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/documentation/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Documentation </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/support/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Support </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/process/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Process </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/team-building/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Team Building </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/remote-work/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Remote Work </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/knowledge-sharing/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Knowledge Sharing </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/internal-documentation/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Internal Documentation </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/support-strategy/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Support Strategy </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/team-culture/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Team Culture </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/process-improvement/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Process Improvement </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/support-operations/" class="relative pr-2 text-base group-hover:text-accent focus-visible:p-1 font-sans font-bold tag-post">
+#Support Operations </a> </li> </ul> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end sm:gap-4" data-astro-cid-2t7o7two> <div class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"> <span class="italic">Share this post on:</span> <div class="text-center"> <a href="https://wa.me/?text=https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via WhatsApp" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg> <span class="sr-only">Share this post via WhatsApp</span> </a><a href="https://www.facebook.com/sharer.php?u=https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg> <span class="sr-only">Share this post on Facebook</span> </a><a href="https://x.com/intent/post?url=https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Share this post on X</span> </a><a href="https://t.me/share/url?url=https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg> <span class="sr-only">Share this post via Telegram</span> </a><a href="https://pinterest.com/pin/create/button/?url=https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Pinterest" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 20l4 -9" /><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /></svg> <span class="sr-only">Share this post on Pinterest</span> </a><a href="mailto:?subject=See%20this%20post&#38;body=https://ibrahimsharif.com/posts/how-i-built-our-internal-support-manual-from-the-ground-up/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email" target> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Share this post via email</span> </a> </div> </div> <div class="edit-post flex items-center justify-between p-2" data-astro-cid-2t7o7two> <div class="opacity-80 max-sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_stories_personal/how-i-built-our-internal-support-manual-from-the-ground-up.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> <div class="opacity-80 sm:hidden"><a class="space-x-1.5 hover:opacity-75" href="http://github.com/shuvoaftab/blogposts/blob/main/src/data/blog/_stories_personal/how-i-built-our-internal-support-manual-from-the-ground-up.mdx" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg><span class="max-sm:text-sm sm:inline">Suggest Changes</span></a></div> </div> </div> <hr class="my-4 border-dashed" data-astro-cid-2t7o7two> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-astro-cid-2t7o7two> <a href="/posts/top-10-must-have-wordpress-plugins-2025" class="flex w-full gap-1 hover:opacity-75 previous-post" data-astro-cid-2t7o7two> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Previous Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>Top 10 Must-Have WordPress Plugins for New Blogs (2025 Edition)</div> </div> </a> <a href="/posts/start-online-store-woocommerce-2025-guide" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2 next-post" data-astro-cid-2t7o7two> <div data-astro-cid-2t7o7two> <span data-astro-cid-2t7o7two>Next Post</span> <div class="text-sm text-accent/85" data-astro-cid-2t7o7two>How to Start an Online Store with WooCommerce (2025 Guide)</div> </div> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none" data-astro-cid-2t7o7two="true"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> <!-- Add Similar Posts Component --> <section class="similar-posts mt-12" data-astro-cid-mk2jfx7z><div class="mb-6" data-astro-cid-mk2jfx7z><h2 id="similar-posts" class="text-2xl font-bold text-accent mb-2" data-astro-cid-mk2jfx7z>You might also like</h2><div class="w-16 h-0.5 bg-accent" data-astro-cid-mk2jfx7z></div></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-astro-cid-mk2jfx7z><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/a-team-win-that-taught-me-important-job-of-leader" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/a-team-win-that-made-me-a-better-leader.BdCqBYYx.jpg" alt="Featured image for A Team Win That Taught Me an Important Job as a Leader" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:a-team-win-that-taught-me-an-important-job-as-a-leader" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>A Team Win That Taught Me an Important Job as a Leader</h3></div></a></div></div><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/how-i-balance-empathy-and-efficiency-during-peak-hours" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/how-i-balanced-empathy-and-efficiency-during-peak-hours.BWO-nDFX.jpg" alt="Featured image for How I Balanced Empathy and Efficiency During Peak Hours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:how-i-balanced-empathy-and-efficiency-during-peak-hours" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>How I Balanced Empathy and Efficiency During Peak Hours</h3></div></a></div></div><div class="similar-post-card" data-astro-cid-mk2jfx7z><div class="post-card-with-image" data-astro-cid-tuwwsatn><a href="/posts/1-star-review-that-changed-our-entire-approach" class="block group h-full" data-astro-cid-tuwwsatn><div class="w-full aspect-video overflow-hidden rounded-t-lg relative" data-astro-cid-tuwwsatn><img src="/_astro/1-star-review-that-changed-our-entire-approach.COuDI5GB.jpg" alt="Featured image for The 1-Star Review That Changed Our Entire Approach to Documentation and Communication" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" data-astro-cid-tuwwsatn></div><div class="similar-meta p-2 flex flex-col flex-grow border-t" data-astro-cid-tuwwsatn><h3 style="view-transition-name:the-1-star-review-that-changed-our-entire-approach-to-documentation-and-communication" class="text-md font-medium decoration-dashed hover:underline mb-2 astro-tuwwsatn" data-astro-cid-tuwwsatn>The 1-Star Review That Changed Our Entire Approach to Documentation and Communication</h3></div></a></div></div></div></section> <div id="giscus-container" class="giscus mt-6" data-astro-cid-2t7o7two> <!-- <script
+  is:inline
+  src="https://giscus.app/client.js"
+  data-repo="shuvoaftab/ibrahimsharif.com"
+  data-repo-id="R_kgDOKQ7kDw"
+  data-category="General"
+  data-category-id="DIC_kwDOKQ7kD84CmTZ1"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="noborder_dark"
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script> --><script src="/assets/js/giscus-theme.js"></script> </div> </div> </div> <footer class="w-full max-w-7xl mt-auto" data-astro-cid-xsyc7abh> <div class="max-w-7xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="footer flex flex-col items-center justify-between px-4 py-6 sm:flex-row-reverse sm:py-4" data-astro-cid-xsyc7abh> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/shuvoaftab" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title=" Blog on Github" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only"> Blog on Github</span> </a><a href="https://linkedin.com/in/ibrahimsharif" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Blog on LinkedIn" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Blog on LinkedIn</span> </a><a href="mailto:ibrahimsharif.com@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to Blog" target="_blank"> <svg viewBox="0 0 24 24" role="img"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to Blog</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row" data-astro-cid-xsyc7abh> <span data-astro-cid-xsyc7abh>Copyright &#169; 2025</span> <!-- <span class="hidden sm:inline">&nbsp;|&nbsp;</span> --> <!-- <span>All rights reserved.</span> --> </div> </div> </footer>  </main>  <button id="back-to-top" class="back-to-top focus-outline relative whitespace-nowrap hover:opacity-90 hidden left-4" aria-label="Back to top" title="Back to top" data-astro-cid-5l3afzhg> <!-- Circular progress ring --> <svg class="progress-ring absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 50 50" data-astro-cid-5l3afzhg> <circle class="progress-ring-bg" cx="25" cy="25" r="22" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" data-astro-cid-5l3afzhg></circle> <circle id="progress-ring-circle" class="progress-ring-circle" cx="25" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="138.23" data-astro-cid-5l3afzhg></circle> </svg> <!-- Arrow icon --> <svg class="relative z-10 w-5 h-5 rotate-90" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-5l3afzhg> <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" data-astro-cid-5l3afzhg></path> </svg> <span class="sr-only" data-astro-cid-5l3afzhg>Back to top</span> </button> <script>(function(){const showAfter = 100;
+
+  /** Scrolls to top when "Back to Top" clicked and toggles visibility */
+  function initBackToTop() {
+    const backToTopButton = document.querySelector("#back-to-top");
+    const progressCircle = document.querySelector("#progress-ring-circle");
+    
+    if (backToTopButton && progressCircle) {
+      const circumference = 2 * Math.PI * 22; // radius = 22
+      
+      // Click event to scroll to top
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      // Update progress and visibility based on scroll position
+      function updateProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        
+        // Calculate scroll percentage
+        const scrollPercent = scrollTop / documentHeight;
+        
+        // Update progress ring
+        const offset = circumference - (scrollPercent * circumference);
+        progressCircle.style.strokeDashoffset = offset.toString();
+        
+        // Toggle visibility
+        if (scrollTop > showAfter) {
+          backToTopButton.classList.remove("hidden");
+        } else {
+          backToTopButton.classList.add("hidden");
+        }
+      }
+
+      // Initial check
+      updateProgress();
+
+      // Listen for scroll events
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      // Cleanup function for page navigation
+      document.addEventListener("astro:before-swap", () => {
+        window.removeEventListener("scroll", updateProgress);
+      });
+    }
+  }
+
+  // Initialize on page load
+  initBackToTop();
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initBackToTop);
+})();</script>   <!-- Crisp and Custom JS for page --> <script data-astro-rerun src="/assets/js/main.js"></script> <!-- <script is:inline data-astro-rerun>
+      document.addEventListener("astro:page-load", () => {
+        setTimeout(() => {
+            window.$crisp = []; window.CRISP_WEBSITE_ID = "8d20914b-0995-4bdd-aa36-a2274ec8cca6"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
+        }, 500);
+      });
+    </script> --> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator at the top */
+  // function createProgressBar() {
+  //   const progressContainer = document.createElement("div");
+  //   progressContainer.className =
+  //     "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+  //   const progressBar = document.createElement("div");
+  //   progressBar.className = "progress-bar h-1 w-0 bg-accent";
+  //   progressBar.id = "myBar";
+  //   progressContainer.appendChild(progressBar);
+  //   document.body.appendChild(progressContainer);
+  // }
+  // createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  // function updateScrollProgress() {
+  //   document.addEventListener("scroll", () => {
+  //     const winScroll =
+  //       document.body.scrollTop || document.documentElement.scrollTop;
+  //     const height =
+  //       document.documentElement.scrollHeight -
+  //       document.documentElement.clientHeight;
+  //     const scrolled = (winScroll / height) * 100;
+  //     if (document) {
+  //       const myBar = document.getElementById("myBar");
+  //       if (myBar) {
+  //         myBar.style.width = scrolled + "%";
+  //       }
+  //     }
+  //   });
+  // }
+  // updateScrollProgress();
+
+  /** Attaches links to headings in the document */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("article h2, article h3, article h4, article h5, article h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+      await navigator.clipboard.writeText(text ?? "");
+      button.innerText = "Copied";
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Move TOC to Aside */
+  function moveTocToAside() {
+    const tocList = document.querySelector('details ul');
+    const tocContainer = document.getElementById("toc-content");
+    
+    if (tocList && tocContainer) {
+      const clonedToc = tocList.cloneNode(true);
+      tocContainer.appendChild(clonedToc);
+      clonedToc.classList.add("list-decimal", "pl-4", "space-y-1", "text-green-500");
+      const detailsElement = document.querySelector('details');
+      if (detailsElement) {
+        detailsElement.parentElement?.removeChild(detailsElement);
+      }
+      clonedToc.querySelectorAll("a").forEach(a => {
+        a.style.textDecoration = "none";
+      });
+    }
+  }
+  moveTocToAside();
+
+  tocHeading = document.querySelector('#table-of-contents');
+  if (tocHeading) {
+    tocHeading.style.display = "none";
+  }
+
+  /** Add offset to TOC link clicks */
+  function addTocOffset() {
+    const tocLinks = document.querySelectorAll('#toc-content a');
+    const offset = 80;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          history.pushState(null, null, `#${targetId}`);
+        }
+      });
+    });
+  }
+  addTocOffset();
+
+  function highlightActiveTocLink() {
+    const tocLinks = Array.from(document.querySelectorAll('#toc-content a'));
+    if (!tocLinks.length) return;
+
+    // Get all headings that have an id referenced by the TOC
+    const headingIds = tocLinks.map(link => link.getAttribute('href')?.slice(1)).filter(Boolean);
+    const headings = headingIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    function onScroll() {
+      let activeIndex = 0;
+      const scrollPosition = window.scrollY + 100; // Offset for sticky header
+
+      headings.forEach((heading, i) => {
+        if (heading.offsetTop <= scrollPosition) {
+          activeIndex = i;
+        }
+      });
+
+      tocLinks.forEach((link, i) => {
+        if (i === activeIndex) {
+          link.classList.add('toc-active');
+          link.style.setProperty('color', 'var(--topic-link-active-color)', 'important');
+        } else {
+          link.classList.remove('toc-active');
+          link.style.setProperty('color', 'var(--foreground)', 'important');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  highlightActiveTocLink();
+  // Change all Link Colors
+  // Use CSS variables for link colors to support dark/light themes
+  document.querySelectorAll('.main-content article.prose a').forEach(link => {
+    link.classList.add('transition-colors');
+    link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    link.addEventListener('mouseenter', () => {
+      link.style.setProperty('color', 'var(--topic-link-hover-color)', 'important');
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('color', 'var(--topic-link-color)', 'important');
+    });
+  });
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+
+    // Auto-generate labels from table headers
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+      const tables = document.querySelectorAll('table');
+      
+      tables.forEach(table => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+        
+        // Only apply mobile card layout if there are more than 2 columns
+        if (headers.length > 2) {
+          const headerTexts = headers.map(th => th.textContent.trim());
+          const rows = table.querySelectorAll('tbody tr');
+          
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (index > 0 && headerTexts[index]) { // Skip first cell (it's the title)
+                cell.setAttribute('data-label', headerTexts[index]);
+              }
+            });
+            
+            // Add a class to identify tables that should use mobile layout
+            table.classList.add('mobile-card-layout');
+          });
+        }
+      });
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+      const tables = document.querySelectorAll('table');
+      
+      tables.forEach(table => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+        
+        // Only apply mobile card layout if there are more than 2 columns
+        if (headers.length > 2) {
+          const headerTexts = headers.map(th => th.textContent.trim());
+          const rows = table.querySelectorAll('tbody tr');
+          
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (index > 0 && headerTexts[index]) {
+                cell.setAttribute('data-label', headerTexts[index]);
+              }
+            });
+            
+            table.classList.add('mobile-card-layout');
+          });
+        } else {
+          // Remove mobile layout for tables with 2 or fewer columns
+          table.classList.remove('mobile-card-layout');
+        }
+      });
+    } else {
+      // Remove mobile layout classes when not on mobile
+      document.querySelectorAll('table').forEach(table => {
+        table.classList.remove('mobile-card-layout');
+      });
+    }
+  });
+</script> 
