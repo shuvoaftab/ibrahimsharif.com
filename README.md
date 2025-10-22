@@ -1,2 +1,4 @@
-# ibrahimsharif.com
-A dummy repo
+---
+permalink: 404.html
+---
+
